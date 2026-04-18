@@ -1,0 +1,30 @@
+# OS and editor noise
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+tmp/
+temp/
+
+# Node/Salesforce local state
+node_modules/
+.sfdx/
+.sf/
+.localdevserver/
+coverage/
+
+# Release assets are generated from git archive and uploaded to GitHub releases.
+salesforce-coding-v*.zip
+salesforce-coding-v*.tar.gz
+
