@@ -16,13 +16,13 @@ This release publishes a public Salesforce coding knowledge base for Codex, AI c
 
 ## Main Sections
 
-- Root Salesforce guides by topic.
-- `patterns/` for reusable implementation patterns.
-- `examples/` for generic Apex, LWC, and metadata examples.
-- `troubleshooting/` for failure-specific guides.
-- `prompts/` for Codex and AI-agent workflows.
-- `checklists/` for preflight reviews.
-- `anti_patterns/` for repeatedly failing approaches.
+- `SALESFORCE_KNOWLEDGE/GUIDES/` for root Salesforce guides by topic.
+- `SALESFORCE_KNOWLEDGE/PATTERNS/` for reusable implementation patterns.
+- `SALESFORCE_KNOWLEDGE/EXAMPLES/` for generic Apex, LWC, and metadata examples.
+- `SALESFORCE_KNOWLEDGE/TOPICS/troubleshooting/` for failure-specific guides.
+- `SALESFORCE_KNOWLEDGE/PROMPTS/` for Codex and AI-agent workflows.
+- `SALESFORCE_KNOWLEDGE/CHECKLISTS/` for preflight reviews.
+- `SALESFORCE_KNOWLEDGE/PATTERNS/anti_patterns/` for repeatedly failing approaches.
 
 ## Intended Audience
 
@@ -39,4 +39,3 @@ The knowledge in this release is distilled from real Salesforce implementation a
 
 - `salesforce-coding-v1.0.0.zip`
 - `salesforce-coding-v1.0.0.tar.gz`
-

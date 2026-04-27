@@ -51,13 +51,12 @@ The new public repo intentionally excludes:
 
 | AI_AGENT source category | Public docs created |
 | --- | --- |
-| Execution/deploy rules | `SALESFORCE_DEPLOYMENT_GUIDE.md`, `deployment/`, `checklists/before-deployment.md` |
-| Apex architecture and trigger standards | `SALESFORCE_APEX_GUIDE.md`, `apex/`, `examples/apex/` |
-| LWC architecture and style/mobile docs | `SALESFORCE_LWC_GUIDE.md`, `lwc/`, `mobile/`, `examples/lwc/` |
-| Debug logs | `SALESFORCE_DEBUGGING_GUIDE.md`, `SALESFORCE_COMMON_FAILURES_AND_FIXES.md`, `troubleshooting/` |
-| File and media lessons | `SALESFORCE_FILE_HANDLING_GUIDE.md`, `mobile/`, `troubleshooting/mobile-file-preview.md` |
-| Visualforce/PDF rules | `SALESFORCE_VISUALFORCE_GUIDE.md`, `visualforce/pdf-maintenance.md` |
-| FlexiPage and LWC placement references | `SALESFORCE_METADATA_GUIDE.md`, `SALESFORCE_RECORD_PAGE_GUIDE.md`, `metadata/` |
-| Test audit and coverage notes | `SALESFORCE_TESTING_GUIDE.md`, `testing/`, `deployment/test-selection-guide.md` |
-| AI-agent workflow patterns | `prompts/`, `checklists/`, `docs/engineering-principles.md` |
-
+| Execution/deploy rules | `SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_DEPLOYMENT_GUIDE.md`, `SALESFORCE_KNOWLEDGE/TOPICS/deployment/`, `SALESFORCE_KNOWLEDGE/CHECKLISTS/before-deployment.md` |
+| Apex architecture and trigger standards | `SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md`, `SALESFORCE_KNOWLEDGE/TOPICS/apex/`, `SALESFORCE_KNOWLEDGE/EXAMPLES/apex/` |
+| LWC architecture and style/mobile docs | `SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_LWC_GUIDE.md`, `SALESFORCE_KNOWLEDGE/TOPICS/lwc/`, `SALESFORCE_KNOWLEDGE/TOPICS/mobile/`, `SALESFORCE_KNOWLEDGE/EXAMPLES/lwc/` |
+| Debug logs | `SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_DEBUGGING_GUIDE.md`, `SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_COMMON_FAILURES_AND_FIXES.md`, `SALESFORCE_KNOWLEDGE/TOPICS/troubleshooting/` |
+| File and media lessons | `SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_FILE_HANDLING_GUIDE.md`, `SALESFORCE_KNOWLEDGE/TOPICS/mobile/`, `SALESFORCE_KNOWLEDGE/TOPICS/troubleshooting/mobile-file-preview.md` |
+| Visualforce/PDF rules | `SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_VISUALFORCE_GUIDE.md`, `SALESFORCE_KNOWLEDGE/TOPICS/visualforce/pdf-maintenance.md` |
+| FlexiPage and LWC placement references | `SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_METADATA_GUIDE.md`, `SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_RECORD_PAGE_GUIDE.md`, `SALESFORCE_KNOWLEDGE/TOPICS/metadata/` |
+| Test audit and coverage notes | `SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_TESTING_GUIDE.md`, `SALESFORCE_KNOWLEDGE/TOPICS/testing/`, `SALESFORCE_KNOWLEDGE/TOPICS/deployment/test-selection-guide.md` |
+| AI-agent workflow patterns | `SALESFORCE_KNOWLEDGE/PROMPTS/`, `SALESFORCE_KNOWLEDGE/CHECKLISTS/`, `SALESFORCE_KNOWLEDGE/DOCS/engineering-principles.md` |

@@ -1,0 +1,24 @@
+<template>
+  <lightning-card title="Record Action">
+    <div class="slds-p-around_medium">
+      <template if:true={isLoading}>
+        <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+      </template>
+
+      <template if:true={hasRecordId}>
+        <p class="slds-text-body_regular slds-m-bottom_medium">{statusText}</p>
+        <lightning-button
+          label="Run Action"
+          variant="brand"
+          disabled={isActionDisabled}
+          onclick={handleRunAction}>
+        </lightning-button>
+      </template>
+
+      <template if:false={hasRecordId}>
+        <p class="slds-text-color_error">This component requires a record page context.</p>
+      </template>
+    </div>
+  </lightning-card>
+</template>
+

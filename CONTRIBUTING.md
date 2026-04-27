@@ -4,7 +4,7 @@ Contributions are welcome when they improve reusable Salesforce engineering guid
 
 ## Before You Open A Pull Request
 
-- Read [docs/public-sanitization-policy.md](docs/public-sanitization-policy.md).
+- Read [SALESFORCE_KNOWLEDGE/DOCS/public-sanitization-policy.md](SALESFORCE_KNOWLEDGE/DOCS/public-sanitization-policy.md).
 - Review [CONTRIBUTING_GUIDELINES.md](CONTRIBUTING_GUIDELINES.md).
 - Remove private org names, customer names, emails, URLs, record ids, deploy ids, screenshots, tokens, credentials, and internal-only notes.
 - Prefer reusable Salesforce lessons over one-off org history.
@@ -26,4 +26,3 @@ Contributions are welcome when they improve reusable Salesforce engineering guid
 - [ ] Guidance explains why the pattern works.
 - [ ] Markdown links and headings are readable.
 - [ ] No generated junk, logs, or archives are committed.
-

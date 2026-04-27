@@ -1,94 +1,223 @@
-# Salesforce Coding
+# Salesforce Codex Engine
 
 [![Release](https://img.shields.io/github/v/release/swayerloren/salesforce-coding?sort=semver)](https://github.com/swayerloren/salesforce-coding/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Salesforce](https://img.shields.io/badge/Salesforce-LWC%20%7C%20Apex%20%7C%20Metadata-blue)](INDEX.md)
+[![Salesforce](https://img.shields.io/badge/Salesforce-Apex%20%7C%20LWC%20%7C%20Metadata-blue)](SALESFORCE_KNOWLEDGE/INDEX.md)
+[![Codex Ready](https://img.shields.io/badge/Codex-ready-111827)](START_HERE.md)
 
-Public Salesforce coding knowledge base for Codex and developers: LWC, Apex, metadata, debugging, deployment, testing, platform limitations, and production-safe patterns.
+A Codex-ready Salesforce coding engine for fixing, debugging, structuring, and improving a real Salesforce DX project.
 
-This repository turns real Salesforce implementation and debugging lessons into reusable public guidance. Private business details, customer-specific workflows, org identifiers, deploy ids, usernames, sensitive URLs, credentials, and internal-only notes were removed or generalized before publication.
+Codex reads this repo for operating rules and Salesforce knowledge, then works on real project metadata under `force-app/main/default`.
 
-## Start Here
+Start here: [START_HERE.md](START_HERE.md)
 
-- Read [INDEX.md](INDEX.md) for the full navigation map.
-- Use [SALESFORCE_DO_AND_DONT.md](SALESFORCE_DO_AND_DONT.md) before changing Salesforce code.
-- Use [SALESFORCE_COMMON_FAILURES_AND_FIXES.md](SALESFORCE_COMMON_FAILURES_AND_FIXES.md) when a deploy, LWC, record page, file flow, or test fails.
-- Use [checklists/](checklists/) before writing Apex, LWC, tests, metadata, or deployment changes.
-- Use [prompts/](prompts/) when asking Codex or another AI coding agent to work on Salesforce safely.
+## What This Repo Is
 
-## Who This Is For
+| Area | Purpose |
+| --- | --- |
+| [INSTRUCTIONS/](INSTRUCTIONS/) | Required operating rules for Codex before every task. |
+| [FORCE_APP_DIRECTORY/](FORCE_APP_DIRECTORY/) | Placeholder where users place or reference the real Salesforce DX project. |
+| [SALESFORCE_KNOWLEDGE/](SALESFORCE_KNOWLEDGE/) | Salesforce knowledge base for Apex, LWC, Aura, Visualforce, metadata, testing, deployment, files, and mobile. |
+| [MEMORY/](MEMORY/) | Reusable lessons and stable facts Codex should remember. |
+| [HISTORY/](HISTORY/) | Chronological record of meaningful Codex work. |
+| [WIKI_DRAFTS/](WIKI_DRAFTS/) | Public-safe source drafts for GitHub Wiki pages. |
 
-- Salesforce developers building Apex, LWC, Aura, Visualforce, and metadata.
-- Admins and architects reviewing Lightning record pages, actions, Dynamic Forms, files, and mobile behavior.
-- Code reviewers looking for production-safe Salesforce patterns.
-- AI coding agents that need practical Salesforce constraints before editing code.
-- Teams that want reusable deployment, debugging, and testing habits.
+Use this repo as the operating layer around a real Salesforce DX project. It gives Codex the rules, checklists, prompts, and Salesforce-specific guidance it needs before making changes.
 
-## What It Includes
+## What This Repo Is Not
 
-- Apex service, trigger, controller, async, SOQL, DML, and test patterns.
-- LWC template, getter, navigation, toast, refresh, modal, styling, and mobile patterns.
-- Metadata guidance for FlexiPages, record pages, quick actions, layouts, permissions, and activation.
-- Deployment runbooks for narrow payloads, test selection, validation, and release safety.
-- Salesforce Files guidance for upload, preview, download, latest version, rollups, and mobile quirks.
-- Visualforce PDF, Aura template, and legacy platform maintenance guidance.
-- Troubleshooting guides, anti-patterns, public-safe examples, reusable prompts, and review checklists.
+- It is not a Salesforce org.
+- It is not a complete Salesforce DX project by default.
+- It does not include private production metadata by default.
+- It does not include credentials, auth files, org secrets, customer data, or private logs.
+- It should not be deployed to Salesforce as-is.
+- It should not contain placeholder deployable Apex, LWC, object, layout, or metadata files in `FORCE_APP_DIRECTORY/`.
 
-## Most Useful Docs
+## Install
 
-- [SALESFORCE_APEX_GUIDE.md](SALESFORCE_APEX_GUIDE.md)
-- [SALESFORCE_LWC_GUIDE.md](SALESFORCE_LWC_GUIDE.md)
-- [SALESFORCE_DEPLOYMENT_GUIDE.md](SALESFORCE_DEPLOYMENT_GUIDE.md)
-- [SALESFORCE_TESTING_GUIDE.md](SALESFORCE_TESTING_GUIDE.md)
-- [SALESFORCE_METADATA_GUIDE.md](SALESFORCE_METADATA_GUIDE.md)
-- [SALESFORCE_RECORD_PAGE_GUIDE.md](SALESFORCE_RECORD_PAGE_GUIDE.md)
-- [SALESFORCE_FILE_HANDLING_GUIDE.md](SALESFORCE_FILE_HANDLING_GUIDE.md)
-- [SALESFORCE_PLATFORM_LIMITATIONS.md](SALESFORCE_PLATFORM_LIMITATIONS.md)
+Clone the repo:
 
-## Common Failures And Fixes
+```bash
+git clone <repo-url>
+cd salesforce-coding
+code .
+```
 
-Start with [SALESFORCE_COMMON_FAILURES_AND_FIXES.md](SALESFORCE_COMMON_FAILURES_AND_FIXES.md) for practical fixes to repeated Salesforce issues, including:
+Or download the ZIP from GitHub, extract it, and open the extracted folder in VS Code.
 
-- production test-level errors,
-- selected-test coverage failures,
-- LWC template compile errors,
-- stale related-list refresh behavior,
-- mobile file preview/download problems,
-- FlexiPage and quick-action visibility confusion,
-- compound address field failures,
-- Salesforce Files row-lock problems,
-- Visualforce PDF rendering surprises.
+## Add Your Salesforce DX Project
 
-## Prompt Library
+The real Salesforce DX project must be available before Codex edits source.
 
-The [prompts/](prompts/) folder contains reusable prompts for Codex and other AI agents:
+Recommended placement:
 
-- fixing an LWC safely,
-- creating production-safe Apex,
-- debugging deployments,
-- building record-page LWCs,
-- analyzing FlexiPages,
-- creating mobile-safe components,
-- writing deployable tests,
-- auditing metadata without leaking private details.
+```text
+FORCE_APP_DIRECTORY/my-salesforce-project/force-app/main/default/
+```
 
-## Examples
+Common real project metadata paths:
 
-The [examples/](examples/) folder includes generic, public-safe Salesforce scaffolds:
+```text
+FORCE_APP_DIRECTORY/my-salesforce-project/force-app/main/default/classes/
+FORCE_APP_DIRECTORY/my-salesforce-project/force-app/main/default/lwc/
+FORCE_APP_DIRECTORY/my-salesforce-project/force-app/main/default/objects/
+```
 
-- Apex trigger, handler, service, queueable, controller, and tests,
-- LWC record action, related file refresh, and getter-based template examples,
-- metadata notes for manifests, quick actions, and FlexiPage activation.
+Alternative: keep the Salesforce DX project outside this repo and document the external path in [FORCE_APP_DIRECTORY/README.md](FORCE_APP_DIRECTORY/README.md).
 
-These are intentionally generic examples. Adapt object names, fields, sharing, permissions, and tests to your org.
+Codex must confirm the actual `force-app/main/default` path before editing.
 
-## Contributing
+## How Codex Must Operate
 
-Contributions are welcome when they preserve the public-safety standard of this repo. Start with [CONTRIBUTING.md](CONTRIBUTING.md), then review [CONTRIBUTING_GUIDELINES.md](CONTRIBUTING_GUIDELINES.md) and [docs/public-sanitization-policy.md](docs/public-sanitization-policy.md).
+```mermaid
+flowchart TD
+  A[Read START_HERE.md] --> B[Read INSTRUCTIONS/]
+  B --> C[Locate real Salesforce DX project]
+  C --> D{force-app/main/default found?}
+  D -- No --> E[Ask user for the real project path]
+  D -- Yes --> F[Read SALESFORCE_KNOWLEDGE/INDEX.md]
+  F --> G[Read task-specific Salesforce knowledge]
+  G --> H[Inspect real project metadata]
+  H --> I[Identify root cause]
+  I --> J[Make smallest safe fix]
+  J --> K[Validate if possible]
+  K --> L[Update Memory and History]
+  L --> M[Report result with evidence]
+```
 
-Do not contribute private customer data, org-specific secrets, sensitive URLs, credentials, screenshots from private orgs, raw internal notes, or deploy artifacts.
+## Required Reading Order
+
+| Order | Codex reads | Why |
+| ---: | --- | --- |
+| 1 | [START_HERE.md](START_HERE.md) | Confirms the purpose and operating flow. |
+| 2 | [INSTRUCTIONS/](INSTRUCTIONS/) | Defines task rules, workflow, output, Memory, and History requirements. |
+| 3 | [FORCE_APP_DIRECTORY/](FORCE_APP_DIRECTORY/) | Locates the real Salesforce DX project or external project pointer. |
+| 4 | [SALESFORCE_KNOWLEDGE/INDEX.md](SALESFORCE_KNOWLEDGE/INDEX.md) | Routes Codex to task-specific Salesforce guidance. |
+| 5 | [MEMORY/](MEMORY/) and [HISTORY/](HISTORY/) | Reuses durable lessons and checks recent work. |
+
+## Salesforce Knowledge Map
+
+| Task | Read first |
+| --- | --- |
+| Apex, triggers, services, controllers | [Apex guide](SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md) |
+| LWC templates, state, refresh, navigation | [LWC guide](SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_LWC_GUIDE.md) |
+| Aura components | [Aura guide](SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_AURA_GUIDE.md) |
+| Visualforce or PDF behavior | [Visualforce guide](SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_VISUALFORCE_GUIDE.md) |
+| Metadata, FlexiPages, actions, permissions | [Metadata guide](SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_METADATA_GUIDE.md) |
+| Record pages and quick actions | [Record page guide](SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_RECORD_PAGE_GUIDE.md) |
+| Deployments and validation | [Deployment guide](SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_DEPLOYMENT_GUIDE.md) |
+| Apex tests and coverage | [Testing guide](SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_TESTING_GUIDE.md) |
+| Salesforce Files | [File handling guide](SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_FILE_HANDLING_GUIDE.md) |
+| Mobile behavior | [Mobile guide](SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_MOBILE_GUIDE.md) |
+| Debugging failures | [Common failures and fixes](SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_COMMON_FAILURES_AND_FIXES.md) |
+
+Full map: [SALESFORCE_KNOWLEDGE/INDEX.md](SALESFORCE_KNOWLEDGE/INDEX.md)
+
+## Repo Structure
+
+```text
+.
+|-- START_HERE.md
+|-- README.md
+|-- INSTRUCTIONS/
+|-- FORCE_APP_DIRECTORY/
+|-- SALESFORCE_KNOWLEDGE/
+|   |-- INDEX.md
+|   |-- GUIDES/
+|   |-- TOPICS/
+|   |-- PATTERNS/
+|   |-- PROMPTS/
+|   |-- CHECKLISTS/
+|   |-- EXAMPLES/
+|   |-- REFERENCE/
+|   `-- DOCS/
+|-- MEMORY/
+|-- HISTORY/
+|-- WORKSPACE/
+|-- WIKI_DRAFTS/
+`-- ARCHIVE/
+```
+
+Detailed map: [INSTRUCTIONS/REPO_MAP.md](INSTRUCTIONS/REPO_MAP.md)
+
+## Memory And History
+
+Codex should update Memory and History after meaningful work.
+
+| Folder | Use for | Examples |
+| --- | --- | --- |
+| [MEMORY/](MEMORY/) | Durable lessons and stable facts | fix patterns, decisions, verified project patterns |
+| [HISTORY/](HISTORY/) | Chronological work records | run logs, deployment notes, test results, larger changes |
+
+Memory is reusable knowledge. History is what happened.
+
+## Example Codex Prompts
+
+Use these after the real Salesforce DX project is available.
+
+| Task | Copy-ready prompt |
+| --- | --- |
+| Fix Apex | `Read START_HERE.md and INSTRUCTIONS/. Locate my real Salesforce DX project, confirm force-app/main/default, read the Apex and testing guidance, inspect the target Apex, callers, triggers, tests, and metadata references, then make the smallest safe fix and validate if possible.` |
+| Fix LWC | `Read START_HERE.md and INSTRUCTIONS/. Locate my real Salesforce DX project, confirm force-app/main/default, read the LWC, record page, and mobile guidance, inspect the full LWC bundle and related Apex or metadata, then make the smallest safe fix and validate if possible.` |
+| Fix deployment or test failure | `Read START_HERE.md and INSTRUCTIONS/. Locate my real Salesforce DX project, confirm force-app/main/default, read the deployment, testing, and common failure guidance, inspect the failing files and error output, identify root cause, make the smallest safe fix, then record validation results in History.` |
+| Review metadata before deployment | `Read START_HERE.md and INSTRUCTIONS/. Locate my real Salesforce DX project, confirm force-app/main/default, read the metadata and record page guides, inspect related FlexiPage, action, layout, permission, and object files, then report deployment risks with file references.` |
+
+Additional examples:
+
+```text
+Read START_HERE.md and INSTRUCTIONS/. Locate my real Salesforce DX project under FORCE_APP_DIRECTORY/, confirm force-app/main/default, then fix the failing LWC deployment error. Read the LWC knowledge docs before editing.
+```
+
+```text
+Debug this Apex test failure. Inspect the real project metadata first, read the Apex and testing guides, identify the root cause, make the smallest safe fix, validate if possible, then update Memory and History.
+```
+
+```text
+Review this metadata change before deployment. Read the metadata and record page guides, inspect related FlexiPage, action, layout, permission, and object files, then report risks with file references.
+```
+
+Prompt pack: [SALESFORCE_KNOWLEDGE/PROMPTS/CODEX_PROMPT_PACK/](SALESFORCE_KNOWLEDGE/PROMPTS/CODEX_PROMPT_PACK/)
+
+## Safety Rules
+
+Before editing real project metadata, Codex must confirm:
+
+- [ ] `START_HERE.md` was read.
+- [ ] `INSTRUCTIONS/` was read.
+- [ ] The real `force-app/main/default` folder was located.
+- [ ] Relevant Salesforce knowledge was read.
+- [ ] Existing real project files were inspected.
+- [ ] Object, field, metadata, permission, profile, record type, and Apex names were verified.
+- [ ] The planned change is the smallest safe fix.
+- [ ] Validation is planned or a limit is clearly stated.
+- [ ] Memory and History updates are needed or intentionally skipped.
+
+## Public-Safe Repository Rules
+
+Do not commit:
+
+- credentials or auth files,
+- tokens, private keys, authorization headers, or session data,
+- org IDs, deploy IDs, or private user identifiers,
+- customer data, private business details, or internal URLs,
+- private screenshots or raw private debug logs,
+- generated deployment artifacts,
+- placeholder deployable metadata in `FORCE_APP_DIRECTORY/`.
+
+Review [PUBLIC_REPO_REVIEW_CHECKLIST.md](PUBLIC_REPO_REVIEW_CHECKLIST.md), [SECURITY.md](SECURITY.md), and [SALESFORCE_KNOWLEDGE/DOCS/public-sanitization-policy.md](SALESFORCE_KNOWLEDGE/DOCS/public-sanitization-policy.md) before publishing.
+
+## Key Links
+
+| Need | Link |
+| --- | --- |
+| First read | [START_HERE.md](START_HERE.md) |
+| Codex operating rules | [INSTRUCTIONS/](INSTRUCTIONS/) |
+| Salesforce knowledge base | [SALESFORCE_KNOWLEDGE/INDEX.md](SALESFORCE_KNOWLEDGE/INDEX.md) |
+| Real project placement | [FORCE_APP_DIRECTORY/](FORCE_APP_DIRECTORY/) |
+| Memory | [MEMORY/](MEMORY/) |
+| History | [HISTORY/](HISTORY/) |
+| Wiki drafts | [WIKI_DRAFTS/](WIKI_DRAFTS/) |
 
 ## License
 
 MIT. See [LICENSE](LICENSE).
-
