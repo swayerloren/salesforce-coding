@@ -127,3 +127,13 @@ Do not use this for every small edit. Use `HISTORY/CODEX_RUN_LOG.md` for normal 
 - Validation: Markdown links passed; local-only and temporary-folder reference scan passed for final public docs; avoid-list terminology was checked.
 - Outcome: The repo now presents more clearly as a Codex-ready Salesforce coding engine for real Salesforce DX projects.
 - Follow-up: Confirm final GitHub repo badge URLs and Mermaid rendering before push.
+
+## 2026-04-27 - v1.1.0 Release Documentation
+
+- Date: 2026-04-27
+- Summary: Updated release documentation for the Codex-ready Salesforce workspace engine restructure.
+- Scope: Release notes, changelog, release index, README release link, repo map, workspace release reports, and memory/history records.
+- Key files or folders: `RELEASE_NOTES_v1.1.0.md`, `RELEASES.md`, `CHANGELOG.md`, `README.md`, `INSTRUCTIONS/REPO_MAP.md`, `WORKSPACE/RELEASE_UPDATE_REPORT.md`
+- Validation: Markdown links passed; public-safety scans found no credentials, tokens, local-only paths, temporary-folder references, Salesforce org IDs, session IDs, or private customer data.
+- Outcome: `v1.1.0` is documented as the latest release for the workspace-engine restructure while `v1.0.0` remains the initial public Salesforce coding knowledge base release.
+- Follow-up: Create or update the GitHub Release page manually if GitHub Releases does not automatically use these Markdown release files.

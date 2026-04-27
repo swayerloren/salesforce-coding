@@ -202,3 +202,14 @@ Update this file after every meaningful Codex task, especially when Codex:
 - Validation: Checked expected root folders/files, confirmed old root knowledge files/folders are absent, confirmed `FORCE_APP_DIRECTORY/` contains only placeholder/instruction files, checked Markdown links, scanned for temporary reference folder mentions, credential-like assignments, Salesforce ID-shaped values, and private binary/log/export files.
 - Result: `WORKSPACE/PUSH_READY_REPORT.md` was created and marked `READY TO PUSH`.
 - Assumptions or limits: This working folder is not currently a git repository, so final git status and diff checks must be run after `.git` metadata is restored or initialized.
+
+## 2026-04-27 - Update Release Notes For Workspace Engine
+
+- Date: 2026-04-27
+- User request: Update release-related files for the Codex-ready Salesforce workspace engine restructure, choose the release version, validate public safety and links, then commit and push if checks pass.
+- Files inspected: `RELEASES.md`, `RELEASE_NOTES_v1.0.0.md`, `CHANGELOG.md`, `README.md`, `START_HERE.md`, `SALESFORCE_KNOWLEDGE/INDEX.md`, `WORKSPACE/PUSH_READY_REPORT.md`, `WORKSPACE/GITHUB_UPDATE_PLAN.md`, `MEMORY/PROJECT_MEMORY.md`, `HISTORY/CODEX_RUN_LOG.md`, `HISTORY/CHANGE_ARCHIVE.md`
+- Knowledge docs read: `START_HERE.md`, `INSTRUCTIONS/REPO_MAP.md`, `SALESFORCE_KNOWLEDGE/INDEX.md`, `WORKSPACE/PUSH_READY_REPORT.md`, `WORKSPACE/GITHUB_UPDATE_PLAN.md`
+- Files changed: `RELEASE_NOTES_v1.1.0.md`, `RELEASES.md`, `CHANGELOG.md`, `README.md`, `INSTRUCTIONS/REPO_MAP.md`, `WORKSPACE/PUSH_READY_REPORT.md`, `WORKSPACE/GITHUB_UPDATE_PLAN.md`, `WORKSPACE/RELEASE_UPDATE_REPORT.md`, `MEMORY/PROJECT_MEMORY.md`, `HISTORY/CODEX_RUN_LOG.md`, `HISTORY/CHANGE_ARCHIVE.md`
+- Validation: Markdown links checked; local-only and temporary-folder reference scan passed; credential-like assignment scan passed; Salesforce ID-shaped value scan passed; email scan found only generic placeholder examples.
+- Result: Release documentation was updated for `v1.1.0` and prepared for commit/push.
+- Assumptions or limits: GitHub Release page content may still need to be created or updated manually in GitHub.

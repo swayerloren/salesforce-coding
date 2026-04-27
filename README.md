@@ -217,6 +217,7 @@ Review [PUBLIC_REPO_REVIEW_CHECKLIST.md](PUBLIC_REPO_REVIEW_CHECKLIST.md), [SECU
 | Memory | [MEMORY/](MEMORY/) |
 | History | [HISTORY/](HISTORY/) |
 | Wiki drafts | [WIKI_DRAFTS/](WIKI_DRAFTS/) |
+| Latest release notes | [RELEASE_NOTES_v1.1.0.md](RELEASE_NOTES_v1.1.0.md) |
 
 ## License
 

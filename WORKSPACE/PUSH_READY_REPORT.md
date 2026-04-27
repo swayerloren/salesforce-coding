@@ -4,9 +4,9 @@ Date: 2026-04-27
 
 ## Purpose
 
-This report records the final verification pass before updating GitHub.
+This report records the final verification pass performed before updating GitHub with the workspace-engine restructure.
 
-No `git push` command was run.
+The restructure was later committed and pushed in commit `f973f5bbe555f0ec5bb0e9ebe0365000b82ba9ac`.
 
 ## Verification Summary
 
@@ -50,6 +50,7 @@ CODE_OF_CONDUCT.md
 CHANGELOG.md
 RELEASES.md
 RELEASE_NOTES_v1.0.0.md
+RELEASE_NOTES_v1.1.0.md
 PUBLIC_REPO_REVIEW_CHECKLIST.md
 SOURCE_MAPPING.md
 .gitattributes
@@ -107,13 +108,11 @@ Intentional public-safe placeholders:
 
 ## Git Status Note
 
-This folder does not currently contain `.git` metadata. Earlier `git status` checks returned:
+This report was originally created in a prepared source folder before the source was mirrored into the real cloned GitHub repository.
 
-```text
-fatal: not a git repository (or any of the parent directories): .git
-```
+In the real cloned repository, `.git` metadata is present and the workspace-engine restructure was pushed to `origin/main`.
 
-Before pushing, restore or initialize git metadata and run:
+Before any future push, run:
 
 ```bash
 git status --short

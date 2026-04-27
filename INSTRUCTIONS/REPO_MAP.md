@@ -24,6 +24,7 @@ This is the clean map for the Codex-ready Salesforce coding engine.
 |-- CHANGELOG.md
 |-- RELEASES.md
 |-- RELEASE_NOTES_v1.0.0.md
+|-- RELEASE_NOTES_v1.1.0.md
 |-- PUBLIC_REPO_REVIEW_CHECKLIST.md
 |-- SOURCE_MAPPING.md
 |-- .gitattributes

@@ -14,7 +14,9 @@ fatal: not a git repository (or any of the parent directories): .git
 
 There is no `.git` directory in the current repo folder, so this plan is based on the current filesystem, workspace reports, and history records rather than git's tracked diff.
 
-No `git push` command was run.
+No `git push` command was run when this plan was originally created.
+
+The planned workspace-engine restructure was later committed and pushed in commit `f973f5bbe555f0ec5bb0e9ebe0365000b82ba9ac`.
 
 ## 1. Files Added
 
@@ -307,6 +309,8 @@ Reorganize repo into Codex-ready Salesforce coding engine
 
 ## 6. Suggested Release Note Text
 
+Version selected: `v1.1.0`
+
 ```markdown
 ## Codex-Ready Salesforce Workspace Engine
 
@@ -367,6 +371,6 @@ That folder may be deleted before GitHub push without breaking repo documentatio
 
 ## Push Status
 
-No push was performed.
+The original plan did not perform a push.
 
-Wait for explicit owner approval before running any git push command.
+After owner approval, the workspace-engine restructure was pushed to `origin/main` in commit `f973f5bbe555f0ec5bb0e9ebe0365000b82ba9ac`.
