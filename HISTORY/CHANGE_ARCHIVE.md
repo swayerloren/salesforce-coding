@@ -247,3 +247,13 @@ Do not use this for every small edit. Use `HISTORY/CODEX_RUN_LOG.md` for normal 
 - Validation: PowerShell and Bash script syntax checks passed; local quality check passed in allow-missing mode; Markdown local links passed across 192 Markdown files; public-doc inline `.md` path references resolved; exact temporary reference folder, local-only path, credential/private-key/session, and Salesforce org ID-shaped scans passed; `git check-ignore` confirmed local-only vendor/temp patterns; `git diff --check` passed with only the `.gitignore` CRLF normalization warning.
 - Outcome: Public docs and drafts now route users through `TOOLS/`, `QUALITY_GATES/`, `AUTOMATION/`, and `VENDOR_REFERENCES/` consistently, and local scans skip optional cloned references so external repos remain analysis-only.
 - Follow-up: Run GitHub Actions after committing and run the automation scripts against a real Salesforce DX project when one is placed or referenced.
+
+## 2026-04-28 - v1.2.0 Release Documentation
+
+- Date: 2026-04-28
+- Summary: Prepared release documentation for the Salesforce tooling references and Codex quality gates integration.
+- Scope: Release notes, release index, changelog, README latest release link, repo map, workspace release report, Memory, and History.
+- Key files or folders: `RELEASE_NOTES_v1.2.0.md`, `RELEASES.md`, `CHANGELOG.md`, `README.md`, `WORKSPACE/RELEASE_UPDATE_REPORT_v1.2.0.md`
+- Validation: Markdown local link/path check passed across 194 Markdown files; local quality check passed in allow-missing-project mode; public-safety scans passed; no external repo clone directories were found in the main repo tree; local-only vendor/temp patterns are ignored; `FORCE_APP_DIRECTORY/` contains only placeholder and instruction files; `git diff --check` passed.
+- Outcome: `v1.2.0` is the selected version because the integration added significant backward-compatible tooling, quality gates, local automation, optional vendor references, workflow drafts, and validation guidance.
+- Follow-up: Create or update the GitHub Release page manually after the release documentation commit is pushed.

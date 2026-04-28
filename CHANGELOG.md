@@ -5,8 +5,47 @@ All notable changes to this project are documented here.
 This project follows semantic versioning for documentation releases:
 
 - Patch versions, such as `v1.0.1`, are for typo fixes, broken links, clarifications, and small corrections.
-- Minor versions, such as `v1.1.0`, are for new guide sections, new examples, new prompts, or new checklists.
+- Minor versions, such as `v1.2.0`, are for new guide sections, examples, prompts, checklists, tooling guides, quality gates, automation, or other backward-compatible workspace features.
 - Major versions, such as `v2.0.0`, are reserved for major reorganizations or incompatible changes to the repo structure.
+
+## v1.2.0 - 2026-04-28
+
+Salesforce tooling references and Codex quality gates release.
+
+Commit: `3f321c1f7316eb35ecb44dee6c17f49999b68308`
+
+Added:
+
+- `TOOLS/` for optional Salesforce Code Analyzer, LWC Jest, LWC ESLint, mobile lint, Prettier Apex, install, registry, and external reference guidance.
+- `QUALITY_GATES/` for Code Analyzer, LWC lint, Apex formatting, testing, release, and public-safety validation expectations.
+- `QUALITY_GATES/examples/` with inactive example config drafts for LWC quality scripts, ESLint, Jest, Prettier Apex, and Apex test commands.
+- `AUTOMATION/` with PowerShell and Bash scripts for Salesforce DX project discovery and local quality checks.
+- `.github/workflows/` drafts for Markdown link checking, public-safety scanning, and Salesforce Code Analyzer.
+- `VENDOR_REFERENCES/` for optional local external repo clone scripts, source maps, license notes, and no-vendoring rules.
+- External Apex Recipes and LWC Recipes reference maps under `SALESFORCE_KNOWLEDGE/REFERENCE/`.
+- Focused metadata topic guidance under `SALESFORCE_KNOWLEDGE/TOPICS/metadata/README.md`.
+- Workspace audit and external repo analysis reports for the tooling integration.
+
+Changed:
+
+- Updated `README.md` and `START_HERE.md` to route users and Codex through tooling, quality gates, automation, and vendor reference guidance.
+- Updated `INSTRUCTIONS/` so Codex checks available quality gates after Salesforce source changes.
+- Updated `SALESFORCE_KNOWLEDGE/INDEX.md` to map Apex, LWC, mobile, metadata, deployment, and testing tasks to the new tools and gates.
+- Strengthened Apex, LWC, metadata, mobile, record-page, and testing guides with validation expectations.
+- Updated Codex prompt pack files so Codex does not claim tests, linting, formatting, or static analysis passed unless commands actually ran and passed.
+- Updated Codex engine checklists for Apex, metadata, and GitHub push safety.
+- Updated wiki drafts to describe tooling, quality gates, automation, and optional vendor references.
+- Updated Memory and History with the new tooling and validation behavior.
+
+Validation:
+
+- Markdown local link/path checks passed.
+- Local quality check passed in allow-missing-project mode.
+- Public-safety scans for credentials, private keys, session patterns, Salesforce org ID-shaped values, local-only paths, and temporary-folder references passed.
+- No external repo clone directories were copied into the main repo.
+- `VENDOR_REFERENCES/_external/`, `temp/`, and `*.local.md` are ignored.
+- `FORCE_APP_DIRECTORY/` contains only placeholder and instruction files.
+- `git diff --check` passed.
 
 ## v1.1.0 - 2026-04-27
 

@@ -12,6 +12,32 @@ This repository uses semantic versioning for public documentation and workspace-
 
 ## Latest Release
 
+### v1.2.0
+
+Release title: Salesforce Tooling References And Codex Quality Gates
+
+Release date: 2026-04-28
+
+Commit: `3f321c1f7316eb35ecb44dee6c17f49999b68308`
+
+Release notes: [RELEASE_NOTES_v1.2.0.md](RELEASE_NOTES_v1.2.0.md)
+
+Release purpose:
+
+- Add `TOOLS/` as the optional tooling guide layer.
+- Add `QUALITY_GATES/` as the Codex validation and evidence layer.
+- Add `AUTOMATION/` local validation and project-discovery scripts.
+- Add `VENDOR_REFERENCES/` optional local clone guidance and no-vendoring rules.
+- Add public-safe `.github/workflows/` drafts for Markdown links, public-safety scanning, and Salesforce Code Analyzer.
+- Strengthen Codex prompt, checklist, wiki, and Salesforce knowledge routing around validation after code changes.
+
+Expected source archive names if published from a GitHub tag:
+
+- `salesforce-coding-v1.2.0.zip`
+- `salesforce-coding-v1.2.0.tar.gz`
+
+## Previous Releases
+
 ### v1.1.0
 
 Release title: Codex-Ready Salesforce Workspace Engine
@@ -33,8 +59,6 @@ Expected source archive names if published from a GitHub tag:
 
 - `salesforce-coding-v1.1.0.zip`
 - `salesforce-coding-v1.1.0.tar.gz`
-
-## Previous Releases
 
 ### v1.0.0
 

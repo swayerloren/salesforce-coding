@@ -334,3 +334,14 @@ Update this file after every meaningful Codex task, especially when Codex:
 - Validation: PowerShell and Bash script syntax checks passed; local quality check passed in allow-missing mode; Markdown local link check passed across 192 Markdown files; inline code Markdown path check passed for public docs; exact temporary reference folder scan passed; local-only path scan passed; credential/private-key/session scan passed outside detector files; Salesforce org ID-shaped value scan passed; `git check-ignore` confirmed `VENDOR_REFERENCES/_external/`, `temp/`, and `*.local.md`; `git diff --check` passed with only the existing CRLF normalization warning for `.gitignore`.
 - Result: Tooling, quality gates, automation, vendor reference docs, prompt pack, wiki drafts, and public-safety scans now use more consistent paths and terminology. Optional vendor clones are excluded from local safety scans so external source is not treated as this repo's public content.
 - Assumptions or limits: No real Salesforce DX project exists in the helper repo, so project-specific Salesforce validation remained skipped by design. GitHub Actions were not run remotely.
+
+## 2026-04-28 - Prepare v1.2.0 Release Documentation
+
+- Date: 2026-04-28
+- User request: Prepare release documentation for the tooling/reference/quality gate integration, choose `v1.2.0` or `v1.1.1`, validate, commit, and push if checks pass; do not create a GitHub Release.
+- Files inspected: `RELEASES.md`, `CHANGELOG.md`, `README.md`, `RELEASE_NOTES_v1.1.0.md`, prior release update report, latest git commit, Memory, and History.
+- Knowledge docs read: `WORKSPACE/TOOLING_INTEGRATION_CONSISTENCY_REVIEW.md`, release docs, changelog, and README release links.
+- Files changed: `RELEASE_NOTES_v1.2.0.md`, `RELEASES.md`, `CHANGELOG.md`, `README.md`, `INSTRUCTIONS/REPO_MAP.md`, `WORKSPACE/RELEASE_UPDATE_REPORT_v1.2.0.md`, `MEMORY/PROJECT_MEMORY.md`, `HISTORY/CODEX_RUN_LOG.md`, and `HISTORY/CHANGE_ARCHIVE.md`.
+- Validation: Markdown local link/path check passed across 194 Markdown files; local quality check passed in allow-missing-project mode; public-safety scans for credential, private-key, session, org ID-shaped, temporary-folder, and local-only path patterns passed; no external repo clone directories were found in the main repo tree; `VENDOR_REFERENCES/_external/`, `temp/`, and `*.local.md` are ignored; `FORCE_APP_DIRECTORY/` contains only placeholder and instruction files; `git diff --check` passed.
+- Result: `v1.2.0` selected because the integration added substantial backward-compatible tooling, quality gates, automation, vendor references, and workflow drafts.
+- Assumptions or limits: The GitHub Release page was not created during this task.
