@@ -7,9 +7,10 @@ Salesforce Files work through `ContentVersion`, `ContentDocument`, and `ContentD
 1. User uploads a file from LWC or standard file upload.
 2. Salesforce creates `ContentVersion`.
 3. Salesforce associates the document through `ContentDocumentLink`.
-4. Server code queries latest versions and linked parent records.
-5. Parent file counts, summaries, or preview lists are recalculated.
-6. LWC refreshes the file list after the transaction finishes.
+4. Server code verifies the running user can access the parent and requested file behavior.
+5. Server code queries latest versions and linked parent records.
+6. Parent file counts, summaries, or preview lists are recalculated from current links.
+7. LWC refreshes the file list after the transaction finishes.
 
 ## Rollup Service Shape
 
@@ -47,6 +48,8 @@ public with sharing class FileRollupService {
 
 File inserts can create row locks while Salesforce finalizes document records. If parent rollups are not required inside the same user transaction, enqueue an idempotent job and recalculate from the database state.
 
+Async file jobs should use a durable duplicate-prevention strategy when they create generated documents, annotations, public distributions, Chatter posts, activities, or external messages.
+
 ## LWC Refresh Rule
 
 After upload, refresh the source of the displayed file list. Do not assume the standard upload component updates every custom list automatically.
@@ -61,7 +64,9 @@ async handleUploadFinished() {
 ## Pitfalls
 
 - Querying `ContentVersion` when the UI needs `ContentDocumentId`.
+- Querying an old `ContentVersion` when latest-version fields drive state.
 - Showing stale file counts because parent rollups were not recomputed.
+- Trusting a client-provided document ID without checking parent access.
 - Treating desktop preview behavior as proof that mobile preview will work.
 - Updating the same parent multiple times in one transaction.
-
+- Logging private file names or generated document text in public docs.

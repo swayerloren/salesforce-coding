@@ -32,6 +32,16 @@ sf project deploy start --source-dir force-app/main/default/classes --test-level
 sf apex run test --tests ProjectServiceTest --result-format human --target-org myOrg
 ```
 
+For focused Apex tests outside deployment, use the selector that matches the intent:
+
+- `--tests` for classes or `Class.method` style selections;
+- `--class-names` for whole test classes;
+- `--suite-names` for Apex test suites.
+
+Do not mix incompatible selectors in the same command.
+
+For deployment validation, remember that `RunSpecifiedTests` coverage is computed against deployed classes and triggers. A standalone `sf apex run test` pass is useful evidence, but the deploy can still fail if the deployment package's coverage requirement is not met.
+
 ## Review Checklist
 
 - The selected tests create their own data.
@@ -40,4 +50,3 @@ sf apex run test --tests ProjectServiceTest --result-format human --target-org m
 - Batch tests use one execute scope.
 - Assertions prove behavior, not only line coverage.
 - Required fields and validation rules are represented in test data factories.
-

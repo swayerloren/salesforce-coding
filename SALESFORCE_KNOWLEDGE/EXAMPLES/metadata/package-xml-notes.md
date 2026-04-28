@@ -34,3 +34,8 @@ Use package manifests to make deployments reproducible, but keep them scoped to 
 - Include test classes with Apex changes.
 - Include dependent metadata only when the target org does not already have it.
 - Do not include generated profile noise unless access changes are part of the work.
+- Keep destructive changes in separate `destructiveChangesPre.xml` or `destructiveChangesPost.xml` manifests.
+- Prefer post-destructive changes unless dependencies require pre-delete behavior.
+- Do not use wildcard destructive members.
+- Validate destructive changes before real deletion and document rollback.
+- Inspect broad metadata areas such as profiles, layouts, FlexiPages, reports, dashboards, email, and static resources before deploying.

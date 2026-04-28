@@ -19,22 +19,33 @@ This repo helps users pair Codex with a real Salesforce DX project. Users place 
 | History | Chronological work, test, deployment, and change records. |
 | Public-safe examples | Generic examples without private org metadata. |
 
+## New User Path
+
+1. Download the latest release ZIP from GitHub Releases.
+2. Extract the ZIP.
+3. Open the extracted folder in VS Code with Codex.
+4. Place or reference the real Salesforce DX project.
+5. Tell Codex to read `START_HERE.md`.
+6. Codex reads instructions, knowledge, commands, parameters, quality strategies, validation flows, prompts, and checklists.
+7. Codex inspects current project files and makes narrow fixes.
+8. Codex runs or recommends validation and reports skipped gates clearly.
+9. Codex updates Memory and History after meaningful work.
+
 ## Core Workflow
 
 ```mermaid
 flowchart TD
-  A[Download repo] --> B[Open in VS Code]
-  B --> C[Place or reference Salesforce DX project]
-  C --> D[Ask Codex to read START_HERE.md]
-  D --> E[Codex reads INSTRUCTIONS/]
-  E --> F[Codex locates real force-app/main/default]
-  F --> G[Codex reads SALESFORCE_KNOWLEDGE/INDEX.md]
-  G --> H[Codex reads task-specific knowledge]
-  H --> I[Codex checks TOOLS and QUALITY_GATES]
-  I --> J[Codex inspects real project metadata]
-  J --> K[Codex makes smallest safe fix]
-  K --> L[Codex validates if possible]
-  L --> M[Codex updates Memory and History]
+  A[Download release ZIP] --> B[Extract ZIP]
+  B --> C[Open in VS Code with Codex]
+  C --> D[Place or reference Salesforce DX project]
+  D --> E[Ask Codex to read START_HERE.md]
+  E --> F[Codex reads instructions and knowledge index]
+  F --> G[Codex reads commands, parameters, strategies, flows, prompts, checklists]
+  G --> H[Codex locates real force-app/main/default]
+  H --> I[Codex inspects current project files]
+  I --> J[Codex makes smallest safe fix]
+  J --> K[Codex validates or reports skipped gates]
+  K --> L[Codex updates Memory and History]
 ```
 
 ## Wiki Pages

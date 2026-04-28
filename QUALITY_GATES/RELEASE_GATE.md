@@ -29,6 +29,9 @@ Use this gate before pushing or releasing repo changes.
 - [ ] Profile changes reviewed carefully and kept narrow if unavoidable.
 - [ ] Focused tests selected.
 - [ ] Dry-run deploy completed or limitation stated.
+- [ ] If production quick deploy is intended, `sf project deploy validate` completed and produced a successful validation job before `sf project deploy quick`.
+- [ ] If deploy/test command timed out or ran async, `sf project deploy report` or matching test report command was used before claiming result.
+- [ ] Real deploy success is not claimed from static review, local lint, dry run, or validation alone.
 - [ ] Salesforce Code Analyzer ran when available, or the reason it was skipped is documented.
 - [ ] Analyzer target was the real project path, such as `force-app/main/default` from repo root or `FORCE_APP_DIRECTORY/your-project/force-app/main/default`.
 - [ ] Analyzer findings were triaged against changed files first.
@@ -57,6 +60,19 @@ Use this gate before pushing or releasing repo changes.
 | Static resources | Can contain private files or large assets. | Inspect contents and public-safety risk. |
 | Reports/dashboards/email | Can expose business details. | Inspect names, folders, filters, recipients, and examples. |
 | `package.xml` | Wide manifests increase blast radius. | Keep narrow and inspect before validation or deploy. |
+| Destructive manifests | Can permanently remove metadata or alter runtime behavior. | Separate from feature changes, validate first, require rollback note and explicit approval. |
+| Failure-hiding flags | Can turn warnings or partial behavior into apparent success. | Avoid `--ignore-errors`, `--ignore-warnings`, `--ignore-conflicts`, and `--purge-on-delete` unless owner-approved and recorded. |
+
+## No-Success-Without-Evidence Rule
+
+Codex may only report a release gate as passed when the relevant evidence exists:
+
+- link and safety scans for documentation changes;
+- script parse checks for script changes;
+- test, analyzer, dry-run, validation, quick deploy, or real deploy command output for Salesforce source changes;
+- explicit skipped reasons for unavailable tools, missing projects, or untestable runtime paths.
+
+Static review is a valid activity, but it is not a passed deploy, test, analyzer, or runtime validation.
 
 ## Codex Rule
 

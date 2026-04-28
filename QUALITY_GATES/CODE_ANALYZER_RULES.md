@@ -4,7 +4,13 @@ Salesforce Code Analyzer is the preferred static-analysis gate for Apex, LWC, Au
 
 Tool guide: [../TOOLS/SALESFORCE_CODE_ANALYZER.md](../TOOLS/SALESFORCE_CODE_ANALYZER.md)
 
-Upstream reference: https://github.com/forcedotcom/code-analyzer
+Official references:
+
+- https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/code-analyzer.html
+- https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/analyze.html
+- https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/rules.html
+
+Implementation source reference: https://github.com/forcedotcom/code-analyzer
 
 ## Gate Scope
 
@@ -24,6 +30,9 @@ Upstream reference: https://github.com/forcedotcom/code-analyzer
 - [ ] Changed files identified.
 - [ ] Existing `code-analyzer.yml` checked if present.
 - [ ] `sf code-analyzer run --help` checked, or missing tool documented.
+- [ ] Current `sf code-analyzer` command shape is used for new guidance.
+- [ ] Retired scanner command shapes are not introduced into new workflows.
+- [ ] Output files, if any, are written outside deployable Salesforce metadata folders.
 
 ## Command Patterns
 
@@ -54,12 +63,7 @@ Use a project config when present:
 sf code-analyzer run --config-file code-analyzer.yml --target force-app/main/default --view table
 ```
 
-Older Salesforce Scanner commands may exist in some projects:
-
-```bash
-sf scanner run --target force-app/main/default
-sfdx scanner:run --target force-app/main/default
-```
+Do not add retired Salesforce Scanner commands to new CI or release docs. If a legacy project still uses them, record that as project-specific legacy behavior and prefer migration to current `sf code-analyzer` commands.
 
 ## Findings Codex Must Treat Seriously
 
@@ -71,6 +75,10 @@ sfdx scanner:run --target force-app/main/default
 - Missing null checks around optional relationships, query results, maps, and DTO fields.
 - Apex test classes with no meaningful assertions.
 - Apex classes with unclear `with sharing`, `without sharing`, or `inherited sharing` intent.
+- Apex that exposes records without clear user-mode/system-mode and CRUD/FLS behavior.
+- Trigger code that ignores order of execution, Flow re-entry, recursion, or bulk side effects.
+- File logic that treats `ContentVersion`, `ContentDocument`, and `ContentDocumentLink` as one object.
+- Communication automation that can duplicate posts, emails, activities, or logs.
 - XSS, unsafe DOM manipulation, or open redirect warnings.
 - LWC lint failures related to wire adapters, DOM, lifecycle, or public API contracts.
 - Flow, metadata, or static-resource findings that touch changed deploy scope.

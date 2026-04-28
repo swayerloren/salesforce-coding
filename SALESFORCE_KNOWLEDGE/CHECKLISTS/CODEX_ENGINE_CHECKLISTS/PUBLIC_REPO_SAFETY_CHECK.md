@@ -56,6 +56,7 @@ If any item fails, stop and fix it before publishing.
 - [ ] No screenshots from private orgs.
 - [ ] No downloaded HTML pages from private orgs.
 - [ ] No CSV, JSON, XML, or log exports from private orgs.
+- [ ] No local audit paths are copied into public docs except temporary workspace audit reports that are not intended as reusable knowledge.
 
 ## Repo Content Rules
 
@@ -67,6 +68,8 @@ If any item fails, stop and fix it before publishing.
 - [ ] `WIKI_DRAFTS/` files do not include private identifiers.
 - [ ] Memory and history files contain generic summaries, not raw private logs.
 - [ ] Workspace and archive files have been reviewed before publication.
+- [ ] Private reference lessons are rewritten as generic guidance, checklists, failure modes, or pseudocode.
+- [ ] External repo intelligence is rewritten as original guidance only; no source code, sample metadata, configs, workflow files, or sample names are copied.
 
 ## Search Terms To Run
 

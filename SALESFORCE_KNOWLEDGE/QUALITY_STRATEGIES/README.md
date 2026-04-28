@@ -16,3 +16,5 @@ These strategies explain how Codex should combine Salesforce knowledge, external
 ## Codex Rule
 
 Quality is evidence-backed. If a command did not run, Codex must report the gate as skipped and explain why.
+
+For deployment work, Codex must name the exact evidence category: static review, local tool pass, Apex test pass, dry-run deploy pass, production validation pass, quick deploy pass, real deploy pass, or skipped.

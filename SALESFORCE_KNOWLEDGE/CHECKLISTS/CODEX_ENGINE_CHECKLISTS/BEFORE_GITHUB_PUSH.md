@@ -26,6 +26,7 @@ Use this checklist before pushing this repo, publishing it, or preparing a relea
 - [ ] Prompt pack is safe and generic.
 - [ ] Checklist pack is safe and generic.
 - [ ] Command, parameter, quality strategy, validation flow, and external intelligence docs are public-safe and link correctly.
+- [ ] Prompt and checklist packs require source inspection, no guessed API names, no invented metadata, no unrelated edits, and no success claims without evidence.
 - [ ] `FORCE_APP_DIRECTORY/` does not contain real private Salesforce metadata unless intentionally included.
 - [ ] If real Salesforce metadata is intentionally included, public-safety review has been performed file by file.
 
@@ -45,6 +46,7 @@ Use this checklist before pushing this repo, publishing it, or preparing a relea
 - [ ] `.github/workflows/` contains only public-safe workflows that do not require secrets by default.
 - [ ] GitHub Actions workflow comments do not include private project paths, org IDs, credentials, or temporary folder references.
 - [ ] No external repo source, generated artifacts, `.git` folders, `node_modules`, or vendor clone trees are committed.
+- [ ] External repo intelligence is summarized as original guidance only; source, metadata, configs, workflow snippets, and sample names are not copied.
 
 ## Final Gate
 
@@ -52,4 +54,5 @@ Use this checklist before pushing this repo, publishing it, or preparing a relea
 - [ ] A Markdown link check has been run for changed docs.
 - [ ] `git diff --check` has been run.
 - [ ] GitHub Actions results are green or documented with exact reasons for any skipped/failed workflow.
+- [ ] No test, lint, analyzer, deploy, link-check, public-safety scan, or GitHub check is described as passed unless it actually ran and passed.
 - [ ] The final pushed content is safe even if a user downloads it publicly.

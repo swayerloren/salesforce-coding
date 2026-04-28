@@ -37,3 +37,28 @@ Include metadata only when behavior requires it:
 - Confirm form-factor impact for record pages.
 - Confirm package does not include private docs.
 
+## Destructive Changes
+
+Deletion belongs in a separate reviewed package. Before any destructive deployment:
+
+- list exact metadata type and full name,
+- inspect references and dependencies,
+- keep destructive manifests narrow,
+- run validation-only first,
+- document rollback,
+- get explicit approval before real deletion.
+
+Do not use wildcard destructive members and do not delete metadata only because it is absent from a local retrieve.
+
+## Evidence Before Success Claims
+
+For metadata work, report the strongest evidence actually obtained:
+
+- static source review,
+- local project validator,
+- Code Analyzer,
+- deploy dry run,
+- focused Apex tests,
+- real deploy.
+
+Do not describe static review as deployment validation.

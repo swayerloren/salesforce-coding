@@ -13,10 +13,11 @@ Use narrow deployments when fixing production issues, iterating on metadata, or 
 
 1. Identify every metadata member touched by the change.
 2. Include parent dependencies only when Salesforce requires them.
-3. Validate first with `--dry-run`.
-4. Use `RunSpecifiedTests` for Apex changes when possible.
-5. Deploy the same payload that passed validation.
-6. Re-check the affected UI or automation path in the target org.
+3. Verify installed Salesforce CLI help for the command family.
+4. Validate first with `--dry-run` for ordinary narrow validation, or `project deploy validate` for production quick-deploy flow.
+5. Use `RunSpecifiedTests` for Apex changes when possible.
+6. Deploy the same payload that passed validation.
+7. Re-check the affected UI or automation path in the target org.
 
 ## File Selection Rules
 
@@ -41,6 +42,12 @@ Avoid:
 sf project deploy start --dry-run --source-dir force-app/main/default/classes/ProjectService.cls --source-dir force-app/main/default/classes/ProjectServiceTest.cls --test-level RunSpecifiedTests --tests ProjectServiceTest --target-org myOrg
 ```
 
+For production-style validation that returns a quick-deploy job:
+
+```bash
+sf project deploy validate --source-dir force-app/main/default/classes/ProjectService.cls --source-dir force-app/main/default/classes/ProjectServiceTest.cls --test-level RunSpecifiedTests --tests ProjectServiceTest --target-org myOrg --wait 30
+```
+
 ## Deploy
 
 ```bash
@@ -62,4 +69,5 @@ Widen only when the validation error proves the payload is incomplete. Common ex
 - `RunSpecifiedTests` requires each named test class to be deployable and selectable.
 - A class with no tests can still break a deployment if selected tests do not cover changed Apex enough.
 - For UI-only metadata, validate without tests only when no Apex is being deployed and org policy permits it.
-
+- A validation job is not a deployment until a matching quick deploy or real deploy succeeds.
+- If a command times out or runs async, use `sf project deploy report --job-id <id>` before claiming success or failure.

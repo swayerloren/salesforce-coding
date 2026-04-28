@@ -13,10 +13,15 @@ Likely causes:
 Fix patterns:
 
 - use durable HTTPS URLs for final mobile PDF handoff;
+- prefer platform-supported file navigation or preview where it works;
+- distinguish upload success from preview/download success;
+- verify latest `ContentVersion` and parent `ContentDocumentLink` access;
 - keep client-side rendering if fidelity requires it;
 - avoid one-shot base64 upload to Apex for large documents;
 - avoid Apex heap-heavy file reconstruction;
 - validate CSP, CORS, named credentials, and external provider config together.
+
+Use [Mobile Camera And File Handoff](../mobile/mobile-camera-and-file-handoff.md) and [Photo Capture, Annotation, Viewer, And Generated File Patterns](../files/photo-capture-annotation-viewer.md) for full lifecycle checks.
 
 ## Camera Active But Blank Preview
 
@@ -42,4 +47,3 @@ Cause:
 Fix:
 
 - close path should stop tracks, clear media source, release blockers, and only then dispatch close to parent.
-

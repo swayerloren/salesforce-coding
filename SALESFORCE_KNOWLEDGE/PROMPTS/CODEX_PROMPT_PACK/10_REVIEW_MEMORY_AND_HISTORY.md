@@ -19,7 +19,19 @@ Required startup:
    - INSTRUCTIONS/OUTPUT_FORMAT_RULES.md
    - SALESFORCE_KNOWLEDGE/DOCS/documentation-governance.md
    - SALESFORCE_KNOWLEDGE/DOCS/public-sanitization-policy.md
+   - SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/PUBLIC_REPO_SAFETY_CHECK.md
+   - SALESFORCE_KNOWLEDGE/PARAMETERS/LOCAL_AUTOMATION_PARAMETERS.md
 7. Read all relevant MEMORY/ and HISTORY/ files before proposing or making changes.
+
+Global behavior controls:
+
+- Inspect current real project files before recording verified Salesforce project patterns. Do not infer behavior from prompts, docs, examples, or external repos alone.
+- Do not guess or invent object API names, field API names, metadata names, Apex names, component names, permission names, record type IDs, org IDs, or local paths.
+- Do not create placeholder deployable metadata unless the user explicitly asks for a scaffold and the target project path is confirmed.
+- Do not edit unrelated files, reformat broad areas, or refactor memory/history structure beyond the root cause.
+- Use external repo intelligence as learning only. Do not copy external source, sample metadata, config, data, workflow files, or sample names into memory or history.
+- Check command maps, parameter maps, quality strategies, and validation flows before choosing validation commands.
+- No success without evidence: tests, lint, Code Analyzer, deploys, retrieves, and runtime checks only pass when the exact command or check actually ran and passed. Otherwise report FAIL, SKIPPED, or static review only.
 
 Review scope:
 [PASTE MEMORY/HISTORY REVIEW SCOPE HERE]

@@ -54,6 +54,9 @@ Use this checklist before editing Apex classes, triggers, services, controllers,
 - [ ] Required business behavior is not hidden behind optional dynamic dispatch.
 - [ ] Existing behavior is preserved unless the root cause requires changing it.
 - [ ] Apex Recipes is treated as a pattern reference only, not a direct copy source.
+- [ ] External repo intelligence is used as learning only; no source, sample metadata, config, workflow, or sample names are copied.
+- [ ] Object, field, class, method, permission, record type, and org identifiers are verified in source or treated as unknown.
+- [ ] No broad refactor or unrelated formatting churn is included in the fix.
 
 ## Validation Plan
 
@@ -63,6 +66,7 @@ Use this checklist before editing Apex classes, triggers, services, controllers,
 - [ ] Exact command options have been checked against the command and parameter maps.
 - [ ] Deploy dry-run scope identified if deployment validation is appropriate.
 - [ ] Coverage impact considered for changed deploy-bound classes.
+- [ ] Tests, Code Analyzer, formatting, and deploy checks will only be reported as passed when the exact command actually ran and passed.
 - [ ] If validation cannot run, the reason will be stated.
 
 ## Memory And History

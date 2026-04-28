@@ -2,10 +2,18 @@
 
 These prompts are safe starting points. Customize them with the real task, error output, and file paths.
 
+## First Prompt After Setup
+
+Use this after downloading the release ZIP, extracting it, opening the repo in VS Code, and placing or referencing the real Salesforce DX project:
+
+```text
+Read START_HERE.md first. Then read INSTRUCTIONS/, locate my real Salesforce DX project, confirm force-app/main/default, read SALESFORCE_KNOWLEDGE/INDEX.md, read the task-specific guides, prompts, checklists, command maps, parameter maps, quality strategies, and validation flows, inspect current files before editing, make the smallest safe fix, run or recommend validation, report skipped gates clearly, and update MEMORY/ and HISTORY/ after meaningful work.
+```
+
 ## General Fix Prompt
 
 ```text
-Read START_HERE.md and INSTRUCTIONS/ first. Locate the real force-app/main/default folder before editing. Read SALESFORCE_KNOWLEDGE/INDEX.md and the relevant guide files for this task. Check TOOLS/ and QUALITY_GATES/ for available validation. Inspect existing files, identify the root cause, make the smallest safe change, validate if possible, and update MEMORY/ and HISTORY/.
+Read START_HERE.md and INSTRUCTIONS/ first. Locate the real force-app/main/default folder before editing. Read SALESFORCE_KNOWLEDGE/INDEX.md and the relevant guide, prompt, checklist, command map, parameter map, quality strategy, and validation flow for this task. Check TOOLS/, QUALITY_GATES/, and AUTOMATION/ for available validation. Inspect existing files, identify the root cause, make the smallest safe change, validate if possible, and update MEMORY/ and HISTORY/.
 ```
 
 ## Apex Prompt
@@ -53,3 +61,7 @@ Update the docs for this completed Salesforce change. Keep current behavior sepa
 - [ ] State whether deployment validation may be run.
 - [ ] Ask Codex to run available quality gates or report why they were skipped.
 - [ ] Ask Codex to update memory and history after meaningful work.
+- [ ] Tell Codex not to guess API names, invent metadata, edit unrelated files, over-refactor, or copy external source.
+- [ ] Tell Codex not to claim validation passed unless the exact check actually ran and passed.
+
+For complete task templates, use `SALESFORCE_KNOWLEDGE/PROMPTS/CODEX_PROMPT_PACK/`.

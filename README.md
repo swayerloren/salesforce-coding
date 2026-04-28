@@ -11,6 +11,18 @@ Codex reads this repo for operating rules and Salesforce knowledge, then works o
 
 Start here: [START_HERE.md](START_HERE.md)
 
+## New User Quick Start
+
+1. Download the latest release ZIP from the GitHub [Releases](https://github.com/swayerloren/salesforce-coding/releases) page.
+2. Extract the ZIP to a normal working folder.
+3. Open the extracted repo folder in VS Code with Codex available.
+4. Place the real Salesforce DX project under [FORCE_APP_DIRECTORY/](FORCE_APP_DIRECTORY/) or record where the external project lives in [FORCE_APP_DIRECTORY/README.md](FORCE_APP_DIRECTORY/README.md).
+5. Start Codex with: `Read START_HERE.md first, then follow the repo instructions before editing Salesforce source.`
+6. Codex reads [INSTRUCTIONS/](INSTRUCTIONS/), locates the real `force-app/main/default`, then reads [SALESFORCE_KNOWLEDGE/INDEX.md](SALESFORCE_KNOWLEDGE/INDEX.md).
+7. Codex reads the relevant guides, prompts, checklists, command maps, parameter maps, quality strategies, and validation flows for the task.
+8. Codex inspects current project files, makes the smallest safe fix, and avoids guessed API names, invented metadata, unrelated edits, and broad refactors.
+9. Codex runs or recommends available validation, reports skipped gates clearly, and updates [MEMORY/](MEMORY/) and [HISTORY/](HISTORY/) after meaningful work.
+
 ## What This Repo Is
 
 | Area | Purpose |
@@ -44,7 +56,9 @@ Use this repo as the operating layer around a real Salesforce DX project. It giv
 
 ## Install
 
-Clone the repo:
+Recommended for non-developers: download the latest release ZIP, extract it, and open the extracted folder in VS Code.
+
+For users comfortable with Git, clone the repo:
 
 ```bash
 git clone <repo-url>
@@ -52,7 +66,7 @@ cd salesforce-coding
 code .
 ```
 
-Or download the ZIP from GitHub, extract it, and open the extracted folder in VS Code.
+After the repo opens, tell Codex to read [START_HERE.md](START_HERE.md) before asking it to fix Salesforce code.
 
 ## Add Your Salesforce DX Project
 
@@ -75,6 +89,8 @@ FORCE_APP_DIRECTORY/my-salesforce-project/force-app/main/default/objects/
 Alternative: keep the Salesforce DX project outside this repo and document the external path in [FORCE_APP_DIRECTORY/README.md](FORCE_APP_DIRECTORY/README.md).
 
 Codex must confirm the actual `force-app/main/default` path before editing.
+
+Do not create fake deployable metadata just to satisfy this folder shape. If no real Salesforce DX project is available, Codex can still read the docs and plan work, but it must not claim project validation or edit live Salesforce source.
 
 ## Optional External References
 

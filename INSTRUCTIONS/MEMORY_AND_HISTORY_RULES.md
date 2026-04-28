@@ -87,7 +87,32 @@ Do not add:
 - private org data,
 - deploy IDs,
 - email addresses,
-- customer or claim data.
+- customer or claim data,
+- copied external source code,
+- external repo sample metadata, configs, workflow snippets, data, or sample names.
+
+## Public-Safe Memory Rules
+
+Memory and History may record that a generic lesson was learned from private or external reference material, but they must not preserve the private or copied material itself.
+
+Use:
+
+- original summaries,
+- generalized rules,
+- checklists,
+- failure modes,
+- pseudocode with placeholder names,
+- exact validation command names only when they are generic and public-safe.
+
+Do not use:
+
+- private business records,
+- private local paths,
+- org-specific IDs,
+- raw debug logs,
+- pasted screenshots or exports,
+- external repo source or metadata snippets,
+- sample names imported from external projects.
 
 ## `HISTORY/TASK_HISTORY.md` Format
 
@@ -106,7 +131,7 @@ Use reverse chronological entries:
 - Residual risks:
 ```
 
-History entries should be factual and concise.
+History entries should be factual and concise. Validation entries must separate passed, failed, skipped, and static-review-only checks. Do not imply a test, lint, analyzer, deploy, retrieve, runtime, or GitHub check passed unless the exact command or check actually ran and passed.
 
 ## Update Decision Matrix
 

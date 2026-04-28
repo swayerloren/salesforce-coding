@@ -6,6 +6,8 @@ A Lightning component deployment does not prove user visibility. Record-page beh
 
 Codex must inspect the full activation chain before editing record-page metadata.
 
+Use [Quick Action Visibility Matrix](../TOPICS/metadata/quick-action-visibility-matrix.md) for record action, mobile action bar, and Dynamic Actions visibility issues.
+
 ## Record Page Investigation Order
 
 1. Identify object API name, app, profile or permission context, record type, and form factor.
@@ -90,6 +92,8 @@ Actions can be configured but not visible because:
 - mobile page is different from desktop page.
 
 For quick-action bugs, inspect the quick action metadata, target component, layout placement, page activation, and permissions together.
+
+Also check whether Dynamic Actions replaced the layout action list and whether the phone form factor has different visibility, ordering, or overflow behavior.
 
 ## Mobile Record Pages
 

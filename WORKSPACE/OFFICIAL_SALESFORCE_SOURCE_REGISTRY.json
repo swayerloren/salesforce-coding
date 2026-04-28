@@ -1,0 +1,1301 @@
+{
+  "generated_at": "2026-04-28",
+  "scope": "P0 and P1 official Salesforce source registry and gap analysis support.",
+  "topics_covered": 29,
+  "source_entries_found": 88,
+  "topics_still_missing_sources": [],
+  "community_sources_used_as_authority": [],
+  "manual_review": [
+    {
+      "topic": "Salesforce DX project structure",
+      "url": "https://developer.salesforce.com/docs/platform/sfvscode-extensions/guide/project-setup.html",
+      "status": "manual_review_needed",
+      "note": "Original planning URL did not produce usable content in the browser session. Use the official Source Format page and Salesforce DX Developer Guide PDF until a replacement URL is confirmed."
+    },
+    {
+      "topic": "Atlas documentation pages",
+      "status": "manual_review_recommended",
+      "note": "Some official atlas pages render little extracted text in the browser tool. They remain official Salesforce URLs, but exact details should be checked manually or against official PDFs before publication."
+    }
+  ],
+  "topics": [
+    {
+      "topic": "Apex",
+      "priority": "P0",
+      "sources": [
+        {
+          "source_title": "Apex Developer Guide: Apex Overview",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_intro.htm",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Apex Developer Guide PDF",
+          "url": "https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/salesforce_apex_developer_guide.pdf",
+          "source_type": "Salesforce Developer Docs PDF",
+          "appears_current": true
+        },
+        {
+          "source_title": "Trailhead: Apex Database",
+          "url": "https://trailhead.salesforce.com/content/learn/modules/apex_database",
+          "source_type": "Trailhead",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "Apex guidance must separate transaction behavior, DML, SOQL, exceptions, and service boundaries.",
+        "Public examples should stay bulk-safe and avoid org-specific IDs, profiles, users, and data.",
+        "Trailhead is useful for learning support, while Developer Docs anchor normative rules."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/good_patterns/apex-service-controller-trigger.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/anti_patterns/apex-anti-patterns.md"
+      ],
+      "missing_guidance": [
+        "More official-source-backed separation of Apex transaction, DML, exception, and service-layer rules."
+      ],
+      "nuanced_warnings_needed": [
+        "Version-sensitive syntax and limit claims should be rechecked before publication."
+      ],
+      "commands_parameters_to_verify": []
+    },
+    {
+      "topic": "Apex triggers",
+      "priority": "P0",
+      "sources": [
+        {
+          "source_title": "Apex Developer Guide: Apex Triggers",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_triggers.htm",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Salesforce Architects: Order of Execution",
+          "url": "https://developer.salesforce.com/docs/platform/data-models/guide/order-of-execution.html",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Trailhead: Apex Triggers",
+          "url": "https://trailhead.salesforce.com/content/learn/modules/apex_triggers",
+          "source_type": "Trailhead",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "Trigger guidance must account for context variables, before and after phases, order of execution, and Flow interactions.",
+        "Bulk trigger behavior should be taught as a default expectation.",
+        "Order of execution needs a dedicated warning because automation layers can change final behavior."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/apex/",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/good_patterns/apex-service-controller-trigger.md"
+      ],
+      "missing_guidance": [
+        "No explicit order-of-execution topic currently appears in the repo."
+      ],
+      "nuanced_warnings_needed": [
+        "Flow, validation rules, duplicate rules, and async behavior can affect trigger outcomes."
+      ],
+      "commands_parameters_to_verify": []
+    },
+    {
+      "topic": "Apex tests",
+      "priority": "P0",
+      "sources": [
+        {
+          "source_title": "Apex Developer Guide: Testing Apex",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_testing.htm",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Trailhead: Apex Testing",
+          "url": "https://trailhead.salesforce.com/content/learn/modules/apex_testing",
+          "source_type": "Trailhead",
+          "appears_current": true
+        },
+        {
+          "source_title": "Trailhead: Unit Testing on the Lightning Platform",
+          "url": "https://trailhead.salesforce.com/content/learn/modules/unit-testing-on-the-lightning-platform",
+          "source_type": "Trailhead",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "Tests need isolated data, meaningful assertions, async flushing, and deploy-aware coverage.",
+        "Codex should distinguish test execution, assertion quality, coverage, and deployment validation.",
+        "Trailhead examples should not be copied as repo source."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_TESTING_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/testing/apex-test-patterns.md",
+        "SALESFORCE_KNOWLEDGE/PROMPTS/deployable-test-classes.md"
+      ],
+      "missing_guidance": [
+        "More explicit deploy-bound branch coverage and test-result evidence rules."
+      ],
+      "nuanced_warnings_needed": [
+        "Passing selected tests is not the same as deployable coverage."
+      ],
+      "commands_parameters_to_verify": [
+        "sf apex test run --tests",
+        "sf apex test run --test-level",
+        "sf apex test run --result-format",
+        "sf apex test run --wait"
+      ]
+    },
+    {
+      "topic": "Async Apex",
+      "priority": "P1",
+      "sources": [
+        {
+          "source_title": "Apex Developer Guide: Asynchronous Apex Overview",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_async_overview.htm",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Trailhead: Asynchronous Apex",
+          "url": "https://trailhead.salesforce.com/content/learn/modules/asynchronous_apex",
+          "source_type": "Trailhead",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "Async guidance should compare future, queueable, batch, scheduled, and platform-event alternatives by transaction and limit needs.",
+        "Tests and retry behavior need explicit handling.",
+        "Idempotency is essential for async work touching external systems or generated artifacts."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/apex/async-dml-patterns.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_TESTING_GUIDE.md"
+      ],
+      "missing_guidance": [
+        "Decision guidance for choosing async type is currently thin."
+      ],
+      "nuanced_warnings_needed": [
+        "Async limit and chaining behavior is version-sensitive and context-sensitive."
+      ],
+      "commands_parameters_to_verify": []
+    },
+    {
+      "topic": "Batch/Queueable/Scheduled Apex",
+      "priority": "P1",
+      "sources": [
+        {
+          "source_title": "Apex Developer Guide: Batch Apex",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_batch_interface.htm",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Apex Developer Guide: Queueable Apex",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_queueing_jobs.htm",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Apex Developer Guide: Scheduled Apex",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_scheduler.htm",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Trailhead: Asynchronous Apex",
+          "url": "https://trailhead.salesforce.com/content/learn/modules/asynchronous_apex",
+          "source_type": "Trailhead",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "Batch, queueable, and scheduled Apex need separate selection criteria.",
+        "Queueable chaining, batch scope behavior, and test restrictions should be warning-level guidance.",
+        "Scheduled work is operational behavior, not just code syntax."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/apex/async-dml-patterns.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_COMMON_FAILURES_AND_FIXES.md"
+      ],
+      "missing_guidance": [
+        "Current async topic should be expanded into batch, queueable, and scheduled distinctions."
+      ],
+      "nuanced_warnings_needed": [
+        "Test restrictions and chaining behavior need exact official verification."
+      ],
+      "commands_parameters_to_verify": []
+    },
+    {
+      "topic": "SOQL/SOSL",
+      "priority": "P1",
+      "sources": [
+        {
+          "source_title": "SOQL and SOSL Reference",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Salesforce Extensions: Write SOQL Queries",
+          "url": "https://developer.salesforce.com/docs/platform/sfvscode-extensions/guide/soql-writing.html",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Trailhead: SOQL for Admins",
+          "url": "https://trailhead.salesforce.com/content/learn/modules/soql-for-admins",
+          "source_type": "Trailhead",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "Dynamic query guidance must validate fields, operators, object names, bind values, and relationship paths.",
+        "SOSL should be researched separately when cross-object search is required.",
+        "Query examples should avoid private object and field names."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/apex/dynamic-soql-safety.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/anti_patterns/apex-anti-patterns.md"
+      ],
+      "missing_guidance": [
+        "Dynamic SOQL guidance needs more official operator and relationship-path rules."
+      ],
+      "nuanced_warnings_needed": [
+        "User-provided field and object names must never be trusted without describe validation."
+      ],
+      "commands_parameters_to_verify": []
+    },
+    {
+      "topic": "Security: sharing/FLS/CRUD/user mode/system mode",
+      "priority": "P0",
+      "sources": [
+        {
+          "source_title": "LWC Developer Guide: Secure Apex Classes",
+          "url": "https://developer.salesforce.com/docs/platform/lwc/guide/apex-security",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Apex Developer Guide: Enforce User Mode",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_enforce_usermode.htm",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Apex Developer Guide: WITH SECURITY_ENFORCED",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_with_security_enforced.htm",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Trailhead: Secure Server-Side Development",
+          "url": "https://trailhead.salesforce.com/content/learn/modules/secure-serverside-development",
+          "source_type": "Trailhead",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "Apex generally runs with elevated permissions, so guidance must distinguish sharing from object and field access.",
+        "LDS and UI API can simplify security for simple record access, while Apex needs explicit security posture.",
+        "User mode operations, stripInaccessible, describe checks, and sharing keywords are different tools."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_PLATFORM_LIMITATIONS.md",
+        "SALESFORCE_KNOWLEDGE/CHECKLISTS/production-safety.md"
+      ],
+      "missing_guidance": [
+        "Security matrix for record sharing, CRUD, FLS, system mode, user mode, LDS, UI API, and exposed Apex."
+      ],
+      "nuanced_warnings_needed": [
+        "with sharing does not enforce CRUD or FLS by itself.",
+        "Apex exposed to LWC needs Apex class access as well as data access review."
+      ],
+      "commands_parameters_to_verify": []
+    },
+    {
+      "topic": "LWC",
+      "priority": "P0",
+      "sources": [
+        {
+          "source_title": "LWC Developer Guide: Get Started",
+          "url": "https://developer.salesforce.com/docs/platform/lwc/guide/get-started-introduction",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "LWC Developer Guide: Component Folder",
+          "url": "https://developer.salesforce.com/docs/platform/lwc/guide/create-components-folder",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Trailhead: Lightning Web Components Basics",
+          "url": "https://trailhead.salesforce.com/content/learn/modules/lightning-web-components-basics",
+          "source_type": "Trailhead",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "LWC is the preferred Lightning component model when choosing between LWC and Aura.",
+        "Component folder structure, metadata targets, lifecycle, and template constraints need concise guidance.",
+        "Base components and SLDS should be preferred when they satisfy the requirement."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_LWC_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/lwc/",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/good_patterns/lwc-patterns.md"
+      ],
+      "missing_guidance": [
+        "More official current apiVersion and component metadata guidance."
+      ],
+      "nuanced_warnings_needed": [
+        "Aura and LWC can coexist, but new guidance should prefer LWC when possible."
+      ],
+      "commands_parameters_to_verify": []
+    },
+    {
+      "topic": "LWC wire adapters",
+      "priority": "P1",
+      "sources": [
+        {
+          "source_title": "LWC Developer Guide: Understand the Wire Service",
+          "url": "https://developer.salesforce.com/docs/platform/lwc/guide/data-wire-service-about",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "LWC Developer Guide: Record Wire Adapters",
+          "url": "https://developer.salesforce.com/docs/platform/lwc/guide/reference-wire-adapters-record",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "LWC Developer Guide: Object Info Wire Adapters",
+          "url": "https://developer.salesforce.com/docs/platform/lwc/guide/reference-wire-adapters-object-info",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "Wire data should be treated as immutable from the component perspective.",
+        "Wire config values cannot rely on undefined parameters.",
+        "UI API adapters respect Salesforce data access behavior, but dynamic usage still needs error handling."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_LWC_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/lwc/navigation-toast-refresh.md",
+        "SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/LWC_QUALITY_STRATEGY.md"
+      ],
+      "missing_guidance": [
+        "Current repo has little explicit wire-service wording."
+      ],
+      "nuanced_warnings_needed": [
+        "Wire data timing is not lifecycle-sequential.",
+        "Compound fields and dynamic fields have special behavior."
+      ],
+      "commands_parameters_to_verify": []
+    },
+    {
+      "topic": "LWC imperative Apex",
+      "priority": "P1",
+      "sources": [
+        {
+          "source_title": "LWC Developer Guide: Call Apex Methods",
+          "url": "https://developer.salesforce.com/docs/platform/lwc/guide/apex",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "LWC Developer Guide: Call Apex Imperatively",
+          "url": "https://developer.salesforce.com/docs/platform/lwc/guide/apex-call-imperative",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "LWC Developer Guide: Apex Result Caching",
+          "url": "https://developer.salesforce.com/docs/platform/lwc/guide/apex-result-caching",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "Imperative Apex is required for non-cacheable mutations and developer-controlled invocation.",
+        "Imperative Apex returns a single response rather than a stream.",
+        "Caching and record refresh require explicit invalidation or notification patterns."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_LWC_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/good_patterns/lwc-patterns.md"
+      ],
+      "missing_guidance": [
+        "Decision table for LDS, UI API, wired Apex, and imperative Apex."
+      ],
+      "nuanced_warnings_needed": [
+        "Cacheable Apex is not a mutation path."
+      ],
+      "commands_parameters_to_verify": []
+    },
+    {
+      "topic": "LWC navigation",
+      "priority": "P1",
+      "sources": [
+        {
+          "source_title": "LWC Developer Guide: Basic Navigation",
+          "url": "https://developer.salesforce.com/docs/platform/lwc/guide/use-navigate-basic",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "LWC Developer Guide: PageReference Types",
+          "url": "https://developer.salesforce.com/docs/platform/lwc/guide/reference-page-reference-type.html",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "LWC Developer Guide: Add Query Parameters",
+          "url": "https://developer.salesforce.com/docs/platform/lwc/guide/use-navigate-add-params-url",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "Navigation should use NavigationMixin and PageReference objects instead of hardcoded Lightning URLs.",
+        "PageReference support varies by target surface.",
+        "URL state parameters need explicit namespacing and should not carry private data."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/lwc/navigation-toast-refresh.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_LWC_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/anti_patterns/lwc-anti-patterns.md"
+      ],
+      "missing_guidance": [
+        "PageReference-centered guidance and hardcoded URL anti-patterns."
+      ],
+      "nuanced_warnings_needed": [
+        "Navigation differs across Lightning, mobile, Experience Cloud, and console surfaces."
+      ],
+      "commands_parameters_to_verify": []
+    },
+    {
+      "topic": "LWC forms",
+      "priority": "P1",
+      "sources": [
+        {
+          "source_title": "LWC Developer Guide: Edit a Record",
+          "url": "https://developer.salesforce.com/docs/platform/lwc/guide/data-edit-record",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Lightning Component Reference: lightning-record-edit-form",
+          "url": "https://developer.salesforce.com/docs/platform/lightning-component-reference/guide/lightning-record-edit-form.html",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "LWC Developer Guide: Get User Input",
+          "url": "https://developer.salesforce.com/docs/platform/lwc/guide/data-get-user-input-intro.html",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "Base record forms are safer for standard record editing when they meet requirements.",
+        "Custom forms need explicit field errors, FLS expectations, compound field handling, and refresh behavior.",
+        "Dynamic field renderers need stronger rules than static forms."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_LWC_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/good_patterns/record-page-patterns.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/lwc/dynamic-record-fields.md"
+      ],
+      "missing_guidance": [
+        "Base form versus custom form decision points and dynamic form safety."
+      ],
+      "nuanced_warnings_needed": [
+        "Compound field write behavior differs from simple field write behavior."
+      ],
+      "commands_parameters_to_verify": []
+    },
+    {
+      "topic": "LWC testing/Jest",
+      "priority": "P1",
+      "sources": [
+        {
+          "source_title": "LWC Developer Guide: Unit Testing",
+          "url": "https://developer.salesforce.com/docs/platform/lwc/guide/unit-testing",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "LWC Developer Guide: Test Wire Adapters",
+          "url": "https://developer.salesforce.com/docs/platform/lwc/guide/unit-testing-using-wire-utility",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Salesforce-maintained GitHub: sfdx-lwc-jest",
+          "url": "https://github.com/salesforce/sfdx-lwc-jest",
+          "source_type": "Salesforce-maintained GitHub",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "LWC Jest guidance should cover setup, mocks, wire adapters, DOM assertions, and limitations.",
+        "Salesforce-maintained GitHub is useful for tooling behavior, but official docs should anchor repo rules.",
+        "Codex must not claim Jest passed unless a test command actually ran."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/COMMANDS/LWC_TEST_COMMAND_MAP.md",
+        "SALESFORCE_KNOWLEDGE/PARAMETERS/LWC_JEST_PARAMETERS.md",
+        "SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/LWC_QUALITY_STRATEGY.md"
+      ],
+      "missing_guidance": [
+        "Wire adapter test and mock guidance should be expanded."
+      ],
+      "nuanced_warnings_needed": [
+        "Installed package versions and npm scripts vary by project."
+      ],
+      "commands_parameters_to_verify": [
+        "npm run test:unit",
+        "npx sfdx-lwc-jest",
+        "wire adapter test utilities"
+      ]
+    },
+    {
+      "topic": "Visualforce PDF",
+      "priority": "P1",
+      "sources": [
+        {
+          "source_title": "Visualforce Developer Guide: PDF Considerations",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.pages.meta/pages/pages_output_pdf_considerations.htm",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Visualforce Developer Guide: apex:page Component",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.pages.meta/pages/pages_compref_page.htm",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Visualforce Developer Guide: Introduction",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.pages.meta/pages/pages_intro.htm",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "Visualforce PDF rendering has important CSS, resource, page-break, and browser-engine limitations.",
+        "PDF pages should be treated as output contracts and tested visually.",
+        "Generated PDF handoff to Files or mobile should be documented separately from ordinary page rendering."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_VISUALFORCE_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/visualforce/pdf-maintenance.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_FILE_HANDLING_GUIDE.md"
+      ],
+      "missing_guidance": [
+        "Official PDF limitations and output comparison checklist."
+      ],
+      "nuanced_warnings_needed": [
+        "Modern web CSS expectations do not reliably apply to Visualforce PDF rendering."
+      ],
+      "commands_parameters_to_verify": []
+    },
+    {
+      "topic": "Metadata API/source format",
+      "priority": "P0",
+      "sources": [
+        {
+          "source_title": "Metadata API Developer Guide: Introduction",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_intro.htm",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Metadata Coverage Report",
+          "url": "https://developer.salesforce.com/docs/success/metadata-coverage-report/references/metadata-types/v66.0/metadata-types.html",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Metadata API Developer Guide PDF",
+          "url": "https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/api_meta.pdf",
+          "source_type": "Salesforce Developer Docs PDF",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "Metadata support and behavior varies by type and release.",
+        "Coverage and metadata-type docs should be checked before adding retrieve or deploy claims.",
+        "Source format and metadata format differences should be explained without unsafe broad conversion advice."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_METADATA_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/EXAMPLES/metadata/package-xml-notes.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/good_patterns/metadata-safe-deployment-structure.md"
+      ],
+      "missing_guidance": [
+        "Stronger metadata coverage and source-format verification warnings."
+      ],
+      "nuanced_warnings_needed": [
+        "Version-specific metadata coverage should always be rechecked."
+      ],
+      "commands_parameters_to_verify": [
+        "sf project retrieve start",
+        "sf project deploy start"
+      ]
+    },
+    {
+      "topic": "Salesforce DX project structure",
+      "priority": "P0",
+      "sources": [
+        {
+          "source_title": "Salesforce DX Developer Guide PDF",
+          "url": "https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/sfdx_dev.pdf",
+          "source_type": "Salesforce DX Docs PDF",
+          "appears_current": true
+        },
+        {
+          "source_title": "Salesforce Extensions: Source Format",
+          "url": "https://developer.salesforce.com/docs/platform/sfvscode-extensions/guide/source-format.html",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Salesforce CLI",
+          "url": "https://developer.salesforce.com/tools/salesforcecli",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "Salesforce DX source format is optimized for version control and differs from metadata format.",
+        "Project discovery needs to inspect sfdx-project configuration, package directories, source directories, and local state.",
+        "Source-format migration guidance is nuanced and should not be condensed into unsafe one-liners."
+      ],
+      "repo_files_to_update": [
+        "FORCE_APP_DIRECTORY/README.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_METADATA_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/CHECKLISTS/project-discovery.md"
+      ],
+      "missing_guidance": [
+        "Multiple package directory discovery and source-format verification."
+      ],
+      "nuanced_warnings_needed": [
+        "Metadata-format conversion can be disruptive and should be handled carefully."
+      ],
+      "commands_parameters_to_verify": [
+        "sf project generate",
+        "sf project convert source",
+        "legacy sfdx force:mdapi:convert"
+      ]
+    },
+    {
+      "topic": "Salesforce CLI commands",
+      "priority": "P0",
+      "sources": [
+        {
+          "source_title": "Salesforce CLI Product Page",
+          "url": "https://developer.salesforce.com/tools/salesforcecli",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Salesforce CLI Command Reference",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/",
+          "source_type": "Salesforce CLI Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Salesforce CLI Reference PDF",
+          "url": "https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/sfdx_cli_reference.pdf",
+          "source_type": "Salesforce CLI Docs PDF",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "Current guidance should prefer sf command families while noting legacy sfdx only when needed.",
+        "Command examples should be verified against installed CLI help before execution.",
+        "Parameter maps should distinguish deploy, retrieve, test, data, org, project, and plugin commands."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/COMMANDS/SALESFORCE_CLI_COMMAND_MAP.md",
+        "SALESFORCE_KNOWLEDGE/REFERENCE/salesforce-cli-command-reference.md",
+        "SALESFORCE_KNOWLEDGE/PARAMETERS/LOCAL_AUTOMATION_PARAMETERS.md"
+      ],
+      "missing_guidance": [
+        "Stronger installed-help verification rule before running mutating commands."
+      ],
+      "nuanced_warnings_needed": [
+        "Local installed CLI can differ from documentation examples."
+      ],
+      "commands_parameters_to_verify": [
+        "sf commands",
+        "sf project deploy start",
+        "sf project retrieve start",
+        "sf apex test run",
+        "sf org display"
+      ]
+    },
+    {
+      "topic": "Package.xml and destructive deployments",
+      "priority": "P0",
+      "sources": [
+        {
+          "source_title": "Metadata API: Deleting Files from an Organization",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_deploy_deleting_files.htm",
+          "source_type": "Salesforce Metadata API Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Metadata API: Sample package.xml Manifests",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/manifest_samples.htm",
+          "source_type": "Salesforce Metadata API Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Metadata API Developer Guide PDF",
+          "url": "https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/api_meta.pdf",
+          "source_type": "Salesforce Metadata API Docs PDF",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "Destructive changes need a separate manifest and safer review workflow than ordinary deploys.",
+        "Metadata dependencies and rollback plans must be explicit before deletion.",
+        "Package manifests should stay narrow and source-type aware."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/deployment/destructive-deployment-safety.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_DEPLOYMENT_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/good_patterns/metadata-safe-deployment-structure.md"
+      ],
+      "missing_guidance": [
+        "Dedicated destructive deployment safety runbook."
+      ],
+      "nuanced_warnings_needed": [
+        "Deletion deploys should be separated from feature deploys and require rollback notes."
+      ],
+      "commands_parameters_to_verify": [
+        "sf project deploy start with manifest",
+        "destructiveChanges manifest packaging",
+        "validation-only destructive deploy"
+      ]
+    },
+    {
+      "topic": "Permission sets/profiles",
+      "priority": "P1",
+      "sources": [
+        {
+          "source_title": "Metadata API: PermissionSet",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_permissionset.htm",
+          "source_type": "Salesforce Metadata API Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Metadata API: Profile",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_profile.htm",
+          "source_type": "Salesforce Metadata API Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Salesforce Help: Profiles",
+          "url": "https://help.salesforce.com/s/articleView?id=sf.users_profiles.htm&type=5",
+          "source_type": "Salesforce Help",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "Profiles and permission sets are high-risk metadata surfaces because they can include broad access state.",
+        "Repo guidance should prefer targeted permission changes where project conventions allow.",
+        "Access review should include object, field, class, tab, app, custom permission, and Experience Cloud context when relevant."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_METADATA_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/CHECKLISTS/production-safety.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/anti_patterns/metadata-anti-patterns.md"
+      ],
+      "missing_guidance": [
+        "Official metadata-backed explanation of profile risk and targeted permission set preference."
+      ],
+      "nuanced_warnings_needed": [
+        "Retrieved profile XML can include broad unrelated org state."
+      ],
+      "commands_parameters_to_verify": [
+        "profile retrieve/deploy",
+        "permission set retrieve/deploy"
+      ]
+    },
+    {
+      "topic": "FlexiPages/Lightning App Builder",
+      "priority": "P1",
+      "sources": [
+        {
+          "source_title": "Metadata API: FlexiPage",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_flexipage.htm",
+          "source_type": "Salesforce Metadata API Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Salesforce Help: Lightning App Builder",
+          "url": "https://help.salesforce.com/s/articleView?id=platform.lightning_app_builder.htm&type=5",
+          "source_type": "Salesforce Help",
+          "appears_current": true
+        },
+        {
+          "source_title": "LWC Developer Guide: Configure Components for App Builder",
+          "url": "https://developer.salesforce.com/docs/platform/lwc/guide/use-config-for-app-builder.html",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "FlexiPage behavior depends on component metadata, page metadata, app/profile/record-type activation, visibility rules, and form factor.",
+        "Lightning App Builder concepts need to be represented as metadata checks in Codex guidance.",
+        "Dynamic visibility and form-factor support are common sources of false fixes."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_RECORD_PAGE_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/metadata/flexipage-and-action-activation.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/metadata/quick-action-visibility-matrix.md"
+      ],
+      "missing_guidance": [
+        "More explicit metadata-chain investigation for FlexiPage visibility."
+      ],
+      "nuanced_warnings_needed": [
+        "Component deploy success does not prove user visibility."
+      ],
+      "commands_parameters_to_verify": [
+        "FlexiPage retrieve/deploy"
+      ]
+    },
+    {
+      "topic": "Quick actions/actions/buttons",
+      "priority": "P1",
+      "sources": [
+        {
+          "source_title": "Metadata API: QuickAction",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_quickaction.htm",
+          "source_type": "Salesforce Metadata API Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "LWC Developer Guide: Quick Actions",
+          "url": "https://developer.salesforce.com/docs/platform/lwc/guide/use-quick-actions.html",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "LWC Developer Guide: Migrate Quick Actions",
+          "url": "https://developer.salesforce.com/docs/platform/lwc/guide/migrate-quick-actions.html",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "Quick action visibility is a metadata-chain issue, not only an LWC issue.",
+        "LWC quick action support, screen/headless behavior, target metadata, and layout placement need explicit rules.",
+        "Migration guidance should warn against assuming Aura and LWC actions have identical contracts."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/metadata/quick-action-visibility-matrix.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_RECORD_PAGE_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/troubleshooting/record-page-actions.md"
+      ],
+      "missing_guidance": [
+        "Dedicated quick action visibility matrix."
+      ],
+      "nuanced_warnings_needed": [
+        "Visibility can fail due to action metadata, layout, Dynamic Actions, overflow, form factor, or permission state."
+      ],
+      "commands_parameters_to_verify": [
+        "QuickAction retrieve/deploy",
+        "FlexiPage retrieve/deploy"
+      ]
+    },
+    {
+      "topic": "Salesforce Files: ContentDocument/ContentVersion/ContentDocumentLink",
+      "priority": "P0",
+      "sources": [
+        {
+          "source_title": "Object Reference: ContentDocument",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_contentdocument.htm",
+          "source_type": "Salesforce Object Reference",
+          "appears_current": true
+        },
+        {
+          "source_title": "Object Reference: ContentVersion",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_contentversion.htm",
+          "source_type": "Salesforce Object Reference",
+          "appears_current": true
+        },
+        {
+          "source_title": "Object Reference: ContentDocumentLink",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_contentdocumentlink.htm",
+          "source_type": "Salesforce Object Reference",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "File guidance must distinguish logical file, version, and link objects.",
+        "Latest version, sharing visibility, link behavior, deletion, and preview are separate concerns.",
+        "File tests and rollups need warnings because object behavior is not equivalent to a single custom object row."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_FILE_HANDLING_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/files/contentdocument-lifecycle.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/good_patterns/file-upload-and-rollup.md"
+      ],
+      "missing_guidance": [
+        "Dedicated Files lifecycle topic."
+      ],
+      "nuanced_warnings_needed": [
+        "Latest version, logical document, and record link are distinct objects."
+      ],
+      "commands_parameters_to_verify": []
+    },
+    {
+      "topic": "Mobile Salesforce app",
+      "priority": "P1",
+      "sources": [
+        {
+          "source_title": "LWC Developer Guide: Mobile-Ready Components",
+          "url": "https://developer.salesforce.com/docs/platform/lwc/guide/mobile.html",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Mobile SDK Guide: Introduction",
+          "url": "https://developer.salesforce.com/docs/platform/mobile-sdk/guide/intro.html",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Salesforce Help: Salesforce Mobile App",
+          "url": "https://help.salesforce.com/s/articleView?id=sf.salesforce_app.htm&type=5",
+          "source_type": "Salesforce Help",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "Mobile behavior must be treated as runtime-specific, especially for actions, navigation, media, files, and overlays.",
+        "Mobile SDK docs are useful context but should not be conflated with ordinary LWC-in-Salesforce-app behavior.",
+        "Validation claims should say whether real mobile verification actually happened."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_MOBILE_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/mobile/mobile-camera-and-file-handoff.md",
+        "SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/MOBILE_QUALITY_STRATEGY.md"
+      ],
+      "missing_guidance": [
+        "Runtime distinction between Salesforce mobile app, desktop responsive testing, and Mobile SDK."
+      ],
+      "nuanced_warnings_needed": [
+        "Do not claim mobile support from desktop viewport tests alone."
+      ],
+      "commands_parameters_to_verify": [
+        "mobile lint scripts if present",
+        "graph analyzer scripts if present"
+      ]
+    },
+    {
+      "topic": "Code Analyzer",
+      "priority": "P0",
+      "sources": [
+        {
+          "source_title": "Code Analyzer Overview",
+          "url": "https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/code-analyzer.html",
+          "source_type": "Salesforce Code Analyzer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Code Analyzer CLI Commands",
+          "url": "https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/analyze.html",
+          "source_type": "Salesforce Code Analyzer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Code Analyzer Rules",
+          "url": "https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/rules.html",
+          "source_type": "Salesforce Code Analyzer Docs",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "Code Analyzer v5 uses the code-analyzer topic and v4 is retired.",
+        "Command guidance should verify plugin availability, required runtimes, engines, rules, selectors, output formats, and skipped engines.",
+        "Existing repo guidance should point to official docs first and upstream GitHub second."
+      ],
+      "repo_files_to_update": [
+        "TOOLS/SALESFORCE_CODE_ANALYZER.md",
+        "QUALITY_GATES/CODE_ANALYZER_RULES.md",
+        "SALESFORCE_KNOWLEDGE/PARAMETERS/CODE_ANALYZER_PARAMETERS.md"
+      ],
+      "missing_guidance": [
+        "Official v5 alignment and v4 retirement warning."
+      ],
+      "nuanced_warnings_needed": [
+        "JIT plugin install, Java/Python engine dependencies, and skipped engines must be reported accurately."
+      ],
+      "commands_parameters_to_verify": [
+        "sf code-analyzer run",
+        "sf code-analyzer rules",
+        "--target",
+        "--workspace",
+        "--rule-selector",
+        "--config-file",
+        "--view"
+      ]
+    },
+    {
+      "topic": "Deployment validation",
+      "priority": "P0",
+      "sources": [
+        {
+          "source_title": "Salesforce Extensions: Deploy and Retrieve Changes",
+          "url": "https://developer.salesforce.com/docs/platform/sfvscode-extensions/guide/deploy-changes.html",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Salesforce CLI Project Commands",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_project_commands_unified.htm",
+          "source_type": "Salesforce CLI Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Salesforce DX Developer Guide PDF",
+          "url": "https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/sfdx_dev.pdf",
+          "source_type": "Salesforce DX Docs PDF",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "Deploy validation should separate dry-run, deploy, retrieve, tests, and quick deploy.",
+        "Codex should record command, target org, source or manifest scope, test level, and result evidence.",
+        "Narrow deployment guidance needs official CLI flag verification."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_DEPLOYMENT_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/FIX_DEPLOYMENT_FLOW.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/deployment/test-selection-guide.md"
+      ],
+      "missing_guidance": [
+        "More complete deploy-result evidence and flag verification process."
+      ],
+      "nuanced_warnings_needed": [
+        "Production validation behavior depends on metadata and test policy."
+      ],
+      "commands_parameters_to_verify": [
+        "sf project deploy start --dry-run",
+        "sf project deploy start --test-level",
+        "sf project deploy start --tests",
+        "sf project retrieve start"
+      ]
+    },
+    {
+      "topic": "Debug logs",
+      "priority": "P1",
+      "sources": [
+        {
+          "source_title": "Salesforce Help: Debug Logs",
+          "url": "https://help.salesforce.com/s/articleView?id=sf.code_debug_log.htm&type=5",
+          "source_type": "Salesforce Help",
+          "appears_current": true
+        },
+        {
+          "source_title": "Apex Developer Guide: Debug Logs",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_debugging_debug_log.htm",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Apex Developer Guide: Developer Console System Log",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_debugging_system_log_console.htm",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "Debug-log guidance should cover trace flags, log levels, collection, triage, retention, and privacy.",
+        "Raw logs can expose IDs, users, queries, payloads, and business data.",
+        "Logs are evidence, not final root cause by themselves."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_DEBUGGING_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/troubleshooting/debug-log-triage.md",
+        "SALESFORCE_KNOWLEDGE/DOCS/public-sanitization-policy.md"
+      ],
+      "missing_guidance": [
+        "Public-safe debug log triage and sanitization process."
+      ],
+      "nuanced_warnings_needed": [
+        "Never publish raw debug logs from private orgs."
+      ],
+      "commands_parameters_to_verify": [
+        "sf apex get log if used",
+        "trace flag setup commands if used"
+      ]
+    },
+    {
+      "topic": "Governor limits",
+      "priority": "P0",
+      "sources": [
+        {
+          "source_title": "Apex Developer Guide: Governor Limits",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_gov_limits.htm",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Apex Developer Guide: Execution Governors and Limits",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_limits_intro.htm",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Trailhead: Bulk Apex Triggers",
+          "url": "https://trailhead.salesforce.com/content/learn/modules/apex_triggers/apex_triggers_bulk",
+          "source_type": "Trailhead",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "Repo docs should summarize limit-aware patterns, not copy long limit tables.",
+        "Trigger, async, file, test, callout, and SOQL guidance should be tied to governor-limit risk.",
+        "Exact numeric limits should be linked to official docs and verified before publication."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_PLATFORM_LIMITATIONS.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_COMMON_FAILURES_AND_FIXES.md"
+      ],
+      "missing_guidance": [
+        "Concise limit-risk model across triggers, async, tests, Files, callouts, and dynamic SOQL."
+      ],
+      "nuanced_warnings_needed": [
+        "Exact numeric limits are version-sensitive."
+      ],
+      "commands_parameters_to_verify": []
+    },
+    {
+      "topic": "Named Credentials/external credentials",
+      "priority": "P1",
+      "sources": [
+        {
+          "source_title": "Named Credentials Guide: Overview",
+          "url": "https://developer.salesforce.com/docs/platform/named-credentials/guide/nc-about.html",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Named Credentials Guide: OAuth Callouts",
+          "url": "https://developer.salesforce.com/docs/platform/named-credentials/guide/nc-use-oauth-cred-in-callout.html",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Salesforce Help: Named Credentials",
+          "url": "https://help.salesforce.com/s/articleView?id=sf.nc_named_credentials.htm&type=5",
+          "source_type": "Salesforce Help",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "Named credentials and external credentials separate endpoint, authentication configuration, principals, and user access.",
+        "Metadata cannot be treated as a safe place to expose or publish secret values.",
+        "Callout guidance should avoid hardcoded secrets and document permission assignment requirements."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/CHECKLISTS/production-safety.md",
+        "SALESFORCE_KNOWLEDGE/DOCS/public-sanitization-policy.md"
+      ],
+      "missing_guidance": [
+        "Endpoint, external credential, principal, permission mapping, and packaging caveats."
+      ],
+      "nuanced_warnings_needed": [
+        "Credential metadata does not mean secret values are publishable."
+      ],
+      "commands_parameters_to_verify": [
+        "named credential metadata retrieve/deploy",
+        "external credential principal setup process"
+      ]
+    },
+    {
+      "topic": "Flow interaction with Apex/LWC",
+      "priority": "P1",
+      "sources": [
+        {
+          "source_title": "Apex Developer Guide: InvocableMethod Annotation",
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_annotation_InvocableMethod.htm",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "LWC Developer Guide: Use Flow",
+          "url": "https://developer.salesforce.com/docs/platform/lwc/guide/use-flow.html",
+          "source_type": "Salesforce Developer Docs",
+          "appears_current": true
+        },
+        {
+          "source_title": "Salesforce Help: Flow Builder",
+          "url": "https://help.salesforce.com/s/articleView?id=sf.flow.htm&type=5",
+          "source_type": "Salesforce Help",
+          "appears_current": true
+        }
+      ],
+      "key_rules_learned": [
+        "Flow can call Apex and host or interact with LWC, so Codex must inspect Flow entry points before changing shared code.",
+        "Invocable Apex has signature and bulk behavior constraints.",
+        "Order of execution and recursion guidance must include Flow as an automation layer."
+      ],
+      "repo_files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_LWC_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_ARCHITECTURE_GUIDE.md"
+      ],
+      "missing_guidance": [
+        "Flow as a first-class Apex/LWC caller and order-of-execution actor."
+      ],
+      "nuanced_warnings_needed": [
+        "Changing Apex can break Flow callers even when no Apex test directly covers that Flow path."
+      ],
+      "commands_parameters_to_verify": [
+        "Flow metadata retrieve/deploy",
+        "Code Analyzer Flow engine behavior"
+      ]
+    }
+  ],
+  "command_parameter_verification_queue": [
+    "sf project deploy start",
+    "sf project retrieve start",
+    "sf apex test run",
+    "sf code-analyzer run",
+    "sf code-analyzer rules",
+    "sfdx-lwc-jest or repo-local npm test scripts",
+    "destructiveChanges manifest packaging",
+    "high-risk metadata retrieve/deploy for Profile, PermissionSet, FlexiPage, QuickAction, Report, Dashboard, and StaticResource"
+  ],
+  "highest_priority_doc_gaps": [
+    "Security matrix for sharing, CRUD, FLS, user mode, system mode, LDS, UI API, and exposed Apex.",
+    "Destructive deployment safety runbook.",
+    "Code Analyzer v5 official-doc alignment.",
+    "LWC wire, imperative Apex, form, and navigation guidance.",
+    "Salesforce Files lifecycle topic for ContentDocument, ContentVersion, and ContentDocumentLink.",
+    "Quick action visibility matrix.",
+    "Public-safe debug log triage topic.",
+    "Flow and order-of-execution warnings.",
+    "Governor-limit risk model tied to triggers, async, tests, Files, callouts, and SOQL."
+  ],
+  "recommended_next_prompt": "Using WORKSPACE/OFFICIAL_SALESFORCE_SOURCE_REGISTRY.md, WORKSPACE/OFFICIAL_SALESFORCE_SOURCE_REGISTRY.json, and WORKSPACE/OFFICIAL_SALESFORCE_DOC_GAP_ANALYSIS.md, draft public-safe WORKSPACE-only proposed updates for the P0 gaps: security matrix, destructive deployment safety, Code Analyzer v5 alignment, Files lifecycle, CLI/deployment validation, order of execution, and governor-limit warnings. Do not modify SALESFORCE_KNOWLEDGE yet, do not commit, and do not push."
+}

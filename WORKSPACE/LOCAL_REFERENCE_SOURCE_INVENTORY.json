@@ -1,0 +1,1120 @@
+﻿{
+    "generated_at":  "2026-04-28",
+    "workspace":  "\u003cdownloaded-release-workspace\u003e",
+    "scope":  "Local private-reference inventory and public-safe topic classification. No source content or external source code is copied into this report.",
+    "counts":  {
+                   "listed_sources":  67,
+                   "found":  67,
+                   "missing":  0,
+                   "folders":  2,
+                   "documents":  56,
+                   "zip_archives":  9
+               },
+    "missing_sources":  [
+
+                        ],
+    "topic_categories":  [
+                             "Apex",
+                             "LWC",
+                             "Aura",
+                             "Visualforce",
+                             "Metadata",
+                             "Files",
+                             "Mobile",
+                             "Email",
+                             "Chatter",
+                             "PDFs",
+                             "Address/compound fields",
+                             "Deployment",
+                             "Debugging",
+                             "CLI",
+                             "Reports/dashboards",
+                             "Portals/Experience Cloud",
+                             "Security/permissions",
+                             "General architecture"
+                         ],
+    "official_salesforce_docs_consulted":  [
+                                               {
+                                                   "title":  "Get Started with Lightning Web Components",
+                                                   "url":  "https://developer.salesforce.com/docs/platform/lwc/guide/get-started-introduction",
+                                                   "use":  "Anchor LWC guidance to Salesforce-supported platform behavior."
+                                               },
+                                               {
+                                                   "title":  "Version Lightning Web Components",
+                                                   "url":  "https://developer.salesforce.com/docs/platform/lwc/guide/create-version-components.html",
+                                                   "use":  "Track current LWC apiVersion requirements before updating repo guidance."
+                                               },
+                                               {
+                                                   "title":  "Call Apex Methods",
+                                                   "url":  "https://developer.salesforce.com/docs/platform/lwc/guide/apex",
+                                                   "use":  "Validate LWC-to-Apex notes on data flow, invocation style, and limits."
+                                               },
+                                               {
+                                                   "title":  "Mobile-Ready Components",
+                                                   "url":  "https://developer.salesforce.com/docs/platform/lwc/guide/mobile.html",
+                                                   "use":  "Validate mobile-specific LWC constraints and quality checks."
+                                               },
+                                               {
+                                                   "title":  "Lightning Component Reference",
+                                                   "url":  "https://developer.salesforce.com/docs/platform/lightning-component-reference/guide/get-started.html",
+                                                   "use":  "Validate base component, Aura, LWC, mobile, and Experience Builder compatibility references."
+                                               },
+                                               {
+                                                   "title":  "Metadata Coverage Report",
+                                                   "url":  "https://developer.salesforce.com/docs/success/metadata-coverage-report/references/metadata-types/v66.0/metadata-types.html",
+                                                   "use":  "Validate metadata type coverage before proposing deploy and retrieval guidance."
+                                               },
+                                               {
+                                                   "title":  "Salesforce CLI",
+                                                   "url":  "https://developer.salesforce.com/tools/salesforcecli",
+                                                   "use":  "Validate CLI command-family guidance and current sf-first wording."
+                                               },
+                                               {
+                                                   "title":  "Deploy and Retrieve Code",
+                                                   "url":  "https://developer.salesforce.com/docs/platform/sfvscode-extensions/guide/deploy-changes.html",
+                                                   "use":  "Validate deployment and retrieval workflow language."
+                                               }
+                                           ],
+    "sources":  [
+                    {
+                        "id":  "folder-001",
+                        "source_type":  "folder",
+                        "path":  "\u003cprivate-local-folder\u003e/folder-001",
+                        "exists":  true,
+                        "item_count":  42,
+                        "extension_summary":  [
+                                                  ".md:40",
+                                                  ".txt:2"
+                                              ],
+                        "topics":  [
+                                       "Apex",
+                                       "LWC",
+                                       "Aura",
+                                       "Visualforce",
+                                       "Metadata",
+                                       "Files",
+                                       "Mobile",
+                                       "Email",
+                                       "Chatter",
+                                       "PDFs",
+                                       "Address/compound fields",
+                                       "Deployment",
+                                       "Debugging",
+                                       "CLI",
+                                       "Reports/dashboards",
+                                       "Portals/Experience Cloud",
+                                       "Security/permissions",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "high",
+                        "public_safe_value":  "Broad historical lessons and failure modes after strict sanitization."
+                    },
+                    {
+                        "id":  "folder-002",
+                        "source_type":  "folder",
+                        "path":  "\u003cprivate-local-folder\u003e/folder-002",
+                        "exists":  true,
+                        "item_count":  111,
+                        "extension_summary":  [
+                                                  ".md:111"
+                                              ],
+                        "topics":  [
+                                       "Apex",
+                                       "LWC",
+                                       "Aura",
+                                       "Visualforce",
+                                       "Metadata",
+                                       "Files",
+                                       "Mobile",
+                                       "Email",
+                                       "Chatter",
+                                       "PDFs",
+                                       "Address/compound fields",
+                                       "Deployment",
+                                       "Debugging",
+                                       "CLI",
+                                       "Reports/dashboards",
+                                       "Portals/Experience Cloud",
+                                       "Security/permissions",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "high",
+                        "public_safe_value":  "Largest current local source group; use as the main private lesson backlog."
+                    },
+                    {
+                        "id":  "document-001",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-001",
+                        "exists":  true,
+                        "topics":  [
+                                       "Files",
+                                       "Metadata",
+                                       "Security/permissions",
+                                       "LWC",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "medium"
+                    },
+                    {
+                        "id":  "document-002",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-002",
+                        "exists":  true,
+                        "topics":  [
+                                       "Address/compound fields",
+                                       "Apex",
+                                       "LWC",
+                                       "Metadata",
+                                       "Deployment",
+                                       "Debugging"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-003",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-003",
+                        "exists":  true,
+                        "topics":  [
+                                       "Debugging",
+                                       "Deployment",
+                                       "Apex",
+                                       "LWC",
+                                       "Metadata",
+                                       "CLI"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-004",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-004",
+                        "exists":  true,
+                        "topics":  [
+                                       "Visualforce",
+                                       "PDFs",
+                                       "Apex",
+                                       "Metadata",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "medium"
+                    },
+                    {
+                        "id":  "document-005",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-005",
+                        "exists":  true,
+                        "topics":  [
+                                       "LWC",
+                                       "Portals/Experience Cloud",
+                                       "Security/permissions",
+                                       "Metadata",
+                                       "Mobile",
+                                       "Deployment"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-006",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-006",
+                        "exists":  true,
+                        "topics":  [
+                                       "Email",
+                                       "Apex",
+                                       "LWC",
+                                       "Metadata",
+                                       "Reports/dashboards",
+                                       "Deployment"
+                                   ],
+                        "public_safe_extraction_priority":  "medium"
+                    },
+                    {
+                        "id":  "document-007",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-007",
+                        "exists":  true,
+                        "topics":  [
+                                       "Files",
+                                       "Metadata",
+                                       "Apex",
+                                       "LWC",
+                                       "Reports/dashboards",
+                                       "Security/permissions"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-008",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-008",
+                        "exists":  true,
+                        "topics":  [
+                                       "Apex",
+                                       "Metadata",
+                                       "Deployment",
+                                       "Debugging",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-009",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-009",
+                        "exists":  true,
+                        "topics":  [
+                                       "Apex",
+                                       "Metadata",
+                                       "Deployment",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "medium"
+                    },
+                    {
+                        "id":  "document-010",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-010",
+                        "exists":  true,
+                        "topics":  [
+                                       "Mobile",
+                                       "Email",
+                                       "Metadata",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "low"
+                    },
+                    {
+                        "id":  "document-011",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-011",
+                        "exists":  true,
+                        "topics":  [
+                                       "Reports/dashboards",
+                                       "Apex",
+                                       "Metadata",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "medium"
+                    },
+                    {
+                        "id":  "document-012",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-012",
+                        "exists":  true,
+                        "topics":  [
+                                       "Apex",
+                                       "Metadata",
+                                       "LWC",
+                                       "Address/compound fields",
+                                       "Deployment",
+                                       "Reports/dashboards",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "medium"
+                    },
+                    {
+                        "id":  "document-013",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-013",
+                        "exists":  true,
+                        "topics":  [
+                                       "Apex",
+                                       "Metadata",
+                                       "LWC",
+                                       "Address/compound fields",
+                                       "Security/permissions",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "medium"
+                    },
+                    {
+                        "id":  "document-014",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-014",
+                        "exists":  true,
+                        "topics":  [
+                                       "Mobile",
+                                       "LWC",
+                                       "Metadata",
+                                       "Debugging"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-015",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-015",
+                        "exists":  true,
+                        "topics":  [
+                                       "Mobile",
+                                       "Chatter",
+                                       "LWC",
+                                       "Apex",
+                                       "Security/permissions"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-016",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-016",
+                        "exists":  true,
+                        "topics":  [
+                                       "LWC",
+                                       "Visualforce",
+                                       "Mobile",
+                                       "Metadata",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "low"
+                    },
+                    {
+                        "id":  "document-017",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-017",
+                        "exists":  true,
+                        "topics":  [
+                                       "Debugging",
+                                       "CLI",
+                                       "Apex",
+                                       "LWC",
+                                       "Deployment"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-018",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-018",
+                        "exists":  true,
+                        "topics":  [
+                                       "Mobile",
+                                       "LWC",
+                                       "Metadata",
+                                       "Address/compound fields",
+                                       "Reports/dashboards"
+                                   ],
+                        "public_safe_extraction_priority":  "medium"
+                    },
+                    {
+                        "id":  "document-019",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-019",
+                        "exists":  true,
+                        "topics":  [
+                                       "Mobile",
+                                       "Files",
+                                       "Debugging",
+                                       "LWC"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-020",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-020",
+                        "exists":  true,
+                        "topics":  [
+                                       "Mobile",
+                                       "Files",
+                                       "LWC",
+                                       "Metadata"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-021",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-021",
+                        "exists":  true,
+                        "topics":  [
+                                       "Mobile",
+                                       "Files",
+                                       "LWC",
+                                       "Metadata"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-022",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-022",
+                        "exists":  true,
+                        "topics":  [
+                                       "PDFs",
+                                       "Files",
+                                       "Mobile",
+                                       "LWC",
+                                       "Visualforce",
+                                       "Apex"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-023",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-023",
+                        "exists":  true,
+                        "topics":  [
+                                       "Mobile",
+                                       "Files",
+                                       "Debugging",
+                                       "LWC"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-024",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-024",
+                        "exists":  true,
+                        "topics":  [
+                                       "Mobile",
+                                       "Files",
+                                       "LWC"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-025",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-025",
+                        "exists":  true,
+                        "topics":  [
+                                       "Mobile",
+                                       "Files",
+                                       "LWC",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-026",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-026",
+                        "exists":  true,
+                        "topics":  [
+                                       "Mobile",
+                                       "Address/compound fields",
+                                       "LWC",
+                                       "Security/permissions",
+                                       "Metadata"
+                                   ],
+                        "public_safe_extraction_priority":  "medium"
+                    },
+                    {
+                        "id":  "document-027",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-027",
+                        "exists":  true,
+                        "topics":  [
+                                       "Visualforce",
+                                       "PDFs",
+                                       "Apex",
+                                       "Metadata"
+                                   ],
+                        "public_safe_extraction_priority":  "medium"
+                    },
+                    {
+                        "id":  "document-028",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-028",
+                        "exists":  true,
+                        "topics":  [
+                                       "Visualforce",
+                                       "PDFs",
+                                       "Apex",
+                                       "Metadata"
+                                   ],
+                        "public_safe_extraction_priority":  "medium"
+                    },
+                    {
+                        "id":  "document-029",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-029",
+                        "exists":  true,
+                        "topics":  [
+                                       "General architecture",
+                                       "Metadata",
+                                       "Deployment",
+                                       "Security/permissions"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-030",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-030",
+                        "exists":  true,
+                        "topics":  [
+                                       "Apex",
+                                       "Metadata",
+                                       "Reports/dashboards",
+                                       "Security/permissions",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "medium"
+                    },
+                    {
+                        "id":  "document-031",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-031",
+                        "exists":  true,
+                        "topics":  [
+                                       "General architecture",
+                                       "Apex",
+                                       "LWC",
+                                       "Metadata",
+                                       "Deployment",
+                                       "Debugging",
+                                       "CLI",
+                                       "Security/permissions"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-032",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-032",
+                        "exists":  true,
+                        "topics":  [
+                                       "Email",
+                                       "Apex",
+                                       "Metadata",
+                                       "Files",
+                                       "Security/permissions"
+                                   ],
+                        "public_safe_extraction_priority":  "medium"
+                    },
+                    {
+                        "id":  "document-033",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-033",
+                        "exists":  true,
+                        "topics":  [
+                                       "Apex",
+                                       "Metadata",
+                                       "Files",
+                                       "Reports/dashboards",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "medium"
+                    },
+                    {
+                        "id":  "document-034",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-034",
+                        "exists":  true,
+                        "topics":  [
+                                       "Files",
+                                       "Apex",
+                                       "Metadata",
+                                       "Reports/dashboards",
+                                       "Debugging"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-035",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-035",
+                        "exists":  true,
+                        "topics":  [
+                                       "Apex",
+                                       "Metadata",
+                                       "Files",
+                                       "Email",
+                                       "Reports/dashboards",
+                                       "Security/permissions",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "medium"
+                    },
+                    {
+                        "id":  "document-036",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-036",
+                        "exists":  true,
+                        "topics":  [
+                                       "Apex",
+                                       "Metadata",
+                                       "PDFs",
+                                       "Email",
+                                       "Reports/dashboards",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "medium"
+                    },
+                    {
+                        "id":  "document-037",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-037",
+                        "exists":  true,
+                        "topics":  [
+                                       "Reports/dashboards",
+                                       "Apex",
+                                       "Metadata",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "medium"
+                    },
+                    {
+                        "id":  "document-038",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-038",
+                        "exists":  true,
+                        "topics":  [
+                                       "Address/compound fields",
+                                       "Apex",
+                                       "Metadata",
+                                       "Debugging",
+                                       "Security/permissions"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-039",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-039",
+                        "exists":  true,
+                        "topics":  [
+                                       "Apex",
+                                       "Metadata",
+                                       "Email",
+                                       "Reports/dashboards",
+                                       "Security/permissions"
+                                   ],
+                        "public_safe_extraction_priority":  "medium"
+                    },
+                    {
+                        "id":  "document-040",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-040",
+                        "exists":  true,
+                        "topics":  [
+                                       "Apex",
+                                       "Metadata",
+                                       "Files",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "medium"
+                    },
+                    {
+                        "id":  "document-041",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-041",
+                        "exists":  true,
+                        "topics":  [
+                                       "Email",
+                                       "Debugging",
+                                       "Apex",
+                                       "Metadata"
+                                   ],
+                        "public_safe_extraction_priority":  "medium"
+                    },
+                    {
+                        "id":  "document-042",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-042",
+                        "exists":  true,
+                        "topics":  [
+                                       "Email",
+                                       "Apex",
+                                       "Metadata",
+                                       "Debugging",
+                                       "Security/permissions"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-043",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-043",
+                        "exists":  true,
+                        "topics":  [
+                                       "Mobile",
+                                       "Files",
+                                       "Portals/Experience Cloud",
+                                       "Reports/dashboards",
+                                       "LWC",
+                                       "Security/permissions"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-044",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-044",
+                        "exists":  true,
+                        "topics":  [
+                                       "Apex",
+                                       "Metadata",
+                                       "Reports/dashboards",
+                                       "Security/permissions",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "medium"
+                    },
+                    {
+                        "id":  "document-045",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-045",
+                        "exists":  true,
+                        "topics":  [
+                                       "Metadata",
+                                       "Apex",
+                                       "Security/permissions",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "medium"
+                    },
+                    {
+                        "id":  "document-046",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-046",
+                        "exists":  true,
+                        "topics":  [
+                                       "Apex",
+                                       "Metadata",
+                                       "Deployment",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "medium"
+                    },
+                    {
+                        "id":  "document-047",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-047",
+                        "exists":  true,
+                        "topics":  [
+                                       "LWC",
+                                       "Metadata",
+                                       "Security/permissions",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-048",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-048",
+                        "exists":  true,
+                        "topics":  [
+                                       "LWC",
+                                       "Metadata",
+                                       "Security/permissions",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-049",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-049",
+                        "exists":  true,
+                        "topics":  [
+                                       "PDFs",
+                                       "Visualforce",
+                                       "Apex",
+                                       "Metadata",
+                                       "Files"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-050",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-050",
+                        "exists":  true,
+                        "topics":  [
+                                       "Email",
+                                       "Apex",
+                                       "Metadata",
+                                       "Security/permissions",
+                                       "Deployment",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "medium"
+                    },
+                    {
+                        "id":  "document-051",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-051",
+                        "exists":  true,
+                        "topics":  [
+                                       "Chatter",
+                                       "Apex",
+                                       "Metadata",
+                                       "Security/permissions",
+                                       "Debugging"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-052",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-052",
+                        "exists":  true,
+                        "topics":  [
+                                       "Email",
+                                       "Apex",
+                                       "LWC",
+                                       "Metadata",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "medium"
+                    },
+                    {
+                        "id":  "document-053",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-053",
+                        "exists":  true,
+                        "topics":  [
+                                       "Chatter",
+                                       "Apex",
+                                       "Metadata",
+                                       "Email",
+                                       "Security/permissions"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-054",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-054",
+                        "exists":  true,
+                        "topics":  [
+                                       "Email",
+                                       "Apex",
+                                       "Metadata",
+                                       "Security/permissions",
+                                       "Deployment"
+                                   ],
+                        "public_safe_extraction_priority":  "medium"
+                    },
+                    {
+                        "id":  "document-055",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-055",
+                        "exists":  true,
+                        "topics":  [
+                                       "CLI",
+                                       "Deployment",
+                                       "Apex",
+                                       "LWC",
+                                       "Debugging"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "document-056",
+                        "source_type":  "document",
+                        "path":  "\u003cprivate-local-document\u003e/document-056",
+                        "exists":  true,
+                        "topics":  [
+                                       "Deployment",
+                                       "CLI",
+                                       "Metadata",
+                                       "Debugging"
+                                   ],
+                        "public_safe_extraction_priority":  "high"
+                    },
+                    {
+                        "id":  "zip-001",
+                        "source_type":  "zip",
+                        "path":  "\u003clocal-zip-reference\u003e/zip-001",
+                        "exists":  true,
+                        "item_count":  31,
+                        "extension_summary":  [
+                                                  ".png:11",
+                                                  ".md:6",
+                                                  ".jpg:4",
+                                                  ".gif:3",
+                                                  ".yml:2",
+                                                  ".svg:1"
+                                              ],
+                        "topics":  [
+                                       "General architecture",
+                                       "CLI",
+                                       "Deployment"
+                                   ],
+                        "public_safe_extraction_priority":  "low",
+                        "public_safe_value":  "Public curated-reference orientation only; do not copy lists wholesale."
+                    },
+                    {
+                        "id":  "zip-002",
+                        "source_type":  "zip",
+                        "path":  "\u003clocal-zip-reference\u003e/zip-002",
+                        "exists":  true,
+                        "item_count":  293,
+                        "extension_summary":  [
+                                                  ".xml:218",
+                                                  ".json:8",
+                                                  ".soql:1",
+                                                  ".trigger:1",
+                                                  ".apex:1",
+                                                  ".js:1"
+                                              ],
+                        "topics":  [
+                                       "Apex",
+                                       "LWC",
+                                       "Aura",
+                                       "Metadata",
+                                       "Deployment",
+                                       "CLI",
+                                       "Reports/dashboards"
+                                   ],
+                        "public_safe_extraction_priority":  "medium",
+                        "public_safe_value":  "Public example repo useful for metadata shape, dashboards, and simple trigger/package organization."
+                    },
+                    {
+                        "id":  "zip-003",
+                        "source_type":  "zip",
+                        "path":  "\u003clocal-zip-reference\u003e/zip-003",
+                        "exists":  true,
+                        "item_count":  29,
+                        "extension_summary":  [
+                                                  ".swift:5",
+                                                  ".plist:4",
+                                                  ".storyboard:2",
+                                                  ".json:2",
+                                                  ".md:1"
+                                              ],
+                        "topics":  [
+                                       "Mobile",
+                                       "Security/permissions",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "low",
+                        "public_safe_value":  "Public mobile/webview reference; use only for high-level mobile considerations."
+                    },
+                    {
+                        "id":  "zip-004",
+                        "source_type":  "zip",
+                        "path":  "\u003clocal-zip-reference\u003e/zip-004",
+                        "exists":  true,
+                        "item_count":  73,
+                        "extension_summary":  [
+                                                  ".png:38",
+                                                  ".java:7",
+                                                  ".xml:6",
+                                                  ".properties:2",
+                                                  ".html:1"
+                                              ],
+                        "topics":  [
+                                       "Debugging",
+                                       "General architecture",
+                                       "Reports/dashboards"
+                                   ],
+                        "public_safe_extraction_priority":  "low",
+                        "public_safe_value":  "Public Selenium/TestNG framework; extract only generic testing-reporting lessons."
+                    },
+                    {
+                        "id":  "zip-005",
+                        "source_type":  "zip",
+                        "path":  "\u003clocal-zip-reference\u003e/zip-005",
+                        "exists":  true,
+                        "item_count":  2496,
+                        "extension_summary":  [
+                                                  ".js:1911",
+                                                  ".md:63",
+                                                  ".json:20",
+                                                  ".tern-project:9",
+                                                  ".project:9",
+                                                  ".yml:2"
+                                              ],
+                        "topics":  [
+                                       "General architecture",
+                                       "Debugging",
+                                       "Security/permissions"
+                                   ],
+                        "public_safe_extraction_priority":  "low",
+                        "public_safe_value":  "Large public Commerce Cloud JavaScript library reference; keep separate from core Salesforce platform docs."
+                    },
+                    {
+                        "id":  "zip-006",
+                        "source_type":  "zip",
+                        "path":  "\u003clocal-zip-reference\u003e/zip-006",
+                        "exists":  true,
+                        "item_count":  194,
+                        "extension_summary":  [
+                                                  ".html:28",
+                                                  ".xml:15",
+                                                  ".java:10",
+                                                  ".properties:5",
+                                                  ".png:5",
+                                                  ".js:3",
+                                                  ".css:3"
+                                              ],
+                        "topics":  [
+                                       "Debugging",
+                                       "Reports/dashboards",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "low",
+                        "public_safe_value":  "Public Selenium/TestNG reference; extract only validation and reporting checklists."
+                    },
+                    {
+                        "id":  "zip-007",
+                        "source_type":  "zip",
+                        "path":  "\u003clocal-zip-reference\u003e/zip-007",
+                        "exists":  true,
+                        "item_count":  47,
+                        "extension_summary":  [
+                                                  ".json:12",
+                                                  ".ts:10",
+                                                  ".md:2",
+                                                  ".forceignore:2"
+                                              ],
+                        "topics":  [
+                                       "LWC",
+                                       "CLI",
+                                       "Metadata"
+                                   ],
+                        "public_safe_extraction_priority":  "medium",
+                        "public_safe_value":  "Public small LWC/SFDX quickstart-style example."
+                    },
+                    {
+                        "id":  "zip-008",
+                        "source_type":  "zip",
+                        "path":  "\u003clocal-zip-reference\u003e/zip-008",
+                        "exists":  true,
+                        "item_count":  6,
+                        "extension_summary":  [
+                                                  ".java:3",
+                                                  ".xml:1",
+                                                  ".xlsx:1"
+                                              ],
+                        "topics":  [
+                                       "Debugging",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "low",
+                        "public_safe_value":  "Very small public Selenium/TestNG reference."
+                    },
+                    {
+                        "id":  "zip-009",
+                        "source_type":  "zip",
+                        "path":  "\u003clocal-zip-reference\u003e/zip-009",
+                        "exists":  true,
+                        "item_count":  59,
+                        "extension_summary":  [
+                                                  ".md:39",
+                                                  ".png:15",
+                                                  ".gitignore:1"
+                                              ],
+                        "topics":  [
+                                       "Apex",
+                                       "Visualforce",
+                                       "Metadata",
+                                       "Deployment",
+                                       "Debugging",
+                                       "Security/permissions",
+                                       "General architecture"
+                                   ],
+                        "public_safe_extraction_priority":  "medium",
+                        "public_safe_value":  "Public Salesforce documentation-style repo; use for structure ideas, not copied prose."
+                    }
+                ]
+}

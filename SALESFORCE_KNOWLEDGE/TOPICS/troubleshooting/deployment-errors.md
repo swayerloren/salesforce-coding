@@ -37,6 +37,45 @@ Fix:
 
 - verify CLI metadata type names. Visualforce pages use `ApexPage`.
 
+## Dry Run Confused With Production Validation
+
+Symptom:
+
+- `sf project deploy start --dry-run` passed,
+- later quick deploy is not available or no validation job exists.
+
+Fix:
+
+- use dry run for ordinary validation evidence;
+- use `sf project deploy validate` when the release process needs a production validation job and later quick deploy;
+- use `sf project deploy report --job-id <id>` before claiming async validation status.
+
+## Failure-Hiding Flag Masked Risk
+
+Symptom:
+
+- deployment appears successful only after `--ignore-errors`, `--ignore-warnings`, or `--ignore-conflicts`.
+
+Fix:
+
+- treat the result as a risk state, not a clean pass;
+- inspect the warning or error;
+- remove the flag unless the owner explicitly accepts the behavior.
+
+## Destructive Manifest Error
+
+Symptom:
+
+- destructive deploy fails, warns, or deletes the wrong target.
+
+Fix:
+
+- inspect exact metadata type and full name;
+- separate ordinary `package.xml` from destructive manifests;
+- prefer post-destructive changes unless pre-delete is required;
+- validate before real deletion;
+- document rollback or restore path.
+
 ## Unrelated Test Failure
 
 Symptom:
@@ -49,3 +88,15 @@ Fix:
 - remove unrelated unstable tests from narrow hotfix deploy,
 - open a separate task for the unstable subsystem.
 
+## Code Analyzer Not Actually Run
+
+Symptom:
+
+- final report says static analysis passed,
+- command was missing, skipped, or only help output was checked.
+
+Fix:
+
+- report `SKIPPED` with the exact reason;
+- run `sf code-analyzer run` from the real project root when available;
+- do not claim analyzer success without a successful command result.

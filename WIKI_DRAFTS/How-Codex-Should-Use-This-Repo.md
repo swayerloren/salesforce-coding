@@ -13,8 +13,10 @@ It should not treat this repo as the real Salesforce DX project unless the user 
 | 3 | `FORCE_APP_DIRECTORY/README.md` | Finds where the real Salesforce DX project is placed or referenced. |
 | 4 | `SALESFORCE_KNOWLEDGE/INDEX.md` | Chooses the correct Salesforce guides for the task. |
 | 5 | Relevant `SALESFORCE_KNOWLEDGE/` files | Reads task-specific platform guidance before editing. |
-| 6 | `TOOLS/` and `QUALITY_GATES/` | Finds optional validation tools and evidence gates. |
-| 7 | `MEMORY/` and `HISTORY/` | Checks durable lessons and recent work. |
+| 6 | `SALESFORCE_KNOWLEDGE/COMMANDS/`, `PARAMETERS/`, `QUALITY_STRATEGIES/`, and `VALIDATION_FLOWS/` | Chooses command families, options, quality posture, and validation sequence. |
+| 7 | Prompt pack and checklist pack | Uses task-specific behavior controls before editing. |
+| 8 | `TOOLS/`, `QUALITY_GATES/`, and `AUTOMATION/` | Finds optional validation tools, evidence gates, and local wrappers. |
+| 9 | `MEMORY/` and `HISTORY/` | Checks durable lessons and recent work. |
 
 ## Task Workflow
 
@@ -22,13 +24,15 @@ It should not treat this repo as the real Salesforce DX project unless the user 
 flowchart LR
   A[Intake] --> B[Locate Project]
   B --> C[Read Knowledge]
-  C --> D[Check Tooling And Gates]
-  D --> E[Inspect Files]
-  E --> F[Find Root Cause]
-  F --> G[Make Narrow Fix]
-  G --> H[Validate]
-  H --> I[Update Memory and History]
-  I --> J[Report Evidence]
+  C --> D[Read Commands Parameters Strategies Flows]
+  D --> E[Check Prompts And Checklists]
+  E --> F[Check Tooling And Gates]
+  F --> G[Inspect Files]
+  G --> H[Find Root Cause]
+  H --> I[Make Narrow Fix]
+  I --> J[Validate Or Skip With Reason]
+  J --> K[Update Memory and History]
+  K --> L[Report Evidence]
 ```
 
 ## Codex Must
@@ -42,6 +46,7 @@ flowchart LR
 - [ ] Use available quality gates from `TOOLS/`, `QUALITY_GATES/`, `AUTOMATION/`, and `.github/workflows/` when practical.
 - [ ] Report any skipped validation clearly.
 - [ ] Update `MEMORY/` and `HISTORY/` after meaningful work.
+- [ ] Treat external repo intelligence as learning only, not copyable source.
 
 ## Codex Must Not
 
@@ -52,6 +57,7 @@ flowchart LR
 - Vendor optional external reference repos into the public repo.
 - Hide required business behavior behind optional dynamic logic.
 - Claim success without evidence.
+- Claim tests, lint, analyzer, deploy, retrieve, GitHub checks, or runtime checks passed unless the exact check actually ran and passed.
 
 ## Source Authority
 

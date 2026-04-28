@@ -100,6 +100,8 @@ For code changes, also check:
 - `QUALITY_GATES/`
 - `AUTOMATION/`
 
+If public examples or external repo lessons are useful, also read `SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_PATTERN_USAGE_RULES.md`. External intelligence can inform original guidance, but it must not be copied into source, metadata, configs, workflow files, data, or sample names.
+
 ## 4. Inspect Files
 
 Search and read before editing.
@@ -108,6 +110,8 @@ Search and read before editing.
 rg "ErrorTextOrSymbol" <project-root>
 rg --files <project-root>
 ```
+
+Do not edit from memory, prompt text, generated examples, or external repo patterns alone. Verify the current project files first.
 
 | Change type | Inspect |
 | --- | --- |
@@ -144,6 +148,9 @@ Rules:
 - Keep tests aligned to changed behavior.
 - Avoid unrelated formatting.
 - Avoid broad deploy payloads.
+- Do not invent deployable metadata or unverified Salesforce names.
+- Do not over-refactor, broadly reformat, or rewrite unrelated files.
+- Do not copy external repo source, sample metadata, configs, workflow files, data, or sample names.
 
 ## 7. Run Quality Gates
 
@@ -158,7 +165,7 @@ Choose validation based on the change and the tools available in the real projec
 | Visualforce | Controller tests, deploy dry run, PDF behavior checklist if relevant |
 | Docs only | Markdown link check, public-safety scan, path consistency scan |
 
-Do not claim validation succeeded unless a command or inspection supports it. If validation cannot run, explain why.
+Do not claim validation succeeded unless the exact command or check actually ran and passed. If validation cannot run, report it as skipped with the reason. Static inspection is useful evidence, but it is not a substitute for test, lint, analyzer, deploy, retrieve, or runtime pass claims.
 
 Local helper scripts live in `AUTOMATION/`. They are public-safe and should not install packages or change project dependencies.
 
@@ -201,6 +208,8 @@ After meaningful work:
 2. Add chronological task facts to History.
 3. Record deployment or test results in specialized History files when relevant.
 4. Keep private data out of all logs.
+5. Generalize private-derived lessons before recording them.
+6. Record skipped validation gates with exact reasons instead of implying success.
 
 ## 9. Report Result
 

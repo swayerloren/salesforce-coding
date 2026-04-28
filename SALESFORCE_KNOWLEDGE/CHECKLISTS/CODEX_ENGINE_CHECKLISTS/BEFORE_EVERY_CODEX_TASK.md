@@ -15,6 +15,7 @@ Use this checklist before every task in this repo.
 - [ ] Relevant parameter maps in `SALESFORCE_KNOWLEDGE/PARAMETERS/` have been read.
 - [ ] Relevant quality strategy in `SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/` has been read.
 - [ ] Relevant validation flow in `SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/` has been read.
+- [ ] External intelligence rules have been read if public examples or external repo lessons are used.
 - [ ] Relevant `MEMORY/` and `HISTORY/` context has been checked.
 - [ ] The memory/history update plan is known for meaningful work.
 
@@ -30,8 +31,11 @@ Use this checklist before every task in this repo.
 - [ ] The root cause or reason for the change is understood.
 - [ ] The smallest safe fix is clear.
 - [ ] Unrelated files will not be edited.
+- [ ] Broad refactors, unrelated formatting, and generated-file churn are out of scope unless explicitly requested.
 - [ ] Salesforce DX structure will be preserved.
 - [ ] No placeholder deployable Salesforce metadata will be created.
+- [ ] No object, field, metadata, component, permission, record type, org, or path names will be invented.
+- [ ] External repo intelligence will be used as learning only, not copied source, sample metadata, config, data, workflow files, or names.
 - [ ] Validation plan is clear, or validation limits are known.
 - [ ] Available local automation wrappers have been considered before claiming validation is complete.
 - [ ] Skipped validation gates will be reported with exact reasons.
@@ -40,4 +44,6 @@ Use this checklist before every task in this repo.
 
 - [ ] No credentials, tokens, passwords, private keys, private URLs, org IDs, deploy IDs, user emails, customer names, local machine paths, or raw private debug logs will be added.
 - [ ] If private data appears in user-provided output, it will be summarized or generalized before being written to repo files.
+- [ ] Private reference lessons will be generalized before being recorded in public docs, memory, or history.
+- [ ] No external source code, vendored repo content, or copied workflow/config snippets will be added.
 - [ ] Final response will not claim success without evidence.

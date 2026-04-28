@@ -43,9 +43,9 @@ Run commands from the real Salesforce DX project root, not from this helper repo
 | LWC graph analyzer | `npm install --save-dev @salesforce/eslint-plugin-lwc-graph-analyzer` | Advanced, useful for offline/static analyzability checks. |
 | Apex formatter | `npm install --save-dev prettier prettier-plugin-apex` | Optional, useful for formatting checks. |
 
-Salesforce Code Analyzer is commonly used through Salesforce CLI tooling. Check the current upstream docs before installing or upgrading it:
+Salesforce Code Analyzer is commonly used through Salesforce CLI tooling. Check the current official docs before installing or upgrading it:
 
-https://github.com/forcedotcom/code-analyzer
+https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/code-analyzer.html
 
 ## Package Scripts To Prefer
 
@@ -68,21 +68,17 @@ This is an example shape, not a file to copy blindly.
 
 ## Salesforce Code Analyzer
 
-If detected, the helper prints one of these commands:
+Current guidance uses Salesforce Code Analyzer v5 command families:
 
 ```bash
-sf code-analyzer run --target force-app/main/default
+sf code-analyzer rules --rule-selector Recommended --workspace . --target force-app/main/default --view table
 ```
 
 ```bash
-sf scanner run --target force-app/main/default
+sf code-analyzer run --rule-selector Recommended --workspace . --target force-app/main/default --view table
 ```
 
-```bash
-sfdx scanner:run --target force-app/main/default
-```
-
-Use the command that matches the tool actually installed in the real project environment.
+Do not add retired scanner command shapes to new scripts or CI workflows. If a legacy project still uses them, document that as project-specific migration work and prefer current `sf code-analyzer` commands.
 
 ## Codex Usage
 

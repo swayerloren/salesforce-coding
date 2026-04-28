@@ -12,7 +12,19 @@ Use this guide to set up the Salesforce Codex Engine around a real Salesforce DX
 | Salesforce CLI | Recommended | Runs tests, retrieves metadata, validates deployments, and deploys changes. |
 | Real Salesforce DX project | Yes for code work | Provides the actual `force-app/main/default` source Codex will edit. |
 
-## Download
+## Download Release ZIP
+
+Recommended setup:
+
+1. Open the GitHub Releases page for this repo.
+2. Download the latest source ZIP.
+3. Extract the ZIP to a normal working folder.
+4. Open the extracted folder in VS Code.
+5. Make sure `START_HERE.md` is visible at the repo root.
+
+After opening the folder, start Codex with: `Read START_HERE.md first.`
+
+## Clone Option
 
 Clone the repo:
 
@@ -22,7 +34,7 @@ cd salesforce-coding
 code .
 ```
 
-Or download the repository ZIP, extract it, and open the extracted folder in VS Code.
+Use Git when you want to track repo updates through commits instead of downloading release ZIP files.
 
 ## Add Your Salesforce DX Project
 
@@ -62,6 +74,20 @@ Actual Salesforce Project Path:
 ```
 
 Do not put credentials, auth state, access tokens, or private org details in this file.
+
+## First Codex Run
+
+After the repo and real Salesforce DX project are available, Codex should:
+
+1. Read `START_HERE.md`.
+2. Read `INSTRUCTIONS/`.
+3. Confirm the real `force-app/main/default`.
+4. Read `SALESFORCE_KNOWLEDGE/INDEX.md`.
+5. Read task-specific guides, prompts, checklists, command maps, parameter maps, quality strategies, and validation flows.
+6. Inspect current project files before editing.
+7. Make narrow fixes only.
+8. Run or recommend validation and state skipped gates.
+9. Update Memory and History after meaningful work.
 
 ## Verification Checklist
 

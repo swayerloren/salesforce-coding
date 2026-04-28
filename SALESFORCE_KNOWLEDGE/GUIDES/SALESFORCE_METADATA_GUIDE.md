@@ -1,10 +1,18 @@
 # Salesforce Metadata Guide
 
+## High-Risk Topic Links
+
+- [Destructive Deployment Safety](../TOPICS/deployment/destructive-deployment-safety.md)
+- [Sharing, CRUD/FLS, And User Mode Matrix](../TOPICS/security/sharing-crud-fls-user-mode-matrix.md)
+- [Trigger Order Of Execution](../TOPICS/apex/trigger-order-of-execution.md)
+
 ## Core Rule
 
 Codex must inspect existing metadata before editing. Do not invent object API names, field API names, layout names, FlexiPage names, quick action names, permission set names, profile names, record type names, or app/tab names.
 
 Metadata changes are often higher blast radius than code changes because visibility, assignment, activation, and permissions are spread across several files.
+
+Official Metadata API support varies by metadata type and release. Before adding retrieve, deploy, package, or destructive-deploy claims, verify the current metadata type in official docs or the metadata coverage report.
 
 ## Salesforce DX Source Structure
 
@@ -111,6 +119,18 @@ Profiles are high-risk because retrieved profile XML often contains broad unrela
 - document why a permission set is not enough,
 - validate the deployment scope carefully.
 
+Permission changes need a complete access review:
+
+- object permissions,
+- field permissions,
+- Apex class access,
+- tab and app visibility,
+- custom permissions,
+- record type access,
+- external or portal user context when relevant.
+
+Do not add broad profile changes to make a UI visible before checking component metadata, FlexiPage activation, layout placement, and Apex class access.
+
 ## Package Manifest Safety
 
 For deployment or validation work, keep `package.xml` narrow.
@@ -123,7 +143,34 @@ Recommended manifest rules:
 - include Apex tests only as needed by deployment policy,
 - inspect generated manifests before deploy or validate.
 
-Do not deploy wide metadata payloads to “see what happens.”
+Do not deploy wide metadata payloads to "see what happens."
+
+## Destructive Deployment Safety
+
+Deletion metadata must be reviewed separately from feature metadata.
+
+Before any destructive deployment:
+
+- list exact metadata type and full name,
+- inspect source and org references,
+- check dependencies across Apex, LWC, Flow, layouts, FlexiPages, quick actions, permission sets, profiles, reports, dashboards, email templates, and static resources,
+- keep the destructive manifest narrow,
+- run validation-only first,
+- document rollback or restore strategy,
+- get explicit approval before real deletion.
+
+Never use wildcard destructive members. Never delete metadata only because a retrieve did not return it.
+
+## Validation Before Claiming Success
+
+Codex can claim metadata success only with evidence:
+
+- local source structure inspected,
+- linked metadata dependencies checked,
+- validation command run and passed, or skipped with a concrete reason,
+- activation, assignment, form factor, and permissions reviewed when UI visibility is involved.
+
+If no target org or real Salesforce DX project is available, say that only documentation/static review was completed.
 
 ## Static Resources, Email, Reports, And Dashboards
 
@@ -147,3 +194,5 @@ Before adding or editing them:
 - Preserve Salesforce DX source format.
 - Avoid profile churn and broad metadata retrieves.
 - Use Salesforce Code Analyzer and deployment validation when available and appropriate.
+- Keep destructive changes separate from ordinary deploys.
+- Verify official metadata type names before writing package or destructive manifests.

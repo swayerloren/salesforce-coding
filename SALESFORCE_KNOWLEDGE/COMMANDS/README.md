@@ -17,3 +17,5 @@ Commands are not proof by themselves. Codex must verify the real project context
 ## Codex Rule
 
 Prefer existing project scripts over invented commands. Mark uncertain commands as `verify against upstream docs` or `verify against installed help`.
+
+For Salesforce CLI commands, command help availability is preflight evidence only. A help check does not prove tests, deploys, retrieves, or analyzer gates passed.

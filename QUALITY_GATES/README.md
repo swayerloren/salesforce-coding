@@ -6,6 +6,14 @@ Quality gates are evidence-based. Codex should run what is available, skip what 
 
 Use [SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/](../SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/) for the sequence to follow, [SALESFORCE_KNOWLEDGE/COMMANDS/](../SALESFORCE_KNOWLEDGE/COMMANDS/) for command choices, and [SALESFORCE_KNOWLEDGE/PARAMETERS/](../SALESFORCE_KNOWLEDGE/PARAMETERS/) for option meanings.
 
+## Where This Fits In Onboarding
+
+New users start with `START_HERE.md`, not this folder.
+
+Codex reaches `QUALITY_GATES/` after it has located the real Salesforce DX project, inspected the relevant files, and identified the change type. The gates help Codex decide what evidence is appropriate before it says a fix is ready.
+
+If a gate cannot run, Codex should write `SKIPPED` with the reason. Static inspection is useful, but it is not the same as a passed test, lint run, analyzer run, deploy validation, or runtime check.
+
 ## Gate Map
 
 | Gate | Use |

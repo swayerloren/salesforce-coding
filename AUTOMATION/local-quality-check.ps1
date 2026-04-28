@@ -306,6 +306,25 @@ function Test-SfdxCommand {
     }
 }
 
+function Write-SfHelpState {
+    param(
+        [hashtable]$ToolState,
+        [string]$Label,
+        [string[]]$Arguments
+    )
+
+    if (-not $ToolState["sf"]) {
+        Write-Check "SKIPPED" ("{0} help unavailable because sf is missing." -f $Label)
+        return
+    }
+
+    if (Test-SfCommand $Arguments) {
+        Write-Check "FOUND" ("Salesforce CLI help: {0}" -f $Label)
+    } else {
+        Write-Check "MISSING" ("Salesforce CLI help unavailable: {0}" -f $Label)
+    }
+}
+
 function Get-CodeAnalyzerInvocation {
     param($ToolState)
 
@@ -315,24 +334,6 @@ function Get-CodeAnalyzerInvocation {
             Command = "sf"
             Arguments = @("code-analyzer", "run", "--target", "force-app/main/default", "--view", "table")
             Install = "sf plugins install @salesforce/plugin-code-analyzer"
-        }
-    }
-
-    if ($ToolState["sf"] -and (Test-SfCommand @("scanner", "run", "--help"))) {
-        return [pscustomobject]@{
-            Label = "Salesforce Scanner through sf scanner run"
-            Command = "sf"
-            Arguments = @("scanner", "run", "--target", "force-app/main/default")
-            Install = "sf plugins install @salesforce/sfdx-scanner"
-        }
-    }
-
-    if ($ToolState["sfdx"] -and (Test-SfdxCommand @("scanner:run", "--help"))) {
-        return [pscustomobject]@{
-            Label = "Salesforce Scanner through sfdx scanner:run"
-            Command = "sfdx"
-            Arguments = @("scanner:run", "--target", "force-app/main/default")
-            Install = "sfdx plugins:install @salesforce/sfdx-scanner"
         }
     }
 
@@ -396,6 +397,14 @@ foreach ($tool in $tools) {
         Write-Check "MISSING" ("{0} is not installed or not on PATH." -f $tool)
     }
 }
+
+Write-SfHelpState -ToolState $toolState -Label "project deploy start" -Arguments @("project", "deploy", "start", "--help")
+Write-SfHelpState -ToolState $toolState -Label "project deploy validate" -Arguments @("project", "deploy", "validate", "--help")
+Write-SfHelpState -ToolState $toolState -Label "project deploy report" -Arguments @("project", "deploy", "report", "--help")
+Write-SfHelpState -ToolState $toolState -Label "project deploy quick" -Arguments @("project", "deploy", "quick", "--help")
+Write-SfHelpState -ToolState $toolState -Label "project retrieve start" -Arguments @("project", "retrieve", "start", "--help")
+Write-SfHelpState -ToolState $toolState -Label "apex run test" -Arguments @("apex", "run", "test", "--help")
+Write-SfHelpState -ToolState $toolState -Label "code-analyzer run" -Arguments @("code-analyzer", "run", "--help")
 
 if ($toolState["git"]) {
     git -C $repoRoot status --short --branch

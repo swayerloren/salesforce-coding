@@ -2,6 +2,18 @@
 
 Salesforce code should assume bulk data, automation, sharing rules, validation rules, and row locks. Keep synchronous transactions small and move expensive follow-up work to async jobs when it is safe.
 
+## Choose Async Deliberately
+
+| Shape | Use when | Watch for |
+| --- | --- | --- |
+| Queueable | Bounded post-commit work, callouts, chained orchestration. | Enqueue limits, duplicate retries, chaining assumptions. |
+| Batch | Large data volumes that can be scoped independently. | One execute scope in a test method, scope size, partial failures. |
+| Scheduled Apex | Time-based recurring work. | Operational ownership, schedule cleanup, test isolation. |
+| Future | Legacy/simple async paths where project conventions already use it. | Limited parameters, harder orchestration, migration pressure. |
+| Synchronous | Required same-transaction validation or mutation. | CPU, DML, SOQL, and callout-after-DML limits. |
+
+Exact limits are release-sensitive. Verify current official docs before adding numeric claims.
+
 ## Chunked DML
 
 ```apex
@@ -66,3 +78,8 @@ File operations can collide on `ContentVersion`, `ContentDocument`, and parent r
 - Dedupe parent updates.
 - Treat row lock errors as retriable when the operation is idempotent.
 
+## Idempotency
+
+Async work that sends messages, creates files, posts to Chatter, logs activities, or calls external systems needs a durable duplicate-prevention strategy. Use a source record, external identifier, status field, or processing log that survives retries.
+
+Do not enqueue one job per trigger record when one job can process the coherent parent set.

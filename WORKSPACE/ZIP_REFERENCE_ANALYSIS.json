@@ -1,0 +1,318 @@
+{
+  "generated_at": "2026-04-28",
+  "scope": "Safe reference-only inspection of local zip archives. No archive source code, generated reports, screenshots, metadata XML, package files, or README prose is copied into permanent repo files.",
+  "temporary_extraction_folder": "WORKSPACE/_zip_analysis_tmp/",
+  "temporary_folder_policy": "Remove after validation because the current ignore rules do not ignore this folder.",
+  "summary": {
+    "zips_listed": 9,
+    "zips_extracted": 9,
+    "zips_skipped": 0,
+    "recommended_ignore_count": 5,
+    "recommended_low_count": 2,
+    "recommended_medium_count": 2,
+    "recommended_high_count": 0
+  },
+  "zip_reports": [
+    {
+      "zip_name": "awesome-salesforce-master.zip",
+      "extract_status": "extracted",
+      "main_technology": "Curated Markdown/link directory",
+      "salesforce_relevance": "Indirect ecosystem reference",
+      "useful_patterns": [
+        "Categorize external Salesforce references by topic.",
+        "Use contribution and issue templates for public reference maintenance.",
+        "Automate link checking for curated resource pages."
+      ],
+      "anti_patterns": [
+        "Old CI stack should not be copied.",
+        "Curated link lists become stale without recency checks.",
+        "Image-heavy reference repos add little coding value."
+      ],
+      "what_our_repo_should_learn": [
+        "Keep external reference maps curated, categorized, and periodically checked.",
+        "Treat link lists as navigation aids, not technical authority."
+      ],
+      "what_should_not_be_copied": [
+        "Link lists wholesale",
+        "Logos or screenshots",
+        "Category prose",
+        "Old CI config"
+      ],
+      "recommended_integration_priority": "low",
+      "ignore_recommendation": "Do not use for implementation guidance."
+    },
+    {
+      "zip_name": "Hotel-Booking-Project-using-SalesForce-master.zip",
+      "extract_status": "extracted",
+      "main_technology": "Salesforce DX source-format metadata sample",
+      "salesforce_relevance": "Direct metadata structure reference",
+      "useful_patterns": [
+        "Standard force-app/main/default metadata shape.",
+        "Object-scoped fields, validation rules, record types, layouts, reports, dashboards, sharing rules, FlexiPages, and triggers are represented as related deployment surfaces.",
+        "Package scripts can document lint, unit test, formatting, and precommit expectations.",
+        "Reports and dashboards require folder and dependency awareness."
+      ],
+      "anti_patterns": [
+        "Trigger source appears without visible matching Apex test strategy.",
+        "Developer onboarding documentation is shallow.",
+        "Some automation concepts may be dated and require current Salesforce verification.",
+        "Generated metadata names are not good public examples."
+      ],
+      "what_our_repo_should_learn": [
+        "Improve metadata dependency guidance for reports, dashboards, folders, sharing, fields, layouts, and FlexiPages.",
+        "Require test strategy notes whenever trigger metadata is present.",
+        "Use source structure as a pattern, not business object models."
+      ],
+      "what_should_not_be_copied": [
+        "Object model",
+        "Metadata XML",
+        "Report or dashboard names",
+        "Business workflow",
+        "Trigger source",
+        "Package files",
+        "README prose"
+      ],
+      "recommended_integration_priority": "medium",
+      "ignore_recommendation": "Use only for source-format and dependency-mapping lessons."
+    },
+    {
+      "zip_name": "SalesForce_WebViewTest-master.zip",
+      "extract_status": "extracted",
+      "main_technology": "iOS Swift WebView UI test sample",
+      "salesforce_relevance": "Low; mobile auth and container testing reference only",
+      "useful_patterns": [
+        "Native mobile UI tests can validate login and WebView behavior outside desktop browsers.",
+        "Authentication and WebView state should be tested in the real container where relevant."
+      ],
+      "anti_patterns": [
+        "Minimal documentation.",
+        "No Salesforce DX metadata or platform code.",
+        "External tutorial-style sample should not become normative guidance without current verification."
+      ],
+      "what_our_repo_should_learn": [
+        "Mobile/WebView guidance should require runtime verification beyond desktop browser checks."
+      ],
+      "what_should_not_be_copied": [
+        "Swift project files",
+        "App configuration",
+        "Storyboard files",
+        "Tutorial text",
+        "WebView implementation"
+      ],
+      "recommended_integration_priority": "ignore / low",
+      "ignore_recommendation": "Ignore unless a future mobile WebView testing note needs a conceptual reference."
+    },
+    {
+      "zip_name": "SalesForceAutomationFrameWork-main.zip",
+      "extract_status": "extracted",
+      "main_technology": "Java Selenium/TestNG Maven automation",
+      "salesforce_relevance": "Indirect UI automation reference",
+      "useful_patterns": [
+        "Browser automation can produce structured execution evidence.",
+        "TestNG suites can represent browser or environment matrix execution.",
+        "Separating utility, base, and test layers is a useful UI-testing concept."
+      ],
+      "anti_patterns": [
+        "Generated screenshots and HTML reports are committed.",
+        "Duplicate build-output folders are present.",
+        "No README was found.",
+        "Config files and automation samples create credential-like risk surfaces.",
+        "Older generic UI automation stack should not be treated as Salesforce platform best practice."
+      ],
+      "what_our_repo_should_learn": [
+        "Generated UI automation evidence must stay out of public source.",
+        "Public safety checks should include reports, screenshots, logs, and test config files."
+      ],
+      "what_should_not_be_copied": [
+        "Java source",
+        "Test data or config files",
+        "Screenshots",
+        "Generated reports",
+        "Logs",
+        "Maven config",
+        "Suite XML"
+      ],
+      "recommended_integration_priority": "ignore / low",
+      "ignore_recommendation": "Use only as an anti-pattern and hygiene reference."
+    },
+    {
+      "zip_name": "salesforce-commerce-cloud-libraries-master.zip",
+      "extract_status": "extracted",
+      "main_technology": "Commerce Cloud JavaScript cartridge libraries",
+      "salesforce_relevance": "Low for core Salesforce Platform; relevant only to Commerce Cloud-specific work",
+      "useful_patterns": [
+        "Platform-specific mocks can support tests outside the hosted runtime.",
+        "CI should run install, test, and lint.",
+        "Large JavaScript packages need license and attribution boundaries."
+      ],
+      "anti_patterns": [
+        "Large vendored third-party library trees are inappropriate for this knowledge repo.",
+        "Old Node and workflow action versions should not be copied.",
+        "Commerce Cloud structure can confuse core Apex, LWC, and metadata guidance.",
+        "Library-specific docs and snapshots are mostly noise for this repo."
+      ],
+      "what_our_repo_should_learn": [
+        "Keep Commerce Cloud references separate from core Salesforce DX guidance.",
+        "Use platform mocks as a testing concept, not copied implementation."
+      ],
+      "what_should_not_be_copied": [
+        "Vendored libraries",
+        "Cartridges",
+        "Package files",
+        "Mocks",
+        "Tests",
+        "Workflow YAML",
+        "Generated docs",
+        "Library prose"
+      ],
+      "recommended_integration_priority": "ignore unless Commerce Cloud scope is added",
+      "ignore_recommendation": "Ignore for current core Salesforce coding knowledge."
+    },
+    {
+      "zip_name": "SalesForce-Testng-frameWork-master.zip",
+      "extract_status": "extracted",
+      "main_technology": "Java Selenium/TestNG Maven framework",
+      "salesforce_relevance": "Indirect and low",
+      "useful_patterns": [
+        "UI automation can capture report and screenshot evidence when kept outside source control.",
+        "Suite XML and Maven dependencies show a common browser automation stack."
+      ],
+      "anti_patterns": [
+        "Generated logs, reports, screenshots, and test-output files are committed.",
+        "No README was found.",
+        "Credential-like and test-data risk surfaces appear in automation artifacts.",
+        "UI tests appear tightly coupled to generated output and local state."
+      ],
+      "what_our_repo_should_learn": [
+        "Never publish generated browser-test output, logs, screenshots, or data files.",
+        "Treat Selenium samples as optional evidence tools, not Salesforce coding patterns."
+      ],
+      "what_should_not_be_copied": [
+        "Java source",
+        "Generated reports",
+        "Logs",
+        "Screenshots",
+        "Test output",
+        "Data files",
+        "Maven config",
+        "Suite XML"
+      ],
+      "recommended_integration_priority": "ignore / low",
+      "ignore_recommendation": "Use only as an anti-pattern and hygiene reference."
+    },
+    {
+      "zip_name": "SalesForce-master.zip",
+      "extract_status": "extracted",
+      "main_technology": "Minimal Salesforce DX/LWC quickstart projects",
+      "salesforce_relevance": "Direct but shallow",
+      "useful_patterns": [
+        "Minimal SFDX project layout can help new-user orientation.",
+        "Scratch definition plus project config demonstrate minimum Salesforce DX project metadata.",
+        "Small separate example projects can be easier to compare than large samples."
+      ],
+      "anti_patterns": [
+        "Generated local Salesforce state appears in the archive.",
+        "README content is skeletal.",
+        "No meaningful test, lint, deployment, or metadata quality strategy is visible."
+      ],
+      "what_our_repo_should_learn": [
+        "Reinforce ignore rules for local Salesforce state.",
+        "Quickstart examples need validation commands and quality expectations, not only folder shape."
+      ],
+      "what_should_not_be_copied": [
+        "Generated local state",
+        "TypeScript declaration files",
+        "Scratch config",
+        "README stubs",
+        "Project files"
+      ],
+      "recommended_integration_priority": "low / medium",
+      "ignore_recommendation": "Use only for minimal project-shape lessons."
+    },
+    {
+      "zip_name": "Selenium.TestNG_FrameWork.SalesForceApplication-main.zip",
+      "extract_status": "extracted",
+      "main_technology": "Small Java Selenium/TestNG sample",
+      "salesforce_relevance": "Very low",
+      "useful_patterns": [
+        "Data-driven UI testing is a concept worth documenting only when sanitized and separated from source."
+      ],
+      "anti_patterns": [
+        "Spreadsheet test data is bundled with source.",
+        "No README, setup guide, or quality contract.",
+        "No Salesforce DX metadata or platform code.",
+        "Credential-like and local automation risk surfaces are possible in browser automation samples."
+      ],
+      "what_our_repo_should_learn": [
+        "Do not treat spreadsheet-driven UI samples as Salesforce development guidance.",
+        "Keep test data and credentials out of public examples."
+      ],
+      "what_should_not_be_copied": [
+        "Java source",
+        "Spreadsheet data",
+        "Suite XML",
+        "Browser automation logic",
+        "Hardcoded test data"
+      ],
+      "recommended_integration_priority": "ignore",
+      "ignore_recommendation": "Ignore."
+    },
+    {
+      "zip_name": "salesforce-docs-master.zip",
+      "extract_status": "extracted",
+      "main_technology": "Markdown Salesforce standards documentation",
+      "salesforce_relevance": "Medium to high for documentation taxonomy and governance patterns",
+      "useful_patterns": [
+        "Separate standards pages by topic such as bulkification, triggers, testing, security, sharing, deployment, logging, naming, tooling, and source control.",
+        "Include contribution, changelog, install, terms, and open-source checklist documents.",
+        "Use documentation-site structure when the target is a public docs site.",
+        "Treat architecture, release management, and quality standards as first-class documentation."
+      ],
+      "anti_patterns": [
+        "Organization-specific governance and role language should not be copied.",
+        "Screenshots and diagrams can age quickly or carry context that is not reusable.",
+        "Older standards docs need current Salesforce verification before reuse."
+      ],
+      "what_our_repo_should_learn": [
+        "Strengthen taxonomy around governance, source control, testing, logging, deployment, and security.",
+        "Keep public docs governance separate from implementation examples.",
+        "Rewrite open-source release and contribution checklist concepts for this repo."
+      ],
+      "what_should_not_be_copied": [
+        "Organization-specific text",
+        "Screenshots",
+        "Diagrams",
+        "Page prose",
+        "Governance names",
+        "Standards wording"
+      ],
+      "recommended_integration_priority": "medium",
+      "ignore_recommendation": "Use for documentation structure only; verify technical claims elsewhere."
+    }
+  ],
+  "best_patterns_found": [
+    "Use a standard Salesforce DX source tree as the center of deployable metadata examples.",
+    "Pair metadata examples with dependency checks across object, field, layout, FlexiPage, report, dashboard, sharing, and trigger surfaces.",
+    "Require documented commands or package scripts for linting, unit tests, formatting, and validation.",
+    "Keep external reference maps curated, categorized, and link-checked.",
+    "Treat UI automation reports, screenshots, logs, and data files as generated artifacts, not source.",
+    "Keep browser/mobile/WebView testing guidance separate from Apex/LWC unit and metadata deployment guidance.",
+    "Use platform mocks as a testing concept only when relevant.",
+    "Separate documentation governance from implementation examples.",
+    "Verify older CI, Node, Java, Selenium, and Salesforce automation patterns before recommending them.",
+    "Do not vendor public example repos, third-party libraries, generated files, or screenshots into a knowledge repo."
+  ],
+  "worst_anti_patterns_found": [
+    "Committed generated reports, screenshots, logs, and test-output directories.",
+    "Generated local Salesforce state committed in example projects.",
+    "Automation config and data files with credential-like risk surfaces.",
+    "Selenium/TestNG samples without README, setup contract, or security hygiene.",
+    "Metadata samples with trigger code but no visible matching Apex test strategy.",
+    "Large vendored third-party library trees in a reference archive.",
+    "Old CI stacks and dependency versions that should not be copied.",
+    "Product-specific README prose used instead of developer onboarding docs.",
+    "Organization-specific governance docs that need rewriting before public reuse.",
+    "Shallow quickstart repos that show folder shape but not validation or quality gates."
+  ],
+  "recommended_next_prompt": "Using WORKSPACE/ZIP_REFERENCE_ANALYSIS.md and WORKSPACE/ZIP_REFERENCE_ANALYSIS.json, draft public-safe WORKSPACE-only proposed updates for repo hygiene, metadata dependency guidance, UI automation artifact policy, and external reference handling. Do not modify SALESFORCE_KNOWLEDGE yet, do not commit, and do not push."
+}

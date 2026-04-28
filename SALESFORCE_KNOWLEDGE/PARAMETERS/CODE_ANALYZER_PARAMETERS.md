@@ -1,6 +1,12 @@
 # Code Analyzer Parameters
 
-Source reference: https://github.com/forcedotcom/code-analyzer
+Official source references:
+
+- https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/code-analyzer.html
+- https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/analyze.html
+- https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/rules.html
+
+Implementation source reference: https://github.com/forcedotcom/code-analyzer
 
 Verify these options against the installed Salesforce CLI and Code Analyzer help before execution.
 
@@ -14,9 +20,14 @@ Verify these options against the installed Salesforce CLI and Code Analyzer help
 | `--view detail` | Detailed findings. | Use for triage. |
 | `--output-file` | Writes results to file. | Use JSON/SARIF/CSV/HTML/XML only outside metadata source. |
 | `--severity-threshold` | Fails command at or above severity. | Use in CI/release gates when policy is defined. |
-| `--include-fixes` | Includes fix data when available. | Review manually; do not auto-apply blindly. |
-| `--include-suggestions` | Includes suggestion data. | Treat as triage hints. |
-| `--no-suppressions` | Ignores suppression markers. | Useful for strict review. |
+
+## V5 Alignment Rules
+
+- Prefer `sf code-analyzer ...` command families for current guidance.
+- Do not add retired Salesforce Scanner command shapes to new guidance.
+- Check `sf code-analyzer run --help` before using mutating CI scripts or strict thresholds.
+- Record selected engine/rule behavior only after confirming it exists in the installed plugin.
+- Do not copy upstream rule messages or source code into this repo.
 
 ## Result Logging
 

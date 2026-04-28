@@ -367,3 +367,69 @@ Update this file after every meaningful Codex task, especially when Codex:
 - Validation: Markdown link check passed across 234 Markdown files; public local-only path and temporary-folder scan passed across 233 files; credential/token/private-key/session/org-ID scan passed across 273 files; no external source repo trees were copied; no copied `.git` folders or `node_modules` directories were found; `git diff --check` passed.
 - Result: `v1.3.0` selected for the external Salesforce tooling intelligence integration because it is a significant backward-compatible knowledge and validation improvement.
 - Assumptions or limits: The GitHub Release page is not created during this task.
+
+## 2026-04-28 - Implement Batch 1 P0 Salesforce Technical Gaps
+
+- Date: 2026-04-28
+- User request: Implement Batch 1 P0 Salesforce technical knowledge gaps using local reference lessons and official Salesforce sources, without copying private data, long official text, or external repo code; update Memory and History; create `WORKSPACE/BATCH_1_P0_TECHNICAL_GAPS_REPORT.md`; do not commit or push.
+- Files inspected: `WORKSPACE/MASTER_KNOWLEDGE_GAP_MATRIX.md`, `WORKSPACE/IMPROVEMENT_BATCH_PLAN.md`, `WORKSPACE/LOCAL_REFERENCE_KNOWLEDGE_EXTRACTION.md`, `WORKSPACE/OFFICIAL_SALESFORCE_SOURCE_REGISTRY.md`, current Apex/testing/metadata/platform/files/deployment/debugging/tooling/quality docs, Memory, and History.
+- Knowledge docs read: Apex guide, testing guide, metadata guide, platform limitations guide, Files guide, deployment guide, debugging guide, Apex quality strategy, Apex and metadata validation flows, Apex command map, Code Analyzer parameters, Code Analyzer tool and gate docs, public sanitization policy.
+- Files changed: Added Batch 1 topic/checklist docs for security, trigger order of execution, Files lifecycle, destructive deployment, debug-log triage, compound address fields, communication automation, and before-communication automation. Updated Apex, testing, metadata, platform limitations, Files, deployment, debugging, common failures, Apex quality, validation flows, Apex command map, Code Analyzer docs, public sanitization, Apex/deployment checklists, selected Apex/file/address/metadata patterns, and the knowledge index. Created `WORKSPACE/BATCH_1_P0_TECHNICAL_GAPS_REPORT.md`.
+- Validation: Markdown link check passed across 252 Markdown files. Public-safety scan passed across 34 changed/new public docs and the report with 0 email-like values, local absolute paths, org ID-shaped values, session markers, authorization-header markers, private key blocks, or secret assignments. External-source scan found no copied source code. `git diff --check` was skipped because this downloaded folder has no Git repository metadata.
+- Result: Batch 1 P0 gaps are implemented as public-safe generic knowledge.
+- Assumptions or limits: No real Salesforce DX project was present or validated. Exact Salesforce CLI flags and numeric governor limits still need verification against installed help/current official docs before task-specific use.
+
+## 2026-04-28 - Implement Batch 2 LWC Mobile Files Visualforce Gaps
+
+- Date: 2026-04-28
+- User request: Implement Batch 2 Salesforce knowledge improvements for LWC, mobile, Salesforce Files, Visualforce, and PDF guidance using local public-safe lessons and official Salesforce sources; create `WORKSPACE/BATCH_2_LWC_MOBILE_FILES_VF_REPORT.md`; update Memory and History; do not commit or push.
+- Files inspected: `WORKSPACE/MASTER_KNOWLEDGE_GAP_MATRIX.md`, `WORKSPACE/IMPROVEMENT_BATCH_PLAN.md`, `WORKSPACE/LOCAL_REFERENCE_KNOWLEDGE_EXTRACTION.md`, `WORKSPACE/OFFICIAL_SALESFORCE_SOURCE_REGISTRY.md`, LWC/mobile/Files/Visualforce guides, LWC and mobile quality strategies, LWC validation flow, LWC/Files/mobile prompt pack files, focused LWC/mobile/Files/Visualforce topics, checklists, Memory, and History.
+- Knowledge docs read: Current LWC, mobile, Files, Visualforce, record-page, metadata-action, common-failure, and Files lifecycle docs.
+- Files changed: Added focused topic docs for LWC wire/imperative/cache rules, dynamic record fields, photo capture/annotation/viewer patterns, mobile camera/file handoff, Experience Cloud portal file access, and quick action visibility. Updated LWC, mobile, Files, Visualforce, record-page, common failures, topic maps, LWC/mobile quality strategies, LWC validation flow, LWC/Files/mobile prompt pack files, LWC/mobile checklists, Memory, History, and `WORKSPACE/BATCH_2_LWC_MOBILE_FILES_VF_REPORT.md`.
+- Validation: Markdown link check passed across 259 Markdown files. Public-safety scan passed across Batch 2 changed/new docs and the report. External-source scan found no copied source code. `git diff --check` was skipped because this downloaded folder has no Git repository metadata.
+- Result: Batch 2 LWC/mobile/Files/Visualforce gaps are implemented as public-safe generic knowledge.
+- Assumptions or limits: No real Salesforce DX project, Salesforce org, or mobile device runtime was present, so project-specific LWC Jest, ESLint, Apex tests, deploy validation, mobile file preview, camera, and Visualforce PDF runtime behavior remain to be validated in a real project.
+
+## 2026-04-28 - Implement Batch 3 Deployment Debug CLI Gaps
+
+- Date: 2026-04-28
+- User request: Implement Batch 3 deployment, debugging, Salesforce CLI, destructive deployment, debug logs, and validation-flow guidance using original public-safe content; update Memory and History; create `WORKSPACE/BATCH_3_DEPLOYMENT_DEBUG_CLI_REPORT.md`; do not commit or push.
+- Files inspected: `WORKSPACE/MASTER_KNOWLEDGE_GAP_MATRIX.md`, `WORKSPACE/IMPROVEMENT_BATCH_PLAN.md`, `WORKSPACE/LOCAL_REFERENCE_KNOWLEDGE_EXTRACTION.md`, `WORKSPACE/OFFICIAL_SALESFORCE_SOURCE_REGISTRY.md`, deployment/debugging guides, CLI command maps, deployment quality strategy, deployment and release validation flows, release gate, Code Analyzer docs, deployment topics, deployment checklists, prompt pack deployment prompt, automation scripts, Memory, and History.
+- Knowledge docs read: Current Salesforce deployment, debugging, common failures, destructive deployment, narrow deploy, test selection, debug-log triage, Code Analyzer, release gate, and local automation docs.
+- Files changed: Updated deployment/debugging/common-failure guides, Salesforce CLI and GitHub Actions command maps, CLI reference, local automation and Code Analyzer parameters, deployment quality strategy, deployment and release validation flows, release gate, deployment topics, debug-log triage, deployment checklists, deployment prompt, Code Analyzer/tooling docs, local automation scripts, Memory, History, and `WORKSPACE/BATCH_3_DEPLOYMENT_DEBUG_CLI_REPORT.md`.
+- Validation: Markdown link check passed across 260 Markdown files. Public-safety scan passed across Batch 3 changed/new docs and scripts. PowerShell parse check passed for `AUTOMATION/local-quality-check.ps1`. Bash parse check was skipped because Bash was not available in this PowerShell environment. External-source marker scan found no copied source code. `git diff --check` was skipped because this downloaded folder has no Git repository metadata.
+- Result: Batch 3 deployment/debugging/CLI gaps are implemented as public-safe generic knowledge.
+- Assumptions or limits: Installed Salesforce CLI help was inspected for command shape, but no deploy, retrieve, Apex test, quick deploy, debug-log collection, or Code Analyzer run against a real Salesforce DX project was performed.
+
+## 2026-04-28 - Implement Batch 4 Prompt Checklist Codex Rules
+
+- Date: 2026-04-28
+- User request: Implement Batch 4 by strengthening Codex prompt pack, checklists, and behavior controls; create `WORKSPACE/BATCH_4_PROMPTS_CHECKLISTS_CODEX_RULES_REPORT.md`; update Memory and History; do not commit or push.
+- Files inspected: `WORKSPACE/MASTER_KNOWLEDGE_GAP_MATRIX.md`, `WORKSPACE/IMPROVEMENT_BATCH_PLAN.md`, `WORKSPACE/EXTERNAL_REPO_INTELLIGENCE_STRATEGY.md`, `WORKSPACE/LOCAL_REFERENCE_KNOWLEDGE_EXTRACTION.md`, prompt pack files, Codex engine checklists, instruction files, Memory, and History.
+- Knowledge docs read: Current prompt pack, checklist pack, Codex rules, development workflow, memory/history rules, output format rules, and Batch 4 planning inputs.
+- Files changed: Prompt pack files `01` through `10`, Codex engine checklists, `INSTRUCTIONS/CODEX_RULES.md`, `INSTRUCTIONS/DEVELOPMENT_WORKFLOW.md`, `INSTRUCTIONS/MEMORY_AND_HISTORY_RULES.md`, `INSTRUCTIONS/OUTPUT_FORMAT_RULES.md`, `MEMORY/PROJECT_MEMORY.md`, `HISTORY/CODEX_RUN_LOG.md`, `HISTORY/CHANGE_ARCHIVE.md`, and `WORKSPACE/BATCH_4_PROMPTS_CHECKLISTS_CODEX_RULES_REPORT.md`.
+- Validation: Markdown link check passed across 261 Markdown files. Public-safety scan passed across 25 changed/new files. No copied external source-code markers were found. `git diff --check` was skipped because this downloaded workspace has no `.git` directory.
+- Result: Batch 4 behavior controls added for required startup, real project discovery, source inspection, no guessed names, no invented metadata, no unrelated edits, external intelligence as learning-only, public safety, Memory/History updates, and no success claims without exact evidence.
+- Assumptions or limits: This was a documentation and behavior-control batch only; no real Salesforce DX project was present or validated.
+
+## 2026-04-28 - Implement Batch 5 User Onboarding Polish
+
+- Date: 2026-04-28
+- User request: Implement Batch 5 by polishing README, START_HERE, Force App Directory, tooling/quality/automation docs, Salesforce knowledge index, wiki drafts, and release docs so a new user knows exactly what to do; create `WORKSPACE/BATCH_5_USER_ONBOARDING_POLISH_REPORT.md`; update Memory and History; do not commit or push.
+- Files inspected: Batch 1-4 reports, master gap matrix, improvement batch plan, root README, start guide, Force App Directory README, tooling/quality/automation READMEs, Salesforce knowledge index, wiki drafts, release docs, Memory, and History.
+- Knowledge docs read: Batch 1-4 reports and current onboarding/navigation docs.
+- Files changed: `README.md`, `START_HERE.md`, `FORCE_APP_DIRECTORY/README.md`, `TOOLS/README.md`, `QUALITY_GATES/README.md`, `AUTOMATION/README.md`, `SALESFORCE_KNOWLEDGE/INDEX.md`, selected wiki drafts, release docs, `MEMORY/PROJECT_MEMORY.md`, `HISTORY/CODEX_RUN_LOG.md`, `HISTORY/CHANGE_ARCHIVE.md`, and `WORKSPACE/BATCH_5_USER_ONBOARDING_POLISH_REPORT.md`.
+- Validation: Markdown link check passed across 262 Markdown files. Public-safety scan passed across 19 changed/new files. No copied external source-code markers were found. `git diff --check` was skipped because this downloaded workspace has no `.git` directory.
+- Result: New-user onboarding now consistently explains release ZIP download, extraction, VS Code/Codex startup, real Salesforce DX project placement or reference, `START_HERE.md` reading, knowledge/command/parameter/strategy/flow/prompt/checklist routing, narrow fixes, validation, and Memory/History updates.
+- Assumptions or limits: This was documentation polish only; no real Salesforce DX project was present or validated.
+
+## 2026-04-28 - Final Knowledge Improvement Audit
+
+- Date: 2026-04-28
+- User request: Perform final audit after all local reference, zip reference, and official Salesforce docs improvement batches; review changed files; create final readiness Markdown and JSON reports; update Memory and History; do not commit or push.
+- Files inspected: Root repo structure, `FORCE_APP_DIRECTORY/`, `WORKSPACE/` reports and JSON files, root onboarding/release docs, Salesforce knowledge folders, command maps, parameter maps, quality strategies, validation flows, prompts, checklists, automation scripts, wiki drafts, Memory, and History.
+- Knowledge docs read: Batch 1 through Batch 5 reports, master gap matrix, improvement batch plan, current public entry points, and validation outputs.
+- Files changed: `WORKSPACE/FINAL_KNOWLEDGE_IMPROVEMENT_AUDIT.md`, `WORKSPACE/FINAL_KNOWLEDGE_IMPROVEMENT_AUDIT.json`, `MEMORY/PROJECT_MEMORY.md`, `HISTORY/CODEX_RUN_LOG.md`, and `HISTORY/CHANGE_ARCHIVE.md`.
+- Validation: Markdown link check passed across 263 Markdown files; workspace JSON parse passed across 10 JSON files; credential/token/private-key/org-ID scan passed across 298 text files; public docs local-path/private-data scan passed across 239 files outside `WORKSPACE/`; PowerShell syntax check passed across 3 scripts; Bash syntax check skipped because Bash is unavailable; no leftover `node_modules`, copied `.git`, optional external clone folders, zip temp folders, or zip files found; `git diff --check` skipped because no `.git` directory exists.
+- Result: Content is ready for owner review and commit from a real git checkout. Recommended version is `v1.4.0`.
+- Assumptions or limits: This downloaded workspace cannot commit because it has no `.git` directory; no real Salesforce DX project was present, so project-specific Salesforce validation was not run.

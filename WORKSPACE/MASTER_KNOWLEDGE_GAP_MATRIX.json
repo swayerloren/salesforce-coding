@@ -1,0 +1,720 @@
+{
+  "generated": "2026-04-28",
+  "scope": "Master matrix comparing current repo knowledge, local private-reference lessons, zip-reference lessons, and official Salesforce documentation research.",
+  "source_inputs": [
+    "WORKSPACE/LOCAL_REFERENCE_KNOWLEDGE_EXTRACTION.md",
+    "WORKSPACE/ZIP_REFERENCE_ANALYSIS.md",
+    "WORKSPACE/OFFICIAL_SALESFORCE_SOURCE_REGISTRY.md",
+    "WORKSPACE/OFFICIAL_SALESFORCE_DOC_GAP_ANALYSIS.md",
+    "SALESFORCE_KNOWLEDGE/INDEX.md"
+  ],
+  "public_safety": {
+    "private_details_copied": false,
+    "source_code_copied_from_zips": false,
+    "official_long_text_copied": false,
+    "paths_are_repo_relative": true
+  },
+  "coverage_scale": {
+    "none": 0,
+    "weak": 1,
+    "medium": 2,
+    "strong": 3
+  },
+  "overall_current_repo_coverage_score": {
+    "points": 77,
+    "max_points": 120,
+    "percent": 64,
+    "label": "medium overall with several high-risk weak spots",
+    "method": "Forty topics scored with none=0, weak=1, medium=2, strong=3 based on existing repo index, file inventory, term coverage, and prior gap reports."
+  },
+  "priority_counts": {
+    "P0": 14,
+    "P1": 16,
+    "P2": 9,
+    "P3": 1
+  },
+  "topics": [
+    {
+      "topic": "Apex classes",
+      "current_repo_coverage_level": "strong",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Broad Apex guidance exists, but service/controller examples can still miss newer security, idempotency, and callout-boundary expectations.",
+      "recommended_improvement": "Add a concise Apex class decision matrix for service, controller, selector, integration, and async boundaries, with security posture called out.",
+      "files_to_create": [],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/good_patterns/apex-service-controller-trigger.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/anti_patterns/apex-anti-patterns.md"
+      ],
+      "priority": "P1"
+    },
+    {
+      "topic": "Apex triggers",
+      "current_repo_coverage_level": "medium",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Codex may fix trigger symptoms without checking order of execution, Flow interactions, recursion scope, delete/undelete behavior, or bulk safety.",
+      "recommended_improvement": "Create official-backed trigger guidance for handler shape, changed-field checks, recursion guards, order of execution, Flow interactions, and bulk tests.",
+      "files_to_create": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/apex/trigger-order-of-execution.md"
+      ],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/good_patterns/apex-service-controller-trigger.md",
+        "SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/FIX_APEX_FLOW.md"
+      ],
+      "priority": "P0"
+    },
+    {
+      "topic": "Apex tests",
+      "current_repo_coverage_level": "medium",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Deploys may pass local smoke tests but fail coverage, branch, permission, async, file, or communication-automation behavior in validation.",
+      "recommended_improvement": "Expand tests guidance for deploy-bound selected tests, async flushing, file tests, permission context, communication automation, and assertion quality.",
+      "files_to_create": [],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_TESTING_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/testing/apex-test-patterns.md",
+        "SALESFORCE_KNOWLEDGE/PROMPTS/deployable-test-classes.md"
+      ],
+      "priority": "P0"
+    },
+    {
+      "topic": "Async Apex",
+      "current_repo_coverage_level": "medium",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Queueable, batch, scheduled, and future work may be chosen by habit instead of transaction, limits, retry, and observability needs.",
+      "recommended_improvement": "Add a selection table for future, queueable, batch, scheduled, platform-event, and direct synchronous paths, including test and idempotency rules.",
+      "files_to_create": [],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/apex/async-dml-patterns.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_TESTING_GUIDE.md"
+      ],
+      "priority": "P1"
+    },
+    {
+      "topic": "SOQL/SOSL",
+      "current_repo_coverage_level": "medium",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Dynamic query work can produce injection risks, field-permission gaps, relationship null bugs, or limit failures.",
+      "recommended_improvement": "Strengthen dynamic SOQL/SOSL guidance around bind values, field allowlists, relationship fields, query plans, security, and limit-aware tests.",
+      "files_to_create": [],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/apex/dynamic-soql-safety.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/anti_patterns/apex-anti-patterns.md"
+      ],
+      "priority": "P1"
+    },
+    {
+      "topic": "security/sharing/FLS/CRUD",
+      "current_repo_coverage_level": "weak",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "User-facing Apex or LWC may appear correct while bypassing object access, field access, record sharing, or user-mode expectations.",
+      "recommended_improvement": "Create a security matrix separating sharing keywords, CRUD/FLS, user mode, system mode, strip-inaccessible behavior, LDS/UI API, and exposed Apex.",
+      "files_to_create": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/security/sharing-crud-fls-user-mode-matrix.md"
+      ],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_PLATFORM_LIMITATIONS.md",
+        "SALESFORCE_KNOWLEDGE/CHECKLISTS/production-safety.md"
+      ],
+      "priority": "P0"
+    },
+    {
+      "topic": "LWC basics",
+      "current_repo_coverage_level": "strong",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Basic component guidance is solid, but can drift unless cross-linked to official component metadata and template rules.",
+      "recommended_improvement": "Keep existing basics, add small official-source cross-links, and ensure new advanced LWC pages do not duplicate base guidance.",
+      "files_to_create": [],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_LWC_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/lwc/template-rules.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/good_patterns/lwc-patterns.md"
+      ],
+      "priority": "P2"
+    },
+    {
+      "topic": "LWC advanced patterns",
+      "current_repo_coverage_level": "medium",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": false,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Components may misuse wire data, imperative Apex, cache invalidation, dynamic fields, navigation, toasts, and refresh behavior.",
+      "recommended_improvement": "Add decision tables for LDS/UI API versus wire Apex versus imperative Apex, plus dynamic-field and cache-refresh rules.",
+      "files_to_create": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/lwc/dynamic-record-fields.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/lwc/wire-imperative-cache-rules.md"
+      ],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_LWC_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/lwc/navigation-toast-refresh.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/good_patterns/lwc-patterns.md"
+      ],
+      "priority": "P1"
+    },
+    {
+      "topic": "LWC mobile",
+      "current_repo_coverage_level": "medium",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Desktop-responsive fixes may fail in the Salesforce mobile app for camera, file preview, overlays, navigation, action placement, and webview timing.",
+      "recommended_improvement": "Expand mobile runtime rules for real-device proof, action placement, camera lifecycle, file handoff, overlay cleanup, and mobile validation claims.",
+      "files_to_create": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/mobile/mobile-camera-and-file-handoff.md"
+      ],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_MOBILE_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/lwc/modal-overlay-mobile.md",
+        "SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/MOBILE_QUALITY_STRATEGY.md"
+      ],
+      "priority": "P1"
+    },
+    {
+      "topic": "Aura",
+      "current_repo_coverage_level": "medium",
+      "local_reference_insight_available": false,
+      "zip_repo_insight_available": false,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Codex may overbuild Aura or miss Aura-to-LWC boundary constraints in older orgs.",
+      "recommended_improvement": "Keep Aura as maintenance-oriented guidance and add a short LWC-preferred decision note with Aura wrapper boundaries.",
+      "files_to_create": [],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_AURA_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/aura/aura-template-region-contracts.md"
+      ],
+      "priority": "P2"
+    },
+    {
+      "topic": "Visualforce",
+      "current_repo_coverage_level": "medium",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Legacy page work may break stable controller contracts, action routing, or Lightning/mobile launch behavior.",
+      "recommended_improvement": "Clarify Visualforce maintenance stance, controller-extension review, Lightning launch paths, sanitization, and regression checks.",
+      "files_to_create": [],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_VISUALFORCE_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/visualforce/pdf-maintenance.md"
+      ],
+      "priority": "P2"
+    },
+    {
+      "topic": "Visualforce PDF",
+      "current_repo_coverage_level": "medium",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Generated PDFs can regress because PDF rendering has constrained CSS/resource/page-break behavior and mobile/file handoff edge cases.",
+      "recommended_improvement": "Add warning-heavy PDF guidance for stable markup, resources, long text, blank data, sanitization, Files handoff, and visual comparison.",
+      "files_to_create": [],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_VISUALFORCE_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/visualforce/pdf-maintenance.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_FILE_HANDLING_GUIDE.md"
+      ],
+      "priority": "P1"
+    },
+    {
+      "topic": "metadata",
+      "current_repo_coverage_level": "strong",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Broad metadata docs exist, but high-risk type behavior can still be overgeneralized across source format, metadata API, and UI activation.",
+      "recommended_improvement": "Add metadata-type-specific warnings and cross-links to coverage, source format, activation, and release validation.",
+      "files_to_create": [],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_METADATA_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/metadata/README.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/good_patterns/metadata-safe-deployment-structure.md"
+      ],
+      "priority": "P1"
+    },
+    {
+      "topic": "FlexiPages",
+      "current_repo_coverage_level": "medium",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "A component may deploy cleanly but remain invisible due to activation, visibility rules, form factor, permissions, or page assignment.",
+      "recommended_improvement": "Expand FlexiPage activation and visibility chain guidance with official metadata checks and record-page troubleshooting flow.",
+      "files_to_create": [],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/metadata/flexipage-and-action-activation.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_RECORD_PAGE_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/FIX_METADATA_FLOW.md"
+      ],
+      "priority": "P1"
+    },
+    {
+      "topic": "layouts",
+      "current_repo_coverage_level": "medium",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Layout, Dynamic Forms, compact layout, and action-list changes can be made in the wrong layer.",
+      "recommended_improvement": "Add a layout-versus-FlexiPage-versus-Dynamic-Forms decision guide and update record-page validation checks.",
+      "files_to_create": [],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_RECORD_PAGE_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_METADATA_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/CHECKLISTS/before-record-page-ui-change.md"
+      ],
+      "priority": "P2"
+    },
+    {
+      "topic": "quick actions",
+      "current_repo_coverage_level": "medium",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Action visibility bugs may be misdiagnosed as LWC bugs when the actual problem is target config, layout, Dynamic Actions, overflow, mobile form factor, or permissions.",
+      "recommended_improvement": "Create a quick action visibility matrix covering metadata, layout, Highlights Panel, Dynamic Actions, activation, form factor, and permission state.",
+      "files_to_create": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/metadata/quick-action-visibility-matrix.md"
+      ],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_RECORD_PAGE_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/troubleshooting/record-page-actions.md",
+        "SALESFORCE_KNOWLEDGE/PROMPTS/CODEX_PROMPT_PACK/06_FIX_METADATA_OR_RECORD_PAGE.md"
+      ],
+      "priority": "P1"
+    },
+    {
+      "topic": "permission sets/profiles",
+      "current_repo_coverage_level": "medium",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Broad profile or permission changes can leak access, cause unrelated metadata churn, or fail to expose Apex/classes/components to users.",
+      "recommended_improvement": "Add a permission-change checklist for object, field, class, tab, app, custom permission, external user, and profile-vs-permission-set choices.",
+      "files_to_create": [],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_METADATA_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/CHECKLISTS/production-safety.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/anti_patterns/metadata-anti-patterns.md"
+      ],
+      "priority": "P1"
+    },
+    {
+      "topic": "Salesforce Files",
+      "current_repo_coverage_level": "medium",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": false,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "File features can mishandle upload, preview, latest version, delete/relink, refresh, public access, or portal authorization.",
+      "recommended_improvement": "Create a Files lifecycle guide and expand existing file handling with refresh, security, portal/mobile, generated document, and cleanup rules.",
+      "files_to_create": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/files/contentdocument-lifecycle.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/files/photo-capture-annotation-viewer.md"
+      ],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_FILE_HANDLING_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/good_patterns/file-upload-and-rollup.md",
+        "SALESFORCE_KNOWLEDGE/PROMPTS/CODEX_PROMPT_PACK/07_FIX_SALESFORCE_FILES.md"
+      ],
+      "priority": "P0"
+    },
+    {
+      "topic": "ContentDocument/ContentVersion/ContentDocumentLink",
+      "current_repo_coverage_level": "medium",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": false,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Codex may treat a Salesforce File as one row, causing stale rollups, wrong latest-version handling, bad access assumptions, or delete/relink bugs.",
+      "recommended_improvement": "Document the three-object lifecycle, latest-version queries, link behavior, sharing, and test data constraints.",
+      "files_to_create": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/files/contentdocument-lifecycle.md"
+      ],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_FILE_HANDLING_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/good_patterns/file-upload-and-rollup.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_TESTING_GUIDE.md"
+      ],
+      "priority": "P0"
+    },
+    {
+      "topic": "email templates/email logging",
+      "current_repo_coverage_level": "weak",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": false,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Email automation may duplicate activity, expose private bodies in logs, misuse merge data, or fail across environments and external users.",
+      "recommended_improvement": "Create communication automation guidance covering templates, email services, message logging, idempotency, threading, permission context, and public-safe logs.",
+      "files_to_create": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/communication/chatter-email-activity-patterns.md",
+        "SALESFORCE_KNOWLEDGE/CHECKLISTS/before-communication-automation.md"
+      ],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_METADATA_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/DOCS/public-sanitization-policy.md"
+      ],
+      "priority": "P0"
+    },
+    {
+      "topic": "Chatter/ConnectApi",
+      "current_repo_coverage_level": "weak",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": false,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Automated posts and mentions may fail because actor context, body segments, mention offsets, permissions, and duplicate prevention are not documented.",
+      "recommended_improvement": "Add Chatter and ConnectApi rules for post body construction, mentions, actor context, idempotency, permission checks, and sanitized logging.",
+      "files_to_create": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/communication/chatter-email-activity-patterns.md",
+        "SALESFORCE_KNOWLEDGE/PROMPTS/fix-chatter-email-activity-safely.md"
+      ],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_COMMON_FAILURES_AND_FIXES.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_MOBILE_GUIDE.md"
+      ],
+      "priority": "P0"
+    },
+    {
+      "topic": "compound address",
+      "current_repo_coverage_level": "weak",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": false,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Address saves may fail or lose structure when code writes root compound fields, omits required country/state code pairing, or parses formatted text as source of truth.",
+      "recommended_improvement": "Create dedicated compound address rules for Apex, LWC forms, validation, structured leaf fields, partial addresses, and map/street-view links.",
+      "files_to_create": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/addresses/compound-address-fields.md"
+      ],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/PATTERNS/good_patterns/lookup-address-patterns.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_LWC_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md"
+      ],
+      "priority": "P0"
+    },
+    {
+      "topic": "custom metadata",
+      "current_repo_coverage_level": "medium",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Configuration-dependent features may fail silently when custom metadata is absent, stale, or treated as a secret store.",
+      "recommended_improvement": "Add explicit CMDT usage rules for feature flags, default configuration, missing-record behavior, tests, and no-secret policy.",
+      "files_to_create": [],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_ARCHITECTURE_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_METADATA_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/BEFORE_EDITING_APEX.md"
+      ],
+      "priority": "P2"
+    },
+    {
+      "topic": "named credentials",
+      "current_repo_coverage_level": "weak",
+      "local_reference_insight_available": false,
+      "zip_repo_insight_available": false,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Integration guidance may hardcode endpoints or secrets, miss external credential principal access, or publish sensitive configuration.",
+      "recommended_improvement": "Add a named credential and external credential model covering endpoint, authentication, principals, permission assignment, callout tests, and secret non-publication.",
+      "files_to_create": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/security/named-external-credentials.md"
+      ],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/CHECKLISTS/production-safety.md",
+        "SALESFORCE_KNOWLEDGE/DOCS/public-sanitization-policy.md"
+      ],
+      "priority": "P1"
+    },
+    {
+      "topic": "reports/dashboards",
+      "current_repo_coverage_level": "medium",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Report and dashboard metadata can expose private names or break deployments due to folders, dependencies, filters, and source-format structure.",
+      "recommended_improvement": "Add report/dashboard metadata safety notes, folder dependency checks, and public-sanitization warnings.",
+      "files_to_create": [],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_METADATA_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/BEFORE_EDITING_METADATA.md",
+        "SALESFORCE_KNOWLEDGE/DOCS/public-sanitization-policy.md"
+      ],
+      "priority": "P2"
+    },
+    {
+      "topic": "Experience Cloud/portals",
+      "current_repo_coverage_level": "weak",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": false,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Portal-facing files, components, and Apex can accidentally assume internal-user permissions or client-side authorization.",
+      "recommended_improvement": "Add a portal safety section for guest/external users, server-side file access checks, navigation, record access, and mobile/browser differences.",
+      "files_to_create": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/experience-cloud/portal-access-and-files.md"
+      ],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_FILE_HANDLING_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_LWC_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/CHECKLISTS/production-safety.md"
+      ],
+      "priority": "P1"
+    },
+    {
+      "topic": "CLI commands",
+      "current_repo_coverage_level": "medium",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Codex may run stale `sfdx` examples, wrong `sf` flags, or mutating commands without local help verification.",
+      "recommended_improvement": "Update command maps with an official-source verification queue and require installed CLI help before mutating or deployment commands.",
+      "files_to_create": [],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/COMMANDS/SALESFORCE_CLI_COMMAND_MAP.md",
+        "SALESFORCE_KNOWLEDGE/REFERENCE/salesforce-cli-command-reference.md",
+        "SALESFORCE_KNOWLEDGE/PARAMETERS/LOCAL_AUTOMATION_PARAMETERS.md"
+      ],
+      "priority": "P1"
+    },
+    {
+      "topic": "destructive deployment",
+      "current_repo_coverage_level": "weak",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": false,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Metadata deletion can remove the wrong component, hide dependencies, or combine irreversible cleanup with unrelated feature work.",
+      "recommended_improvement": "Create a standalone destructive deployment runbook with target list, dependency check, validation-only command, rollback notes, and explicit approval gates.",
+      "files_to_create": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/deployment/destructive-deployment-safety.md"
+      ],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_DEPLOYMENT_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/good_patterns/metadata-safe-deployment-structure.md",
+        "SALESFORCE_KNOWLEDGE/CHECKLISTS/before-deployment.md"
+      ],
+      "priority": "P0"
+    },
+    {
+      "topic": "package.xml",
+      "current_repo_coverage_level": "medium",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Manifests may become too broad, omit dependencies, include private metadata, or misrepresent source-format paths.",
+      "recommended_improvement": "Expand package manifest notes with narrow scope, dependency review, metadata coverage checks, and destructive manifest separation.",
+      "files_to_create": [],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/EXAMPLES/metadata/package-xml-notes.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_METADATA_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/deployment/narrow-deploy-runbook.md"
+      ],
+      "priority": "P1"
+    },
+    {
+      "topic": "Salesforce Code Analyzer",
+      "current_repo_coverage_level": "medium",
+      "local_reference_insight_available": false,
+      "zip_repo_insight_available": false,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Tool docs can drift toward retired scanner behavior, wrong command names, or unverified rule/engine parameters.",
+      "recommended_improvement": "Align Code Analyzer documentation with official v5 docs first, then keep upstream GitHub as secondary implementation context.",
+      "files_to_create": [],
+      "files_to_update": [
+        "TOOLS/SALESFORCE_CODE_ANALYZER.md",
+        "QUALITY_GATES/CODE_ANALYZER_RULES.md",
+        "SALESFORCE_KNOWLEDGE/PARAMETERS/CODE_ANALYZER_PARAMETERS.md"
+      ],
+      "priority": "P0"
+    },
+    {
+      "topic": "LWC Jest",
+      "current_repo_coverage_level": "strong",
+      "local_reference_insight_available": false,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Jest guidance can overclaim validation or miss wire adapter mocks, DOM assertions, package-version behavior, and installed script checks.",
+      "recommended_improvement": "Add a small official-source alignment pass and require actual npm script execution before claiming LWC unit validation.",
+      "files_to_create": [],
+      "files_to_update": [
+        "TOOLS/LWC_JEST.md",
+        "SALESFORCE_KNOWLEDGE/COMMANDS/LWC_TEST_COMMAND_MAP.md",
+        "SALESFORCE_KNOWLEDGE/PARAMETERS/LWC_JEST_PARAMETERS.md"
+      ],
+      "priority": "P2"
+    },
+    {
+      "topic": "ESLint LWC",
+      "current_repo_coverage_level": "strong",
+      "local_reference_insight_available": false,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Lint guidance may miss installed package differences or confuse general ESLint with LWC-specific parser/template constraints.",
+      "recommended_improvement": "Keep current coverage and add a short command-verification note tied to project-local npm scripts and installed config.",
+      "files_to_create": [],
+      "files_to_update": [
+        "TOOLS/ESLINT_LWC.md",
+        "QUALITY_GATES/LWC_LINT_RULES.md",
+        "SALESFORCE_KNOWLEDGE/PARAMETERS/ESLINT_LWC_PARAMETERS.md"
+      ],
+      "priority": "P2"
+    },
+    {
+      "topic": "Prettier Apex",
+      "current_repo_coverage_level": "medium",
+      "local_reference_insight_available": false,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": false,
+      "risk_if_not_improved": "Formatting guidance may be mistaken for official Salesforce behavior or run without checking project-local formatter versions.",
+      "recommended_improvement": "Keep Prettier Apex as optional non-authoritative tooling and document missing-tool behavior, version checks, and no-semantic-change expectations.",
+      "files_to_create": [],
+      "files_to_update": [
+        "TOOLS/PRETTIER_APEX.md",
+        "QUALITY_GATES/APEX_FORMATTING.md",
+        "SALESFORCE_KNOWLEDGE/PARAMETERS/PRETTIER_APEX_PARAMETERS.md"
+      ],
+      "priority": "P2"
+    },
+    {
+      "topic": "debug logs",
+      "current_repo_coverage_level": "weak",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Raw logs may be published, sensitive values may leak, or Codex may treat logs as root cause without permission/runtime context.",
+      "recommended_improvement": "Create debug-log triage rules for trace setup, log level, symptom extraction, sanitization, retention, and evidence-based summaries.",
+      "files_to_create": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/troubleshooting/debug-log-triage.md"
+      ],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_DEBUGGING_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_COMMON_FAILURES_AND_FIXES.md",
+        "SALESFORCE_KNOWLEDGE/DOCS/public-sanitization-policy.md"
+      ],
+      "priority": "P0"
+    },
+    {
+      "topic": "deployment validation",
+      "current_repo_coverage_level": "medium",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Validation may use the wrong test level, overly broad source scope, stale CLI flags, or incomplete evidence before a real deploy.",
+      "recommended_improvement": "Add a validation evidence flow for command, target org alias, source or manifest scope, test level, result, and follow-up checks.",
+      "files_to_create": [],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_DEPLOYMENT_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/FIX_DEPLOYMENT_FLOW.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/deployment/test-selection-guide.md"
+      ],
+      "priority": "P0"
+    },
+    {
+      "topic": "public repo safety",
+      "current_repo_coverage_level": "strong",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": false,
+      "risk_if_not_improved": "Private-derived lessons, logs, screenshots, generated reports, email bodies, file names, and local state may leak into public docs.",
+      "recommended_improvement": "Expand public-safety checks with local-reference extraction, zip artifact, generated output, communication artifact, and debug-log categories.",
+      "files_to_create": [],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/DOCS/public-sanitization-policy.md",
+        "SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/PUBLIC_REPO_SAFETY_CHECK.md",
+        "SALESFORCE_KNOWLEDGE/REFERENCE/sanitized-lessons-catalog.md"
+      ],
+      "priority": "P0"
+    },
+    {
+      "topic": "Codex memory/history behavior",
+      "current_repo_coverage_level": "strong",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": false,
+      "official_salesforce_source_available": false,
+      "risk_if_not_improved": "Future tasks may lose high-value lessons, repeat past mistakes, or write private reference details into persistent memory/history.",
+      "recommended_improvement": "Keep current memory/history prompts and add a public-safe note for private-derived lessons: summarize lessons, never store sensitive facts.",
+      "files_to_create": [],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/PROMPTS/CODEX_PROMPT_PACK/10_REVIEW_MEMORY_AND_HISTORY.md",
+        "SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/BEFORE_EVERY_CODEX_TASK.md"
+      ],
+      "priority": "P3"
+    },
+    {
+      "topic": "governor limits",
+      "current_repo_coverage_level": "weak",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Apex, trigger, async, file, and test guidance may miss the platform limit reason behind bulkification and transaction design.",
+      "recommended_improvement": "Add limit-risk warnings tied to triggers, async, SOQL, DML, callouts, Files, tests, and dynamic query patterns without copying numeric tables.",
+      "files_to_create": [],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_PLATFORM_LIMITATIONS.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_COMMON_FAILURES_AND_FIXES.md"
+      ],
+      "priority": "P0"
+    },
+    {
+      "topic": "Flow interaction with Apex/LWC",
+      "current_repo_coverage_level": "weak",
+      "local_reference_insight_available": true,
+      "zip_repo_insight_available": false,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Codex may edit Apex or LWC without checking Flow callers, invocable contracts, screen-flow hosts, or order-of-execution side effects.",
+      "recommended_improvement": "Document Flow as a first-class entry point for Apex, triggers, LWC, and record transactions, including invocable Apex and validation strategy.",
+      "files_to_create": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/architecture/flow-apex-lwc-interactions.md"
+      ],
+      "files_to_update": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_ARCHITECTURE_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_LWC_GUIDE.md"
+      ],
+      "priority": "P1"
+    },
+    {
+      "topic": "Salesforce DX project structure",
+      "current_repo_coverage_level": "medium",
+      "local_reference_insight_available": false,
+      "zip_repo_insight_available": true,
+      "official_salesforce_source_available": true,
+      "risk_if_not_improved": "Codex may confuse source format, metadata format, package directories, local state, or scratch-org configuration.",
+      "recommended_improvement": "Tighten project-discovery and source-format guidance around sfdx-project files, package directories, force-app conventions, and ignored local state.",
+      "files_to_create": [],
+      "files_to_update": [
+        "FORCE_APP_DIRECTORY/README.md",
+        "SALESFORCE_KNOWLEDGE/CHECKLISTS/project-discovery.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_METADATA_GUIDE.md"
+      ],
+      "priority": "P1"
+    }
+  ],
+  "biggest_missing_areas": [
+    "Security matrix for sharing, CRUD/FLS, user mode, system mode, LDS/UI API, and exposed Apex",
+    "Dedicated communication automation guidance for email, activity, Chatter, ConnectApi, mentions, idempotency, and public-safe logging",
+    "Destructive deployment runbook and package/destructive manifest separation",
+    "Salesforce Files lifecycle guidance for ContentDocument, ContentVersion, ContentDocumentLink, latest versions, portal access, and refresh",
+    "Debug-log triage and sanitization guidance",
+    "Compound address field rules for Apex, LWC, validation, and state/country picklists",
+    "Flow-aware trigger and LWC/Apex interaction rules",
+    "Governor-limit warning model tied to practical Codex decisions"
+  ],
+  "recommended_next_prompt": "Using WORKSPACE/MASTER_KNOWLEDGE_GAP_MATRIX.md, WORKSPACE/MASTER_KNOWLEDGE_GAP_MATRIX.json, and WORKSPACE/IMPROVEMENT_BATCH_PLAN.md, draft Batch 1 P0 Salesforce technical gap updates into WORKSPACE/proposed_knowledge_updates/ only. Cover security matrix, Apex trigger/order-of-execution rules, Apex test improvements, Files lifecycle, destructive deployment safety, Code Analyzer v5 alignment, deployment validation, debug-log triage, governor-limit warnings, compound address rules, and communication automation. Do not modify SALESFORCE_KNOWLEDGE yet, do not commit, and do not push."
+}

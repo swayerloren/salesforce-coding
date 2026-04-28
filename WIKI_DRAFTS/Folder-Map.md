@@ -61,8 +61,25 @@ SALESFORCE_KNOWLEDGE/
 |-- CHECKLISTS/
 |-- EXAMPLES/
 |-- REFERENCE/
+|-- COMMANDS/
+|-- PARAMETERS/
+|-- QUALITY_STRATEGIES/
+|-- VALIDATION_FLOWS/
 `-- DOCS/
 ```
+
+## First-Run Folder Path
+
+For a new user, the folders are used in this order:
+
+1. `START_HERE.md`
+2. `INSTRUCTIONS/`
+3. `FORCE_APP_DIRECTORY/`
+4. `SALESFORCE_KNOWLEDGE/INDEX.md`
+5. Task-specific `GUIDES/`, `TOPICS/`, `PROMPTS/`, and `CHECKLISTS/`
+6. `COMMANDS/`, `PARAMETERS/`, `QUALITY_STRATEGIES/`, and `VALIDATION_FLOWS/`
+7. `TOOLS/`, `QUALITY_GATES/`, and `AUTOMATION/`
+8. `MEMORY/` and `HISTORY/`
 
 ## What Should Stay Out Of Deploys
 

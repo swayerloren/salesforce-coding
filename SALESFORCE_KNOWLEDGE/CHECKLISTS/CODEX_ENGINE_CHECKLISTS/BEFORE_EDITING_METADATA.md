@@ -16,6 +16,7 @@ Use this checklist before editing Salesforce metadata such as objects, fields, l
 - [ ] `SALESFORCE_KNOWLEDGE/CHECKLISTS/metadata-deploy.md`
 - [ ] `SALESFORCE_KNOWLEDGE/CHECKLISTS/before-record-page-ui-change.md`
 - [ ] `SALESFORCE_KNOWLEDGE/COMMANDS/SALESFORCE_CLI_COMMAND_MAP.md`
+- [ ] `SALESFORCE_KNOWLEDGE/PARAMETERS/`
 - [ ] `SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/METADATA_QUALITY_STRATEGY.md`
 - [ ] `SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/FIX_METADATA_FLOW.md`
 - [ ] `QUALITY_GATES/RELEASE_GATE.md`
@@ -63,9 +64,11 @@ Use this checklist before editing Salesforce metadata such as objects, fields, l
 
 - [ ] No metadata name is guessed.
 - [ ] No component visibility is assumed from successful deployment alone.
+- [ ] No placeholder deployable metadata is created unless explicitly requested and clearly scoped.
 - [ ] No profile churn unless explicitly required.
 - [ ] Permission sets are preferred over profiles when the project pattern allows it.
 - [ ] No broad retrieve noise or unrelated formatting churn.
+- [ ] No invented object, field, layout, FlexiPage, quick action, permission, profile, record type, tab, app, report, dashboard, static resource, package, named credential, or external credential name.
 - [ ] No wide metadata payload is prepared for deployment.
 - [ ] `package.xml` manifest scope is narrow and inspected if used.
 - [ ] High-blast-radius files are handled deliberately: layouts, FlexiPages, app pages, profiles, permission sets, record types, reports, dashboards, static resources, and package manifests.
@@ -80,6 +83,7 @@ Use this checklist before editing Salesforce metadata such as objects, fields, l
 - [ ] Salesforce Code Analyzer will run if available, or skipped reason will be documented.
 - [ ] Narrow deploy dry-run scope identified if possible.
 - [ ] Focused tests identified if Apex behavior is affected.
+- [ ] XML inspection, project validation, Code Analyzer, deploy dry run, and tests will only be reported as passed when the exact check actually ran and passed.
 - [ ] If validation cannot run, the reason will be stated.
 
 ## Memory And History

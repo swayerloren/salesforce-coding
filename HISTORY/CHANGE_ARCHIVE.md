@@ -114,7 +114,7 @@ Do not use this for every small edit. Use `HISTORY/CODEX_RUN_LOG.md` for normal 
 - Summary: Completed a strict public-release safety review and documented findings in `WORKSPACE/PUBLIC_RELEASE_REVIEW.md`.
 - Scope: Full repo safety and documentation accuracy review.
 - Key files or folders: `WORKSPACE/PUBLIC_RELEASE_REVIEW.md`, `README.md`, `START_HERE.md`, `INSTRUCTIONS/`, `SALESFORCE_KNOWLEDGE/`, `WIKI_DRAFTS/`, `FORCE_APP_DIRECTORY/`, `MEMORY/`, `HISTORY/`
-- Validation: Scanned for credentials, tokens, session IDs, Salesforce IDs, private emails, local paths, temporary-folder references, private screenshots, private logs, export files, and accidental real metadata in `FORCE_APP_DIRECTORY/`; Markdown links passed.
+- Validation: Scanned for credentials, tokens, session-marker patterns, Salesforce IDs, private emails, local paths, temporary-folder references, private screenshots, private logs, export files, and accidental real metadata in `FORCE_APP_DIRECTORY/`; Markdown links passed.
 - Outcome: No blocking unsafe public-release content was found.
 - Follow-up: Owner should confirm final README badge/release repository URLs and decide whether `WORKSPACE/` audit reports should be published.
 
@@ -134,7 +134,7 @@ Do not use this for every small edit. Use `HISTORY/CODEX_RUN_LOG.md` for normal 
 - Summary: Updated release documentation for the Codex-ready Salesforce workspace engine restructure.
 - Scope: Release notes, changelog, release index, README release link, repo map, workspace release reports, and memory/history records.
 - Key files or folders: `RELEASE_NOTES_v1.1.0.md`, `RELEASES.md`, `CHANGELOG.md`, `README.md`, `INSTRUCTIONS/REPO_MAP.md`, `WORKSPACE/RELEASE_UPDATE_REPORT.md`
-- Validation: Markdown links passed; public-safety scans found no credentials, tokens, local-only paths, temporary-folder references, Salesforce org IDs, session IDs, or private customer data.
+- Validation: Markdown links passed; public-safety scans found no credentials, tokens, local-only paths, temporary-folder references, Salesforce org IDs, session-marker patterns, or private customer data.
 - Outcome: `v1.1.0` is documented as the latest release for the workspace-engine restructure while `v1.0.0` remains the initial public Salesforce coding knowledge base release.
 - Follow-up: Create or update the GitHub Release page manually if GitHub Releases does not automatically use these Markdown release files.
 
@@ -144,7 +144,7 @@ Do not use this for every small edit. Use `HISTORY/CODEX_RUN_LOG.md` for normal 
 - Summary: Audited the repo as a Codex-ready Salesforce coding engine against onboarding, Codex controls, Salesforce technical coverage, prompts, checklists, Memory/History, public safety, release readiness, and GitHub user experience.
 - Scope: Full repository documentation and knowledge structure; no Salesforce source edits or repo reorganization.
 - Key files or folders: `WORKSPACE/DEEP_REPO_QUALITY_AUDIT.md`, `WORKSPACE/DEEP_REPO_QUALITY_AUDIT_SUMMARY.json`, `README.md`, `START_HERE.md`, `INSTRUCTIONS/`, `FORCE_APP_DIRECTORY/`, `SALESFORCE_KNOWLEDGE/`, `MEMORY/`, `HISTORY/`, `WIKI_DRAFTS/`
-- Validation: Markdown links passed; public safety scans found no credentials, tokens, session IDs, private keys, Salesforce org IDs, temporary-folder references, or local-only public-doc paths.
+- Validation: Markdown links passed; public safety scans found no credentials, tokens, session-marker patterns, private keys, Salesforce org IDs, temporary-folder references, or local-only public-doc paths.
 - Outcome: Repo scored 82/100. It is safe for limited public sharing but should get a P0 follow-up pass before heavy promotion.
 - Follow-up: Fix release commit consistency and strengthen `FORCE_APP_DIRECTORY/` private metadata guardrails first.
 
@@ -277,3 +277,63 @@ Do not use this for every small edit. Use `HISTORY/CODEX_RUN_LOG.md` for normal 
 - Validation: Markdown link check passed across 234 Markdown files; public-safety scans passed; no external source repo trees, copied `.git` folders, or `node_modules` directories were found; no local-only paths, credentials, tokens, private keys, session values, or Salesforce org ID-shaped values were found in public docs; `git diff --check` passed.
 - Outcome: `v1.3.0` is selected as a backward-compatible minor release because the integration adds original external intelligence docs, command maps, parameter maps, quality strategies, validation flows, and prompt/checklist routing without vendoring external source.
 - Follow-up: Create or update the GitHub Release page after this release documentation commit is pushed.
+
+## 2026-04-28 - Batch 1 P0 Salesforce Technical Knowledge Gaps
+
+- Date: 2026-04-28
+- Summary: Implemented the first high-priority Salesforce technical gap batch from local public-safe lessons and official Salesforce source research.
+- Scope: Salesforce knowledge docs, focused topic pages, checklists, quality strategy, validation flows, Code Analyzer docs, public sanitization policy, Memory, History, and workspace report.
+- Key files or folders: `SALESFORCE_KNOWLEDGE/TOPICS/security/`, `SALESFORCE_KNOWLEDGE/TOPICS/apex/trigger-order-of-execution.md`, `SALESFORCE_KNOWLEDGE/TOPICS/files/contentdocument-lifecycle.md`, `SALESFORCE_KNOWLEDGE/TOPICS/deployment/destructive-deployment-safety.md`, `SALESFORCE_KNOWLEDGE/TOPICS/troubleshooting/debug-log-triage.md`, `SALESFORCE_KNOWLEDGE/TOPICS/addresses/compound-address-fields.md`, `SALESFORCE_KNOWLEDGE/TOPICS/communication/chatter-email-activity-patterns.md`, core Salesforce guides, `TOOLS/SALESFORCE_CODE_ANALYZER.md`, `QUALITY_GATES/CODE_ANALYZER_RULES.md`, and `WORKSPACE/BATCH_1_P0_TECHNICAL_GAPS_REPORT.md`.
+- Validation: Markdown link check passed across 252 Markdown files. Public-safety scan passed across 34 changed/new public docs and the report. No copied external source code was found. `git diff --check` could not run because the downloaded folder has no Git repository metadata.
+- Outcome: The repo now has stronger public-safe P0 guidance for Apex structure, triggers, tests, security, governor limits, Files lifecycle, destructive deployment, metadata/package safety, debug logs, compound address, communication automation, and Code Analyzer v5 alignment.
+- Follow-up: Continue with Batch 2 for LWC wire/imperative/cache guidance, mobile runtime behavior, photo/annotation workflows, Visualforce PDF handoff, Experience Cloud file access, and quick action visibility.
+
+## 2026-04-28 - Batch 2 LWC Mobile Files Visualforce Knowledge Gaps
+
+- Date: 2026-04-28
+- Summary: Implemented the second improvement batch for LWC, Salesforce mobile, Salesforce Files, photo/annotation/viewer workflows, Visualforce PDF behavior, Experience Cloud file access, and quick action visibility.
+- Scope: Salesforce knowledge guides, focused topic pages, LWC/mobile quality strategies, LWC validation flow, prompt pack files, checklists, Memory, History, and workspace report.
+- Key files or folders: `SALESFORCE_KNOWLEDGE/TOPICS/lwc/wire-imperative-cache-rules.md`, `SALESFORCE_KNOWLEDGE/TOPICS/lwc/dynamic-record-fields.md`, `SALESFORCE_KNOWLEDGE/TOPICS/files/photo-capture-annotation-viewer.md`, `SALESFORCE_KNOWLEDGE/TOPICS/mobile/mobile-camera-and-file-handoff.md`, `SALESFORCE_KNOWLEDGE/TOPICS/experience-cloud/portal-access-and-files.md`, `SALESFORCE_KNOWLEDGE/TOPICS/metadata/quick-action-visibility-matrix.md`, LWC/mobile/Files/Visualforce guides, prompt pack files, and `WORKSPACE/BATCH_2_LWC_MOBILE_FILES_VF_REPORT.md`.
+- Validation: Markdown link check passed across 259 Markdown files. Public-safety scans passed. No external source code was copied. `git diff --check` could not run because the downloaded folder has no Git repository metadata.
+- Outcome: Codex now has stronger public-safe guidance for LWC getter/template rules, wire versus imperative Apex, record forms, navigation, toasts, mobile action bar behavior, camera/file/PDF handoff, Files latest-version behavior, photo annotation, Visualforce PDF limits, and portal file access.
+- Follow-up: Continue with Batch 3 for deployment, debugging, CLI, package manifests, destructive deployment, and metadata validation flows.
+
+## 2026-04-28 - Batch 3 Deployment Debug CLI Knowledge Gaps
+
+- Date: 2026-04-28
+- Summary: Implemented the third improvement batch for Salesforce deployment, debugging, CLI command selection, destructive deployment, package manifests, debug logs, validation evidence, Code Analyzer gating, release gates, and local automation command-shape checks.
+- Scope: Salesforce knowledge guides, command maps, reference docs, parameters, deployment topics, troubleshooting topics, quality strategy, validation flows, checklists, prompt pack, release gate, Code Analyzer docs, automation docs/scripts, Memory, History, and workspace report.
+- Key files or folders: `SALESFORCE_KNOWLEDGE/COMMANDS/SALESFORCE_CLI_COMMAND_MAP.md`, `SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_DEPLOYMENT_GUIDE.md`, `SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_DEBUGGING_GUIDE.md`, `SALESFORCE_KNOWLEDGE/TOPICS/deployment/`, `SALESFORCE_KNOWLEDGE/TOPICS/troubleshooting/debug-log-triage.md`, `SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/FIX_DEPLOYMENT_FLOW.md`, `QUALITY_GATES/RELEASE_GATE.md`, `AUTOMATION/local-quality-check.ps1`, `AUTOMATION/local-quality-check.sh`, and `WORKSPACE/BATCH_3_DEPLOYMENT_DEBUG_CLI_REPORT.md`.
+- Validation: Markdown link check passed across 260 Markdown files. Public-safety scans passed. PowerShell script parse passed. Bash parse was skipped because Bash was unavailable. No external source code was copied. `git diff --check` could not run because the downloaded folder has no Git repository metadata.
+- Outcome: Codex now has stronger no-success-without-evidence deployment guidance, clearer dry-run versus production validation versus quick deploy distinctions, safer destructive manifest rules, command help verification, deploy/debug triage, and Code Analyzer v5 routing.
+- Follow-up: Continue with Batch 4 for prompt/checklist/validation-flow routing and any remaining Codex behavior rules.
+
+## 2026-04-28 - Batch 4 Prompt Checklist Codex Behavior Controls
+
+- Date: 2026-04-28
+- Summary: Strengthened the prompt pack, Codex engine checklists, and instruction files so future Salesforce tasks follow real project discovery, current-source inspection, verified names, narrow changes, public safety, external-intelligence learning-only rules, and exact validation evidence.
+- Scope: Prompt pack files, checklist pack files, instruction docs, Memory, History, and workspace report.
+- Key files or folders: `SALESFORCE_KNOWLEDGE/PROMPTS/CODEX_PROMPT_PACK/`, `SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/`, `INSTRUCTIONS/`, and `WORKSPACE/BATCH_4_PROMPTS_CHECKLISTS_CODEX_RULES_REPORT.md`.
+- Validation: Markdown link check passed across 261 Markdown files. Public-safety scan passed across 25 changed/new files. No copied external source-code markers were found. `git diff --check` was skipped because this downloaded workspace has no `.git` directory.
+- Outcome: Codex prompts and checklists now consistently require reading `START_HERE.md`, locating `force-app/main/default`, reading command/parameter/quality/validation docs, inspecting current files, avoiding guessed API names and invented metadata, avoiding unrelated refactors, using external references only as learning material, updating Memory/History, and reporting validation only with evidence.
+- Follow-up: Continue with Batch 5 for README, wiki, and release polish after validation passes.
+
+## 2026-04-28 - Batch 5 User Onboarding Polish
+
+- Date: 2026-04-28
+- Summary: Polished public onboarding so a new user can start from a release ZIP and understand how Codex should read, locate, inspect, fix, validate, and record work.
+- Scope: Root entry points, Force App Directory setup instructions, tooling/quality/automation navigation, Salesforce knowledge index, wiki drafts, release docs, Memory, History, and workspace report.
+- Key files or folders: `README.md`, `START_HERE.md`, `FORCE_APP_DIRECTORY/README.md`, `TOOLS/README.md`, `QUALITY_GATES/README.md`, `AUTOMATION/README.md`, `SALESFORCE_KNOWLEDGE/INDEX.md`, `WIKI_DRAFTS/`, release docs, and `WORKSPACE/BATCH_5_USER_ONBOARDING_POLISH_REPORT.md`.
+- Validation: Markdown link check passed across 262 Markdown files. Public-safety scan passed across 19 changed/new files. No copied external source-code markers were found. `git diff --check` was skipped because this downloaded workspace has no `.git` directory.
+- Outcome: Public docs now consistently explain downloading the release ZIP, extracting it, opening the repo in VS Code with Codex, placing or referencing the real Salesforce DX project, telling Codex to read `START_HERE.md`, routing through instructions/knowledge/commands/parameters/strategies/flows/prompts/checklists, making narrow fixes, validating with evidence, and updating Memory/History.
+- Follow-up: Continue with Batch 6 final safety validation.
+
+## 2026-04-28 - Final Knowledge Improvement Audit
+
+- Date: 2026-04-28
+- Summary: Completed the final readiness audit after Batch 1 through Batch 5 improvements.
+- Scope: Repo structure, public onboarding, Salesforce knowledge depth, command maps, parameter maps, quality strategies, validation flows, prompts, checklists, automation, wiki drafts, Memory, History, public safety, links, JSON reports, and leftover artifact checks.
+- Key files or folders: `WORKSPACE/FINAL_KNOWLEDGE_IMPROVEMENT_AUDIT.md`, `WORKSPACE/FINAL_KNOWLEDGE_IMPROVEMENT_AUDIT.json`, `SALESFORCE_KNOWLEDGE/`, `TOOLS/`, `QUALITY_GATES/`, `AUTOMATION/`, `WIKI_DRAFTS/`, `MEMORY/`, and `HISTORY/`.
+- Validation: Markdown link check passed across 263 Markdown files; JSON parse check passed across 10 workspace JSON files; public-safety scans passed; PowerShell syntax checks passed; Bash syntax skipped because Bash is unavailable; leftover directory scan passed; `git diff --check` skipped because no `.git` directory exists.
+- Outcome: Content is ready for owner review and commit from a real git checkout. Recommended version is `v1.4.0`.
+- Follow-up: In a real git checkout, rerun final validation after these audit files exist, then prepare v1.4.0 release notes, commit, tag, push, and create a GitHub Release if ready.

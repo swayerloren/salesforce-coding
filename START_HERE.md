@@ -15,6 +15,18 @@ It is designed to be downloaded, opened in VS Code, paired with a real Salesforc
 | Quality gates provide evidence | Codex should run available validation tools after code changes. |
 | Public-safe by default | Do not add credentials, private org data, local-only paths, or private logs. |
 
+## New User Path
+
+1. Download the latest release ZIP from GitHub Releases.
+2. Extract the ZIP.
+3. Open the extracted folder in VS Code with Codex.
+4. Place the real Salesforce DX project under [FORCE_APP_DIRECTORY/](FORCE_APP_DIRECTORY/README.md) or record an external project pointer there.
+5. Tell Codex: `Read START_HERE.md first.`
+6. Codex reads [INSTRUCTIONS/](INSTRUCTIONS/README.md), [SALESFORCE_KNOWLEDGE/INDEX.md](SALESFORCE_KNOWLEDGE/INDEX.md), task-specific guides, prompts, checklists, command maps, parameter maps, quality strategies, validation flows, tools, and quality gates.
+7. Codex locates and confirms the real `force-app/main/default`.
+8. Codex inspects current files, makes narrow fixes, runs or recommends validation, and reports evidence or skipped gates.
+9. Codex updates [MEMORY/](MEMORY/README.md) and [HISTORY/](HISTORY/README.md) after meaningful work.
+
 ## Required Codex Reading Order
 
 Codex must follow this order:
@@ -73,6 +85,8 @@ Only edit real project metadata after confirming the actual `force-app/main/defa
 ```text
 Read START_HERE.md and INSTRUCTIONS/. Locate my real Salesforce DX project, confirm force-app/main/default, read SALESFORCE_KNOWLEDGE/INDEX.md, task-specific guides, command maps, parameter maps, quality strategies, and validation flows, check TOOLS/, QUALITY_GATES/, and AUTOMATION/ for available validation, inspect the real files before editing, make the smallest safe fix, run available quality gates if possible, then update Memory and History.
 ```
+
+Use this prompt after the repo is open in VS Code and the real Salesforce DX project has been placed or referenced.
 
 ## Optional Vendor References
 

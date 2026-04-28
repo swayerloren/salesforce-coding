@@ -32,6 +32,8 @@ public class LookupValue {
 
 Custom compound address fields deploy as one logical field but are read and written through component leaf fields in Apex and metadata contexts.
 
+See [../../TOPICS/addresses/compound-address-fields.md](../../TOPICS/addresses/compound-address-fields.md) for the dedicated rules.
+
 Typical leaf fields:
 
 - `Address__Street__s`
@@ -47,6 +49,8 @@ Typical leaf fields:
 - Do not assume free-text state names will save.
 - Keep null checks around every optional address part.
 - Normalize output for display separately from update payloads.
+- Treat structured leaf fields as source of truth and parsed text as fallback only.
+- Validate partial addresses without crashing map, directions, or preview features.
 
 ## Safe Address Assignment
 
@@ -62,3 +66,4 @@ project.Site_Address__PostalCode__s = input.postalCode;
 
 Use standard record-edit controls when they satisfy the workflow. Build custom address UIs only when the UX requires composition, validation, or external lookup behavior that standard components cannot provide.
 
+Custom LWC address forms should send structured leaf values, surface field-level errors, and refresh derived map or geocode state after save.

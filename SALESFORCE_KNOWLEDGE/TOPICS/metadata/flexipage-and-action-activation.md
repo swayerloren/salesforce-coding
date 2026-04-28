@@ -2,6 +2,8 @@
 
 Record page changes often fail functionally even when metadata deploys successfully. The component exists, but the active page, object action layout, app assignment, or form factor assignment is not the one users are opening.
 
+For a stricter action-specific matrix, use [Quick Action Visibility Matrix](quick-action-visibility-matrix.md).
+
 ## Activation Checklist
 
 - Object has the expected Lightning record page assignment.
@@ -24,6 +26,8 @@ Dynamic Forms can move field sections onto Lightning pages, but actions and many
 - Mobile action order can differ from desktop.
 - Permissions and object access can hide actions.
 - Some standard actions behave differently in the mobile app.
+- Dynamic Actions can replace the visible action list and apply separate visibility filters by context.
+- LWC quick actions must expose the correct target and form factor metadata.
 
 ## Debugging Path
 
@@ -34,4 +38,3 @@ Dynamic Forms can move field sections onto Lightning pages, but actions and many
 5. Check action layout and Highlights Panel.
 6. Check visibility filters and permissions.
 7. Only then edit component code.
-

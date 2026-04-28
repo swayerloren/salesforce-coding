@@ -17,3 +17,5 @@ Validation flows do not replace source inspection. They help Codex choose the ne
 ## Status Words
 
 Use `PASS`, `FAIL`, `FOUND`, `MISSING`, and `SKIPPED` consistently when reporting validation.
+
+Do not report `PASS` unless a command or runtime check actually passed. Static review, dry run, production validation, quick deploy, real deploy, test run, and analyzer run are separate evidence categories.

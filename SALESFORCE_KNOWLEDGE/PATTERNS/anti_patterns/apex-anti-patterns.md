@@ -48,3 +48,18 @@ Do not catch and ignore exceptions around required operations. If a user-facing 
 
 Records can change through API, Flow, imports, integrations, tests, async jobs, and packages. Trigger code must handle bulk, nulls, partial data, and non-UI paths.
 
+## Global Recursion Flags
+
+A single static Boolean can suppress legitimate work later in the same transaction. Prefer guards scoped by operation and record IDs, or make recompute logic idempotent.
+
+## Security By Sharing Keyword Only
+
+`with sharing` is not a complete CRUD/FLS strategy. Exposed Apex needs a separate decision for record sharing, object access, field access, user-mode or system-mode behavior, and DTO filtering.
+
+## Treating Files As One Row
+
+Salesforce Files use `ContentVersion`, `ContentDocument`, and `ContentDocumentLink`. Code that updates rollups from one upload event without recomputing current links often becomes stale after delete, relink, retype, or new-version behavior.
+
+## Duplicate Communication Side Effects
+
+Automated email, Chatter, activity, notification, or generated-document work without idempotency can duplicate user-visible output on retries or repeated owner/status changes.

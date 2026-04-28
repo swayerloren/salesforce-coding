@@ -1,4 +1,4 @@
-# Salesforce Coding v1.3.0 — External Salesforce Tooling Intelligence
+# Salesforce Coding v1.3.0 - External Salesforce Tooling Intelligence
 
 Release date: 2026-04-28
 
@@ -123,6 +123,18 @@ Recommended upgrades:
 5. Add the new [SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/](SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/) layer before Apex, LWC, metadata, mobile, deployment, or pull request work.
 6. Add the new [SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/](SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/) layer before Codex reports task completion.
 7. Continue treating optional external references as local-only, ignored, and license-aware.
+
+## Using This Release From ZIP
+
+For a new workspace:
+
+1. Download the release ZIP.
+2. Extract it.
+3. Open the extracted folder in VS Code with Codex.
+4. Place or reference the real Salesforce DX project through `FORCE_APP_DIRECTORY/`.
+5. Tell Codex to read `START_HERE.md`.
+6. Codex should read instructions, knowledge, command maps, parameter maps, quality strategies, validation flows, prompts, checklists, tools, and quality gates before editing.
+7. Codex should inspect current project files, make narrow fixes, run or recommend validation, and update Memory/History after meaningful work.
 
 ## Validation Performed
 

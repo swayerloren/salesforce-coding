@@ -8,6 +8,13 @@ This project follows semantic versioning for documentation releases:
 - Minor versions, such as `v1.3.0`, are for new guide sections, examples, prompts, checklists, tooling guides, quality gates, automation, external intelligence maps, or other backward-compatible workspace features.
 - Major versions, such as `v2.0.0`, are reserved for major reorganizations or incompatible changes to the repo structure.
 
+## Unreleased
+
+Changed:
+
+- Clarified the new-user release ZIP onboarding path across the README, start guide, Force App Directory instructions, tooling/quality/automation docs, Salesforce knowledge index, wiki drafts, and release documentation.
+- Reinforced that Codex should read `START_HERE.md`, locate the real `force-app/main/default`, inspect current files, use commands/parameters/quality strategies/validation flows, run or recommend validation, and update Memory/History.
+
 ## v1.3.0 - 2026-04-28
 
 External Salesforce tooling intelligence release.

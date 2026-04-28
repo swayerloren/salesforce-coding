@@ -16,6 +16,17 @@ Every implementation or investigation result should include:
 
 Do not claim success without evidence.
 
+Use strict validation terms:
+
+| Term | Meaning |
+| --- | --- |
+| Passed | The exact command or check ran and succeeded. |
+| Failed | The exact command or check ran and failed. |
+| Skipped | The check did not run, and the reason is stated. |
+| Static review only | Files were inspected, but no runtime, org, deploy, test, lint, analyzer, retrieve, or GitHub check passed. |
+
+Never describe tests, lint, Salesforce Code Analyzer, deploys, retrieves, quick deploys, GitHub checks, or runtime behavior as passing unless they actually ran and passed.
+
 ## When Code Is Changed
 
 When code is changed, provide:
@@ -48,6 +59,8 @@ Validation:
 - Not run. No Salesforce org alias is configured in this workspace.
 - Static inspection completed for the changed files and direct callers.
 ```
+
+If only static inspection was performed, say that directly. Do not summarize static inspection as a passed test, passed lint, passed analyzer, or successful deploy.
 
 Never write:
 
@@ -138,4 +151,3 @@ flowchart LR
 ```
 
 Do not use diagrams as decoration.
-

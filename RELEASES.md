@@ -14,7 +14,7 @@ This repository uses semantic versioning for public documentation and workspace-
 
 ### v1.3.0
 
-Release title: Salesforce Coding v1.3.0 — External Salesforce Tooling Intelligence
+Release title: Salesforce Coding v1.3.0 - External Salesforce Tooling Intelligence
 
 Release date: 2026-04-28
 
@@ -36,6 +36,15 @@ Expected source archive names if published from a GitHub tag:
 
 - `salesforce-coding-v1.3.0.zip`
 - `salesforce-coding-v1.3.0.tar.gz`
+
+How to use the release ZIP:
+
+1. Download the ZIP from the release assets or GitHub source archive.
+2. Extract it.
+3. Open the extracted folder in VS Code with Codex.
+4. Place or reference the real Salesforce DX project through `FORCE_APP_DIRECTORY/`.
+5. Tell Codex to read `START_HERE.md` before any Salesforce task.
+6. Codex should then read instructions, the Salesforce knowledge index, task-specific prompts/checklists, command maps, parameter maps, quality strategies, validation flows, tools, and quality gates before editing.
 
 ## Previous Releases
 

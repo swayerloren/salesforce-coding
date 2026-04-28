@@ -1,0 +1,371 @@
+{
+  "topics_found": [
+    {
+      "topic": "Apex patterns",
+      "evidence_level": "strong",
+      "lesson_count": 8,
+      "key_lessons": [
+        "Keep business behavior behind thin entry points and explicit service boundaries.",
+        "Treat data operations as bulk-capable unless proven otherwise.",
+        "Use idempotency for external submissions, generated artifacts, file processing, email replies, and retries.",
+        "Use dynamic dependencies only for optional behavior with diagnostics."
+      ]
+    },
+    {
+      "topic": "Apex triggers",
+      "evidence_level": "strong",
+      "lesson_count": 6,
+      "key_lessons": [
+        "Separate before-save normalization from after-save side effects.",
+        "Use narrow recursion guards instead of global skip flags.",
+        "Define source-of-truth rules for cross-object synchronization.",
+        "Handle delayed file and related-record side effects."
+      ]
+    },
+    {
+      "topic": "Apex tests",
+      "evidence_level": "strong",
+      "lesson_count": 7,
+      "key_lessons": [
+        "Assert behavior and durable async outcomes, not coverage-only execution.",
+        "Test blanks, missing configuration, failed callouts, duplicate attempts, and unchanged-record paths.",
+        "Avoid org-state dependencies and private IDs.",
+        "Treat file-heavy tests and deploy-bound branch coverage as special cases."
+      ]
+    },
+    {
+      "topic": "LWC patterns",
+      "evidence_level": "strong",
+      "lesson_count": 7,
+      "key_lessons": [
+        "Read component metadata before editing behavior.",
+        "Choose LDS/UI API or Apex intentionally by data and policy needs.",
+        "Move template expressions into getters.",
+        "Refresh wire and record state explicitly after mutations."
+      ]
+    },
+    {
+      "topic": "Mobile LWC patterns",
+      "evidence_level": "strong",
+      "lesson_count": 7,
+      "key_lessons": [
+        "Treat Salesforce mobile as a distinct runtime.",
+        "Prove overlay, camera, preview, handoff, and cleanup states in the target runtime.",
+        "Avoid blur-dependent selection in mobile menus.",
+        "Use durable handoff strategies for mobile-generated files and PDFs."
+      ]
+    },
+    {
+      "topic": "Visualforce/PDF patterns",
+      "evidence_level": "moderate",
+      "lesson_count": 7,
+      "key_lessons": [
+        "Treat PDFs as output contracts.",
+        "Preserve stable Visualforce PDF layout primitives.",
+        "Review escape=false and rich text as a sanitization risk.",
+        "Test launchers in the same Lightning or mobile context users use."
+      ]
+    },
+    {
+      "topic": "Salesforce Files/photo/document patterns",
+      "evidence_level": "strong",
+      "lesson_count": 8,
+      "key_lessons": [
+        "Model files through ContentVersion, ContentDocument, and ContentDocumentLink.",
+        "Use latest-version logic for file state and rollups.",
+        "Refresh file UI and parent records after upload, delete, retype, or generated output.",
+        "Authorize portal and public file access server-side."
+      ]
+    },
+    {
+      "topic": "Chatter/activity/email patterns",
+      "evidence_level": "strong",
+      "lesson_count": 7,
+      "key_lessons": [
+        "Separate actor context, target record, body text, mention ranges, and fallback behavior.",
+        "Use durable identifiers for email threading and idempotency.",
+        "Do not publish raw message bodies or post bodies.",
+        "Test permissions and service-user behavior."
+      ]
+    },
+    {
+      "topic": "Compound address logic",
+      "evidence_level": "moderate",
+      "lesson_count": 6,
+      "key_lessons": [
+        "Write compound address leaf fields instead of root fields.",
+        "Keep country and state code values consistent.",
+        "Use structured fields as source of truth.",
+        "Treat geocode and map features as optional derived behavior."
+      ]
+    },
+    {
+      "topic": "Metadata/page layout/FlexiPage/quick action patterns",
+      "evidence_level": "strong",
+      "lesson_count": 6,
+      "key_lessons": [
+        "A deployed component is not necessarily visible.",
+        "Quick action visibility requires checking metadata, layout, Dynamic Actions, overflow, form factor, activation, and permissions.",
+        "Avoid broad profile, FlexiPage, layout, report, dashboard, and static resource churn.",
+        "Prefer targeted permission sets where project conventions allow."
+      ]
+    },
+    {
+      "topic": "Deployment/CLI/destructive deployment patterns",
+      "evidence_level": "strong",
+      "lesson_count": 7,
+      "key_lessons": [
+        "Validate the smallest deployable set first.",
+        "Use explicit test strategy and branch coverage for touched Apex.",
+        "Separate destructive deployments from feature deploys.",
+        "Verify installed sf command shape and Windows quoting before scripting."
+      ]
+    },
+    {
+      "topic": "Debugging/failure patterns",
+      "evidence_level": "strong",
+      "lesson_count": 6,
+      "key_lessons": [
+        "Classify failure layer before fixing.",
+        "Use visible instrumentation for mobile and webview issues when logs are insufficient.",
+        "Treat CLI probes as evidence, not absolute truth.",
+        "Summarize logs into symptom, root cause, fix, and validation."
+      ]
+    },
+    {
+      "topic": "Public safety and repo hygiene patterns",
+      "evidence_level": "strong",
+      "lesson_count": 5,
+      "key_lessons": [
+        "Private references are evidence, not publishable text.",
+        "Rewrite lessons in neutral Salesforce terms.",
+        "Never publish raw logs, screenshots, generated documents, email bodies, Chatter bodies, IDs, or credentials.",
+        "Draft and scan private-derived lessons before moving them into repo knowledge files."
+      ]
+    }
+  ],
+  "p0_improvements": [
+    {
+      "title": "Create communication automation coverage",
+      "rationale": "The local references repeatedly cover Chatter, email, activities, mentions, actor context, idempotency, and logging, while the current repo has no dedicated communication automation topic.",
+      "target_files": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/communication/chatter-email-activity-patterns.md",
+        "SALESFORCE_KNOWLEDGE/CHECKLISTS/before-communication-automation.md",
+        "SALESFORCE_KNOWLEDGE/PROMPTS/fix-chatter-email-activity-safely.md"
+      ]
+    },
+    {
+      "title": "Create destructive deployment safety guidance",
+      "rationale": "Deletion metadata needs a separate review and validation workflow before any public prompt encourages destructive changes.",
+      "target_files": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/deployment/destructive-deployment-safety.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_DEPLOYMENT_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/good_patterns/metadata-safe-deployment-structure.md"
+      ]
+    },
+    {
+      "title": "Expand file, photo, and mobile lifecycle guidance",
+      "rationale": "File/photo/mobile flows are the densest local lesson group and need more detail than the current general file and mobile guides.",
+      "target_files": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/files/contentdocument-lifecycle.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/files/photo-capture-annotation-viewer.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/mobile/mobile-camera-and-file-handoff.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_FILE_HANDLING_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_MOBILE_GUIDE.md"
+      ]
+    },
+    {
+      "title": "Add debug-log triage and public-safe log handling",
+      "rationale": "Debug logs are high value but high leak risk; the repo should teach summarization and failure-layer triage.",
+      "target_files": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/troubleshooting/debug-log-triage.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_DEBUGGING_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_COMMON_FAILURES_AND_FIXES.md"
+      ]
+    },
+    {
+      "title": "Add dedicated compound address field guidance",
+      "rationale": "Address logic appears across Apex, LWC, metadata, validation, and mobile/map flows and deserves its own topic.",
+      "target_files": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/addresses/compound-address-fields.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/good_patterns/lookup-address-patterns.md"
+      ]
+    },
+    {
+      "title": "Strengthen public-safety checks for private-derived material",
+      "rationale": "The extraction sources include logs, communication artifacts, generated files, and screenshots that must never be copied into public docs.",
+      "target_files": [
+        "SALESFORCE_KNOWLEDGE/DOCS/public-sanitization-policy.md",
+        "SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/PUBLIC_REPO_SAFETY_CHECK.md",
+        "SALESFORCE_KNOWLEDGE/REFERENCE/sanitized-lessons-catalog.md"
+      ]
+    }
+  ],
+  "p1_improvements": [
+    {
+      "title": "Expand Apex trigger and async test guidance",
+      "target_files": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_TESTING_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/anti_patterns/apex-anti-patterns.md"
+      ]
+    },
+    {
+      "title": "Add quick action visibility matrix",
+      "target_files": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/metadata/quick-action-visibility-matrix.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_RECORD_PAGE_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_METADATA_GUIDE.md"
+      ]
+    },
+    {
+      "title": "Add dynamic record field LWC guidance",
+      "target_files": [
+        "SALESFORCE_KNOWLEDGE/TOPICS/lwc/dynamic-record-fields.md",
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_LWC_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/good_patterns/lwc-patterns.md"
+      ]
+    },
+    {
+      "title": "Expand Visualforce and PDF guidance",
+      "target_files": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_VISUALFORCE_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/visualforce/pdf-maintenance.md"
+      ]
+    },
+    {
+      "title": "Expand deployment and CLI guidance",
+      "target_files": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_DEPLOYMENT_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/COMMANDS/SALESFORCE_CLI_COMMAND_MAP.md",
+        "SALESFORCE_KNOWLEDGE/REFERENCE/salesforce-cli-command-reference.md"
+      ]
+    },
+    {
+      "title": "Update common failures and lesson catalog",
+      "target_files": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_COMMON_FAILURES_AND_FIXES.md",
+        "SALESFORCE_KNOWLEDGE/REFERENCE/sanitized-lessons-catalog.md"
+      ]
+    },
+    {
+      "title": "Update prompt pack entries",
+      "target_files": [
+        "SALESFORCE_KNOWLEDGE/PROMPTS/CODEX_PROMPT_PACK/05_FIX_DEPLOYMENT_FAILURE.md",
+        "SALESFORCE_KNOWLEDGE/PROMPTS/CODEX_PROMPT_PACK/07_FIX_SALESFORCE_FILES.md",
+        "SALESFORCE_KNOWLEDGE/PROMPTS/CODEX_PROMPT_PACK/08_FIX_MOBILE_SALESFORCE.md"
+      ]
+    },
+    {
+      "title": "Expand anti-pattern coverage",
+      "target_files": [
+        "SALESFORCE_KNOWLEDGE/PATTERNS/anti_patterns/apex-anti-patterns.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/anti_patterns/lwc-anti-patterns.md",
+        "SALESFORCE_KNOWLEDGE/PATTERNS/anti_patterns/metadata-anti-patterns.md"
+      ]
+    }
+  ],
+  "p2_improvements": [
+    {
+      "title": "Add public-safe pseudocode snippets",
+      "target_files": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_COPY_PASTE_SAFE_PATTERNS.md"
+      ]
+    },
+    {
+      "title": "Add optional file and generated-document examples",
+      "target_files": [
+        "SALESFORCE_KNOWLEDGE/EXAMPLES/README.md",
+        "SALESFORCE_KNOWLEDGE/EXAMPLES/lwc/",
+        "SALESFORCE_KNOWLEDGE/EXAMPLES/apex/"
+      ]
+    },
+    {
+      "title": "Add static resource, email template, report, and dashboard public-risk checklist entries",
+      "target_files": [
+        "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_METADATA_GUIDE.md",
+        "SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/PUBLIC_REPO_SAFETY_CHECK.md"
+      ]
+    },
+    {
+      "title": "Add mobile runtime verification notes to validation flows",
+      "target_files": [
+        "SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/FIX_LWC_FLOW.md",
+        "SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/MOBILE_QUALITY_STRATEGY.md"
+      ]
+    },
+    {
+      "title": "Add prompt shortcuts for communication automation and destructive deployment",
+      "target_files": [
+        "SALESFORCE_KNOWLEDGE/PROMPTS/README.md",
+        "SALESFORCE_KNOWLEDGE/PROMPTS/"
+      ]
+    },
+    {
+      "title": "Add cross-links after new topic files exist",
+      "target_files": [
+        "SALESFORCE_KNOWLEDGE/INDEX.md",
+        "SALESFORCE_KNOWLEDGE/TOPICS/README.md"
+      ]
+    },
+    {
+      "title": "Expand glossary",
+      "target_files": [
+        "SALESFORCE_KNOWLEDGE/REFERENCE/glossary.md"
+      ]
+    }
+  ],
+  "files_to_update": [
+    "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md",
+    "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_TESTING_GUIDE.md",
+    "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_LWC_GUIDE.md",
+    "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_MOBILE_GUIDE.md",
+    "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_FILE_HANDLING_GUIDE.md",
+    "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_VISUALFORCE_GUIDE.md",
+    "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_METADATA_GUIDE.md",
+    "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_RECORD_PAGE_GUIDE.md",
+    "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_DEPLOYMENT_GUIDE.md",
+    "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_DEBUGGING_GUIDE.md",
+    "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_COMMON_FAILURES_AND_FIXES.md",
+    "SALESFORCE_KNOWLEDGE/PATTERNS/good_patterns/file-upload-and-rollup.md",
+    "SALESFORCE_KNOWLEDGE/PATTERNS/good_patterns/lookup-address-patterns.md",
+    "SALESFORCE_KNOWLEDGE/PATTERNS/good_patterns/lwc-patterns.md",
+    "SALESFORCE_KNOWLEDGE/PATTERNS/good_patterns/metadata-safe-deployment-structure.md",
+    "SALESFORCE_KNOWLEDGE/PATTERNS/anti_patterns/apex-anti-patterns.md",
+    "SALESFORCE_KNOWLEDGE/PATTERNS/anti_patterns/lwc-anti-patterns.md",
+    "SALESFORCE_KNOWLEDGE/PATTERNS/anti_patterns/metadata-anti-patterns.md",
+    "SALESFORCE_KNOWLEDGE/REFERENCE/sanitized-lessons-catalog.md",
+    "SALESFORCE_KNOWLEDGE/DOCS/public-sanitization-policy.md",
+    "SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/PUBLIC_REPO_SAFETY_CHECK.md",
+    "SALESFORCE_KNOWLEDGE/PROMPTS/CODEX_PROMPT_PACK/07_FIX_SALESFORCE_FILES.md",
+    "SALESFORCE_KNOWLEDGE/PROMPTS/CODEX_PROMPT_PACK/08_FIX_MOBILE_SALESFORCE.md",
+    "SALESFORCE_KNOWLEDGE/PROMPTS/CODEX_PROMPT_PACK/05_FIX_DEPLOYMENT_FAILURE.md"
+  ],
+  "files_to_create": [
+    "SALESFORCE_KNOWLEDGE/TOPICS/communication/chatter-email-activity-patterns.md",
+    "SALESFORCE_KNOWLEDGE/TOPICS/files/contentdocument-lifecycle.md",
+    "SALESFORCE_KNOWLEDGE/TOPICS/files/photo-capture-annotation-viewer.md",
+    "SALESFORCE_KNOWLEDGE/TOPICS/mobile/mobile-camera-and-file-handoff.md",
+    "SALESFORCE_KNOWLEDGE/TOPICS/addresses/compound-address-fields.md",
+    "SALESFORCE_KNOWLEDGE/TOPICS/deployment/destructive-deployment-safety.md",
+    "SALESFORCE_KNOWLEDGE/TOPICS/troubleshooting/debug-log-triage.md",
+    "SALESFORCE_KNOWLEDGE/TOPICS/metadata/quick-action-visibility-matrix.md",
+    "SALESFORCE_KNOWLEDGE/TOPICS/lwc/dynamic-record-fields.md",
+    "SALESFORCE_KNOWLEDGE/CHECKLISTS/before-communication-automation.md",
+    "SALESFORCE_KNOWLEDGE/PROMPTS/fix-chatter-email-activity-safely.md"
+  ],
+  "private_content_skipped_categories": [
+    "Business workflow names and private operational terms",
+    "Customer, employee, user, vendor, and project names",
+    "Private metadata names for objects, fields, components, pages, flows, reports, dashboards, permission sets, and profiles",
+    "Record IDs, org-specific identifiers, deployment IDs, package IDs, runtime authentication markers, and test run IDs",
+    "Emails, phone numbers, usernames, domains, and private URLs",
+    "Credentials, tokens, client secrets, named credential values, authorization headers, certificates, and keys",
+    "Raw debug logs, stack traces with private IDs, screenshots, HTML exports, CSV/XLSX data, and generated documents",
+    "Email bodies, Chatter post bodies, SMS/chat text, PDF customer-facing copy, and file names",
+    "External source code and long copied prose from public archives",
+    "Local filesystem paths outside the audit inventory"
+  ],
+  "recommended_next_prompt": "Using WORKSPACE/LOCAL_REFERENCE_KNOWLEDGE_EXTRACTION.md and WORKSPACE/LOCAL_REFERENCE_KNOWLEDGE_EXTRACTION.json, create public-safe draft updates in WORKSPACE only for the P0 improvements. Do not modify SALESFORCE_KNOWLEDGE yet, do not commit, and do not push."
+}

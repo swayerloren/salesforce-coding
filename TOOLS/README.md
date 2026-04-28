@@ -28,6 +28,14 @@ These docs are guidance only. This repo does not vendor Salesforce tooling packa
 
 Codex must not install packages, edit package files, or add workflows unless the user asks for that implementation.
 
+## Where This Fits In Onboarding
+
+New users should not start here. They should first download or clone the repo, open it in VS Code, place or reference the real Salesforce DX project, and tell Codex to read `START_HERE.md`.
+
+Codex reaches `TOOLS/` after it has read the instructions, located `force-app/main/default`, read the Salesforce knowledge index, and identified the task type. This folder helps Codex decide whether Salesforce Code Analyzer, LWC Jest, ESLint, mobile lint, Apex formatting, or external reference docs are relevant to validation.
+
+Tool availability is not validation success. Codex may report a tool as available, missing, skipped, passed, or failed only from actual inspection or command output.
+
 ## No Vendoring
 
 Do not copy external repo source into this repo. Use upstream URLs and attribution in [VENDOR_REFERENCES/](../VENDOR_REFERENCES/).

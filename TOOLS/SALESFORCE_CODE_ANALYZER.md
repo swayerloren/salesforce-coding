@@ -1,6 +1,12 @@
 # Salesforce Code Analyzer
 
-Upstream reference: https://github.com/forcedotcom/code-analyzer
+Official references:
+
+- https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/code-analyzer.html
+- https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/analyze.html
+- https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/guide/rules.html
+
+Implementation source reference: https://github.com/forcedotcom/code-analyzer
 
 License signal: BSD-3-Clause.
 
@@ -24,7 +30,7 @@ Codex must not claim static analysis passed unless Code Analyzer actually ran an
 
 ## Install
 
-Check the official upstream docs before changing a user's project or CI setup:
+Check the official Salesforce Code Analyzer docs before changing a user's project or CI setup:
 
 ```bash
 sf plugins install @salesforce/plugin-code-analyzer
@@ -38,14 +44,23 @@ sf code-analyzer run --help
 sf code-analyzer rules --help
 ```
 
-Older projects may use Salesforce Scanner commands instead:
-
-```bash
-sf scanner run --help
-sfdx scanner:run --help
-```
-
 Codex may recommend installation, but must not install tools or modify dependencies unless the user asks.
+
+## Current Command Posture
+
+Use current `sf code-analyzer` commands as the primary guidance. Do not introduce retired `scanner` command shapes into new docs, scripts, or CI workflows.
+
+Before running or documenting a strict gate, verify:
+
+- plugin is installed,
+- `sf code-analyzer run --help` is available,
+- target path exists,
+- config file exists if one is referenced,
+- rule selectors are supported by the installed version,
+- output file path is outside deployable Salesforce metadata source,
+- result interpretation is based on actual exit status.
+
+If a legacy project still has old scanner scripts, document that as a project-specific migration issue rather than copying the retired command into new guidance.
 
 ## Run From A Salesforce DX Project
 

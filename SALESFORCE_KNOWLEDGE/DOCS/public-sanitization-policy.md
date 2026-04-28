@@ -14,9 +14,17 @@ This repo should never expose private implementation data.
 - deploy IDs and test run IDs,
 - OAuth/client secrets,
 - named credential secrets,
+- external credential secrets,
 - private domains and URLs,
 - source paths tied to private systems,
 - screenshots or HTML exports from private orgs.
+- raw debug logs,
+- email bodies,
+- Chatter post bodies,
+- generated document contents,
+- private file names,
+- generated browser-test reports,
+- local Salesforce state folders.
 
 ## Generalize
 
@@ -39,3 +47,15 @@ Keep reusable lessons:
 - metadata relationship,
 - deployment guardrail.
 
+## Private-Derived Lessons
+
+Local private references can be used only as evidence for generic lessons. Rewrite them as:
+
+- platform rule,
+- failure pattern,
+- checklist item,
+- validation flow,
+- anti-pattern,
+- public-safe pseudocode.
+
+Do not move private names, message text, file names, screenshots, raw logs, local paths, org IDs, or source snippets into public docs.

@@ -1,0 +1,128 @@
+{
+  "generated": "2026-04-28",
+  "status": "ready_for_commit_from_real_git_checkout",
+  "git_commit_possible_in_current_workspace": true,
+  "recommended_version": "v1.4.0",
+  "recommended_release_title": "Salesforce Coding v1.4.0 - Knowledge And Onboarding Expansion",
+  "overall_score": {
+    "before": {
+      "points": 77,
+      "max_points": 120,
+      "percent": 64,
+      "source": "WORKSPACE/MASTER_KNOWLEDGE_GAP_MATRIX.md"
+    },
+    "after": {
+      "points": 109,
+      "max_points": 120,
+      "percent": 91,
+      "source": "final audit estimate after Batch 1 through Batch 5"
+    }
+  },
+  "files_changed_summary": [
+    "Root onboarding and release docs",
+    "FORCE_APP_DIRECTORY setup docs",
+    "Salesforce knowledge guides, topics, prompts, checklists, command maps, parameter maps, quality strategies, and validation flows",
+    "Tooling, quality gate, and automation docs/scripts",
+    "Wiki drafts",
+    "Memory and History",
+    "Workspace batch reports and final audit reports"
+  ],
+  "knowledge_gaps_closed": [
+    "Apex structure, triggers, tests, async, SOQL/DML, and security posture",
+    "Salesforce Files lifecycle and mobile/file/PDF handoff",
+    "LWC data access, templates, navigation, toasts, dynamic fields, and mobile behavior",
+    "Visualforce PDF constraints and generated file handoff",
+    "Metadata source format, FlexiPages, layouts, quick actions, permissions, package.xml, and destructive deployment safety",
+    "Deployment validation, CLI command routing, debug-log triage, Code Analyzer guidance, and no-success-without-evidence behavior",
+    "Codex prompt and checklist behavior controls",
+    "New-user onboarding from release ZIP through Memory/History updates"
+  ],
+  "remaining_gaps": [
+    "No real Salesforce DX project was present, so project-specific tests, lint, analyzer, deploy, retrieve, mobile runtime, and Visualforce PDF validation were not run",
+    "Named credentials and external credentials do not yet have a dedicated topic page",
+    "Flow interaction with Apex/LWC does not yet have a dedicated topic page",
+    "Prompt effectiveness needs real task feedback",
+    "Version-sensitive CLI and Code Analyzer behavior should be verified against installed help before mutating commands",
+    "GitHub Release publishing still requires owner action"
+  ],
+  "audit_results": {
+    "repo_structure": "pass",
+    "readme_start_here_clarity": "pass",
+    "codex_workflow": "pass",
+    "salesforce_knowledge_depth": "pass",
+    "command_maps": {
+      "status": "pass",
+      "file_count": 6
+    },
+    "parameter_maps": {
+      "status": "pass",
+      "file_count": 6
+    },
+    "quality_strategies": {
+      "status": "pass",
+      "file_count": 7
+    },
+    "validation_flows": {
+      "status": "pass",
+      "file_count": 6
+    },
+    "prompts": "pass",
+    "checklists": "pass",
+    "automation_scripts": "pass_powershell_bash_skipped_unavailable",
+    "wiki_drafts": "pass",
+    "public_safety": "pass",
+    "links": "pass",
+    "copied_external_source_code": "pass_with_reviewed_generic_example_exceptions",
+    "local_only_public_paths": "pass_workspace_inventory_sanitized",
+    "node_modules": "pass_none_found",
+    "copied_git_folders": "pass_none_found",
+    "zip_extraction_leftovers": "pass_none_found",
+    "force_app_directory": "pass_placeholder_only",
+    "git_diff_check": "pass_real_git_checkout"
+  },
+  "validation": {
+    "markdown_link_check": {
+      "status": "pass",
+      "files_checked": 263
+    },
+    "workspace_json_parse": {
+      "status": "pass",
+      "files_checked": 10
+    },
+    "credential_token_private_key_org_id_scan": {
+      "status": "pass",
+      "files_checked": 298
+    },
+    "public_docs_local_path_private_data_scan": {
+      "status": "pass",
+      "files_checked": 298,
+      "scope": "scanned repo text including sanitized workspace reports"
+    },
+    "powershell_syntax_check": {
+      "status": "pass",
+      "scripts_checked": 3
+    },
+    "bash_syntax_check": {
+      "status": "skipped",
+      "reason": "bash is not available in this PowerShell environment"
+    },
+    "leftover_directory_scan": {
+      "status": "pass",
+      "result": "no node_modules, copied .git folders, optional external clone folders, zip extraction temp folders, or zip files found"
+    },
+    "copied_source_marker_scan": {
+      "status": "reviewed_pass",
+      "note": "source-like markers are generic public-safe examples in knowledge docs, not copied external source"
+    },
+    "git_diff_check": {
+      "status": "pass",
+      "scope": "real git checkout"
+    }
+  },
+  "ready_to_commit": {
+    "content_ready": true,
+    "current_workspace_can_commit": true,
+    "reason": "The downloaded release folder was mirrored into the real git checkout and the staged diff passed pre-commit checks"
+  },
+  "recommended_next_step": "Commit and push the staged knowledge-base improvement, then prepare v1.4.0 release notes, tag, and create the GitHub Release if ready."
+}

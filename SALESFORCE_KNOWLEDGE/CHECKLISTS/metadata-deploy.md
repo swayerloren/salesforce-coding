@@ -9,4 +9,8 @@
 - [ ] Tab/app changes are intentional.
 - [ ] Profiles are avoided unless absolutely required.
 - [ ] Permission sets are preferred for access changes.
-
+- [ ] `package.xml` is narrow and inspected.
+- [ ] Destructive manifests are separate from ordinary manifests.
+- [ ] Destructive changes have validation-only result, rollback note, and explicit approval.
+- [ ] Retrieve output is reviewed before keeping it in source.
+- [ ] Failure-hiding flags are not used to claim clean success.

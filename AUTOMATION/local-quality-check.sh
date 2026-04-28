@@ -288,28 +288,28 @@ sfdx_command_available() {
   sfdx "$@" >/dev/null 2>&1
 }
 
+sf_help_state() {
+  local label="$1"
+  shift
+
+  if ! command_exists sf; then
+    status "SKIPPED" "$label help unavailable because sf is missing."
+    return 0
+  fi
+
+  if sf "$@" >/dev/null 2>&1; then
+    status "FOUND" "Salesforce CLI help: $label"
+  else
+    status "MISSING" "Salesforce CLI help unavailable: $label"
+  fi
+}
+
 detect_code_analyzer() {
   if sf_command_available code-analyzer run --help; then
     CODE_ANALYZER_LABEL="Salesforce Code Analyzer through sf code-analyzer"
     CODE_ANALYZER_COMMAND="sf"
     CODE_ANALYZER_ARGS=(code-analyzer run --target force-app/main/default --view table)
     CODE_ANALYZER_INSTALL="sf plugins install @salesforce/plugin-code-analyzer"
-    return 0
-  fi
-
-  if sf_command_available scanner run --help; then
-    CODE_ANALYZER_LABEL="Salesforce Scanner through sf scanner run"
-    CODE_ANALYZER_COMMAND="sf"
-    CODE_ANALYZER_ARGS=(scanner run --target force-app/main/default)
-    CODE_ANALYZER_INSTALL="sf plugins install @salesforce/sfdx-scanner"
-    return 0
-  fi
-
-  if sfdx_command_available scanner:run --help; then
-    CODE_ANALYZER_LABEL="Salesforce Scanner through sfdx scanner:run"
-    CODE_ANALYZER_COMMAND="sfdx"
-    CODE_ANALYZER_ARGS=(scanner:run --target force-app/main/default)
-    CODE_ANALYZER_INSTALL="sfdx plugins:install @salesforce/sfdx-scanner"
     return 0
   fi
 
@@ -360,6 +360,14 @@ for tool in git sf sfdx node npm npx rg; do
     status "MISSING" "$tool is not installed or not on PATH."
   fi
 done
+
+sf_help_state "project deploy start" project deploy start --help
+sf_help_state "project deploy validate" project deploy validate --help
+sf_help_state "project deploy report" project deploy report --help
+sf_help_state "project deploy quick" project deploy quick --help
+sf_help_state "project retrieve start" project retrieve start --help
+sf_help_state "apex run test" apex run test --help
+sf_help_state "code-analyzer run" code-analyzer run --help
 
 if command_exists git; then
   git -C "$REPO_ROOT" status --short --branch

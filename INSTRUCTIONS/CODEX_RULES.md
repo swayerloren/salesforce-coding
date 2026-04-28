@@ -13,8 +13,9 @@ This repo is not automatically the user's Salesforce DX project. It is an operat
 | 3 | [FORCE_APP_DIRECTORY/README.md](../FORCE_APP_DIRECTORY/README.md) | Explains where the real Salesforce DX project is placed or referenced. |
 | 4 | [SALESFORCE_KNOWLEDGE/INDEX.md](../SALESFORCE_KNOWLEDGE/INDEX.md) | Routes Codex to task-specific Salesforce guidance. |
 | 5 | [SALESFORCE_KNOWLEDGE/COMMANDS/](../SALESFORCE_KNOWLEDGE/COMMANDS/), [PARAMETERS/](../SALESFORCE_KNOWLEDGE/PARAMETERS/), [QUALITY_STRATEGIES/](../SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/), and [VALIDATION_FLOWS/](../SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/) | Selects command patterns, options, validation sequence, and quality strategy. |
-| 6 | [TOOLS/](../TOOLS/) and [QUALITY_GATES/](../QUALITY_GATES/) | Identifies optional tooling and validation gates. |
-| 7 | [MEMORY/](../MEMORY/) and [HISTORY/](../HISTORY/) | Reuses durable lessons and checks recent work. |
+| 6 | [SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_PATTERN_USAGE_RULES.md](../SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_PATTERN_USAGE_RULES.md) when public examples or external repo lessons are used | Keeps external intelligence as learning only. |
+| 7 | [TOOLS/](../TOOLS/) and [QUALITY_GATES/](../QUALITY_GATES/) | Identifies optional tooling and validation gates. |
+| 8 | [MEMORY/](../MEMORY/) and [HISTORY/](../HISTORY/) | Reuses durable lessons and checks recent work. |
 
 ## Non-Negotiable Rules
 
@@ -27,12 +28,16 @@ This repo is not automatically the user's Salesforce DX project. It is an operat
 - [ ] Inspect existing real project files before editing.
 - [ ] Identify root cause before changing files.
 - [ ] Do not guess Salesforce names or identifiers.
+- [ ] Do not invent deployable metadata, object names, field names, component names, permission names, record type IDs, org IDs, or local paths.
 - [ ] Make the smallest safe change.
 - [ ] Do not edit unrelated files.
+- [ ] Do not over-refactor, broadly reformat, or rewrite generated files unless explicitly requested.
 - [ ] Preserve Salesforce DX structure.
 - [ ] Run available quality gates after code changes when practical.
 - [ ] Run or recommend Salesforce Code Analyzer after Apex, LWC, Aura, metadata, Flow, static resource, or deployment-scope changes.
 - [ ] Do not claim static analysis passed unless Salesforce Code Analyzer actually ran and passed.
+- [ ] Do not claim tests, lint, analyzer, deploy, retrieve, or runtime checks passed unless the exact command or check actually ran and passed.
+- [ ] Use external repo intelligence as learning only; do not copy external source, metadata, config, workflow files, data, or sample names into this repo or a user project.
 - [ ] Keep all committed content public-safe.
 - [ ] Update Memory and History after meaningful work.
 
@@ -115,6 +120,24 @@ Use documentation this way:
 
 When notes conflict with real project metadata, inspect the real source and follow the current user request.
 
+## External Intelligence Rule
+
+External repos, public examples, official docs, local private references, and prior workspace research are reference material only.
+
+Allowed uses:
+
+- summarize reusable Salesforce patterns in original language,
+- compare architecture or validation approaches,
+- extract generic failure modes and checklist items,
+- link to official or public sources when attribution is useful.
+
+Forbidden uses:
+
+- copying external source code, sample metadata, workflow files, config files, data files, or generated artifacts,
+- copying private names, org IDs, record IDs, emails, phone numbers, customer data, private URLs, local paths, debug logs, or screenshots,
+- importing sample API names into a real project without verifying the real source,
+- treating a public example as proof that the user's project has the same object, field, permission, page, or test names.
+
 ## Smallest Safe Change
 
 Prefer:
@@ -179,6 +202,13 @@ Use gates that are available in the real Salesforce DX project:
 
 If a gate is unavailable, report that limitation instead of inventing results.
 
+Use precise validation language:
+
+- `Passed` means the exact command or check ran and exited successfully.
+- `Failed` means the exact command or check ran and returned an error or failing result.
+- `Skipped` means the check was not run, with the exact reason stated.
+- `Static review only` means files were inspected without runtime, org, deploy, test, lint, or analyzer evidence.
+
 Use [SALESFORCE_KNOWLEDGE/COMMANDS/](../SALESFORCE_KNOWLEDGE/COMMANDS/), [SALESFORCE_KNOWLEDGE/PARAMETERS/](../SALESFORCE_KNOWLEDGE/PARAMETERS/), [SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/](../SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/), and [SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/](../SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/) to choose the right sequence and options.
 
 ### Salesforce Code Analyzer
@@ -214,6 +244,8 @@ Never add committed content containing:
 - private screenshots.
 
 Use generic examples and placeholders when documentation needs examples.
+
+Private-derived lessons must be rewritten as generic rules, checklists, failure patterns, or pseudocode before they enter public docs, Memory, or History.
 
 ## Memory And History
 
