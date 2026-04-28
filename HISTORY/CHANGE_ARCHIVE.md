@@ -257,3 +257,13 @@ Do not use this for every small edit. Use `HISTORY/CODEX_RUN_LOG.md` for normal 
 - Validation: Markdown local link/path check passed across 194 Markdown files; local quality check passed in allow-missing-project mode; public-safety scans passed; no external repo clone directories were found in the main repo tree; local-only vendor/temp patterns are ignored; `FORCE_APP_DIRECTORY/` contains only placeholder and instruction files; `git diff --check` passed.
 - Outcome: `v1.2.0` is the selected version because the integration added significant backward-compatible tooling, quality gates, local automation, optional vendor references, workflow drafts, and validation guidance.
 - Follow-up: Create or update the GitHub Release page manually after the release documentation commit is pushed.
+
+## 2026-04-28 - External Intelligence Strategy Integration
+
+- Date: 2026-04-28
+- Summary: Added original knowledge layers that convert external Salesforce tooling and recipe repo analysis into public-safe Codex guidance without copying external source.
+- Scope: External intelligence reference docs, command maps, parameter maps, quality strategies, validation flows, public entry points, instructions, tool docs, quality gate docs, automation docs, vendor references, prompt pack, checklist pack, Memory, History, and workspace report.
+- Key files or folders: `SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_INTELLIGENCE/`, `SALESFORCE_KNOWLEDGE/COMMANDS/`, `SALESFORCE_KNOWLEDGE/PARAMETERS/`, `SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/`, `SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/`, `WORKSPACE/EXTERNAL_INTELLIGENCE_IMPLEMENTATION_REPORT.md`.
+- Validation: Pending final validation in this task.
+- Outcome: Codex now has explicit maps for commands, parameters, validation sequence, and task-specific quality posture derived from external intelligence while preserving the no-vendoring rule.
+- Follow-up: After validation passes, review the implementation report and decide whether to commit.

@@ -25,6 +25,14 @@ Required startup:
    - SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/BEFORE_EDITING_LWC.md
    - SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_PATTERN_USAGE_RULES.md
    - SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_LWC_RECIPES_MAP.md when a public pattern reference is useful
+   - SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_INTELLIGENCE/LWC_RECIPES_STRATEGY.md
+   - SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_INTELLIGENCE/LWC_JEST_STRATEGY.md
+   - SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_INTELLIGENCE/LWC_ESLINT_STRATEGY.md
+   - SALESFORCE_KNOWLEDGE/COMMANDS/LWC_TEST_COMMAND_MAP.md
+   - SALESFORCE_KNOWLEDGE/PARAMETERS/LWC_JEST_PARAMETERS.md
+   - SALESFORCE_KNOWLEDGE/PARAMETERS/ESLINT_LWC_PARAMETERS.md
+   - SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/LWC_QUALITY_STRATEGY.md
+   - SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/FIX_LWC_FLOW.md
    - TOOLS/LWC_JEST.md
    - TOOLS/ESLINT_LWC.md
    - TOOLS/LWC_MOBILE_LINT.md
@@ -62,6 +70,7 @@ Validation:
 
 - Run available LWC Jest, LWC ESLint, and mobile lint checks if configured.
 - Prefer existing package scripts such as npm run test:unit, npm run lint:lwc, npm run lint, and npm run lint:mobile.
+- Use the LWC command map and parameter maps before choosing direct Jest or ESLint commands.
 - Do not claim Jest, ESLint, or mobile lint passed unless the command actually ran and passed.
 - If package.json, Node/npm, test scripts, or lint scripts are missing, report the validation as skipped with the exact reason.
 - Run focused Apex tests if Apex controller behavior changed.

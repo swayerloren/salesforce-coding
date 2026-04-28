@@ -17,7 +17,8 @@ Required startup:
 6. Read the task-specific Salesforce guides, topics, patterns, prompts, and checklists for this request.
 7. Read TOOLS/SALESFORCE_CODE_ANALYZER.md and QUALITY_GATES/CODE_ANALYZER_RULES.md if the task may change Salesforce source.
 8. Read TOOLS/LWC_JEST.md, TOOLS/ESLINT_LWC.md, TOOLS/LWC_MOBILE_LINT.md, QUALITY_GATES/LWC_LINT_RULES.md, and QUALITY_GATES/TESTING_GATE.md if the task may change LWC or Salesforce mobile behavior.
-9. Read relevant MEMORY/ and HISTORY/ entries before changing files.
+9. Read SALESFORCE_KNOWLEDGE/COMMANDS/, SALESFORCE_KNOWLEDGE/PARAMETERS/, SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/, and SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/ for the task type.
+10. Read relevant MEMORY/ and HISTORY/ entries before changing files.
 
 Task:
 [PASTE TASK HERE]
@@ -37,6 +38,8 @@ Working rules:
 - Do not claim static analysis passed unless Salesforce Code Analyzer actually ran and passed.
 - After LWC changes, run or recommend available LWC lint and Jest checks.
 - Do not claim LWC Jest or ESLint passed unless the command actually ran and passed.
+- Use the command maps and parameter maps before choosing exact validation commands.
+- Use the validation flows to sequence checks and record skipped gates honestly.
 - For Salesforce mobile work, treat mobile behavior as a required review area.
 - Keep LWC template logic in JavaScript getters and avoid inline JavaScript expressions in HTML templates.
 - If validation cannot run, say why.

@@ -11,6 +11,10 @@ Use this checklist before every task in this repo.
 - [ ] `SALESFORCE_KNOWLEDGE/INDEX.md` has been read.
 - [ ] The relevant Salesforce knowledge guide has been read.
 - [ ] The task-specific guide, topic, prompt, checklist, or pattern has been read.
+- [ ] Relevant command maps in `SALESFORCE_KNOWLEDGE/COMMANDS/` have been read.
+- [ ] Relevant parameter maps in `SALESFORCE_KNOWLEDGE/PARAMETERS/` have been read.
+- [ ] Relevant quality strategy in `SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/` has been read.
+- [ ] Relevant validation flow in `SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/` has been read.
 - [ ] Relevant `MEMORY/` and `HISTORY/` context has been checked.
 - [ ] The memory/history update plan is known for meaningful work.
 
@@ -29,6 +33,8 @@ Use this checklist before every task in this repo.
 - [ ] Salesforce DX structure will be preserved.
 - [ ] No placeholder deployable Salesforce metadata will be created.
 - [ ] Validation plan is clear, or validation limits are known.
+- [ ] Available local automation wrappers have been considered before claiming validation is complete.
+- [ ] Skipped validation gates will be reported with exact reasons.
 
 ## Safety
 

@@ -25,6 +25,14 @@ Required startup:
    - SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/BEFORE_EDITING_APEX.md
    - SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_PATTERN_USAGE_RULES.md
    - SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_APEX_RECIPES_MAP.md when a public pattern reference is useful
+   - SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_INTELLIGENCE/APEX_RECIPES_STRATEGY.md
+   - SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_INTELLIGENCE/CODE_ANALYZER_STRATEGY.md
+   - SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_INTELLIGENCE/APEX_FORMATTING_STRATEGY.md
+   - SALESFORCE_KNOWLEDGE/COMMANDS/APEX_VALIDATION_COMMAND_MAP.md
+   - SALESFORCE_KNOWLEDGE/PARAMETERS/CODE_ANALYZER_PARAMETERS.md
+   - SALESFORCE_KNOWLEDGE/PARAMETERS/PRETTIER_APEX_PARAMETERS.md
+   - SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/APEX_QUALITY_STRATEGY.md
+   - SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/FIX_APEX_FLOW.md
    - TOOLS/SALESFORCE_CODE_ANALYZER.md
    - TOOLS/PRETTIER_APEX.md
    - QUALITY_GATES/CODE_ANALYZER_RULES.md
@@ -67,6 +75,7 @@ Validation:
 
 - Run focused Apex tests if possible.
 - Run Salesforce Code Analyzer if available, usually from the real project root with `sf code-analyzer run --target force-app/main/default --view table`.
+- Use the Apex validation command map and Code Analyzer parameter map before choosing exact commands.
 - Do not claim static analysis passed unless Salesforce Code Analyzer actually ran and passed.
 - If Salesforce Code Analyzer is missing, state it was skipped and why, then recommend `sf plugins install @salesforce/plugin-code-analyzer`.
 - Run or recommend optional Apex formatting checks when configured, such as `npm run prettier:check`, `npm run prettier:apex:check`, or `npx prettier --plugin=prettier-plugin-apex --check "force-app/main/default/**/*.{cls,trigger}"`.

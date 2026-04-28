@@ -24,6 +24,9 @@ Required startup:
    - SALESFORCE_KNOWLEDGE/CHECKLISTS/before-deployment.md
    - SALESFORCE_KNOWLEDGE/CHECKLISTS/metadata-deploy.md
    - SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/BEFORE_DEPLOYMENT.md
+   - SALESFORCE_KNOWLEDGE/COMMANDS/SALESFORCE_CLI_COMMAND_MAP.md
+   - SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/DEPLOYMENT_QUALITY_STRATEGY.md
+   - SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/FIX_DEPLOYMENT_FLOW.md
    - TOOLS/SALESFORCE_CODE_ANALYZER.md
    - QUALITY_GATES/CODE_ANALYZER_RULES.md
 7. Read relevant MEMORY/ and HISTORY/ entries before changing files.
@@ -54,6 +57,7 @@ Fix rules:
 Validation:
 
 - Re-run focused tests or deploy dry run if possible.
+- Use the Salesforce CLI command map before choosing exact deploy, test, or validation commands.
 - Run Salesforce Code Analyzer if available for the changed deploy scope, usually from the real project root with `sf code-analyzer run --target force-app/main/default --view table`.
 - Do not claim static analysis passed unless Salesforce Code Analyzer actually ran and passed.
 - If Salesforce Code Analyzer is missing, state it was skipped and why, then recommend `sf plugins install @salesforce/plugin-code-analyzer`.

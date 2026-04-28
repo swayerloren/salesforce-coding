@@ -12,8 +12,9 @@ This repo is not automatically the user's Salesforce DX project. It is an operat
 | 2 | [INSTRUCTIONS/](README.md) | Defines mandatory Codex behavior. |
 | 3 | [FORCE_APP_DIRECTORY/README.md](../FORCE_APP_DIRECTORY/README.md) | Explains where the real Salesforce DX project is placed or referenced. |
 | 4 | [SALESFORCE_KNOWLEDGE/INDEX.md](../SALESFORCE_KNOWLEDGE/INDEX.md) | Routes Codex to task-specific Salesforce guidance. |
-| 5 | [TOOLS/](../TOOLS/) and [QUALITY_GATES/](../QUALITY_GATES/) | Identifies optional tooling and validation gates. |
-| 6 | [MEMORY/](../MEMORY/) and [HISTORY/](../HISTORY/) | Reuses durable lessons and checks recent work. |
+| 5 | [SALESFORCE_KNOWLEDGE/COMMANDS/](../SALESFORCE_KNOWLEDGE/COMMANDS/), [PARAMETERS/](../SALESFORCE_KNOWLEDGE/PARAMETERS/), [QUALITY_STRATEGIES/](../SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/), and [VALIDATION_FLOWS/](../SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/) | Selects command patterns, options, validation sequence, and quality strategy. |
+| 6 | [TOOLS/](../TOOLS/) and [QUALITY_GATES/](../QUALITY_GATES/) | Identifies optional tooling and validation gates. |
+| 7 | [MEMORY/](../MEMORY/) and [HISTORY/](../HISTORY/) | Reuses durable lessons and checks recent work. |
 
 ## Non-Negotiable Rules
 
@@ -22,6 +23,7 @@ This repo is not automatically the user's Salesforce DX project. It is an operat
 - [ ] Confirm the real `force-app/main/default` path.
 - [ ] Do not assume this helper repo is the Salesforce DX project.
 - [ ] Do not treat examples, guides, prompts, checklists, wiki drafts, or workspace notes as live source.
+- [ ] Read relevant command maps, parameter maps, quality strategies, and validation flows before selecting validation commands.
 - [ ] Inspect existing real project files before editing.
 - [ ] Identify root cause before changing files.
 - [ ] Do not guess Salesforce names or identifiers.
@@ -98,6 +100,10 @@ Use documentation this way:
 | --- | --- |
 | `START_HERE.md` and `INSTRUCTIONS/` | Operating rules. |
 | `SALESFORCE_KNOWLEDGE/` | Salesforce guidance and safety checks. |
+| `SALESFORCE_KNOWLEDGE/COMMANDS/` | Command maps for validation choices. |
+| `SALESFORCE_KNOWLEDGE/PARAMETERS/` | Tool parameter and option maps. |
+| `SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/` | Task-specific quality posture. |
+| `SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/` | Ordered validation sequences. |
 | `MEMORY/` | Durable lessons that may need source reverification. |
 | `HISTORY/` | Chronological context, not current architecture. |
 | `WORKSPACE/` | Task notes, audits, and review reports. |
@@ -172,6 +178,8 @@ Use gates that are available in the real Salesforce DX project:
 | Docs | Markdown links, public-safety scans, path consistency checks. |
 
 If a gate is unavailable, report that limitation instead of inventing results.
+
+Use [SALESFORCE_KNOWLEDGE/COMMANDS/](../SALESFORCE_KNOWLEDGE/COMMANDS/), [SALESFORCE_KNOWLEDGE/PARAMETERS/](../SALESFORCE_KNOWLEDGE/PARAMETERS/), [SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/](../SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/), and [SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/](../SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/) to choose the right sequence and options.
 
 ### Salesforce Code Analyzer
 

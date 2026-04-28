@@ -4,6 +4,13 @@
 
 The scripts are public-safe. They do not deploy, require Salesforce org login, install packages, edit Salesforce files, or copy external repositories.
 
+These scripts are the local wrapper layer. They discover the real Salesforce DX project and report available tools. They do not replace the command maps, parameter maps, quality strategies, or validation flows:
+
+- [Command maps](../SALESFORCE_KNOWLEDGE/COMMANDS/)
+- [Parameter maps](../SALESFORCE_KNOWLEDGE/PARAMETERS/)
+- [Quality strategies](../SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/)
+- [Validation flows](../SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/)
+
 ## What The Scripts Do
 
 | Script | Platform | Purpose |
@@ -107,3 +114,5 @@ Before claiming a Salesforce code fix is good, Codex should:
 5. Report exact `FOUND`, `MISSING`, `SKIPPED`, `PASS`, and `FAIL` lines.
 
 Codex must not treat missing optional tools as proof that the code is valid. Missing tools should be reported as limits.
+
+When a script recommends a command, Codex should confirm that command against the relevant command map and the real project's installed tools before treating it as validation evidence.

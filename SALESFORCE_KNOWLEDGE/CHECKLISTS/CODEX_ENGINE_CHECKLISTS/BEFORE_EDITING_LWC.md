@@ -14,6 +14,15 @@ Use this checklist before editing Lightning Web Components.
 - [ ] `SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_COMMON_FAILURES_AND_FIXES.md`
 - [ ] `SALESFORCE_KNOWLEDGE/TOPICS/lwc/`
 - [ ] `SALESFORCE_KNOWLEDGE/CHECKLISTS/before-lwc.md`
+- [ ] `SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_INTELLIGENCE/LWC_RECIPES_STRATEGY.md`
+- [ ] `SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_INTELLIGENCE/LWC_JEST_STRATEGY.md`
+- [ ] `SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_INTELLIGENCE/LWC_ESLINT_STRATEGY.md`
+- [ ] `SALESFORCE_KNOWLEDGE/COMMANDS/LWC_TEST_COMMAND_MAP.md`
+- [ ] `SALESFORCE_KNOWLEDGE/COMMANDS/NPM_SCRIPT_COMMAND_MAP.md`
+- [ ] `SALESFORCE_KNOWLEDGE/PARAMETERS/LWC_JEST_PARAMETERS.md`
+- [ ] `SALESFORCE_KNOWLEDGE/PARAMETERS/ESLINT_LWC_PARAMETERS.md`
+- [ ] `SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/LWC_QUALITY_STRATEGY.md`
+- [ ] `SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/FIX_LWC_FLOW.md`
 
 ## Project And Bundle Checks
 
@@ -49,6 +58,8 @@ Use this checklist before editing Lightning Web Components.
 ## Validation Plan
 
 - [ ] Lint/Jest/static checks identified if configured.
+- [ ] Existing package scripts are preferred over direct `npx` commands.
+- [ ] LWC Jest, ESLint, mobile lint, or graph analyzer skipped reasons will be documented if unavailable.
 - [ ] Focused Apex tests identified if Apex changed.
 - [ ] Deploy dry-run scope identified if metadata validation is appropriate.
 - [ ] If validation cannot run, the reason will be stated.
@@ -57,4 +68,3 @@ Use this checklist before editing Lightning Web Components.
 
 - [ ] Reusable LWC lesson will be recorded in `MEMORY/` if applicable.
 - [ ] Chronological result will be recorded in `HISTORY/`.
-

@@ -92,6 +92,10 @@ Also check relevant patterns, checklists, Memory, and History.
 
 For code changes, also check:
 
+- `SALESFORCE_KNOWLEDGE/COMMANDS/`
+- `SALESFORCE_KNOWLEDGE/PARAMETERS/`
+- `SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/`
+- `SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/`
 - `TOOLS/`
 - `QUALITY_GATES/`
 - `AUTOMATION/`
@@ -157,6 +161,17 @@ Choose validation based on the change and the tools available in the real projec
 Do not claim validation succeeded unless a command or inspection supports it. If validation cannot run, explain why.
 
 Local helper scripts live in `AUTOMATION/`. They are public-safe and should not install packages or change project dependencies.
+
+Before running a command, match it to the relevant command map and parameter map:
+
+| Need | Read |
+| --- | --- |
+| Apex validation | `SALESFORCE_KNOWLEDGE/COMMANDS/APEX_VALIDATION_COMMAND_MAP.md` |
+| LWC tests | `SALESFORCE_KNOWLEDGE/COMMANDS/LWC_TEST_COMMAND_MAP.md` |
+| Salesforce CLI deploy/test | `SALESFORCE_KNOWLEDGE/COMMANDS/SALESFORCE_CLI_COMMAND_MAP.md` |
+| NPM scripts | `SALESFORCE_KNOWLEDGE/COMMANDS/NPM_SCRIPT_COMMAND_MAP.md` |
+| Tool options | `SALESFORCE_KNOWLEDGE/PARAMETERS/` |
+| Task sequence | `SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/` |
 
 ### Salesforce Code Analyzer Gate
 

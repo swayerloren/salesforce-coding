@@ -22,3 +22,17 @@ This registry lists the external tools and reference repos that can inform quali
 - Do not assume a tool is installed.
 - Do not add a tool as a dependency without explicit user approval.
 - Treat analyzer and lint output as evidence to inspect, not automatic permission to refactor.
+- Use [command maps](../SALESFORCE_KNOWLEDGE/COMMANDS/) and [parameter maps](../SALESFORCE_KNOWLEDGE/PARAMETERS/) before choosing exact commands.
+- Use [quality strategies](../SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/) and [validation flows](../SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/) to decide when a tool applies.
+
+## Distilled Intelligence Layer
+
+The external intelligence strategy is now captured in original repo docs:
+
+| Layer | Path |
+| --- | --- |
+| External intelligence strategy | [../SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_INTELLIGENCE/](../SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_INTELLIGENCE/) |
+| Command maps | [../SALESFORCE_KNOWLEDGE/COMMANDS/](../SALESFORCE_KNOWLEDGE/COMMANDS/) |
+| Parameter maps | [../SALESFORCE_KNOWLEDGE/PARAMETERS/](../SALESFORCE_KNOWLEDGE/PARAMETERS/) |
+| Quality strategies | [../SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/](../SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/) |
+| Validation flows | [../SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/](../SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/) |

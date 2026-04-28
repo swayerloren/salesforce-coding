@@ -1,0 +1,256 @@
+{
+  "repos_analyzed": [
+    {
+      "name": "forcedotcom/code-analyzer",
+      "url": "https://github.com/forcedotcom/code-analyzer",
+      "latest_observed_commit": "c191bed66074af0583e6166c64e67d978c981b63",
+      "primary_intelligence": "Salesforce static analysis, rule selection, severity thresholds, machine-readable outputs, workspace versus target behavior"
+    },
+    {
+      "name": "trailheadapps/lwc-recipes",
+      "url": "https://github.com/trailheadapps/lwc-recipes",
+      "latest_observed_commit": "f0282a54adb5862437bfb414fc0b7043197e89a4",
+      "primary_intelligence": "LWC implementation patterns, Salesforce DX metadata structure, LWC Jest usage, UI API, navigation, events, forms, GraphQL, static resources"
+    },
+    {
+      "name": "trailheadapps/apex-recipes",
+      "url": "https://github.com/trailheadapps/apex-recipes",
+      "latest_observed_commit": "ed13f5ad1da404cb40f82447651f9abf6acf861a",
+      "primary_intelligence": "Apex patterns for security, SOQL, DML, async, triggers, files, callouts, custom metadata, platform events, testing, and Salesforce DX structure"
+    },
+    {
+      "name": "salesforce/sfdx-lwc-jest",
+      "url": "https://github.com/salesforce/sfdx-lwc-jest",
+      "latest_observed_commit": "e1129959f5fe05cbf9b740b15921769832bfd1c6",
+      "primary_intelligence": "LWC Jest setup, scripts, CLI options, coverage, debug mode, wire testing, and project-specific Jest overrides"
+    },
+    {
+      "name": "dangmai/prettier-plugin-apex",
+      "url": "https://github.com/dangmai/prettier-plugin-apex",
+      "latest_observed_commit": "2e96e4ea9ccd8924a011834ee45faf0b8f3f2d02",
+      "primary_intelligence": "Optional Apex formatting, check-first validation, debug-check behavior, parser options, scoped formatting guidance"
+    },
+    {
+      "name": "salesforce/eslint-plugin-lwc",
+      "url": "https://github.com/salesforce/eslint-plugin-lwc",
+      "latest_observed_commit": "b6e85754cceaf0d2c77ca9338130a9c3068e3391",
+      "primary_intelligence": "LWC-specific ESLint rules for decorators, wire usage, DOM access, async behavior, event listener cleanup, template safety, and SSR concerns"
+    },
+    {
+      "name": "salesforce/eslint-config-lwc",
+      "url": "https://github.com/salesforce/eslint-config-lwc",
+      "latest_observed_commit": "ab18fed204df83c6f93fa9f5f9300f0880be9969",
+      "primary_intelligence": "Shareable LWC ESLint config profiles, ESLint version compatibility, base/recommended/extended/i18n/SSR/TypeScript config selection"
+    },
+    {
+      "name": "salesforce/eslint-plugin-lwc-mobile",
+      "url": "https://github.com/salesforce/eslint-plugin-lwc-mobile",
+      "latest_observed_commit": "2403991038f216929ecaa00cc8dd8624d77f7c9a",
+      "primary_intelligence": "Mobile/offline LWC lint rules, GraphQL limits, Apex import review, and mobile-safe component validation"
+    },
+    {
+      "name": "salesforce/eslint-plugin-lwc-graph-analyzer",
+      "url": "https://github.com/salesforce/eslint-plugin-lwc-graph-analyzer",
+      "latest_observed_commit": "75c5fd905635d29b0555668e8dd72aca6d6fbb26",
+      "primary_intelligence": "Advanced LWC static analyzability, data priming and offline readiness, wire dependency graph checks, template inclusion requirements"
+    },
+    {
+      "name": "forcedotcom/salesforcedx-vscode",
+      "url": "https://github.com/forcedotcom/salesforcedx-vscode",
+      "latest_observed_commit": "0837748fe70db9e20434cc27e058bf73052742bc",
+      "primary_intelligence": "Salesforce VS Code workflow, language service coverage, layered quality scripts, link checks, duplicate checks, dependency checks, secret scan concepts"
+    },
+    {
+      "name": "mitchspano/sfdx-scan-pull-request",
+      "url": "https://github.com/mitchspano/sfdx-scan-pull-request",
+      "latest_observed_commit": "62b9c9f5bc601c106d19064df83b1e9871ef2ecf",
+      "primary_intelligence": "Pull request scan automation concepts, changed-scope scanning, inline comments, check-run reporting, severity thresholds, legacy scanner options"
+    }
+  ],
+  "p0_actions": [
+    "Create or strengthen a Salesforce Code Analyzer command matrix with workspace, target, rule selector, severity threshold, view, output file, pass, warning, fail, and skipped interpretation.",
+    "Create or strengthen LWC Jest guidance covering package scripts, CLI options, coverage, debug mode, project mocks, wire adapter tests, and evidence rules.",
+    "Create or strengthen LWC ESLint guidance mapping key LWC rules to common Codex mistakes.",
+    "Create or strengthen mobile/offline LWC lint and graph analyzer guidance with clear applicability rules.",
+    "Create or strengthen Apex formatting guidance that defaults to check-first and avoids broad unrelated formatting.",
+    "Create or strengthen external recipe usage rules so Codex treats Apex Recipes and LWC Recipes as pattern references, not copy sources.",
+    "Update task prompts to require available quality gates after relevant Salesforce code changes and to document skipped gates honestly.",
+    "Update checklists so Codex records validation evidence, skipped tool reasons, and Memory/History updates."
+  ],
+  "p1_actions": [
+    "Add or refine CI workflow strategy for Markdown checks, public safety checks, Salesforce Code Analyzer, LWC lint/Jest, and Apex formatting.",
+    "Add Salesforce project setup-flow guardrails that distinguish sample app setup commands from user project commands.",
+    "Add VS Code developer workflow guidance for optional Salesforce Extension Pack, Code Analyzer extension, language services, local quality checks, and safe org-aware work.",
+    "Add pull request review automation strategy using severity thresholds, changed-file scope, and check-run style reporting.",
+    "Add ESLint config selection guidance for base, recommended, extended, i18n, SSR, TypeScript, ESLint 9, and older project compatibility.",
+    "Enhance automation scripts to detect available tools and package scripts before recommending commands.",
+    "Add example-only package.json scripts and config snippets for users to adapt to their real Salesforce DX projects.",
+    "Strengthen vendor reference attribution with repo URLs, license identities, no-vendoring boundaries, and optional clone guidance."
+  ],
+  "p2_actions": [
+    "Add advanced SARIF and JSON analyzer reporting examples for CI.",
+    "Add mobile/offline graph analyzer decision tree for Salesforce mobile and offline-first LWC work.",
+    "Add Apex Recipes and LWC Recipes task playbooks that route Codex to relevant concepts by task type.",
+    "Add optional changed-file pull request scan strategy after validating current Code Analyzer support.",
+    "Add duplicate, dependency, link-check, and secret-scan repo hygiene guidance inspired by Salesforce VS Code workflows.",
+    "Add optional TypeScript LWC guidance after checking current Salesforce DX support and user project setup."
+  ],
+  "files_to_create": [
+    "SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_TOOL_INTELLIGENCE_MAP.md",
+    "QUALITY_GATES/examples/lwc-quality-package-scripts.md",
+    "QUALITY_GATES/examples/code-analyzer-command-examples.md",
+    "QUALITY_GATES/examples/apex-formatting-command-examples.md",
+    ".github/workflows/lwc-quality-gate.example.yml"
+  ],
+  "files_to_update": [
+    "TOOLS/TOOL_REGISTRY.md",
+    "TOOLS/SALESFORCE_CODE_ANALYZER.md",
+    "TOOLS/LWC_JEST.md",
+    "TOOLS/ESLINT_LWC.md",
+    "TOOLS/LWC_MOBILE_LINT.md",
+    "TOOLS/PRETTIER_APEX.md",
+    "TOOLS/EXTERNAL_REFERENCE_REPOS.md",
+    "QUALITY_GATES/CODE_ANALYZER_RULES.md",
+    "QUALITY_GATES/LWC_LINT_RULES.md",
+    "QUALITY_GATES/APEX_FORMATTING.md",
+    "QUALITY_GATES/TESTING_GATE.md",
+    "QUALITY_GATES/RELEASE_GATE.md",
+    "AUTOMATION/local-quality-check.ps1",
+    "AUTOMATION/local-quality-check.sh",
+    "AUTOMATION/validate-salesforce-project.ps1",
+    "AUTOMATION/validate-salesforce-project.sh",
+    "VENDOR_REFERENCES/TOOL_SOURCE_MAP.md",
+    "VENDOR_REFERENCES/LICENSE_AND_ATTRIBUTION_NOTES.md",
+    "SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_APEX_RECIPES_MAP.md",
+    "SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_LWC_RECIPES_MAP.md",
+    "SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_PATTERN_USAGE_RULES.md",
+    "SALESFORCE_KNOWLEDGE/PROMPTS/CODEX_PROMPT_PACK/01_START_NEW_SALESFORCE_TASK.md",
+    "SALESFORCE_KNOWLEDGE/PROMPTS/CODEX_PROMPT_PACK/02_FIX_LWC.md",
+    "SALESFORCE_KNOWLEDGE/PROMPTS/CODEX_PROMPT_PACK/03_FIX_APEX.md",
+    "SALESFORCE_KNOWLEDGE/PROMPTS/CODEX_PROMPT_PACK/04_FIX_APEX_TESTS.md",
+    "SALESFORCE_KNOWLEDGE/PROMPTS/CODEX_PROMPT_PACK/05_FIX_DEPLOYMENT_FAILURE.md",
+    "SALESFORCE_KNOWLEDGE/PROMPTS/CODEX_PROMPT_PACK/08_FIX_MOBILE_SALESFORCE.md",
+    "SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/BEFORE_EVERY_CODEX_TASK.md",
+    "SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/BEFORE_EDITING_APEX.md",
+    "SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/BEFORE_EDITING_LWC.md",
+    "SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/BEFORE_DEPLOYMENT.md",
+    "SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/BEFORE_GITHUB_PUSH.md",
+    "SALESFORCE_KNOWLEDGE/INDEX.md",
+    "README.md",
+    "START_HERE.md"
+  ],
+  "commands_to_document": [
+    "sf code-analyzer run",
+    "sf code-analyzer rules",
+    "sf code-analyzer config",
+    "sf code-analyzer run --rule-selector Recommended --workspace . --target force-app/main/default --view table",
+    "sf code-analyzer run --config-file code-analyzer.yml --output-file results.sarif --severity-threshold 3",
+    "npm install --save-dev @salesforce/sfdx-lwc-jest",
+    "sfdx-lwc-jest",
+    "sfdx-lwc-jest --watch",
+    "sfdx-lwc-jest --debug",
+    "sfdx-lwc-jest --coverage",
+    "sfdx-lwc-jest -- --json",
+    "sfdx-lwc-jest --debug -- --no-cache",
+    "npm run test:unit",
+    "npm run test:unit:coverage",
+    "npm run lint",
+    "npx eslint force-app/main/default/lwc",
+    "npm install --save-dev @salesforce/eslint-config-lwc @lwc/eslint-plugin-lwc @salesforce/eslint-plugin-lightning eslint-plugin-import eslint-plugin-jest",
+    "npm install --save-dev @salesforce/eslint-plugin-lwc-mobile",
+    "npm install --save-dev @salesforce/eslint-plugin-lwc-graph-analyzer",
+    "npm install --save-dev prettier prettier-plugin-apex",
+    "prettier --plugin=prettier-plugin-apex --check \"<project>/**/*.{trigger,cls}\"",
+    "prettier --plugin=prettier-plugin-apex --write \"<project>/**/*.{trigger,cls}\"",
+    "prettier --plugin=prettier-plugin-apex --debug-check \"<project>/**/*.{trigger,cls}\"",
+    "sf project deploy start -d force-app",
+    "sf org create scratch -d -f config/project-scratch-def.json -a <alias>",
+    "sf data tree import -p ./data/data-plan.json",
+    "sfdx plugins:install @salesforce/sfdx-scanner",
+    "act pull_request --input pmdconfig=tests/pmd-ruleset.xml --input severity-threshold=3 --eventpath tests/example-github-event.json",
+    "npm run check:links",
+    "npm run check:dupes",
+    "npm run check:knip"
+  ],
+  "parameters_to_document": [
+    {
+      "tool": "Salesforce Code Analyzer",
+      "parameters": [
+        "--workspace",
+        "--target",
+        "--rule-selector",
+        "--config-file",
+        "--view",
+        "--output-file",
+        "--severity-threshold",
+        "--include-fixes",
+        "--include-suggestions",
+        "--no-suppressions"
+      ]
+    },
+    {
+      "tool": "sfdx-lwc-jest",
+      "parameters": [
+        "--watch",
+        "--debug",
+        "--coverage",
+        "--updateSnapshot",
+        "--"
+      ]
+    },
+    {
+      "tool": "Prettier Apex",
+      "parameters": [
+        "--plugin=prettier-plugin-apex",
+        "--check",
+        "--write",
+        "--debug-check",
+        "--parser apex-anonymous",
+        "--apex-standalone-parser",
+        "--apex-standalone-host",
+        "--apex-standalone-port"
+      ]
+    },
+    {
+      "tool": "LWC ESLint configs",
+      "parameters": [
+        "configs.base",
+        "configs.recommended",
+        "configs.extended",
+        "configs.i18n",
+        "configs.ssr",
+        "TypeScript config variants where supported"
+      ]
+    },
+    {
+      "tool": "SFDX scan PR action",
+      "parameters": [
+        "category",
+        "engine",
+        "eslint-env",
+        "eslintconfig",
+        "pmdconfig",
+        "custom-pmd-rules",
+        "severity-threshold",
+        "strictly-enforced-rules",
+        "target",
+        "tsconfig",
+        "report-mode",
+        "delete-resolved-comments"
+      ]
+    }
+  ],
+  "risks": [
+    "External tool commands and package compatibility can change; verify against installed CLI help or upstream docs before executing.",
+    "Copying sample code or metadata from recipe repos can introduce wrong objects, fields, permissions, or data assumptions.",
+    "Broad Apex formatting can produce noisy diffs and hide functional changes.",
+    "Recipe setup commands can create orgs, deploy metadata, assign permissions, or import data and must not be run without explicit user approval.",
+    "Legacy scanner action guidance may be outdated compared to Salesforce Code Analyzer.",
+    "ESLint config recommendations can conflict with older project ESLint versions.",
+    "Mobile/offline linting may not apply to desktop-only LWC projects.",
+    "Analyzer outputs should not be written into Salesforce metadata folders unless explicitly intended.",
+    "External source, generated artifacts, node_modules, .git folders, or sample apps must not be vendored into the public repo.",
+    "Attribution and license notes must stay current when new external intelligence is added."
+  ],
+  "recommended_next_prompt": "Using WORKSPACE/EXTERNAL_REPO_INTELLIGENCE_STRATEGY.md and WORKSPACE/EXTERNAL_REPO_INTELLIGENCE_STRATEGY.json, update the repo's TOOLS, QUALITY_GATES, AUTOMATION, VENDOR_REFERENCES, SALESFORCE_KNOWLEDGE reference maps, Codex prompt pack, and Codex checklist pack with original public-safe guidance. Do not copy external source code, do not vendor repos, preserve attribution by URL, run public safety and link/path checks, and do not commit or push until approved."
+}

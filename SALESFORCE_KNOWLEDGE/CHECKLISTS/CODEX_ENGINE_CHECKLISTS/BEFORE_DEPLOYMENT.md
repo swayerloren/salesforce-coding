@@ -14,6 +14,9 @@ Use this checklist before any Salesforce validation, deploy dry run, or real dep
 - [ ] `SALESFORCE_KNOWLEDGE/TOPICS/deployment/`
 - [ ] `SALESFORCE_KNOWLEDGE/CHECKLISTS/before-deployment.md`
 - [ ] `SALESFORCE_KNOWLEDGE/CHECKLISTS/metadata-deploy.md`
+- [ ] `SALESFORCE_KNOWLEDGE/COMMANDS/SALESFORCE_CLI_COMMAND_MAP.md`
+- [ ] `SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/DEPLOYMENT_QUALITY_STRATEGY.md`
+- [ ] `SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/FIX_DEPLOYMENT_FLOW.md`
 
 ## Scope Checks
 
@@ -38,6 +41,7 @@ Use this checklist before any Salesforce validation, deploy dry run, or real dep
 
 - [ ] Dry-run command prepared before real deploy.
 - [ ] `--source-dir` or manifest scope is exact.
+- [ ] Command flags are checked against the Salesforce CLI command map and installed CLI help.
 - [ ] Org alias is a placeholder in docs or a verified local alias for execution.
 - [ ] No `--ignore-errors` or equivalent failure-hiding flag.
 - [ ] Real deploy command matches the passing dry-run command when deployment is requested.
@@ -48,4 +52,3 @@ Use this checklist before any Salesforce validation, deploy dry run, or real dep
 - [ ] Test command and result will be recorded in `HISTORY/TEST_RESULTS_LOG.md`.
 - [ ] Failure root cause and prevention rule will be recorded in `MEMORY/FAILURE_HISTORY.md` if reusable.
 - [ ] Final response will include command, result, files changed, assumptions, and limits.
-

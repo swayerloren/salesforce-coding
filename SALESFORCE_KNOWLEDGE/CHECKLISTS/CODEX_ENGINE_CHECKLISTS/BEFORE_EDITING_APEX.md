@@ -15,6 +15,12 @@ Use this checklist before editing Apex classes, triggers, services, controllers,
 - [ ] `SALESFORCE_KNOWLEDGE/CHECKLISTS/before-apex.md`
 - [ ] `SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_PATTERN_USAGE_RULES.md`
 - [ ] `SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_APEX_RECIPES_MAP.md` when a public pattern reference is useful
+- [ ] `SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_INTELLIGENCE/APEX_RECIPES_STRATEGY.md`
+- [ ] `SALESFORCE_KNOWLEDGE/COMMANDS/APEX_VALIDATION_COMMAND_MAP.md`
+- [ ] `SALESFORCE_KNOWLEDGE/PARAMETERS/CODE_ANALYZER_PARAMETERS.md`
+- [ ] `SALESFORCE_KNOWLEDGE/PARAMETERS/PRETTIER_APEX_PARAMETERS.md`
+- [ ] `SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/APEX_QUALITY_STRATEGY.md`
+- [ ] `SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/FIX_APEX_FLOW.md`
 - [ ] `TOOLS/SALESFORCE_CODE_ANALYZER.md`
 - [ ] `TOOLS/PRETTIER_APEX.md`
 - [ ] `QUALITY_GATES/CODE_ANALYZER_RULES.md`
@@ -54,6 +60,7 @@ Use this checklist before editing Apex classes, triggers, services, controllers,
 - [ ] Focused Apex tests identified.
 - [ ] Salesforce Code Analyzer will run if available, or the skipped reason will be documented.
 - [ ] Optional Apex formatting check will run if configured, or the skipped reason will be documented.
+- [ ] Exact command options have been checked against the command and parameter maps.
 - [ ] Deploy dry-run scope identified if deployment validation is appropriate.
 - [ ] Coverage impact considered for changed deploy-bound classes.
 - [ ] If validation cannot run, the reason will be stated.

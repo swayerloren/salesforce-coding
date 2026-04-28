@@ -25,6 +25,10 @@ Required startup:
    - SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/BEFORE_EDITING_APEX.md
    - SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_PATTERN_USAGE_RULES.md
    - SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_APEX_RECIPES_MAP.md when a public pattern reference is useful
+   - SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_INTELLIGENCE/APEX_RECIPES_STRATEGY.md
+   - SALESFORCE_KNOWLEDGE/COMMANDS/APEX_VALIDATION_COMMAND_MAP.md
+   - SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/APEX_QUALITY_STRATEGY.md
+   - SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/FIX_APEX_FLOW.md
    - TOOLS/SALESFORCE_CODE_ANALYZER.md
    - TOOLS/PRETTIER_APEX.md
    - QUALITY_GATES/CODE_ANALYZER_RULES.md
@@ -69,6 +73,7 @@ Validation:
 
 - Re-run the focused failing test if possible.
 - Run related tests if the production fix affects shared behavior.
+- Use the Apex validation command map before choosing test, Code Analyzer, deploy dry-run, or formatting commands.
 - Run Salesforce Code Analyzer after production Apex changes if available, and do not claim it passed unless it actually ran and passed.
 - Run or recommend optional Apex formatting checks when configured; do not run formatting writes unless requested.
 - Run a narrow deploy dry run if the issue blocks deployment and an org alias is available.

@@ -25,12 +25,13 @@ Codex must follow this order:
 4. Confirm the real `force-app/main/default` folder.
 5. Read [SALESFORCE_KNOWLEDGE/INDEX.md](SALESFORCE_KNOWLEDGE/INDEX.md).
 6. Read task-specific Salesforce knowledge before editing Apex, LWC, Aura, Visualforce, metadata, tests, deployment files, Salesforce Files, or mobile behavior.
-7. Check [TOOLS/](TOOLS/README.md) and [QUALITY_GATES/](QUALITY_GATES/README.md) for available validation tools.
-8. Optionally read [VENDOR_REFERENCES/](VENDOR_REFERENCES/README.md) and inspect local clones under `VENDOR_REFERENCES/_external/` if the user has cloned them.
-9. Inspect the real project files.
-10. Make the smallest safe fix.
-11. Run available quality gates or clearly state validation limits.
-12. Update [MEMORY/](MEMORY/README.md) and [HISTORY/](HISTORY/README.md) after meaningful work.
+7. Read relevant [command maps](SALESFORCE_KNOWLEDGE/COMMANDS/README.md), [parameter maps](SALESFORCE_KNOWLEDGE/PARAMETERS/README.md), [quality strategies](SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/README.md), and [validation flows](SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/README.md).
+8. Check [TOOLS/](TOOLS/README.md), [QUALITY_GATES/](QUALITY_GATES/README.md), and [AUTOMATION/](AUTOMATION/README.md) for available validation tools and local wrappers.
+9. Optionally read [VENDOR_REFERENCES/](VENDOR_REFERENCES/README.md) and inspect local clones under `VENDOR_REFERENCES/_external/` if the user has cloned them.
+10. Inspect the real project files.
+11. Make the smallest safe fix.
+12. Run available quality gates or clearly state validation limits.
+13. Update [MEMORY/](MEMORY/README.md) and [HISTORY/](HISTORY/README.md) after meaningful work.
 
 ## Real Project Metadata
 
@@ -58,6 +59,7 @@ Codex must not treat these as the user's live Salesforce source:
 - prompt files,
 - checklist files,
 - tooling and quality-gate docs,
+- command, parameter, quality strategy, and validation-flow docs,
 - automation helper scripts,
 - vendor reference docs,
 - optional external clones under `VENDOR_REFERENCES/_external/`,
@@ -69,7 +71,7 @@ Only edit real project metadata after confirming the actual `force-app/main/defa
 ## Quick Start Prompt
 
 ```text
-Read START_HERE.md and INSTRUCTIONS/. Locate my real Salesforce DX project, confirm force-app/main/default, read SALESFORCE_KNOWLEDGE/INDEX.md and the task-specific guides, check TOOLS/ and QUALITY_GATES/ for available validation, inspect the real files before editing, make the smallest safe fix, run available quality gates if possible, then update Memory and History.
+Read START_HERE.md and INSTRUCTIONS/. Locate my real Salesforce DX project, confirm force-app/main/default, read SALESFORCE_KNOWLEDGE/INDEX.md, task-specific guides, command maps, parameter maps, quality strategies, and validation flows, check TOOLS/, QUALITY_GATES/, and AUTOMATION/ for available validation, inspect the real files before editing, make the smallest safe fix, run available quality gates if possible, then update Memory and History.
 ```
 
 ## Optional Vendor References

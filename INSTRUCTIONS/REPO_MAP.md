@@ -11,6 +11,10 @@ This is the clean map for the Codex-ready Salesforce coding engine.
 |-- INSTRUCTIONS/
 |-- FORCE_APP_DIRECTORY/
 |-- SALESFORCE_KNOWLEDGE/
+|   |-- COMMANDS/
+|   |-- PARAMETERS/
+|   |-- QUALITY_STRATEGIES/
+|   |-- VALIDATION_FLOWS/
 |-- TOOLS/
 |-- QUALITY_GATES/
 |-- AUTOMATION/
@@ -47,6 +51,10 @@ This is the clean map for the Codex-ready Salesforce coding engine.
 | `INSTRUCTIONS/` | Required operating rules and workflow. |
 | `FORCE_APP_DIRECTORY/` | Placeholder or pointer for the real Salesforce DX project. |
 | `SALESFORCE_KNOWLEDGE/` | Salesforce knowledge base. |
+| `SALESFORCE_KNOWLEDGE/COMMANDS/` | Command maps for CLI, npm, tests, Apex validation, and GitHub Actions. |
+| `SALESFORCE_KNOWLEDGE/PARAMETERS/` | Parameter maps for validation tools and local automation. |
+| `SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/` | Quality strategies by Salesforce task type. |
+| `SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/` | Step-by-step validation flows for common task types. |
 | `TOOLS/` | Optional tooling guides for analysis, linting, testing, formatting, and external references. |
 | `QUALITY_GATES/` | Validation rules Codex should run after code changes when available. |
 | `AUTOMATION/` | Local public-safe validation scripts. |
@@ -105,6 +113,10 @@ SALESFORCE_KNOWLEDGE/
 |   `-- CODEX_ENGINE_CHECKLISTS/
 |-- EXAMPLES/
 |-- REFERENCE/
+|-- COMMANDS/
+|-- PARAMETERS/
+|-- QUALITY_STRATEGIES/
+|-- VALIDATION_FLOWS/
 `-- DOCS/
 ```
 
@@ -118,6 +130,10 @@ SALESFORCE_KNOWLEDGE/
 | `CHECKLISTS/` | Preflight and review checklists. |
 | `EXAMPLES/` | Public-safe Apex, LWC, and metadata examples. |
 | `REFERENCE/` | Glossary, CLI reference, and discovery templates. |
+| `COMMANDS/` | Command maps for Codex validation choices. |
+| `PARAMETERS/` | Tool option and flag maps. |
+| `QUALITY_STRATEGIES/` | Task-specific quality strategy docs. |
+| `VALIDATION_FLOWS/` | Ordered validation sequences. |
 | `DOCS/` | Governance, engineering principles, and public-safety policy. |
 
 ## Tooling And Quality Gates

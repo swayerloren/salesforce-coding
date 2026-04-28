@@ -4,6 +4,8 @@
 
 Quality gates are evidence-based. Codex should run what is available, skip what is unavailable, and never claim success without reporting the command or inspection result.
 
+Use [SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/](../SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/) for the sequence to follow, [SALESFORCE_KNOWLEDGE/COMMANDS/](../SALESFORCE_KNOWLEDGE/COMMANDS/) for command choices, and [SALESFORCE_KNOWLEDGE/PARAMETERS/](../SALESFORCE_KNOWLEDGE/PARAMETERS/) for option meanings.
+
 ## Gate Map
 
 | Gate | Use |
@@ -77,3 +79,5 @@ After code changes, Codex should:
 3. report command output or static inspection,
 4. mark missing optional tools as `MISSING` or `SKIPPED`,
 5. avoid claiming success without evidence.
+
+For task-specific quality posture, read [SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/](../SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/) before deciding which gate is enough.

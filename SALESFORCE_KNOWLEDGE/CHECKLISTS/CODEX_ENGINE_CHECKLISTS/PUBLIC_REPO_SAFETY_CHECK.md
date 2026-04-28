@@ -92,11 +92,11 @@ test run id
 Also search for:
 
 ```text
-C:\
-/Users/
-/home/
-Downloads/
-Desktop/
+Windows drive-root path patterns
+macOS user-home path patterns
+Linux user-home path patterns
+download-folder names
+desktop-folder names
 <temporary folder name>
 ```
 

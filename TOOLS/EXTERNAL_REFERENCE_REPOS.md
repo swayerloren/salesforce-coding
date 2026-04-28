@@ -22,6 +22,15 @@ See [VENDOR_REFERENCES/](../VENDOR_REFERENCES/) for attribution and license note
 
 Before adapting public recipe patterns, read [EXTERNAL_PATTERN_USAGE_RULES.md](../SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_PATTERN_USAGE_RULES.md).
 
+Distilled strategy docs live in [SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_INTELLIGENCE/](../SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_INTELLIGENCE/). Codex should read those first, then inspect optional local clones only when they exist and only as references.
+
+For command and option selection, use:
+
+- [Command maps](../SALESFORCE_KNOWLEDGE/COMMANDS/)
+- [Parameter maps](../SALESFORCE_KNOWLEDGE/PARAMETERS/)
+- [Quality strategies](../SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/)
+- [Validation flows](../SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/)
+
 ## Codex Rules
 
 - Inspect local clones only when present.
@@ -29,3 +38,4 @@ Before adapting public recipe patterns, read [EXTERNAL_PATTERN_USAGE_RULES.md](.
 - Do not copy external source code blindly.
 - Do not commit `VENDOR_REFERENCES/_external/`.
 - Verify the real Salesforce DX project before adapting any external pattern.
+- Do not copy external source files, workflow files, generated artifacts, package internals, or sample metadata into this repo.

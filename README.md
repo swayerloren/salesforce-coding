@@ -18,6 +18,10 @@ Start here: [START_HERE.md](START_HERE.md)
 | [INSTRUCTIONS/](INSTRUCTIONS/) | Required operating rules for Codex before every task. |
 | [FORCE_APP_DIRECTORY/](FORCE_APP_DIRECTORY/) | Placeholder where users place or reference the real Salesforce DX project. |
 | [SALESFORCE_KNOWLEDGE/](SALESFORCE_KNOWLEDGE/) | Salesforce knowledge base for Apex, LWC, Aura, Visualforce, metadata, testing, deployment, files, and mobile. |
+| [SALESFORCE_KNOWLEDGE/COMMANDS/](SALESFORCE_KNOWLEDGE/COMMANDS/) | Command maps for Salesforce CLI, npm scripts, LWC tests, Apex validation, and GitHub Actions. |
+| [SALESFORCE_KNOWLEDGE/PARAMETERS/](SALESFORCE_KNOWLEDGE/PARAMETERS/) | Parameter maps for Code Analyzer, LWC Jest, ESLint LWC, Prettier Apex, and local automation. |
+| [SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/](SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/) | Task-specific quality strategies for Apex, LWC, metadata, mobile, deployment, and pull requests. |
+| [SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/](SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/) | Step-by-step validation flows Codex should follow after changes. |
 | [TOOLS/](TOOLS/) | Tooling guides for optional Salesforce analysis, linting, testing, formatting, and external references. |
 | [QUALITY_GATES/](QUALITY_GATES/) | Validation rules Codex should run after code changes when available. |
 | [AUTOMATION/](AUTOMATION/) | Local public-safe validation scripts. |
@@ -114,8 +118,9 @@ flowchart TD
 | 2 | [INSTRUCTIONS/](INSTRUCTIONS/) | Defines task rules, workflow, output, Memory, and History requirements. |
 | 3 | [FORCE_APP_DIRECTORY/](FORCE_APP_DIRECTORY/) | Locates the real Salesforce DX project or external project pointer. |
 | 4 | [SALESFORCE_KNOWLEDGE/INDEX.md](SALESFORCE_KNOWLEDGE/INDEX.md) | Routes Codex to task-specific Salesforce guidance. |
-| 5 | [TOOLS/](TOOLS/) and [QUALITY_GATES/](QUALITY_GATES/) | Identifies optional validation tools and quality gates. |
-| 6 | [MEMORY/](MEMORY/) and [HISTORY/](HISTORY/) | Reuses durable lessons and checks recent work. |
+| 5 | [SALESFORCE_KNOWLEDGE/COMMANDS/](SALESFORCE_KNOWLEDGE/COMMANDS/), [PARAMETERS/](SALESFORCE_KNOWLEDGE/PARAMETERS/), [QUALITY_STRATEGIES/](SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/), and [VALIDATION_FLOWS/](SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/) | Selects commands, options, validation sequence, and task-specific quality expectations. |
+| 6 | [TOOLS/](TOOLS/) and [QUALITY_GATES/](QUALITY_GATES/) | Identifies optional validation tools and quality gates. |
+| 7 | [MEMORY/](MEMORY/) and [HISTORY/](HISTORY/) | Reuses durable lessons and checks recent work. |
 
 ## Salesforce Knowledge Map
 
@@ -132,6 +137,8 @@ flowchart TD
 | Salesforce Files | [File handling guide](SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_FILE_HANDLING_GUIDE.md) |
 | Mobile behavior | [Mobile guide](SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_MOBILE_GUIDE.md) |
 | Debugging failures | [Common failures and fixes](SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_COMMON_FAILURES_AND_FIXES.md) |
+
+For validation planning, also use [command maps](SALESFORCE_KNOWLEDGE/COMMANDS/), [parameter maps](SALESFORCE_KNOWLEDGE/PARAMETERS/), [quality strategies](SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/), and [validation flows](SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/).
 
 Full map: [SALESFORCE_KNOWLEDGE/INDEX.md](SALESFORCE_KNOWLEDGE/INDEX.md)
 
@@ -152,6 +159,10 @@ Full map: [SALESFORCE_KNOWLEDGE/INDEX.md](SALESFORCE_KNOWLEDGE/INDEX.md)
 |   |-- CHECKLISTS/
 |   |-- EXAMPLES/
 |   |-- REFERENCE/
+|   |-- COMMANDS/
+|   |-- PARAMETERS/
+|   |-- QUALITY_STRATEGIES/
+|   |-- VALIDATION_FLOWS/
 |   `-- DOCS/
 |-- TOOLS/
 |-- QUALITY_GATES/

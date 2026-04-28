@@ -345,3 +345,14 @@ Update this file after every meaningful Codex task, especially when Codex:
 - Validation: Markdown local link/path check passed across 194 Markdown files; local quality check passed in allow-missing-project mode; public-safety scans for credential, private-key, session, org ID-shaped, temporary-folder, and local-only path patterns passed; no external repo clone directories were found in the main repo tree; `VENDOR_REFERENCES/_external/`, `temp/`, and `*.local.md` are ignored; `FORCE_APP_DIRECTORY/` contains only placeholder and instruction files; `git diff --check` passed.
 - Result: `v1.2.0` selected because the integration added substantial backward-compatible tooling, quality gates, automation, vendor references, and workflow drafts.
 - Assumptions or limits: The GitHub Release page was not created during this task.
+
+## 2026-04-28 - Implement External Intelligence Strategy Docs
+
+- Date: 2026-04-28
+- User request: Implement the external repo intelligence strategy into original docs, prompt rules, checklists, command maps, parameter maps, quality strategies, validation flows, and automation guidance without copying external source, vendoring repos, committing, or pushing.
+- Files inspected: `WORKSPACE/EXTERNAL_REPO_INTELLIGENCE_STRATEGY.md`, `WORKSPACE/EXTERNAL_REPO_INTELLIGENCE_STRATEGY.json`, `README.md`, `START_HERE.md`, `SALESFORCE_KNOWLEDGE/INDEX.md`, `TOOLS/`, `QUALITY_GATES/`, `AUTOMATION/`, `VENDOR_REFERENCES/`, `INSTRUCTIONS/`, prompt pack files, checklist pack files, Memory, and History.
+- Knowledge docs read: External intelligence strategy report, existing tool docs, quality-gate docs, Codex operating rules, development workflow, repo map, prompt pack, and Codex engine checklists.
+- Files changed: Added `SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_INTELLIGENCE/`, `SALESFORCE_KNOWLEDGE/COMMANDS/`, `SALESFORCE_KNOWLEDGE/PARAMETERS/`, `SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/`, and `SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/`; updated public entry points, instructions, tool docs, quality gate docs, automation docs, vendor source map, prompt pack, checklists, Memory, History, and workspace implementation report.
+- Validation: Pending final validation in this run: Markdown link/path check, public-safety scan, no external code copied, no `.git` or `node_modules` copied, no local-only paths in public docs, no credentials/tokens/org IDs, and `git diff --check`.
+- Result: External repo intelligence is now represented as original public-safe strategy docs, command maps, parameter maps, quality strategies, validation flows, prompt rules, and checklists.
+- Assumptions or limits: External repos remain reference-only; no external source files were copied or vendored. No commit or push was performed.

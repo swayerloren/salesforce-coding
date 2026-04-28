@@ -29,3 +29,13 @@ VENDOR_REFERENCES/_external/
 That folder is ignored by git. It is not part of the public repo.
 
 Before adapting public recipe patterns, read [EXTERNAL_PATTERN_USAGE_RULES.md](../SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_PATTERN_USAGE_RULES.md).
+
+Distilled original guidance derived from these sources lives in:
+
+- [External intelligence strategies](../SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_INTELLIGENCE/)
+- [Command maps](../SALESFORCE_KNOWLEDGE/COMMANDS/)
+- [Parameter maps](../SALESFORCE_KNOWLEDGE/PARAMETERS/)
+- [Quality strategies](../SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/)
+- [Validation flows](../SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/)
+
+These docs are the public-safe integration layer. They do not vendor or copy upstream source.

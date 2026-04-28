@@ -24,6 +24,9 @@ Required startup:
    - SALESFORCE_KNOWLEDGE/CHECKLISTS/metadata-deploy.md
    - SALESFORCE_KNOWLEDGE/CHECKLISTS/before-record-page-ui-change.md
    - SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/BEFORE_EDITING_METADATA.md
+   - SALESFORCE_KNOWLEDGE/COMMANDS/SALESFORCE_CLI_COMMAND_MAP.md
+   - SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/METADATA_QUALITY_STRATEGY.md
+   - SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/FIX_METADATA_FLOW.md
    - QUALITY_GATES/RELEASE_GATE.md
    - QUALITY_GATES/CODE_ANALYZER_RULES.md
 7. Read relevant MEMORY/ and HISTORY/ entries before changing files.
@@ -61,6 +64,7 @@ Validation:
 
 - Run static XML/source inspection.
 - Run the local Salesforce project validator if available.
+- Use the metadata validation flow before choosing Code Analyzer or deploy dry-run commands.
 - Run Salesforce Code Analyzer if available.
 - Run a narrow deploy dry run if possible.
 - Run focused Apex tests if Apex behavior or coverage is affected.

@@ -15,6 +15,9 @@ Use this checklist before editing Salesforce metadata such as objects, fields, l
 - [ ] `SALESFORCE_KNOWLEDGE/TOPICS/metadata/`
 - [ ] `SALESFORCE_KNOWLEDGE/CHECKLISTS/metadata-deploy.md`
 - [ ] `SALESFORCE_KNOWLEDGE/CHECKLISTS/before-record-page-ui-change.md`
+- [ ] `SALESFORCE_KNOWLEDGE/COMMANDS/SALESFORCE_CLI_COMMAND_MAP.md`
+- [ ] `SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/METADATA_QUALITY_STRATEGY.md`
+- [ ] `SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/FIX_METADATA_FLOW.md`
 - [ ] `QUALITY_GATES/RELEASE_GATE.md`
 
 ## Project And Path Checks
@@ -73,6 +76,7 @@ Use this checklist before editing Salesforce metadata such as objects, fields, l
 
 - [ ] Static XML/source inspection completed.
 - [ ] `AUTOMATION/validate-salesforce-project.ps1` or `.sh` run when practical.
+- [ ] Metadata validation flow followed.
 - [ ] Salesforce Code Analyzer will run if available, or skipped reason will be documented.
 - [ ] Narrow deploy dry-run scope identified if possible.
 - [ ] Focused tests identified if Apex behavior is affected.
