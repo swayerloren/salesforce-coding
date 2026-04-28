@@ -5,15 +5,43 @@ All notable changes to this project are documented here.
 This project follows semantic versioning for documentation releases:
 
 - Patch versions, such as `v1.0.1`, are for typo fixes, broken links, clarifications, and small corrections.
-- Minor versions, such as `v1.3.0`, are for new guide sections, examples, prompts, checklists, tooling guides, quality gates, automation, external intelligence maps, or other backward-compatible workspace features.
+- Minor versions, such as `v1.4.0`, are for new guide sections, examples, prompts, checklists, tooling guides, quality gates, automation, external intelligence maps, or other backward-compatible workspace features.
 - Major versions, such as `v2.0.0`, are reserved for major reorganizations or incompatible changes to the repo structure.
 
 ## Unreleased
+
+No unreleased changes yet.
+
+## v1.4.0 - 2026-04-28
+
+Expanded Salesforce knowledge base release.
+
+Knowledge-base improvement commit: `e8cc6424b3b2b00a033e55eadd5250d68f88e03e`
+
+Added:
+
+- `RELEASE_NOTES_v1.4.0.md` documenting the knowledge-base improvement pass.
+- Workspace audit and planning reports for local reference inventory, public-safe extraction, ZIP repo analysis, official Salesforce source research, master gap analysis, batch implementation reports, and final readiness audit.
+- Focused Salesforce topic docs for compound address fields, trigger order of execution, Chatter/email/activity patterns, destructive deployments, Experience Cloud file access, Files lifecycle, photo capture/annotation/viewer workflows, LWC wire/imperative/cache rules, dynamic record fields, quick action visibility, mobile camera/file handoff, sharing/CRUD/FLS/user-mode/system-mode security, and debug-log triage.
+- A communication automation checklist for Salesforce email, Chatter, activity, and related automation changes.
 
 Changed:
 
 - Clarified the new-user release ZIP onboarding path across the README, start guide, Force App Directory instructions, tooling/quality/automation docs, Salesforce knowledge index, wiki drafts, and release documentation.
 - Reinforced that Codex should read `START_HERE.md`, locate the real `force-app/main/default`, inspect current files, use commands/parameters/quality strategies/validation flows, run or recommend validation, and update Memory/History.
+- Expanded Apex, testing, metadata, platform limitation, deployment, debugging, Files, LWC, mobile, Visualforce, and record-page guides with public-safe lessons from local references, ZIP repo analysis, and official Salesforce source research.
+- Strengthened Salesforce CLI command maps, Code Analyzer parameters, deployment quality strategy, release gates, validation flows, and no-success-without-evidence rules.
+- Strengthened Codex prompt pack, Codex engine checklists, instruction docs, Memory, and History rules to prevent guessed API names, invented metadata, unrelated edits, over-refactors, copied external source, and validation claims without evidence.
+
+Validation:
+
+- Markdown link check passed across 263 Markdown files for the knowledge-base improvement pass.
+- Workspace JSON parse check passed across 10 JSON files.
+- Public-safety scans passed across 298 text files after workspace source inventory sanitization.
+- PowerShell syntax checks passed across 3 scripts.
+- Bash syntax checks were skipped because Bash was unavailable in the PowerShell environment.
+- `git diff --check` passed in the real git checkout.
+- No private data, external source trees, copied `.git` folders, `node_modules`, ZIP extraction leftovers, local-only paths, credentials, tokens, or Salesforce org IDs were added.
 
 ## v1.3.0 - 2026-04-28
 

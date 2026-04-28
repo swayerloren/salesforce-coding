@@ -12,6 +12,42 @@ This repository uses semantic versioning for public documentation and workspace-
 
 ## Latest Release
 
+### v1.4.0
+
+Release title: Salesforce Coding v1.4.0 — Expanded Salesforce Knowledge Base
+
+Release date: 2026-04-28
+
+Knowledge-base improvement commit: `e8cc6424b3b2b00a033e55eadd5250d68f88e03e`
+
+Release notes: [RELEASE_NOTES_v1.4.0.md](RELEASE_NOTES_v1.4.0.md)
+
+Release purpose:
+
+- Expand the Salesforce knowledge base from local reference audit lessons, ZIP repo reference analysis, and official Salesforce documentation research.
+- Strengthen Apex service, trigger, test, async, SOQL/DML, and security guidance.
+- Strengthen LWC, mobile, Salesforce Files, photo/document, Visualforce, and PDF guidance.
+- Strengthen metadata, deployment, debug-log, Salesforce CLI, destructive deployment, Code Analyzer, and release validation guidance.
+- Strengthen Codex prompts, checklists, behavior controls, public safety rules, and Memory/History expectations.
+- Polish README, start guide, wiki drafts, release ZIP onboarding, and new-user flow.
+
+Expected source archive names if published from a GitHub tag:
+
+- `salesforce-coding-v1.4.0.zip`
+- `salesforce-coding-v1.4.0.tar.gz`
+
+How to use the release ZIP:
+
+1. Download the ZIP from the release assets or GitHub source archive.
+2. Extract it.
+3. Open the extracted folder in VS Code with Codex.
+4. Place or reference the real Salesforce DX project through `FORCE_APP_DIRECTORY/`.
+5. Tell Codex to read `START_HERE.md` before any Salesforce task.
+6. Codex should then read instructions, the Salesforce knowledge index, task-specific prompts/checklists, command maps, parameter maps, quality strategies, validation flows, tools, and quality gates before editing.
+7. Codex should inspect current project files, make narrow fixes, run or recommend validation, and update Memory/History.
+
+## Previous Releases
+
 ### v1.3.0
 
 Release title: Salesforce Coding v1.3.0 - External Salesforce Tooling Intelligence
@@ -45,8 +81,6 @@ How to use the release ZIP:
 4. Place or reference the real Salesforce DX project through `FORCE_APP_DIRECTORY/`.
 5. Tell Codex to read `START_HERE.md` before any Salesforce task.
 6. Codex should then read instructions, the Salesforce knowledge index, task-specific prompts/checklists, command maps, parameter maps, quality strategies, validation flows, tools, and quality gates before editing.
-
-## Previous Releases
 
 ### v1.2.0
 

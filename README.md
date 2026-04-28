@@ -281,7 +281,7 @@ Review [PUBLIC_REPO_REVIEW_CHECKLIST.md](PUBLIC_REPO_REVIEW_CHECKLIST.md), [SECU
 | Memory | [MEMORY/](MEMORY/) |
 | History | [HISTORY/](HISTORY/) |
 | Wiki drafts | [WIKI_DRAFTS/](WIKI_DRAFTS/) |
-| Latest release notes | [RELEASE_NOTES_v1.3.0.md](RELEASE_NOTES_v1.3.0.md) |
+| Latest release notes | [RELEASE_NOTES_v1.4.0.md](RELEASE_NOTES_v1.4.0.md) |
 
 ## License
 

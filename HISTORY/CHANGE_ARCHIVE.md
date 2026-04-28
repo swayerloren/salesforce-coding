@@ -337,3 +337,13 @@ Do not use this for every small edit. Use `HISTORY/CODEX_RUN_LOG.md` for normal 
 - Validation: Markdown link check passed across 263 Markdown files; JSON parse check passed across 10 workspace JSON files; public-safety scans passed; PowerShell syntax checks passed; Bash syntax skipped because Bash is unavailable; leftover directory scan passed; `git diff --check` skipped because no `.git` directory exists.
 - Outcome: Content is ready for owner review and commit from a real git checkout. Recommended version is `v1.4.0`.
 - Follow-up: In a real git checkout, rerun final validation after these audit files exist, then prepare v1.4.0 release notes, commit, tag, push, and create a GitHub Release if ready.
+
+## 2026-04-28 - v1.4.0 Release Documentation
+
+- Date: 2026-04-28
+- Summary: Prepared release documentation for the expanded Salesforce knowledge base improvement pass.
+- Scope: Release notes, release index, changelog, README latest release link, workspace release report, Memory, and History.
+- Key files or folders: `RELEASE_NOTES_v1.4.0.md`, `RELEASES.md`, `CHANGELOG.md`, `README.md`, `WORKSPACE/RELEASE_UPDATE_REPORT_v1.4.0.md`
+- Validation: Markdown link check passed across 265 Markdown files; workspace JSON parse passed across 10 JSON files; public-safety scan passed across 300 text files; PowerShell syntax check passed across 3 scripts; Bash syntax check skipped because Bash is unavailable; leftover artifact scan passed; `git diff --check` passed.
+- Outcome: `v1.4.0` is selected as a backward-compatible minor release because the improvement pass expands public-safe Salesforce technical guidance, source research records, prompt/checklist behavior controls, validation expectations, and release ZIP onboarding without changing the repo contract.
+- Follow-up: Create or update the GitHub Release page after this release documentation commit is pushed.

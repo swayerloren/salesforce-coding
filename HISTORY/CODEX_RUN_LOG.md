@@ -433,3 +433,14 @@ Update this file after every meaningful Codex task, especially when Codex:
 - Validation: Markdown link check passed across 263 Markdown files; workspace JSON parse passed across 10 JSON files; credential/token/private-key/org-ID scan passed across 298 text files; public docs local-path/private-data scan passed across 239 files outside `WORKSPACE/`; PowerShell syntax check passed across 3 scripts; Bash syntax check skipped because Bash is unavailable; no leftover `node_modules`, copied `.git`, optional external clone folders, zip temp folders, or zip files found; `git diff --check` skipped because no `.git` directory exists.
 - Result: Content is ready for owner review and commit from a real git checkout. Recommended version is `v1.4.0`.
 - Assumptions or limits: This downloaded workspace cannot commit because it has no `.git` directory; no real Salesforce DX project was present, so project-specific Salesforce validation was not run.
+
+## 2026-04-28 - Prepare v1.4.0 Release Documentation
+
+- Date: 2026-04-28
+- User request: Prepare release documentation for the expanded Salesforce knowledge base using the version recommended by the final knowledge improvement audit; update release docs, report, Memory, and History; validate; commit and push if checks pass.
+- Files inspected: `WORKSPACE/FINAL_KNOWLEDGE_IMPROVEMENT_AUDIT.md`, `RELEASES.md`, `CHANGELOG.md`, `README.md`, `RELEASE_NOTES_v1.3.0.md`, `HISTORY/CODEX_RUN_LOG.md`, `HISTORY/CHANGE_ARCHIVE.md`, and `MEMORY/PROJECT_MEMORY.md`.
+- Knowledge docs read: Final audit, release index, changelog, README latest release link, prior release notes, Memory, and History.
+- Files changed: `RELEASE_NOTES_v1.4.0.md`, `RELEASES.md`, `CHANGELOG.md`, `README.md`, `WORKSPACE/RELEASE_UPDATE_REPORT_v1.4.0.md`, `HISTORY/CODEX_RUN_LOG.md`, `HISTORY/CHANGE_ARCHIVE.md`, and `MEMORY/PROJECT_MEMORY.md`.
+- Validation: Markdown link check passed across 265 Markdown files; workspace JSON parse passed across 10 JSON files; public-safety scan passed across 300 text files; PowerShell syntax check passed across 3 scripts; Bash syntax check skipped because Bash is unavailable; leftover artifact scan passed; `git diff --check` passed.
+- Result: `v1.4.0` selected for the expanded Salesforce knowledge base because the prior improvement commit materially expanded public-safe Salesforce technical knowledge, Codex behavior controls, validation guidance, and onboarding without breaking the repo workflow.
+- Assumptions or limits: The GitHub Release page is not created during this task.
