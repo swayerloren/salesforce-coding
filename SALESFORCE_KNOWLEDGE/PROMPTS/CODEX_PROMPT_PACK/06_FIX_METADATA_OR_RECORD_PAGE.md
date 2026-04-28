@@ -1,6 +1,6 @@
 # 06 Fix Metadata Or Record Page
 
-Use this prompt for objects, fields, layouts, FlexiPages, Lightning record pages, quick actions, tabs, permissions, record types, custom metadata, and page visibility problems.
+Use this prompt for objects, fields, validation rules, layouts, FlexiPages, Lightning record pages, quick actions, tabs, applications, permissions, record types, compact layouts, custom metadata, custom permissions, static resources, email templates, reports, dashboards, and page visibility problems.
 
 ## Copy-Paste Prompt
 
@@ -17,11 +17,15 @@ Required startup:
 6. Read these task-specific docs before editing:
    - SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_METADATA_GUIDE.md
    - SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_RECORD_PAGE_GUIDE.md
+   - SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_PLATFORM_LIMITATIONS.md
    - SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_DEPLOYMENT_GUIDE.md
    - SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_COMMON_FAILURES_AND_FIXES.md
    - SALESFORCE_KNOWLEDGE/TOPICS/metadata/
    - SALESFORCE_KNOWLEDGE/CHECKLISTS/metadata-deploy.md
    - SALESFORCE_KNOWLEDGE/CHECKLISTS/before-record-page-ui-change.md
+   - SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/BEFORE_EDITING_METADATA.md
+   - QUALITY_GATES/RELEASE_GATE.md
+   - QUALITY_GATES/CODE_ANALYZER_RULES.md
 7. Read relevant MEMORY/ and HISTORY/ entries before changing files.
 
 Issue:
@@ -30,26 +34,34 @@ Issue:
 Inspection requirements:
 
 - Inspect real files under force-app/main/default before editing.
-- Inspect real metadata under force-app/main/default.
-- Inspect objects, fields, layouts, FlexiPages, quick actions, tabs, permission sets, profiles if present, record types, and component metadata related to the issue.
+- Inspect the real Salesforce DX project structure and sfdx-project.json package directories.
+- Inspect related objects, fields, validation rules, layouts, FlexiPages, quick actions, tabs, applications, permission sets, profiles if present, record types, compact layouts, custom metadata, custom permissions, static resources, email, reports, dashboards, and component metadata related to the issue.
+- Inspect object-scoped metadata under objects/<Object>/ before changing fields, validation rules, compact layouts, record types, or object configuration.
 - Inspect LWC/Aura js-meta.xml or design metadata when a component appears on a page.
 - Search Apex, LWC, Aura, Visualforce, Flow, and metadata references before renaming or removing anything.
-- Verify object API names, field API names, metadata names, permission names, profile names, record type names or IDs, and component names in source.
+- Verify object API names, field API names, metadata names, permission names, profile names, record type names or IDs, layout names, FlexiPage names, quick action names, tab names, app names, and component names in source.
+- For record-page behavior, inspect activation, assignment, permissions, form factor, and page/layout/action chain.
 
 Fix rules:
 
 - Identify the root cause before editing.
 - Make the smallest safe fix.
 - Preserve Salesforce DX metadata structure.
-- Treat layouts, FlexiPages, app pages, profiles, and permission metadata as high-blast-radius changes.
+- Do not invent object, field, layout, FlexiPage, quick action, permission, profile, record type, tab, app, report, dashboard, static resource, or package names.
+- Do not assume a component appears on a page just because it deploys.
+- Treat layouts, FlexiPages, app pages, profiles, permission metadata, record types, reports, dashboards, static resources, and package manifests as high-blast-radius changes.
 - Prefer permission sets over profile churn when the project pattern allows it.
+- Do not blindly edit profiles.
 - Do not guess visibility rules or activation paths.
-- Avoid unrelated metadata formatting or broad retrieve noise.
-- Avoid private data, credentials, usernames, org IDs, customer names, private URLs, local machine paths, raw debug logs with private data, and secrets.
+- Avoid unrelated metadata formatting, broad retrieve noise, and wide deploy payloads.
+- Keep package.xml manifests narrow and inspect them before deploy validation.
+- Avoid private data, credentials, usernames, org IDs, customer names, private URLs, local machine paths, raw debug logs with private data, screenshots, exports, and secrets.
 
 Validation:
 
 - Run static XML/source inspection.
+- Run the local Salesforce project validator if available.
+- Run Salesforce Code Analyzer if available.
 - Run a narrow deploy dry run if possible.
 - Run focused Apex tests if Apex behavior or coverage is affected.
 - If validation cannot run, explain why.
@@ -60,6 +72,6 @@ After meaningful work:
 - Update MEMORY/ with reusable metadata lessons or verified project patterns.
 - Update HISTORY/ with files inspected, files changed, validation, and result.
 
-Final response must include root cause, fix summary, files changed, validation commands/results, assumptions and limits, and complete updated files when code changes.
+Final response must include root cause, fix summary, files changed, validation commands/results, metadata activation or assignment checks performed, assumptions and limits, and complete updated files when code changes.
 Return complete updated files when code changes.
 ```

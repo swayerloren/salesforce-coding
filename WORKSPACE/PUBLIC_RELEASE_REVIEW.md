@@ -67,7 +67,7 @@ These strings were found but are considered safe because they are generic exampl
 | Finding | Location | Why safe |
 | --- | --- | --- |
 | `user@example.com` | `SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/PUBLIC_REPO_SAFETY_CHECK.md` | Generic placeholder email used in a public-safety checklist. |
-| `C:\`, `/Users/`, `/home/`, `Downloads/`, `Desktop/` | Public-safety checklist guidance | Generic search patterns used to tell reviewers what to avoid. |
+| Generic Windows/macOS/Linux user-profile and downloads-folder path examples | Public-safety checklist guidance | Generic search patterns used to tell reviewers what to avoid. |
 | `password`, `token`, `secret`, `private key`, `credentials` | Security docs, checklists, instructions, README | Public-safety policy wording, not credential values. |
 | `http://soap.sforce.com/2006/04/metadata` | Generic Salesforce metadata example XML files | Standard Salesforce metadata namespace URL. |
 | Badge and release links | `README.md` | Public GitHub/shields badge URLs. |

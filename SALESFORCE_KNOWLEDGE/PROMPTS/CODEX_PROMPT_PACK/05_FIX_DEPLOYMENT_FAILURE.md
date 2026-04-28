@@ -23,6 +23,9 @@ Required startup:
    - SALESFORCE_KNOWLEDGE/TOPICS/troubleshooting/
    - SALESFORCE_KNOWLEDGE/CHECKLISTS/before-deployment.md
    - SALESFORCE_KNOWLEDGE/CHECKLISTS/metadata-deploy.md
+   - SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/BEFORE_DEPLOYMENT.md
+   - TOOLS/SALESFORCE_CODE_ANALYZER.md
+   - QUALITY_GATES/CODE_ANALYZER_RULES.md
 7. Read relevant MEMORY/ and HISTORY/ entries before changing files.
 
 Failure:
@@ -51,6 +54,9 @@ Fix rules:
 Validation:
 
 - Re-run focused tests or deploy dry run if possible.
+- Run Salesforce Code Analyzer if available for the changed deploy scope, usually from the real project root with `sf code-analyzer run --target force-app/main/default --view table`.
+- Do not claim static analysis passed unless Salesforce Code Analyzer actually ran and passed.
+- If Salesforce Code Analyzer is missing, state it was skipped and why, then recommend `sf plugins install @salesforce/plugin-code-analyzer`.
 - Use RunSpecifiedTests for narrow deploys when appropriate.
 - Use RunLocalTests only when the change scope or org policy requires broader validation.
 - If validation cannot run, explain why and report static inspection performed.
@@ -62,6 +68,6 @@ After meaningful work:
 - Update HISTORY/DEPLOYMENT_LOG.md and HISTORY/TEST_RESULTS_LOG.md when commands are run.
 - Update HISTORY/CODEX_RUN_LOG.md or HISTORY/TASK_HISTORY.md with the task result.
 
-Final response must include root cause, fix summary, files changed, validation commands/results, assumptions and limits, and complete updated files when code changes.
+Final response must include root cause, fix summary, files changed, validation commands/results, Salesforce Code Analyzer result, assumptions and limits, and complete updated files when code changes.
 Return complete updated files when code changes.
 ```

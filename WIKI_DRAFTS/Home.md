@@ -11,6 +11,10 @@ This repo helps users pair Codex with a real Salesforce DX project. Users place 
 | Codex rules | A repeatable workflow for every Salesforce task. |
 | Salesforce knowledge base | Guidance for Apex, LWC, Aura, Visualforce, metadata, tests, deployment, Files, and mobile. |
 | Project placement | A clear place to add or reference the real Salesforce DX project. |
+| Tooling guides | Optional Salesforce Code Analyzer, LWC Jest, LWC ESLint, mobile lint, and Apex formatting guidance. |
+| Quality gates | Validation rules Codex can run or recommend after real source changes. |
+| Automation scripts | Local public-safe project discovery, safety, and quality checks. |
+| Vendor references | Optional local clone guidance for public Salesforce reference repos without vendoring them. |
 | Memory | Reusable lessons and stable project facts. |
 | History | Chronological work, test, deployment, and change records. |
 | Public-safe examples | Generic examples without private org metadata. |
@@ -26,10 +30,11 @@ flowchart TD
   E --> F[Codex locates real force-app/main/default]
   F --> G[Codex reads SALESFORCE_KNOWLEDGE/INDEX.md]
   G --> H[Codex reads task-specific knowledge]
-  H --> I[Codex inspects real project metadata]
-  I --> J[Codex makes smallest safe fix]
-  J --> K[Codex validates if possible]
-  K --> L[Codex updates Memory and History]
+  H --> I[Codex checks TOOLS and QUALITY_GATES]
+  I --> J[Codex inspects real project metadata]
+  J --> K[Codex makes smallest safe fix]
+  K --> L[Codex validates if possible]
+  L --> M[Codex updates Memory and History]
 ```
 
 ## Wiki Pages
@@ -47,7 +52,7 @@ flowchart TD
 | [Testing and Deployment Guide](Testing-and-Deployment-Guide.md) | Validation, tests, deploy dry runs, and deployment logs. |
 | [Common Failures Codex Must Check](Common-Failures-Codex-Must-Check.md) | Failure patterns Codex should check before fixing. |
 | [Memory and History System](Memory-and-History-System.md) | What Codex records after meaningful work. |
-| [Folder Map](Folder-Map.md) | Repo structure and folder responsibilities. |
+| [Folder Map](Folder-Map.md) | Repo structure, tooling, quality gates, automation, vendor references, and folder responsibilities. |
 | [Prompt Library](Prompt-Library.md) | Task prompts users can adapt. |
 | [Contributing and Safety Rules](Contributing-and-Safety-Rules.md) | Public-safe contribution rules. |
 

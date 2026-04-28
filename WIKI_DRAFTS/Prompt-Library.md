@@ -5,19 +5,19 @@ These prompts are safe starting points. Customize them with the real task, error
 ## General Fix Prompt
 
 ```text
-Read START_HERE.md and INSTRUCTIONS/ first. Locate the real force-app/main/default folder before editing. Read SALESFORCE_KNOWLEDGE/INDEX.md and the relevant guide files for this task. Inspect existing files, identify the root cause, make the smallest safe change, validate if possible, and update MEMORY/ and HISTORY/.
+Read START_HERE.md and INSTRUCTIONS/ first. Locate the real force-app/main/default folder before editing. Read SALESFORCE_KNOWLEDGE/INDEX.md and the relevant guide files for this task. Check TOOLS/ and QUALITY_GATES/ for available validation. Inspect existing files, identify the root cause, make the smallest safe change, validate if possible, and update MEMORY/ and HISTORY/.
 ```
 
 ## Apex Prompt
 
 ```text
-Fix the Apex issue in <area>. Read the Apex, testing, deployment, and common failure guides. Inspect the target class, triggers, services, controllers, tests, and metadata references before editing. Do not guess API names or method names. Validate with focused tests or dry-run deploy if possible.
+Fix the Apex issue in <area>. Read the Apex, testing, deployment, common failure, Salesforce Code Analyzer, and Apex formatting guidance. Inspect the target class, triggers, services, controllers, tests, and metadata references before editing. Do not guess API names or method names. Validate with focused tests, Salesforce Code Analyzer, formatting checks, or dry-run deploy if available.
 ```
 
 ## LWC Prompt
 
 ```text
-Fix the LWC issue in <bundle>. Read the LWC, record page, mobile, metadata, and common failure guides. Inspect the full bundle, Apex controller, parent components, js-meta.xml targets, permissions, and page placement before editing. Validate if possible.
+Fix the LWC issue in <bundle>. Read the LWC, record page, mobile, metadata, common failure, LWC Jest, LWC ESLint, and mobile lint guidance. Inspect the full bundle, Apex controller, parent components, js-meta.xml targets, permissions, and page placement before editing. Validate with Jest, lint, mobile lint, focused Apex tests, or dry-run deploy if available.
 ```
 
 ## Metadata Prompt
@@ -29,7 +29,7 @@ Review this metadata change. Read the metadata and record page guides. Inspect o
 ## Deployment Prompt
 
 ```text
-Debug this deployment failure. Read the deployment, testing, metadata, and common failure docs. Inspect the exact changed metadata and failure output. Find the root cause before editing. Keep deploy scope narrow and run a dry-run validation if possible.
+Debug this deployment failure. Read the deployment, testing, metadata, common failure, release gate, and Code Analyzer docs. Inspect the exact changed metadata and failure output. Find the root cause before editing. Keep deploy scope narrow and run a dry-run validation if possible.
 ```
 
 ## Review Prompt
@@ -51,5 +51,5 @@ Update the docs for this completed Salesforce change. Keep current behavior sepa
 - [ ] Include relevant file paths if known.
 - [ ] State whether tests may be run.
 - [ ] State whether deployment validation may be run.
+- [ ] Ask Codex to run available quality gates or report why they were skipped.
 - [ ] Ask Codex to update memory and history after meaningful work.
-

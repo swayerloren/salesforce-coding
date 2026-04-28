@@ -10,7 +10,12 @@ Use this page for Lightning Web Components, record actions, record-page widgets,
 | `SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_RECORD_PAGE_GUIDE.md` | Record page placement and action visibility. |
 | `SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_MOBILE_GUIDE.md` | Salesforce mobile runtime constraints. |
 | `SALESFORCE_KNOWLEDGE/TOPICS/lwc/` | Focused LWC troubleshooting. |
-| `SALESFORCE_KNOWLEDGE/CHECKLISTS/before-lwc.md` | LWC preflight checklist. |
+| `SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/BEFORE_EDITING_LWC.md` | LWC preflight checklist. |
+| `TOOLS/LWC_JEST.md` | LWC unit test guidance when Jest is available. |
+| `TOOLS/ESLINT_LWC.md` | LWC lint guidance. |
+| `TOOLS/LWC_MOBILE_LINT.md` | Mobile/offline lint guidance when relevant. |
+| `QUALITY_GATES/LWC_LINT_RULES.md` | LWC lint gate and skipped-tool behavior. |
+| `QUALITY_GATES/TESTING_GATE.md` | Test evidence expectations. |
 
 ## Inspect The Whole Bundle
 
@@ -64,4 +69,3 @@ flowchart TD
 - Do not change public `@api` contracts without checking parents.
 - Keep mobile behavior in scope for record-page and action components.
 - Avoid broad CSS rewrites unless the task is specifically design-focused.
-

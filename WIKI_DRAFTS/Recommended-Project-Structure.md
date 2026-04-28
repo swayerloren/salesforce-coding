@@ -24,6 +24,10 @@ salesforce-coding/
             layouts/
             permissionsets/
   SALESFORCE_KNOWLEDGE/
+  TOOLS/
+  QUALITY_GATES/
+  AUTOMATION/
+  VENDOR_REFERENCES/
   MEMORY/
   HISTORY/
   WORKSPACE/
@@ -75,6 +79,7 @@ force-app/main/default/permissionsets/
 | Good | Why |
 | --- | --- |
 | Keep helper docs at repo root and under `SALESFORCE_KNOWLEDGE/`. | Codex can read guidance without confusing it with deployable metadata. |
+| Keep optional tooling docs in `TOOLS/`, `QUALITY_GATES/`, `AUTOMATION/`, and `VENDOR_REFERENCES/`. | Validation and reference material stay separate from deployable metadata. |
 | Keep real metadata under the real Salesforce DX project. | Deploy and test commands stay scoped to Salesforce source. |
 | Keep memory/history in helper folders. | Future Codex sessions can reuse lessons without changing Salesforce metadata. |
 | Keep secrets outside the repo. | Public-safety and credential safety remain intact. |
@@ -84,4 +89,5 @@ force-app/main/default/permissionsets/
 - Creating a placeholder `force-app/main/default` tree.
 - Mixing docs into deployable Salesforce metadata.
 - Copying private org data into public knowledge docs.
+- Vendoring optional external repos into the public repo.
 - Asking Codex to deploy this helper repo.

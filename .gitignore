@@ -16,6 +16,8 @@ Desktop.ini
 *.orig
 tmp/
 temp/
+VENDOR_REFERENCES/_external/
+*.local.md
 
 # Node/Salesforce local state
 node_modules/

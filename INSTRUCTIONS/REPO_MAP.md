@@ -11,10 +11,16 @@ This is the clean map for the Codex-ready Salesforce coding engine.
 |-- INSTRUCTIONS/
 |-- FORCE_APP_DIRECTORY/
 |-- SALESFORCE_KNOWLEDGE/
+|-- TOOLS/
+|-- QUALITY_GATES/
+|-- AUTOMATION/
+|-- VENDOR_REFERENCES/
 |-- MEMORY/
 |-- HISTORY/
 |-- WORKSPACE/
 |-- WIKI_DRAFTS/
+|-- .github/
+|   `-- workflows/
 |-- ARCHIVE/
 |-- LICENSE
 |-- SECURITY.md
@@ -40,6 +46,10 @@ This is the clean map for the Codex-ready Salesforce coding engine.
 | `INSTRUCTIONS/` | Required operating rules and workflow. |
 | `FORCE_APP_DIRECTORY/` | Placeholder or pointer for the real Salesforce DX project. |
 | `SALESFORCE_KNOWLEDGE/` | Salesforce knowledge base. |
+| `TOOLS/` | Optional tooling guides for analysis, linting, testing, formatting, and external references. |
+| `QUALITY_GATES/` | Validation rules Codex should run after code changes when available. |
+| `AUTOMATION/` | Local public-safe validation scripts. |
+| `VENDOR_REFERENCES/` | External repo references, attribution, license notes, and no-vendoring policy. |
 | `MEMORY/` | Durable lessons and stable facts. |
 | `HISTORY/` | Chronological records of meaningful work. |
 | `WORKSPACE/` | Current audits, plans, and working notes. |
@@ -109,6 +119,49 @@ SALESFORCE_KNOWLEDGE/
 | `REFERENCE/` | Glossary, CLI reference, and discovery templates. |
 | `DOCS/` | Governance, engineering principles, and public-safety policy. |
 
+## Tooling And Quality Gates
+
+```text
+TOOLS/
+|-- README.md
+|-- TOOL_REGISTRY.md
+|-- INSTALL_TOOLING.md
+|-- SALESFORCE_CODE_ANALYZER.md
+|-- LWC_JEST.md
+|-- PRETTIER_APEX.md
+|-- ESLINT_LWC.md
+|-- LWC_MOBILE_LINT.md
+`-- EXTERNAL_REFERENCE_REPOS.md
+
+QUALITY_GATES/
+|-- README.md
+|-- CODE_ANALYZER_RULES.md
+|-- LWC_LINT_RULES.md
+|-- APEX_FORMATTING.md
+|-- TESTING_GATE.md
+`-- RELEASE_GATE.md
+
+AUTOMATION/
+|-- README.md
+|-- local-quality-check.ps1
+|-- validate-salesforce-project.ps1
+|-- local-quality-check.sh
+`-- validate-salesforce-project.sh
+
+VENDOR_REFERENCES/
+|-- README.md
+|-- TOOL_SOURCE_MAP.md
+|-- EXTERNAL_REPOS_TO_CLONE_OPTIONALLY.md
+`-- LICENSE_AND_ATTRIBUTION_NOTES.md
+```
+
+| Path | Contents |
+| --- | --- |
+| `TOOLS/` | Optional tool guidance and install notes. |
+| `QUALITY_GATES/` | Evidence gates for Codex validation. |
+| `AUTOMATION/` | Local scripts that check repo safety and Salesforce DX project placement. |
+| `VENDOR_REFERENCES/` | External repo source map and attribution requirements. |
+
 ## Real Salesforce DX Project
 
 The expected real project metadata path is:
@@ -143,7 +196,7 @@ flowchart TD
   F --> G[Task-specific knowledge]
   G --> H[Inspect real project metadata]
   H --> I[Make smallest safe fix]
-  I --> J[Validate if possible]
+  I --> J[Run available quality gates]
   J --> K[Update Memory and History]
   K --> L[Report result]
 ```

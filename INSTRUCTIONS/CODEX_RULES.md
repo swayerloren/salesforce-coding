@@ -12,7 +12,8 @@ This repo is not automatically the user's Salesforce DX project. It is an operat
 | 2 | [INSTRUCTIONS/](README.md) | Defines mandatory Codex behavior. |
 | 3 | [FORCE_APP_DIRECTORY/README.md](../FORCE_APP_DIRECTORY/README.md) | Explains where the real Salesforce DX project is placed or referenced. |
 | 4 | [SALESFORCE_KNOWLEDGE/INDEX.md](../SALESFORCE_KNOWLEDGE/INDEX.md) | Routes Codex to task-specific Salesforce guidance. |
-| 5 | [MEMORY/](../MEMORY/) and [HISTORY/](../HISTORY/) | Reuses durable lessons and checks recent work. |
+| 5 | [TOOLS/](../TOOLS/) and [QUALITY_GATES/](../QUALITY_GATES/) | Identifies optional tooling and validation gates. |
+| 6 | [MEMORY/](../MEMORY/) and [HISTORY/](../HISTORY/) | Reuses durable lessons and checks recent work. |
 
 ## Non-Negotiable Rules
 
@@ -27,6 +28,9 @@ This repo is not automatically the user's Salesforce DX project. It is an operat
 - [ ] Make the smallest safe change.
 - [ ] Do not edit unrelated files.
 - [ ] Preserve Salesforce DX structure.
+- [ ] Run available quality gates after code changes when practical.
+- [ ] Run or recommend Salesforce Code Analyzer after Apex, LWC, Aura, metadata, Flow, static resource, or deployment-scope changes.
+- [ ] Do not claim static analysis passed unless Salesforce Code Analyzer actually ran and passed.
 - [ ] Keep all committed content public-safe.
 - [ ] Update Memory and History after meaningful work.
 
@@ -97,6 +101,10 @@ Use documentation this way:
 | `MEMORY/` | Durable lessons that may need source reverification. |
 | `HISTORY/` | Chronological context, not current architecture. |
 | `WORKSPACE/` | Task notes, audits, and review reports. |
+| `TOOLS/` | Optional tooling guidance. |
+| `QUALITY_GATES/` | Validation gates and evidence expectations. |
+| `AUTOMATION/` | Local public-safe validation scripts. |
+| `VENDOR_REFERENCES/` | External repo attribution and no-vendoring rules. |
 | `ARCHIVE/` | Superseded public-safe material. |
 
 When notes conflict with real project metadata, inspect the real source and follow the current user request.
@@ -109,6 +117,7 @@ Prefer:
 - existing project patterns,
 - narrow metadata payloads,
 - focused tests and validation,
+- available quality gates,
 - clear root-cause fixes.
 
 Avoid:
@@ -147,6 +156,36 @@ Common metadata locations:
 | External credentials | `force-app/main/default/externalCredentials/` |
 
 Do not create nonstandard metadata folders unless the real project already uses them or the user explicitly requests them.
+
+## Quality Gates
+
+After code changes, Codex should check [QUALITY_GATES/](../QUALITY_GATES/) and [TOOLS/](../TOOLS/) for relevant validation.
+
+Use gates that are available in the real Salesforce DX project:
+
+| Change type | Gate examples |
+| --- | --- |
+| Apex | Focused Apex tests, Salesforce Code Analyzer, Apex formatting check if configured. |
+| LWC | LWC Jest, LWC ESLint, Salesforce Code Analyzer if configured. |
+| Mobile LWC | LWC mobile lint, mobile checklist, relevant LWC tests. |
+| Metadata/deployment | Narrow dry-run deploy, deployment checklist, Code Analyzer if applicable. |
+| Docs | Markdown links, public-safety scans, path consistency checks. |
+
+If a gate is unavailable, report that limitation instead of inventing results.
+
+### Salesforce Code Analyzer
+
+Use [TOOLS/SALESFORCE_CODE_ANALYZER.md](../TOOLS/SALESFORCE_CODE_ANALYZER.md) and [QUALITY_GATES/CODE_ANALYZER_RULES.md](../QUALITY_GATES/CODE_ANALYZER_RULES.md) after Salesforce source changes.
+
+Codex must:
+
+- confirm the real project root,
+- target `force-app/main/default` or a narrower changed folder,
+- report pass, warnings/findings, errors, or skipped status,
+- state the install recommendation if the analyzer is missing,
+- update History with the command, target, and result.
+
+Do not treat a missing analyzer as a successful static-analysis result.
 
 ## Public-Safe Rule
 

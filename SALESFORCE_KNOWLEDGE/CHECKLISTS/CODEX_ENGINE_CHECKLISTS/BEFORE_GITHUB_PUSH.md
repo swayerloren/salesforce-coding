@@ -41,9 +41,12 @@ Use this checklist before pushing this repo, publishing it, or preparing a relea
 - [ ] `HISTORY/` contains chronological summaries only, not private logs.
 - [ ] `WORKSPACE/` has been reviewed for temporary audits or summaries that should not be public.
 - [ ] `ARCHIVE/` has been reviewed for old fixes that may contain private content.
+- [ ] `.github/workflows/` contains only public-safe workflows that do not require secrets by default.
+- [ ] GitHub Actions workflow comments do not include private project paths, org IDs, credentials, or temporary folder references.
 
 ## Final Gate
 
 - [ ] A recursive search for private-data indicators has been run.
 - [ ] A Markdown link check has been run for changed docs.
+- [ ] GitHub Actions results are green or documented with exact reasons for any skipped/failed workflow.
 - [ ] The final pushed content is safe even if a user downloads it publicly.

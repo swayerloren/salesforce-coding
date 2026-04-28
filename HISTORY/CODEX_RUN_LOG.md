@@ -213,3 +213,124 @@ Update this file after every meaningful Codex task, especially when Codex:
 - Validation: Markdown links checked; local-only and temporary-folder reference scan passed; credential-like assignment scan passed; Salesforce ID-shaped value scan passed; email scan found only generic placeholder examples.
 - Result: Release documentation was updated for `v1.1.0` and prepared for commit/push.
 - Assumptions or limits: GitHub Release page content may still need to be created or updated manually in GitHub.
+
+## 2026-04-27 - Deep Repo Quality Audit
+
+- Date: 2026-04-27
+- User request: Perform a deep audit of the repo as a Codex-ready Salesforce coding engine, create Markdown and JSON audit reports, run public safety and link scans, update only requested logs, and do not commit or push.
+- Files inspected: Root docs, release docs, `INSTRUCTIONS/`, `FORCE_APP_DIRECTORY/`, `SALESFORCE_KNOWLEDGE/`, `MEMORY/`, `HISTORY/`, `WIKI_DRAFTS/`, `.gitignore`, `.gitattributes`, and existing `WORKSPACE/` reports.
+- Knowledge docs read: `README.md`, `START_HERE.md`, `INSTRUCTIONS/`, `SALESFORCE_KNOWLEDGE/INDEX.md`, Salesforce guides/topics/prompts/checklists/examples/reference/docs, Memory and History docs, and wiki drafts.
+- Files changed: `WORKSPACE/DEEP_REPO_QUALITY_AUDIT.md`, `WORKSPACE/DEEP_REPO_QUALITY_AUDIT_SUMMARY.json`, `MEMORY/PROJECT_MEMORY.md`, `HISTORY/CODEX_RUN_LOG.md`, `HISTORY/CHANGE_ARCHIVE.md`
+- Validation: Markdown links passed across 158 Markdown files outside fenced code blocks; public-doc local path scan passed; temporary-folder reference scan passed; credential-like assignment scan passed; private-key/token/session scan passed; Salesforce ID-shaped scan passed; email scan found only documented generic placeholder examples.
+- Result: Audit scored the repo 82/100, found 2 P0 gaps, 10 P1 gaps, 8 P2 gaps, and 5 P3 future improvements.
+- Assumptions or limits: Audit was documentation and repo-quality focused; no Salesforce org, real Salesforce DX project, deployment, or Apex/LWC test execution was available.
+
+## 2026-04-27 - Add Tooling And Quality Gate Structure
+
+- Date: 2026-04-27
+- User request: Create the first clean integration layer for external Salesforce tooling without copying third-party repos, update root/Codex docs, update Memory/History, and do not commit or push.
+- Files inspected: `WORKSPACE/EXTERNAL_REPO_CLONE_REPORT.md`, `WORKSPACE/EXTERNAL_REPO_DEEP_ANALYSIS.md`, `WORKSPACE/EXTERNAL_REPO_DEEP_ANALYSIS_SUMMARY.json`, `README.md`, `START_HERE.md`, `SALESFORCE_KNOWLEDGE/INDEX.md`, `INSTRUCTIONS/CODEX_RULES.md`, `INSTRUCTIONS/DEVELOPMENT_WORKFLOW.md`, `INSTRUCTIONS/REPO_MAP.md`
+- Knowledge docs read: External repo clone/deep analysis reports and existing Codex operation docs.
+- Files changed: `TOOLS/`, `QUALITY_GATES/`, `AUTOMATION/`, `VENDOR_REFERENCES/`, `.github/workflows/README.md`, `README.md`, `START_HERE.md`, `SALESFORCE_KNOWLEDGE/INDEX.md`, `INSTRUCTIONS/CODEX_RULES.md`, `INSTRUCTIONS/DEVELOPMENT_WORKFLOW.md`, `INSTRUCTIONS/REPO_MAP.md`, `MEMORY/PROJECT_MEMORY.md`, `HISTORY/CODEX_RUN_LOG.md`, `HISTORY/CHANGE_ARCHIVE.md`
+- Validation: PowerShell local quality helper passed; Salesforce project validator produced expected placeholder-repo warnings; Markdown links passed across 182 Markdown files outside fenced code blocks; public-safety scans found no credential-like assignments, Salesforce ID-shaped values, local-only public-doc paths, or temporary-folder references; `git diff --check` passed. Bash helper scripts were inspected but not executed because Bash is not installed in this Windows environment.
+- Result: Tooling and quality-gate scaffolding created as public-safe documentation and local helper scripts; no external source was copied.
+- Assumptions or limits: Tool installs and GitHub Actions are documented as optional; Codex must not add dependencies or workflows without user approval.
+
+## 2026-04-27 - Strengthen Local Salesforce Validation Scripts
+
+- Date: 2026-04-27
+- User request: Replace local validation scripts so Codex can locate a real Salesforce DX project, verify `force-app/main/default`, check optional tools and package scripts gracefully, recommend available quality gates, update automation/tooling docs, update Memory/History, and do not commit or push.
+- Files inspected: `AUTOMATION/local-quality-check.ps1`, `AUTOMATION/validate-salesforce-project.ps1`, `AUTOMATION/local-quality-check.sh`, `AUTOMATION/validate-salesforce-project.sh`, `AUTOMATION/README.md`, `QUALITY_GATES/README.md`, `TOOLS/INSTALL_TOOLING.md`, `FORCE_APP_DIRECTORY/README.md`
+- Knowledge docs read: `AUTOMATION/README.md`, `QUALITY_GATES/README.md`, `TOOLS/INSTALL_TOOLING.md`, `FORCE_APP_DIRECTORY/README.md`
+- Files changed: `AUTOMATION/local-quality-check.ps1`, `AUTOMATION/validate-salesforce-project.ps1`, `AUTOMATION/local-quality-check.sh`, `AUTOMATION/validate-salesforce-project.sh`, `AUTOMATION/README.md`, `QUALITY_GATES/README.md`, `TOOLS/INSTALL_TOOLING.md`, `MEMORY/PROJECT_MEMORY.md`, `HISTORY/CODEX_RUN_LOG.md`, `HISTORY/CHANGE_ARCHIVE.md`
+- Validation: PowerShell validator and local quality check passed in allow-missing mode; Git Bash `bash -n` passed for both shell scripts; Git Bash validator and local quality check passed in allow-missing mode; Markdown links passed across 182 Markdown files outside fenced code blocks; public-safety scans passed; `git diff --check` passed.
+- Result: Local validation scripts now locate Salesforce DX projects from explicit paths, `FORCE_APP_DIRECTORY/`, filled external path notes, or repo-root metadata; report `FOUND`, `MISSING`, `SKIPPED`, `PASS`, and `FAIL`; detect `sf`, `sfdx`, `node`, `npm`, `npx`, and `git`; detect package scripts; recommend Code Analyzer, LWC Jest, ESLint, and Prettier gates without requiring org login or deployment.
+- Assumptions or limits: This repo currently has no real Salesforce DX project placed, so project-level npm scripts were not run. Scripts were validated in placeholder mode.
+
+## 2026-04-27 - Add GitHub Action Workflow Drafts
+
+- Date: 2026-04-27
+- User request: Add safe GitHub Actions workflows for Markdown link checking, public-safety scanning, and Salesforce Code Analyzer examples; update README, release gate, before-push checklist, Memory, and History; do not commit or push.
+- Files inspected: `.github/workflows/README.md`, `QUALITY_GATES/RELEASE_GATE.md`, `SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/BEFORE_GITHUB_PUSH.md`, `README.md`, local external `forcedotcom/code-analyzer` reference clone.
+- Knowledge docs read: `TOOLS/SALESFORCE_CODE_ANALYZER.md`, `TOOLS/INSTALL_TOOLING.md`, `QUALITY_GATES/README.md`, `QUALITY_GATES/RELEASE_GATE.md`
+- Files changed: `.github/workflows/markdown-link-check.yml`, `.github/workflows/public-safety-check.yml`, `.github/workflows/salesforce-code-analyzer.yml`, `.github/workflows/README.md`, `README.md`, `QUALITY_GATES/RELEASE_GATE.md`, `SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/BEFORE_GITHUB_PUSH.md`, `MEMORY/PROJECT_MEMORY.md`, `HISTORY/CODEX_RUN_LOG.md`, `HISTORY/CHANGE_ARCHIVE.md`
+- Validation: Local replicas of the Markdown-link and public-safety workflow scripts passed; public-doc path scans passed for `.github/` and public docs; `npx --yes prettier --check ".github/workflows/*.yml"` passed.
+- Result: GitHub Actions drafts now provide active Markdown link and public-safety gates plus a conditional Salesforce Code Analyzer workflow that requires no org secrets and skips when no `force-app/main/default` is present.
+- Assumptions or limits: Workflows were not executed on GitHub Actions in this session. The Code Analyzer workflow installs Salesforce CLI and `@salesforce/plugin-code-analyzer`; users may customize that step for pinned internal setup or the official Salesforce Code Analyzer action.
+
+## 2026-04-27 - Map Apex And LWC Recipes References
+
+- Date: 2026-04-27
+- User request: Analyze external Apex Recipes and LWC Recipes clones, create public-safe reference maps for Codex, update index/vendor/prompt docs, update Memory and History, and do not commit or push.
+- Files inspected: External `apex-recipes` README, license, package scripts, Apex class folders, test folders, platform event metadata, security recipes, trigger recipes, async recipes, and files recipes; external `lwc-recipes` README, license, package scripts, Jest config, LWC component folders, Jest mocks, Apex controllers, navigation/toast/form/event/slot components.
+- Knowledge docs read: `SALESFORCE_KNOWLEDGE/INDEX.md`, `VENDOR_REFERENCES/TOOL_SOURCE_MAP.md`, `TOOLS/EXTERNAL_REFERENCE_REPOS.md`, Apex and LWC prompt pack files.
+- Files changed: `SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_APEX_RECIPES_MAP.md`, `SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_LWC_RECIPES_MAP.md`, `SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_PATTERN_USAGE_RULES.md`, `SALESFORCE_KNOWLEDGE/INDEX.md`, `VENDOR_REFERENCES/TOOL_SOURCE_MAP.md`, `TOOLS/EXTERNAL_REFERENCE_REPOS.md`, `SALESFORCE_KNOWLEDGE/PROMPTS/CODEX_PROMPT_PACK/02_FIX_LWC.md`, `SALESFORCE_KNOWLEDGE/PROMPTS/CODEX_PROMPT_PACK/03_FIX_APEX.md`, `MEMORY/PROJECT_MEMORY.md`, `HISTORY/CODEX_RUN_LOG.md`, `HISTORY/CHANGE_ARCHIVE.md`
+- Validation: Markdown links passed across 185 Markdown files outside fenced code blocks; public-safety scans for temporary folder references, local-only paths, and credential-like assignments passed; `git diff --check` passed.
+- Result: External recipe references are documented as attribution-aware pattern maps, not vendored source or copy-paste instructions.
+- Assumptions or limits: External repos were inspected from the local temporary clone only; no external source files were copied into this repo.
+
+## 2026-04-27 - Make Salesforce Code Analyzer A First-Class Gate
+
+- Date: 2026-04-27
+- User request: Use the external Salesforce Code Analyzer repo as a reference and make Code Analyzer a first-class quality gate in docs, automation, workflow, Codex instructions, prompt pack, Memory, and History without copying external source.
+- Files inspected: External Code Analyzer README, package metadata, command messages for run/rules/config, existing `TOOLS/SALESFORCE_CODE_ANALYZER.md`, `QUALITY_GATES/CODE_ANALYZER_RULES.md`, `QUALITY_GATES/RELEASE_GATE.md`, `AUTOMATION/local-quality-check.ps1`, `AUTOMATION/local-quality-check.sh`, `.github/workflows/salesforce-code-analyzer.yml`, `INSTRUCTIONS/CODEX_RULES.md`, `INSTRUCTIONS/DEVELOPMENT_WORKFLOW.md`, prompt pack files.
+- Knowledge docs read: `TOOLS/SALESFORCE_CODE_ANALYZER.md`, `QUALITY_GATES/CODE_ANALYZER_RULES.md`, `QUALITY_GATES/RELEASE_GATE.md`, relevant Codex instruction and prompt docs.
+- Files changed: `TOOLS/SALESFORCE_CODE_ANALYZER.md`, `QUALITY_GATES/CODE_ANALYZER_RULES.md`, `QUALITY_GATES/RELEASE_GATE.md`, `AUTOMATION/local-quality-check.ps1`, `AUTOMATION/local-quality-check.sh`, `.github/workflows/salesforce-code-analyzer.yml`, `INSTRUCTIONS/CODEX_RULES.md`, `INSTRUCTIONS/DEVELOPMENT_WORKFLOW.md`, `SALESFORCE_KNOWLEDGE/PROMPTS/CODEX_PROMPT_PACK/01_START_NEW_SALESFORCE_TASK.md`, `SALESFORCE_KNOWLEDGE/PROMPTS/CODEX_PROMPT_PACK/03_FIX_APEX.md`, `SALESFORCE_KNOWLEDGE/PROMPTS/CODEX_PROMPT_PACK/05_FIX_DEPLOYMENT_FAILURE.md`, `MEMORY/PROJECT_MEMORY.md`, `HISTORY/CODEX_RUN_LOG.md`, `HISTORY/CHANGE_ARCHIVE.md`
+- Validation: PowerShell local quality check passed in allow-missing mode and detected `sf code-analyzer`; Git Bash syntax check and runtime check passed in allow-missing mode and detected `sf code-analyzer`; workflow YAML passed Prettier check; Markdown links passed across 185 Markdown files; public-safety scans passed; `git diff --check` passed.
+- Result: Code Analyzer docs now cover install, run targets, missing-tool handling, result interpretation, and History logging. Local helpers can recommend or run the analyzer with explicit flags, and the GitHub workflow runs it when real Salesforce metadata exists.
+- Assumptions or limits: No real Salesforce DX project exists in this helper repo, so Code Analyzer was not run against project metadata during this task.
+
+## 2026-04-27 - Integrate LWC Quality Gates
+
+- Date: 2026-04-27
+- User request: Make LWC quality gates stronger using LWC Jest, LWC ESLint, mobile lint, and graph analyzer references without copying external source or committing/pushing.
+- Files inspected: External `sfdx-lwc-jest`, `eslint-plugin-lwc`, `eslint-config-lwc`, `eslint-plugin-lwc-mobile`, and `eslint-plugin-lwc-graph-analyzer` package/readme docs; existing LWC tool docs, quality gates, automation helpers, prompt pack, index, LWC guide, and mobile guide.
+- Knowledge docs read: `TOOLS/LWC_JEST.md`, `TOOLS/ESLINT_LWC.md`, `TOOLS/LWC_MOBILE_LINT.md`, `QUALITY_GATES/LWC_LINT_RULES.md`, `QUALITY_GATES/TESTING_GATE.md`, `SALESFORCE_KNOWLEDGE/INDEX.md`, LWC and mobile guides, prompt pack files.
+- Files changed: `TOOLS/LWC_JEST.md`, `TOOLS/ESLINT_LWC.md`, `TOOLS/LWC_MOBILE_LINT.md`, `QUALITY_GATES/LWC_LINT_RULES.md`, `QUALITY_GATES/TESTING_GATE.md`, `QUALITY_GATES/examples/`, `AUTOMATION/local-quality-check.ps1`, `AUTOMATION/local-quality-check.sh`, prompt pack LWC/mobile/start prompts, `SALESFORCE_KNOWLEDGE/INDEX.md`, LWC/mobile guides, `TOOLS/INSTALL_TOOLING.md`, `QUALITY_GATES/README.md`, `MEMORY/PROJECT_MEMORY.md`, `HISTORY/CODEX_RUN_LOG.md`, `HISTORY/CHANGE_ARCHIVE.md`.
+- Validation: PowerShell local quality check passed in allow-missing mode; Git Bash syntax and allow-missing runtime checks passed; Markdown links passed across 188 Markdown files; public-safety scans for temporary/local research folder references, credential-like assignments, and Salesforce ID-shaped values passed; `git diff --check` passed.
+- Result: LWC quality gates now document Jest, ESLint, mobile lint, graph analyzer usage, missing-tool interpretation, optional examples, and prompt-level rules for Codex.
+- Assumptions or limits: No real Salesforce DX project exists in this helper repo, so project-specific LWC Jest and lint commands can only be recommended or tested in placeholder mode.
+
+## 2026-04-27 - Strengthen Apex Output Quality
+
+- Date: 2026-04-27
+- User request: Strengthen Apex output quality for Codex using `prettier-plugin-apex`, Apex Recipes, and Salesforce Code Analyzer references without copying external source or committing/pushing.
+- Files inspected: External `prettier-plugin-apex` README/package docs, external Apex Recipes source/test pattern locations, external Code Analyzer README/message docs, current Apex tool docs, quality gates, Apex guide, testing guide, Apex prompt pack, and Apex checklist.
+- Knowledge docs read: `TOOLS/PRETTIER_APEX.md`, `QUALITY_GATES/APEX_FORMATTING.md`, `QUALITY_GATES/CODE_ANALYZER_RULES.md`, `SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_APEX_RECIPES_MAP.md`, Apex and testing guides, Apex prompts, and before-editing Apex checklist.
+- Files changed: `TOOLS/PRETTIER_APEX.md`, `QUALITY_GATES/APEX_FORMATTING.md`, `QUALITY_GATES/CODE_ANALYZER_RULES.md`, `QUALITY_GATES/examples/prettier-apex-config-example.md`, `QUALITY_GATES/examples/apex-test-command-examples.md`, `SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_APEX_RECIPES_MAP.md`, Apex and testing guides, Apex prompt pack, before-editing Apex checklist, `MEMORY/PROJECT_MEMORY.md`, `HISTORY/CODEX_RUN_LOG.md`, `HISTORY/CHANGE_ARCHIVE.md`.
+- Validation: PowerShell local quality check passed in allow-missing mode; Bash syntax check passed; Markdown links passed across 190 Markdown files; public-safety scans for temporary/local research folder references, credential-like assignments, and Salesforce ID-shaped values passed; `git diff --check` passed.
+- Result: Apex docs now enforce bulk safety, no SOQL/DML in loops, no hard-coded IDs, null safety, sharing/security intent, test-created data, real assertions, optional Apex formatting, Code Analyzer validation, and Apex Recipes as reference-only.
+- Assumptions or limits: No real Salesforce DX project exists in this helper repo, so Apex tests, deploy validation, Code Analyzer against metadata, and Prettier Apex checks can only be documented or skipped in placeholder mode.
+
+## 2026-04-27 - Strengthen Metadata And Record Page Guidance
+
+- Date: 2026-04-27
+- User request: Strengthen the repo for Salesforce metadata, layouts, FlexiPages, quick actions, permission sets, profiles, and project structure without copying external source or committing/pushing.
+- Files inspected: Metadata guide, record page guide, platform limitations guide, metadata topic folder, before-editing metadata checklist, metadata prompt, release gate, Salesforce project validators, knowledge index, README, Memory, and History.
+- Knowledge docs read: `SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_METADATA_GUIDE.md`, `SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_RECORD_PAGE_GUIDE.md`, `SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_PLATFORM_LIMITATIONS.md`, metadata checklist and prompt, `QUALITY_GATES/RELEASE_GATE.md`.
+- Files changed: Metadata guide, record page guide, platform limitations guide, `SALESFORCE_KNOWLEDGE/TOPICS/metadata/README.md`, before-editing metadata checklist, metadata prompt, release gate, PowerShell and Bash Salesforce project validators, knowledge index, README, Memory, and History.
+- Validation: PowerShell validator passed in allow-missing mode; local quality check passed in allow-missing mode; Git Bash validator syntax/runtime passed in allow-missing mode; temporary metadata smoke test passed for common source-format paths; Markdown links passed across 191 Markdown files; public-safety scans for temporary/local research folder references, credential-like assignments, and Salesforce ID-shaped values passed; `git diff --check` passed.
+- Result: Metadata docs now cover Salesforce DX folder structure, object-scoped metadata, layouts, FlexiPages, quick actions, permission sets, profiles, tabs, applications, custom metadata, custom permissions, static resources, email, reports, dashboards, compact layouts, record types, page activation vs layout assignment, Dynamic Forms/Actions, profile risk, package manifest safety, metadata path checks, and record-page visibility rules.
+- Assumptions or limits: No real Salesforce DX project exists in this helper repo, so validator metadata-family checks can only run in placeholder mode until a project is placed or referenced.
+
+## 2026-04-27 - Add Optional Vendor Reference Clone System
+
+- Date: 2026-04-27
+- User request: Create a safe optional vendor reference system so users can clone external Salesforce repos locally without bloating the public repo, update docs, update ignore rules, and do not commit or push.
+- Files inspected: `VENDOR_REFERENCES/` docs, `.gitignore`, `README.md`, `START_HERE.md`, `TOOLS/EXTERNAL_REFERENCE_REPOS.md`, `SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_PATTERN_USAGE_RULES.md`, Memory, and History.
+- Knowledge docs read: Vendor reference docs, external pattern usage rules, public README/start guide sections for external references.
+- Files changed: `VENDOR_REFERENCES/README.md`, `VENDOR_REFERENCES/TOOL_SOURCE_MAP.md`, `VENDOR_REFERENCES/EXTERNAL_REPOS_TO_CLONE_OPTIONALLY.md`, `VENDOR_REFERENCES/LICENSE_AND_ATTRIBUTION_NOTES.md`, `VENDOR_REFERENCES/clone-reference-repos.ps1`, `VENDOR_REFERENCES/clone-reference-repos.sh`, `.gitignore`, `README.md`, `START_HERE.md`, `TOOLS/EXTERNAL_REFERENCE_REPOS.md`, `SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_PATTERN_USAGE_RULES.md`, Memory, and History.
+- Validation: PowerShell clone script parse passed; Bash clone script syntax check passed; `.gitignore` contains and `git check-ignore` confirms `VENDOR_REFERENCES/_external/`, `temp/`, and `*.local.md`; local quality check passed in allow-missing mode; Markdown links passed across 191 Markdown files; public-safety scans for temporary-folder references, credential-like assignments, and Salesforce ID-shaped values passed; `git diff --check` passed. Clone scripts were not executed to fetch external repos.
+- Result: Optional external references now clone into gitignored `VENDOR_REFERENCES/_external/`; docs state they are local references only, not required, not vendored, and subject to upstream license/attribution.
+- Assumptions or limits: Clone scripts were created but not run to fetch external repos during this task.
+
+## 2026-04-28 - Tooling Integration Consistency Review
+
+- Date: 2026-04-28
+- User request: Run a full consistency pass after adding tooling, quality gates, automation, and vendor reference docs; fix broken links, outdated paths, duplicated/confusing instructions, inconsistent terms, public-safety issues, and workflow gaps; create a review report; do not commit or push.
+- Files inspected: `README.md`, `START_HERE.md`, `INSTRUCTIONS/`, `SALESFORCE_KNOWLEDGE/INDEX.md`, prompt pack, Codex engine checklists, `TOOLS/`, `QUALITY_GATES/`, `AUTOMATION/`, `VENDOR_REFERENCES/`, `.github/workflows/`, `MEMORY/`, `HISTORY/`, and `WIKI_DRAFTS/`.
+- Knowledge docs read: Salesforce knowledge index, prompt pack files, Codex engine checklists, tooling docs, quality-gate docs, automation docs, vendor reference docs, wiki drafts, and public-safety guidance.
+- Files changed: `README.md`, `START_HERE.md`, `SALESFORCE_KNOWLEDGE/INDEX.md`, selected prompt pack files, local automation scripts, workflow docs/workflows, wiki drafts, `MEMORY/PROJECT_MEMORY.md`, `HISTORY/CODEX_RUN_LOG.md`, `HISTORY/CHANGE_ARCHIVE.md`, `WORKSPACE/PUBLIC_RELEASE_REVIEW.md`, and `WORKSPACE/TOOLING_INTEGRATION_CONSISTENCY_REVIEW.md`.
+- Validation: PowerShell and Bash script syntax checks passed; local quality check passed in allow-missing mode; Markdown local link check passed across 192 Markdown files; inline code Markdown path check passed for public docs; exact temporary reference folder scan passed; local-only path scan passed; credential/private-key/session scan passed outside detector files; Salesforce org ID-shaped value scan passed; `git check-ignore` confirmed `VENDOR_REFERENCES/_external/`, `temp/`, and `*.local.md`; `git diff --check` passed with only the existing CRLF normalization warning for `.gitignore`.
+- Result: Tooling, quality gates, automation, vendor reference docs, prompt pack, wiki drafts, and public-safety scans now use more consistent paths and terminology. Optional vendor clones are excluded from local safety scans so external source is not treated as this repo's public content.
+- Assumptions or limits: No real Salesforce DX project exists in the helper repo, so project-specific Salesforce validation remained skipped by design. GitHub Actions were not run remotely.

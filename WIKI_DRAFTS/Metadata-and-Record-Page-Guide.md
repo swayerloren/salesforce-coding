@@ -9,8 +9,8 @@ Use this page for object metadata, fields, layouts, FlexiPages, tabs, actions, p
 | `SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_METADATA_GUIDE.md` | Metadata structure and deployment safety. |
 | `SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_RECORD_PAGE_GUIDE.md` | Record page and action activation behavior. |
 | `SALESFORCE_KNOWLEDGE/TOPICS/metadata/` | Focused metadata notes. |
-| `SALESFORCE_KNOWLEDGE/CHECKLISTS/metadata-deploy.md` | Metadata deployment checklist. |
-| `SALESFORCE_KNOWLEDGE/CHECKLISTS/before-record-page-ui-change.md` | Record-page UI checklist. |
+| `SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/BEFORE_EDITING_METADATA.md` | Metadata and record-page preflight checklist. |
+| `QUALITY_GATES/RELEASE_GATE.md` | Metadata release, manifest, activation, assignment, and public release checks. |
 
 ## Record Page Activation Chain
 
@@ -56,4 +56,3 @@ flowchart TD
 - Treat layouts, FlexiPages, app pages, profiles, and permission metadata as high-blast-radius changes.
 - Confirm visibility with source evidence.
 - Validate with a dry run when possible.
-

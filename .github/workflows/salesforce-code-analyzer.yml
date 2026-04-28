@@ -1,0 +1,100 @@
+name: Salesforce Code Analyzer
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  SF_DISABLE_TELEMETRY: "true"
+  SF_AUTOUPDATE_DISABLE: "true"
+
+jobs:
+  salesforce-code-analyzer:
+    name: Analyze Salesforce metadata when present
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Locate Salesforce DX metadata
+        id: locate
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          metadata_root=""
+          project_root=""
+
+          if [ -d "force-app/main/default" ]; then
+            metadata_root="force-app/main/default"
+            project_root="."
+          elif [ -d "FORCE_APP_DIRECTORY" ]; then
+            metadata_root="$(find FORCE_APP_DIRECTORY -type d -path '*/force-app/main/default' | head -n 1 || true)"
+            if [ -n "$metadata_root" ]; then
+              project_root="${metadata_root%/force-app/main/default}"
+            fi
+          fi
+
+          if [ -z "$metadata_root" ]; then
+            echo "found=false" >> "$GITHUB_OUTPUT"
+            echo "SKIPPED: no force-app/main/default folder found."
+            echo "This helper repo can pass without Salesforce metadata. Add a real Salesforce DX project under FORCE_APP_DIRECTORY/ to activate this gate."
+            exit 0
+          fi
+
+          echo "found=true" >> "$GITHUB_OUTPUT"
+          echo "metadata_root=$metadata_root" >> "$GITHUB_OUTPUT"
+          echo "project_root=$project_root" >> "$GITHUB_OUTPUT"
+          echo "FOUND: metadata root $metadata_root"
+
+      - name: Set up Node.js
+        if: steps.locate.outputs.found == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Salesforce CLI and Code Analyzer
+        if: steps.locate.outputs.found == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # Salesforce Code Analyzer currently runs as the Salesforce CLI plugin
+          # @salesforce/plugin-code-analyzer. This workflow intentionally does
+          # not require org login, deployment secrets, or auth URLs.
+          #
+          # Users may replace this install step with the official Salesforce
+          # Code Analyzer GitHub Action or an internally pinned setup.
+          npm install --global @salesforce/cli
+          sf plugins install @salesforce/plugin-code-analyzer
+          sf code-analyzer --help
+
+      - name: Preview recommended rules
+        if: steps.locate.outputs.found == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "${{ steps.locate.outputs.project_root }}"
+
+          # Rule preview helps users see which rules are active for the target.
+          # It does not require Salesforce org access.
+          sf code-analyzer rules --rule-selector Recommended --target force-app/main/default --view table
+
+      - name: Run Salesforce Code Analyzer
+        if: steps.locate.outputs.found == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "${{ steps.locate.outputs.project_root }}"
+
+          # This is the active static-analysis quality gate. A nonzero exit
+          # means Code Analyzer failed or reported findings above the configured
+          # threshold. Triage changed files first, then unrelated backlog items.
+          sf code-analyzer run --target force-app/main/default --view table

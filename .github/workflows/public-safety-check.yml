@@ -1,0 +1,76 @@
+name: Public Safety Check
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  public-safety-check:
+    name: Scan for obvious unsafe public content
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Scan without printing secret values
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          import sys
+
+          skip_dirs = {".git", "node_modules", ".sfdx", ".sf", "coverage", "dist", "build", "_external", "temp"}
+          detector_files = {
+              Path("AUTOMATION/local-quality-check.ps1"),
+              Path("AUTOMATION/local-quality-check.sh"),
+              Path(".github/workflows/public-safety-check.yml"),
+          }
+          max_bytes = 2_000_000
+
+          rules = [
+              ("private key block", re.compile("-----BEGIN " + r"(?:RSA |DSA |EC |OPENSSH |)?PRIVATE KEY-----")),
+              ("salesforce session id", re.compile(r"\b00D[A-Za-z0-9]{12,15}![A-Za-z0-9._!%+-]{20,}\b")),
+              ("secret assignment", re.compile(r"\b(api[_-]?key|access[_-]?token|refresh[_-]?token|client[_-]?secret|session[_-]?id|password|passwd|secret)\b\s*[:=]\s*['\"]?[A-Za-z0-9_./+=:-]{12,}", re.IGNORECASE)),
+              ("temporary reference folder", re.compile(re.escape("SALES" + " FORCE" + " READ" + " ME"), re.IGNORECASE)),
+              ("windows user path", re.compile(r"[A-Za-z]:\\Users\\[^\\\s]+\\", re.IGNORECASE)),
+              ("unix user path", re.compile(r"/(?:Users|home)/[^/\s]+/")),
+          ]
+
+          findings = []
+
+          for path in Path(".").rglob("*"):
+              if not path.is_file():
+                  continue
+              if any(part in skip_dirs for part in path.parts):
+                  continue
+              if path in detector_files:
+                  continue
+              try:
+                  if path.stat().st_size > max_bytes:
+                      continue
+                  text = path.read_text(encoding="utf-8", errors="ignore")
+              except OSError:
+                  continue
+
+              for rule_name, pattern in rules:
+                  for match in pattern.finditer(text):
+                      line_number = text.count("\n", 0, match.start()) + 1
+                      findings.append((rule_name, path, line_number))
+
+          if findings:
+              print("FAIL: obvious unsafe public content indicators were found.")
+              print("Only rule names and file locations are printed; matched values are intentionally hidden.")
+              for rule_name, path, line_number in findings:
+                  print(f"- {rule_name}: {path}:{line_number}")
+              sys.exit(1)
+
+          print("PASS: no obvious unsafe public content indicators found.")
+          PY

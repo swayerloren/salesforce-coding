@@ -13,7 +13,7 @@ flowchart TD
   C --> D[Inspect Files]
   D --> E[Identify Root Cause]
   E --> F[Make Narrow Fix]
-  F --> G[Validate If Possible]
+  F --> G[Run Quality Gates]
   G --> H[Update Memory And History]
   H --> I[Report Result]
 ```
@@ -28,7 +28,7 @@ flowchart TD
 | 4 | Inspect files | Real project metadata inspected before editing. |
 | 5 | Identify root cause | Explanation of why the issue exists. |
 | 6 | Make narrow fix | Smallest safe file changes. |
-| 7 | Validate if possible | Command output, static review, or clear validation limit. |
+| 7 | Run quality gates | Command output, static review, or clear validation limit. |
 | 8 | Update Memory and History | Durable lessons and chronological record updated. |
 | 9 | Report result | Root cause, fix, validation, files changed, assumptions, and limits. |
 
@@ -90,6 +90,12 @@ Use `SALESFORCE_KNOWLEDGE/INDEX.md` to choose task-specific docs.
 
 Also check relevant patterns, checklists, Memory, and History.
 
+For code changes, also check:
+
+- `TOOLS/`
+- `QUALITY_GATES/`
+- `AUTOMATION/`
+
 ## 4. Inspect Files
 
 Search and read before editing.
@@ -135,19 +141,42 @@ Rules:
 - Avoid unrelated formatting.
 - Avoid broad deploy payloads.
 
-## 7. Validate If Possible
+## 7. Run Quality Gates
 
-Choose validation based on the change.
+Choose validation based on the change and the tools available in the real project.
 
 | Change | Useful validation |
 | --- | --- |
-| Apex | Focused Apex tests or deployment dry run with specified tests |
-| LWC | Lint/test if configured, bundle deploy dry run, template syntax inspection |
-| Metadata | Narrow deploy dry run, XML reference inspection |
+| Apex | Focused Apex tests, Salesforce Code Analyzer if available, deployment dry run with specified tests |
+| LWC | LWC Jest, LWC ESLint, Salesforce Code Analyzer if configured, bundle deploy dry run, template syntax inspection |
+| Mobile LWC | Mobile lint if configured, mobile checklist, LWC tests, static inspection |
+| Metadata | Narrow deploy dry run, XML reference inspection, deployment checklist |
 | Visualforce | Controller tests, deploy dry run, PDF behavior checklist if relevant |
 | Docs only | Markdown link check, public-safety scan, path consistency scan |
 
 Do not claim validation succeeded unless a command or inspection supports it. If validation cannot run, explain why.
+
+Local helper scripts live in `AUTOMATION/`. They are public-safe and should not install packages or change project dependencies.
+
+### Salesforce Code Analyzer Gate
+
+After Apex, LWC, Aura, metadata, Flow, static resource, or deployment-scope changes:
+
+1. Check [TOOLS/SALESFORCE_CODE_ANALYZER.md](../TOOLS/SALESFORCE_CODE_ANALYZER.md).
+2. Check [QUALITY_GATES/CODE_ANALYZER_RULES.md](../QUALITY_GATES/CODE_ANALYZER_RULES.md).
+3. Run from the real Salesforce DX project root when available:
+
+```bash
+sf code-analyzer run --target force-app/main/default --view table
+```
+
+If the analyzer is missing, report:
+
+```text
+SKIPPED: Salesforce Code Analyzer was not run because sf code-analyzer was not installed or not available on PATH.
+```
+
+Record the command, target, and result in `HISTORY/CODEX_RUN_LOG.md`; use `HISTORY/TEST_RESULTS_LOG.md` when the analyzer is part of a validation/test pass.
 
 ## 8. Update Memory And History
 

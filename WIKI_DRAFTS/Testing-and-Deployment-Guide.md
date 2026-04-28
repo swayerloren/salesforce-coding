@@ -9,7 +9,9 @@ Use this page before running Apex tests, deployment validation, or real deployme
 | `SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_TESTING_GUIDE.md` | Test design, callout mocks, async, files, and coverage strategy. |
 | `SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_DEPLOYMENT_GUIDE.md` | Deployment rules, test levels, and CLI pitfalls. |
 | `SALESFORCE_KNOWLEDGE/TOPICS/deployment/` | Narrow deploy and test-selection guidance. |
-| `SALESFORCE_KNOWLEDGE/CHECKLISTS/before-deployment.md` | Deployment preflight checklist. |
+| `SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/BEFORE_DEPLOYMENT.md` | Deployment preflight checklist. |
+| `QUALITY_GATES/TESTING_GATE.md` | Test evidence expectations. |
+| `QUALITY_GATES/RELEASE_GATE.md` | Release and deployment safety checks. |
 
 ## Deployment Flow
 
@@ -63,4 +65,3 @@ sf apex run test --target-org <alias> --test-level RunSpecifiedTests --tests <Te
 - `RunSpecifiedTests` coverage is package-specific.
 - Broad `RunLocalTests` can be useful but may expose unrelated unstable tests.
 - Docs-only tasks should not trigger deployment.
-

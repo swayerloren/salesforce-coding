@@ -11,6 +11,10 @@ Good contributions improve:
 - public-safe examples,
 - prompts,
 - checklists,
+- tooling guides,
+- quality gates,
+- local automation scripts,
+- vendor reference documentation,
 - memory/history templates,
 - wiki drafts,
 - public safety checks.
@@ -24,6 +28,7 @@ Before contributing, confirm:
 - [ ] No real customer names, user emails, phone numbers, addresses, or screenshots.
 - [ ] No local machine paths.
 - [ ] No placeholder deployable Salesforce metadata under `FORCE_APP_DIRECTORY/`.
+- [ ] No optional external repo clones under `VENDOR_REFERENCES/_external/`.
 - [ ] No helper docs included in a Salesforce deploy command.
 - [ ] Examples use placeholders and generic names.
 
@@ -33,6 +38,9 @@ Before contributing, confirm:
 | --- | --- |
 | Keep root docs focused on setup and navigation. | Users need a fast start. |
 | Keep Salesforce guidance under `SALESFORCE_KNOWLEDGE/`. | Codex needs one knowledge base. |
+| Keep tool guidance under `TOOLS/` and validation gates under `QUALITY_GATES/`. | Codex needs clear evidence rules without mixing tooling docs into Salesforce metadata. |
+| Keep local helper scripts under `AUTOMATION/`. | Users can run checks without altering real project source. |
+| Keep external repo references under `VENDOR_REFERENCES/`. | Optional public references stay attributed and unvendored. |
 | Keep reusable lessons under `MEMORY/`. | Future tasks need durable context. |
 | Keep chronological records under `HISTORY/`. | Users need a factual work trail. |
 | Keep temporary work under `WORKSPACE/`. | Drafts and audits should not become canonical accidentally. |
@@ -55,6 +63,7 @@ Review for:
 - unsafe deployment advice,
 - guidance that encourages guessing API names,
 - docs that confuse helper content with deployable Salesforce metadata,
+- external source copied without license review or attribution,
 - examples that look like real private org source.
 
 ## Safe Language

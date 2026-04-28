@@ -48,6 +48,8 @@ get displayName() {
 }
 ```
 
+Codex must move computed state into JavaScript getters before binding it in HTML. Do not use inline ternaries, logical OR expressions, chained property expressions, array length checks, or method calls directly in the template.
+
 ## Refresh Patterns
 
 For wired Apex, store the wire result object and call `refreshApex(this.wiredResult)`. Do not rely on fixed delay timers.
@@ -78,6 +80,18 @@ Patterns that work:
 - Do not rely on implicit `height: 100%` ancestor chains.
 - Use `pointerdown` or guarded early press events when mobile blur can close menus before selection.
 
+## LWC Quality Gates
+
+After LWC changes, Codex should run or recommend local LWC checks when the real Salesforce DX project supports them.
+
+| Gate | Preferred Command | Rule |
+| --- | --- | --- |
+| LWC Jest | `npm run test:unit` | Do not claim Jest passed unless it actually ran and passed. |
+| LWC ESLint | `npm run lint:lwc` or `npm run lint` | Do not disable LWC rules to hide findings. |
+| Mobile lint | `npm run lint:mobile` | Required review area for Salesforce mobile work when configured. |
+
+If `package.json`, Node/npm, Jest, lint scripts, or mobile lint setup is missing, report the gate as skipped with the exact reason. Do not create Node tooling or project config without user approval.
+
 ## Dark Mode
 
 Use SLDS global hooks for custom surfaces:
@@ -91,4 +105,3 @@ Use SLDS global hooks for custom surfaces:
 ```
 
 Avoid using OS `prefers-color-scheme` as the source of truth for Salesforce theme. A Salesforce user can choose Light, Dark, or System independently.
-

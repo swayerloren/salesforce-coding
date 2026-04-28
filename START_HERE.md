@@ -12,6 +12,7 @@ It is designed to be downloaded, opened in VS Code, paired with a real Salesforc
 | The Salesforce DX project is separate | The user must place or reference the real project before Codex edits Salesforce source. |
 | `force-app/main/default` is the target | Codex must locate and confirm the real metadata folder before editing. |
 | Source beats notes | Codex must inspect real project metadata before making changes. |
+| Quality gates provide evidence | Codex should run available validation tools after code changes. |
 | Public-safe by default | Do not add credentials, private org data, local-only paths, or private logs. |
 
 ## Required Codex Reading Order
@@ -24,10 +25,12 @@ Codex must follow this order:
 4. Confirm the real `force-app/main/default` folder.
 5. Read [SALESFORCE_KNOWLEDGE/INDEX.md](SALESFORCE_KNOWLEDGE/INDEX.md).
 6. Read task-specific Salesforce knowledge before editing Apex, LWC, Aura, Visualforce, metadata, tests, deployment files, Salesforce Files, or mobile behavior.
-7. Inspect the real project files.
-8. Make the smallest safe fix.
-9. Validate if possible.
-10. Update [MEMORY/](MEMORY/README.md) and [HISTORY/](HISTORY/README.md) after meaningful work.
+7. Check [TOOLS/](TOOLS/README.md) and [QUALITY_GATES/](QUALITY_GATES/README.md) for available validation tools.
+8. Optionally read [VENDOR_REFERENCES/](VENDOR_REFERENCES/README.md) and inspect local clones under `VENDOR_REFERENCES/_external/` if the user has cloned them.
+9. Inspect the real project files.
+10. Make the smallest safe fix.
+11. Run available quality gates or clearly state validation limits.
+12. Update [MEMORY/](MEMORY/README.md) and [HISTORY/](HISTORY/README.md) after meaningful work.
 
 ## Real Project Metadata
 
@@ -54,6 +57,10 @@ Codex must not treat these as the user's live Salesforce source:
 - guide files,
 - prompt files,
 - checklist files,
+- tooling and quality-gate docs,
+- automation helper scripts,
+- vendor reference docs,
+- optional external clones under `VENDOR_REFERENCES/_external/`,
 - workspace notes,
 - wiki drafts.
 
@@ -62,8 +69,14 @@ Only edit real project metadata after confirming the actual `force-app/main/defa
 ## Quick Start Prompt
 
 ```text
-Read START_HERE.md and INSTRUCTIONS/. Locate my real Salesforce DX project, confirm force-app/main/default, read SALESFORCE_KNOWLEDGE/INDEX.md and the task-specific guides, inspect the real files before editing, make the smallest safe fix, validate if possible, then update Memory and History.
+Read START_HERE.md and INSTRUCTIONS/. Locate my real Salesforce DX project, confirm force-app/main/default, read SALESFORCE_KNOWLEDGE/INDEX.md and the task-specific guides, check TOOLS/ and QUALITY_GATES/ for available validation, inspect the real files before editing, make the smallest safe fix, run available quality gates if possible, then update Memory and History.
 ```
+
+## Optional Vendor References
+
+Users may clone public external Salesforce references locally with [VENDOR_REFERENCES/clone-reference-repos.ps1](VENDOR_REFERENCES/clone-reference-repos.ps1) or [VENDOR_REFERENCES/clone-reference-repos.sh](VENDOR_REFERENCES/clone-reference-repos.sh).
+
+Those clones live under `VENDOR_REFERENCES/_external/`, are ignored by git, and are not required. Codex may inspect them for pattern context, but must not vendor them, copy code blindly, or treat sample metadata as facts about the user's org.
 
 ## Common Task Prompts
 

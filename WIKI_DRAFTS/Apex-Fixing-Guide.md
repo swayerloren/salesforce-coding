@@ -10,7 +10,11 @@ Use this page for Apex classes, triggers, services, controllers, queueables, bat
 | `SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_TESTING_GUIDE.md` | Test design and deployment coverage guidance. |
 | `SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_COMMON_FAILURES_AND_FIXES.md` | Repeated Salesforce failure patterns. |
 | `SALESFORCE_KNOWLEDGE/TOPICS/apex/` | Focused Apex topics. |
-| `SALESFORCE_KNOWLEDGE/CHECKLISTS/before-apex.md` | Preflight checklist. |
+| `SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/BEFORE_EDITING_APEX.md` | Preflight checklist. |
+| `TOOLS/SALESFORCE_CODE_ANALYZER.md` | Optional static analysis after Apex changes. |
+| `TOOLS/PRETTIER_APEX.md` | Optional Apex formatting guidance. |
+| `QUALITY_GATES/CODE_ANALYZER_RULES.md` | Code Analyzer pass, warning, error, and skipped behavior. |
+| `QUALITY_GATES/APEX_FORMATTING.md` | Formatting gate and missing-tool behavior. |
 
 ## Inspection Checklist
 
@@ -60,4 +64,3 @@ sf project deploy start --target-org <alias> --dry-run --source-dir force-app/ma
 ```
 
 Only run real deploys after a successful dry run and only when the user requested deployment.
-

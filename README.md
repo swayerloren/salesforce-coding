@@ -18,6 +18,11 @@ Start here: [START_HERE.md](START_HERE.md)
 | [INSTRUCTIONS/](INSTRUCTIONS/) | Required operating rules for Codex before every task. |
 | [FORCE_APP_DIRECTORY/](FORCE_APP_DIRECTORY/) | Placeholder where users place or reference the real Salesforce DX project. |
 | [SALESFORCE_KNOWLEDGE/](SALESFORCE_KNOWLEDGE/) | Salesforce knowledge base for Apex, LWC, Aura, Visualforce, metadata, testing, deployment, files, and mobile. |
+| [TOOLS/](TOOLS/) | Tooling guides for optional Salesforce analysis, linting, testing, formatting, and external references. |
+| [QUALITY_GATES/](QUALITY_GATES/) | Validation rules Codex should run after code changes when available. |
+| [AUTOMATION/](AUTOMATION/) | Local public-safe validation scripts. |
+| [VENDOR_REFERENCES/](VENDOR_REFERENCES/) | External repo attribution, safe-use notes, and optional clone guidance. |
+| [.github/workflows/](.github/workflows/) | Public-safe GitHub Actions for Markdown links, public-safety scanning, and optional Salesforce Code Analyzer checks. |
 | [MEMORY/](MEMORY/) | Reusable lessons and stable facts Codex should remember. |
 | [HISTORY/](HISTORY/) | Chronological record of meaningful Codex work. |
 | [WIKI_DRAFTS/](WIKI_DRAFTS/) | Public-safe source drafts for GitHub Wiki pages. |
@@ -67,6 +72,22 @@ Alternative: keep the Salesforce DX project outside this repo and document the e
 
 Codex must confirm the actual `force-app/main/default` path before editing.
 
+## Optional External References
+
+External Salesforce repos can be cloned locally for reference, but they are not required and are not vendored into this public repo.
+
+Use:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\VENDOR_REFERENCES\clone-reference-repos.ps1
+```
+
+```bash
+bash ./VENDOR_REFERENCES/clone-reference-repos.sh
+```
+
+The scripts clone into `VENDOR_REFERENCES/_external/`, which is ignored by git. Codex may inspect those local clones if present, but must not copy code blindly and must still verify the user's real `force-app/main/default` first.
+
 ## How Codex Must Operate
 
 ```mermaid
@@ -80,7 +101,7 @@ flowchart TD
   G --> H[Inspect real project metadata]
   H --> I[Identify root cause]
   I --> J[Make smallest safe fix]
-  J --> K[Validate if possible]
+  J --> K[Run available quality gates]
   K --> L[Update Memory and History]
   L --> M[Report result with evidence]
 ```
@@ -93,7 +114,8 @@ flowchart TD
 | 2 | [INSTRUCTIONS/](INSTRUCTIONS/) | Defines task rules, workflow, output, Memory, and History requirements. |
 | 3 | [FORCE_APP_DIRECTORY/](FORCE_APP_DIRECTORY/) | Locates the real Salesforce DX project or external project pointer. |
 | 4 | [SALESFORCE_KNOWLEDGE/INDEX.md](SALESFORCE_KNOWLEDGE/INDEX.md) | Routes Codex to task-specific Salesforce guidance. |
-| 5 | [MEMORY/](MEMORY/) and [HISTORY/](HISTORY/) | Reuses durable lessons and checks recent work. |
+| 5 | [TOOLS/](TOOLS/) and [QUALITY_GATES/](QUALITY_GATES/) | Identifies optional validation tools and quality gates. |
+| 6 | [MEMORY/](MEMORY/) and [HISTORY/](HISTORY/) | Reuses durable lessons and checks recent work. |
 
 ## Salesforce Knowledge Map
 
@@ -104,7 +126,7 @@ flowchart TD
 | Aura components | [Aura guide](SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_AURA_GUIDE.md) |
 | Visualforce or PDF behavior | [Visualforce guide](SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_VISUALFORCE_GUIDE.md) |
 | Metadata, FlexiPages, actions, permissions | [Metadata guide](SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_METADATA_GUIDE.md) |
-| Record pages and quick actions | [Record page guide](SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_RECORD_PAGE_GUIDE.md) |
+| Record pages, activation, layouts, and quick actions | [Record page guide](SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_RECORD_PAGE_GUIDE.md) |
 | Deployments and validation | [Deployment guide](SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_DEPLOYMENT_GUIDE.md) |
 | Apex tests and coverage | [Testing guide](SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_TESTING_GUIDE.md) |
 | Salesforce Files | [File handling guide](SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_FILE_HANDLING_GUIDE.md) |
@@ -131,6 +153,12 @@ Full map: [SALESFORCE_KNOWLEDGE/INDEX.md](SALESFORCE_KNOWLEDGE/INDEX.md)
 |   |-- EXAMPLES/
 |   |-- REFERENCE/
 |   `-- DOCS/
+|-- TOOLS/
+|-- QUALITY_GATES/
+|-- AUTOMATION/
+|-- VENDOR_REFERENCES/
+|-- .github/
+|   `-- workflows/
 |-- MEMORY/
 |-- HISTORY/
 |-- WORKSPACE/
@@ -160,7 +188,7 @@ Use these after the real Salesforce DX project is available.
 | Fix Apex | `Read START_HERE.md and INSTRUCTIONS/. Locate my real Salesforce DX project, confirm force-app/main/default, read the Apex and testing guidance, inspect the target Apex, callers, triggers, tests, and metadata references, then make the smallest safe fix and validate if possible.` |
 | Fix LWC | `Read START_HERE.md and INSTRUCTIONS/. Locate my real Salesforce DX project, confirm force-app/main/default, read the LWC, record page, and mobile guidance, inspect the full LWC bundle and related Apex or metadata, then make the smallest safe fix and validate if possible.` |
 | Fix deployment or test failure | `Read START_HERE.md and INSTRUCTIONS/. Locate my real Salesforce DX project, confirm force-app/main/default, read the deployment, testing, and common failure guidance, inspect the failing files and error output, identify root cause, make the smallest safe fix, then record validation results in History.` |
-| Review metadata before deployment | `Read START_HERE.md and INSTRUCTIONS/. Locate my real Salesforce DX project, confirm force-app/main/default, read the metadata and record page guides, inspect related FlexiPage, action, layout, permission, and object files, then report deployment risks with file references.` |
+| Review metadata before deployment | `Read START_HERE.md and INSTRUCTIONS/. Locate my real Salesforce DX project, confirm force-app/main/default, read the metadata, record page, platform limitation, and release gate guidance, inspect related object, field, validation rule, record type, compact layout, FlexiPage, action, layout, permission set, profile, tab, app, report, dashboard, static resource, and package.xml files, then report deployment risks with file references.` |
 
 Additional examples:
 
@@ -173,7 +201,7 @@ Debug this Apex test failure. Inspect the real project metadata first, read the 
 ```
 
 ```text
-Review this metadata change before deployment. Read the metadata and record page guides, inspect related FlexiPage, action, layout, permission, and object files, then report risks with file references.
+Review this metadata change before deployment. Read the metadata and record page guides, inspect related activation, assignment, permissions, object, field, layout, FlexiPage, action, record type, compact layout, and package.xml files, then report risks with file references.
 ```
 
 Prompt pack: [SALESFORCE_KNOWLEDGE/PROMPTS/CODEX_PROMPT_PACK/](SALESFORCE_KNOWLEDGE/PROMPTS/CODEX_PROMPT_PACK/)
@@ -189,7 +217,8 @@ Before editing real project metadata, Codex must confirm:
 - [ ] Existing real project files were inspected.
 - [ ] Object, field, metadata, permission, profile, record type, and Apex names were verified.
 - [ ] The planned change is the smallest safe fix.
-- [ ] Validation is planned or a limit is clearly stated.
+- [ ] Available quality gates are identified and validation is planned, or a limit is clearly stated.
+- [ ] Local automation and GitHub Actions results have been reviewed when available.
 - [ ] Memory and History updates are needed or intentionally skipped.
 
 ## Public-Safe Repository Rules
@@ -202,7 +231,10 @@ Do not commit:
 - customer data, private business details, or internal URLs,
 - private screenshots or raw private debug logs,
 - generated deployment artifacts,
-- placeholder deployable metadata in `FORCE_APP_DIRECTORY/`.
+- placeholder deployable metadata in `FORCE_APP_DIRECTORY/`,
+- local optional reference clones in `VENDOR_REFERENCES/_external/`,
+- temporary analysis folders such as `temp/`,
+- local-only notes such as `*.local.md`.
 
 Review [PUBLIC_REPO_REVIEW_CHECKLIST.md](PUBLIC_REPO_REVIEW_CHECKLIST.md), [SECURITY.md](SECURITY.md), and [SALESFORCE_KNOWLEDGE/DOCS/public-sanitization-policy.md](SALESFORCE_KNOWLEDGE/DOCS/public-sanitization-policy.md) before publishing.
 
@@ -213,6 +245,11 @@ Review [PUBLIC_REPO_REVIEW_CHECKLIST.md](PUBLIC_REPO_REVIEW_CHECKLIST.md), [SECU
 | First read | [START_HERE.md](START_HERE.md) |
 | Codex operating rules | [INSTRUCTIONS/](INSTRUCTIONS/) |
 | Salesforce knowledge base | [SALESFORCE_KNOWLEDGE/INDEX.md](SALESFORCE_KNOWLEDGE/INDEX.md) |
+| Tooling guides | [TOOLS/](TOOLS/) |
+| Quality gates | [QUALITY_GATES/](QUALITY_GATES/) |
+| Local automation | [AUTOMATION/](AUTOMATION/) |
+| External references | [VENDOR_REFERENCES/](VENDOR_REFERENCES/) |
+| GitHub Actions | [.github/workflows/](.github/workflows/) |
 | Real project placement | [FORCE_APP_DIRECTORY/](FORCE_APP_DIRECTORY/) |
 | Memory | [MEMORY/](MEMORY/) |
 | History | [HISTORY/](HISTORY/) |

@@ -1,0 +1,54 @@
+{
+  "repos_analyzed": [
+    "forcedotcom/code-analyzer",
+    "trailheadapps/lwc-recipes",
+    "trailheadapps/apex-recipes",
+    "salesforce/sfdx-lwc-jest",
+    "dangmai/prettier-plugin-apex",
+    "salesforce/eslint-plugin-lwc",
+    "salesforce/eslint-config-lwc",
+    "salesforce/eslint-plugin-lwc-mobile",
+    "salesforce/eslint-plugin-lwc-graph-analyzer",
+    "forcedotcom/salesforcedx-vscode",
+    "mitchspano/sfdx-scan-pull-request"
+  ],
+  "p0_integrations": [
+    "Create VENDOR_REFERENCES attribution and no-vendoring policy docs.",
+    "Create TOOLS external tool reference map.",
+    "Create QUALITY_GATES overview and before-Codex-fix gate.",
+    "Add Salesforce Code Analyzer quality-gate guidance.",
+    "Add LWC Jest quality-gate guidance.",
+    "Add LWC ESLint quality-gate guidance.",
+    "Add Apex Recipes and LWC Recipes reference maps."
+  ],
+  "p1_integrations": [
+    "Deepen Apex security guidance using Apex Recipes categories as reference.",
+    "Add Apex async, callout, and named credential guidance.",
+    "Add LWC UI API and lightning-record-edit-form guidance.",
+    "Add LWC GraphQL, navigation, and workspace API guidance.",
+    "Add mobile/offline LWC lint guidance.",
+    "Add optional Apex formatting quality-gate guidance.",
+    "Add optional GitHub Actions automation guidance."
+  ],
+  "p2_integrations": [
+    "Add LWC graph analyzer advanced reference map.",
+    "Add Salesforce VS Code extension workflow reference map.",
+    "Add optional sfdx-scan-pull-request GitHub Action guide.",
+    "Add optional recipe sample-app clone/install workflows.",
+    "Add future CI matrix examples after local validation scripts stabilize."
+  ],
+  "unsafe_to_vendor": [
+    "forcedotcom/code-analyzer source, messages, engines, and workflows",
+    "trailheadapps/lwc-recipes force-app sample app metadata and source",
+    "trailheadapps/apex-recipes force-app sample app metadata and source",
+    "salesforce/sfdx-lwc-jest package internals and lightning stubs",
+    "dangmai/prettier-plugin-apex parser/formatter packages",
+    "salesforce/eslint-plugin-lwc rule source and copied docs",
+    "salesforce/eslint-config-lwc config files copied verbatim",
+    "salesforce/eslint-plugin-lwc-mobile TypeScript rule source",
+    "salesforce/eslint-plugin-lwc-graph-analyzer analyzer internals",
+    "forcedotcom/salesforcedx-vscode packages, scripts, workflows, and product source",
+    "mitchspano/sfdx-scan-pull-request dist, src, and action files copied directly"
+  ],
+  "recommended_next_action": "Create TOOLS/, QUALITY_GATES/, AUTOMATION/, and VENDOR_REFERENCES/ documentation scaffolding with attribution and no-vendoring policy, then add reference maps and optional quality-gate guidance without copying external source code."
+}

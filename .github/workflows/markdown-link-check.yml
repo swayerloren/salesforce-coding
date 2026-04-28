@@ -1,0 +1,78 @@
+name: Markdown Link Check
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  markdown-link-check:
+    name: Check local Markdown links
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate repository-local Markdown links
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          import sys
+          from urllib.parse import unquote
+
+          failures = []
+          skip_dirs = {".git", "node_modules", "_external", "temp"}
+          markdown_files = [
+              p for p in Path(".").rglob("*.md")
+              if not any(part in skip_dirs for part in p.parts)
+          ]
+          link_pattern = re.compile(r"\[[^\]]+\]\(([^)\r\n]+)\)")
+
+          for path in markdown_files:
+              in_fence = False
+              for line_number, line in enumerate(path.read_text(encoding="utf-8", errors="ignore").splitlines(), 1):
+                  if line.lstrip().startswith("```"):
+                      in_fence = not in_fence
+                      continue
+                  if in_fence:
+                      continue
+
+                  for match in link_pattern.finditer(line):
+                      target = match.group(1).strip()
+                      if not target or target.startswith(("#", "http://", "https://", "mailto:")):
+                          continue
+                      if target.startswith("<") and target.endswith(">"):
+                          target = target[1:-1]
+                      target = target.split(' "')[0].split(" '")[0]
+                      target_no_anchor = target.split("#", 1)[0]
+                      if not target_no_anchor:
+                          continue
+                      if re.match(r"^[a-zA-Z][a-zA-Z0-9+.-]*:", target_no_anchor):
+                          continue
+
+                      resolved = (path.parent / unquote(target_no_anchor)).resolve()
+                      try:
+                          resolved.relative_to(Path(".").resolve())
+                      except ValueError:
+                          failures.append((path, line_number, target, "escapes repository root"))
+                          continue
+                      if not resolved.exists():
+                          failures.append((path, line_number, target, "target not found"))
+
+          if failures:
+              print("Broken repository-local Markdown links found:")
+              for path, line_number, target, reason in failures:
+                  print(f"- {path}:{line_number} -> {target} ({reason})")
+              sys.exit(1)
+
+          print(f"PASS: repository-local Markdown links resolved for {len(markdown_files)} Markdown files.")
+          print("SKIPPED: external links were not checked to avoid transient network failures.")
+          PY

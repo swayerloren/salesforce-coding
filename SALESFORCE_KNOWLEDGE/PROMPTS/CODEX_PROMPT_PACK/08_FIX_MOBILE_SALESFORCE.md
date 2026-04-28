@@ -23,6 +23,12 @@ Required startup:
    - SALESFORCE_KNOWLEDGE/TOPICS/mobile/
    - SALESFORCE_KNOWLEDGE/CHECKLISTS/mobile-compatibility.md
    - SALESFORCE_KNOWLEDGE/CHECKLISTS/before-lwc.md
+   - SALESFORCE_KNOWLEDGE/CHECKLISTS/CODEX_ENGINE_CHECKLISTS/BEFORE_EDITING_LWC.md
+   - TOOLS/LWC_MOBILE_LINT.md
+   - TOOLS/LWC_JEST.md
+   - TOOLS/ESLINT_LWC.md
+   - QUALITY_GATES/LWC_LINT_RULES.md
+   - QUALITY_GATES/TESTING_GATE.md
 7. Read relevant MEMORY/ and HISTORY/ entries before changing files.
 
 Issue:
@@ -44,11 +50,16 @@ Fix rules:
 - Avoid UI that relies on hover-only behavior.
 - Keep tap targets, scroll containers, modal sizing, and overflow safe for mobile webviews.
 - Do not assume a component is mobile-visible just because it exists in source.
+- Treat mobile behavior as a required review area, not an optional final comment.
+- Use getters for computed template state and avoid inline JavaScript expressions in LWC HTML templates.
 - Avoid private data, credentials, usernames, org IDs, customer names, private URLs, local machine paths, raw debug logs with private data, and secrets.
 
 Validation:
 
-- Run available LWC/Jest/lint checks if configured.
+- Run available LWC Jest, LWC ESLint, LWC mobile lint, or graph analyzer checks if configured.
+- Prefer existing package scripts such as npm run test:unit, npm run lint:lwc, npm run lint, and npm run lint:mobile.
+- Do not claim Jest, ESLint, mobile lint, or graph analyzer passed unless the command actually ran and passed.
+- If mobile lint or graph analyzer is missing, report it as skipped and inspect mobile metadata manually.
 - Inspect mobile form-factor metadata and page placement.
 - Run focused Apex tests or deploy dry run if server or metadata behavior changed.
 - If mobile runtime cannot be manually tested, state that and report static checks performed.
@@ -59,6 +70,6 @@ After meaningful work:
 - Update MEMORY/ with reusable mobile Salesforce lessons or verified project patterns.
 - Update HISTORY/ with files inspected, files changed, validation, and result.
 
-Final response must include root cause, fix summary, files changed, validation commands/results, assumptions and limits, and complete updated files when code changes.
+Final response must include root cause, fix summary, files changed, mobile behavior review, LWC Jest/ESLint/mobile lint results or skipped reasons, validation commands/results, assumptions and limits, and complete updated files when code changes.
 Return complete updated files when code changes.
 ```

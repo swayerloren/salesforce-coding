@@ -1,0 +1,34 @@
+{
+  "overall_score": 82,
+  "p0_count": 2,
+  "p1_count": 10,
+  "p2_count": 8,
+  "p3_count": 5,
+  "top_10_improvements": [
+    "Align v1.1.0 release docs with the actual tag/current release-doc commit or clearly distinguish restructure commit from release tag commit.",
+    "Protect FORCE_APP_DIRECTORY from accidental private metadata commits and move external project path notes to an ignored local pointer workflow.",
+    "Add a repeatable local safety/link/path validation command or script.",
+    "Deepen metadata coverage for Flow, Process Builder, reports, dashboards, email templates, custom labels, translations, Experience Cloud, and static resources.",
+    "Add Apex CRUD/FLS, sharing, user-mode, and security-enforcement patterns.",
+    "Add Apex selector/query-service guidance and examples.",
+    "Add LWC UI API wire adapter and lightning-record-edit-form guidance.",
+    "Add Lightning Web Security, static resource, and third-party JavaScript runtime constraints.",
+    "Update prompt and checklist controls to require git status/diff review before edits when a git repo exists.",
+    "Separate current reusable Memory facts from historical one-time status notes."
+  ],
+  "files_with_most_improvement_opportunity": [
+    "FORCE_APP_DIRECTORY/README.md",
+    ".gitignore",
+    "RELEASES.md",
+    "CHANGELOG.md",
+    "RELEASE_NOTES_v1.1.0.md",
+    "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_METADATA_GUIDE.md",
+    "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_APEX_GUIDE.md",
+    "SALESFORCE_KNOWLEDGE/GUIDES/SALESFORCE_LWC_GUIDE.md",
+    "SALESFORCE_KNOWLEDGE/EXAMPLES/README.md",
+    "INSTRUCTIONS/OUTPUT_FORMAT_RULES.md",
+    "MEMORY/PROJECT_MEMORY.md"
+  ],
+  "ready_to_promote_publicly": false,
+  "recommended_next_action": "Run the P0 follow-up prompt from WORKSPACE/DEEP_REPO_QUALITY_AUDIT.md to fix release commit consistency and FORCE_APP_DIRECTORY safety guardrails before heavier public promotion."
+}

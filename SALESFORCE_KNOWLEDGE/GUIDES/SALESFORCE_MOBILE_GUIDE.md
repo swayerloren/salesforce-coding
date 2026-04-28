@@ -16,6 +16,8 @@ Salesforce mobile is not just a narrow desktop browser. It can differ in:
 
 Always test real mobile paths for camera, upload, preview, file, Chatter-like editors, and fullscreen overlays.
 
+For Codex tasks, mobile behavior is a required review area whenever the request mentions Salesforce mobile, mobile form factors, offline use, responsive LWC behavior, quick actions on phones, file preview/download behavior, or mobile record-page visibility.
+
 ## Overlay Invariants
 
 For fullscreen or modal workflows, define:
@@ -70,3 +72,14 @@ Mobile blur can fire before click. For menus that insert text:
 - explicitly commit textarea value and caret after insertion,
 - keep metadata ranges aligned to the exact body text sent to Apex.
 
+## Mobile Lint And Static Checks
+
+When a project has Node tooling, Codex should check for:
+
+- `@salesforce/eslint-plugin-lwc-mobile`
+- `@salesforce/eslint-plugin-lwc-graph-analyzer`
+- scripts such as `npm run lint:mobile`
+
+Use mobile lint or graph analyzer when the task involves offline behavior, GraphQL wire adapters, Lightning Data Service wire dependencies, or mobile data priming. If these tools are missing, Codex must report the check as skipped and perform static source inspection of the LWC bundle, `js-meta.xml`, FlexiPage placement, actions, CSS, and related Apex.
+
+Do not claim mobile lint passed unless the command actually ran and passed.

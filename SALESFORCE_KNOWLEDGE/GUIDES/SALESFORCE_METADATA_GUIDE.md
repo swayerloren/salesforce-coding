@@ -1,86 +1,149 @@
 # Salesforce Metadata Guide
 
-## Source Structure
+## Core Rule
 
-In SFDX source format, common deployable metadata lives under:
+Codex must inspect existing metadata before editing. Do not invent object API names, field API names, layout names, FlexiPage names, quick action names, permission set names, profile names, record type names, or app/tab names.
+
+Metadata changes are often higher blast radius than code changes because visibility, assignment, activation, and permissions are spread across several files.
+
+## Salesforce DX Source Structure
+
+Most deployable metadata should live under the real project path:
 
 ```text
 force-app/main/default/
+  applications/
   aura/
   classes/
   customMetadata/
-  externalCredentials/
+  customPermissions/
+  dashboards/
+  email/
   flexipages/
-  globalValueSets/
   layouts/
   lwc/
-  namedCredentials/
   objects/
   pages/
   permissionsets/
+  profiles/
   quickActions/
+  reports/
+  staticresources/
   tabs/
   triggers/
 ```
 
-Never assume a behavior is code-only. Page placement, action visibility, object overrides, and permissions often live in metadata.
+Common object-scoped metadata lives below each object folder:
 
-## FlexiPage Assignment
-
-Strong evidence for active record page assignment can come from object metadata action overrides:
-
-```xml
-<actionOverrides>
-  <actionName>View</actionName>
-  <type>Flexipage</type>
-  <content>My_Record_Page</content>
-  <formFactor>Large</formFactor>
-</actionOverrides>
+```text
+force-app/main/default/objects/Account/
+  Account.object-meta.xml
+  compactLayouts/
+  fields/
+  listViews/
+  recordTypes/
+  validationRules/
+  webLinks/
 ```
 
-Large and Small form factors can point to different pages.
+Codex must preserve this structure. Do not create deployable metadata outside `force-app/main/default` unless the project already has a valid package directory in `sfdx-project.json`.
 
-## Dynamic Forms vs Page Layouts
+## Metadata Family Map
 
-Do not collapse field rendering into one model.
+| Metadata | Expected path | Codex checks |
+| --- | --- | --- |
+| Objects | `objects/<Object>/<Object>.object-meta.xml` | Verify object exists before referencing fields, layouts, actions, or permissions. |
+| Fields | `objects/<Object>/fields/<Field>.field-meta.xml` | Verify field API name, type, relationship name, and FLS dependencies. |
+| Validation rules | `objects/<Object>/validationRules/*.validationRule-meta.xml` | Check formulas, active state, field dependencies, and deployment impact. |
+| Record types | `objects/<Object>/recordTypes/*.recordType-meta.xml` | Check page/layout assignment, picklist values, permissions, and hard-coded references. |
+| Compact layouts | `objects/<Object>/compactLayouts/*.compactLayout-meta.xml` | Check Highlights Panel behavior and mobile compact display. |
+| Layouts | `layouts/*.layout-meta.xml` | Check field placement, related lists, buttons, quick actions, and record type assignment. |
+| FlexiPages | `flexipages/*.flexipage-meta.xml` | Check component placement, Dynamic Forms, Dynamic Actions, form factor, and activation chain. |
+| Quick actions | `quickActions/*.quickAction-meta.xml` or object-scoped action metadata | Check action type, target object, target component, layout placement, and permissions. |
+| Permission sets | `permissionsets/*.permissionset-meta.xml` | Prefer targeted access changes here when project conventions allow. |
+| Profiles | `profiles/*.profile-meta.xml` | High-risk. Do not edit blindly or retrieve/deploy broad profile churn. |
+| Tabs | `tabs/*.tab-meta.xml` | Check app navigation and object/component target. |
+| Applications | `applications/*.app-meta.xml` | Check navigation items, utility items, and app-level page visibility. |
+| Custom metadata | `customMetadata/*.md-meta.xml` | Good for deployable config, never for secrets. |
+| Custom permissions | `customPermissions/*.customPermission-meta.xml` | Check permission set/profile assignment and Apex/LWC references. |
+| Static resources | `staticresources/*` plus metadata XML | Check bundle contents, file type, cache control, and public-safety risk. |
+| Email | `email/**` | Check folders, templates, letterheads, merge fields, and references. |
+| Reports | `reports/**` | Check folder structure, object/report type dependencies, and private data risk. |
+| Dashboards | `dashboards/**` | Check report dependencies, running user risk, and folder structure. |
 
-Salesforce record pages can use:
+## Page Activation vs Layout Assignment
 
-- Dynamic Forms field sections in FlexiPage metadata,
-- standard `force:detailPanel` or `force:recordDetailPanelMobile`,
-- page layouts for fields, buttons, and related lists,
-- custom LWCs for selected fields.
+A record-page issue can involve both Lightning page activation and classic/page-layout assignment.
 
-Desktop might use Dynamic Forms while mobile still uses a page-layout detail panel.
+Check:
 
-## Quick Actions
+- object `actionOverrides` for `View`, `Edit`, `New`, and form factor,
+- FlexiPage activation by app, profile, record type, and form factor,
+- page layout assignment by profile and record type,
+- compact layout assignment,
+- Dynamic Forms field sections,
+- Dynamic Actions visibility rules,
+- app navigation and tab availability.
 
-Action visibility can depend on:
+Do not assume a component appears to users just because the component deploys or exists in a FlexiPage.
 
-- quick action metadata,
-- layout platform action list,
-- Highlights Panel action names,
-- Dynamic Actions rules,
-- page activation,
-- form factor,
-- profile/permission access,
-- `numVisibleActions` overflow behavior.
+## Dynamic Forms And Dynamic Actions
 
-If an action is not visible, check all of those before debugging the LWC.
+Dynamic Forms and Dynamic Actions can move behavior out of traditional page layouts.
 
-## Custom Tabs
+Before editing fields, buttons, actions, or visibility:
 
-A custom tab can point directly to:
+- inspect the FlexiPage for field sections and visibility filters,
+- inspect page layouts for fallback/mobile/detail-panel behavior,
+- inspect compact layouts and Highlights Panel actions,
+- check whether desktop and mobile use different form factors or page assignments,
+- verify object, record type, app, and profile activation.
 
-- a FlexiPage app page,
-- an LWC component,
-- a Visualforce page,
-- an object home,
-- a standard Salesforce destination.
+## Permission Sets vs Profiles
 
-App navigation can omit a tab even if the tab metadata exists.
+Prefer permission sets for targeted access changes when the project already follows that pattern.
 
-## Custom Metadata
+Profiles are high-risk because retrieved profile XML often contains broad unrelated org state. Codex must not blindly edit or deploy profiles. If a profile change is required:
 
-Custom Metadata is excellent for deployable defaults but not for secrets. Use it for labels, object names, action config, feature flags, and provider choices. Do not store credentials or tokens in public examples.
+- inspect the existing profile file first,
+- keep the change minimal,
+- avoid reformatting the entire profile,
+- document why a permission set is not enough,
+- validate the deployment scope carefully.
 
+## Package Manifest Safety
+
+For deployment or validation work, keep `package.xml` narrow.
+
+Recommended manifest rules:
+
+- include only changed metadata and required dependencies,
+- avoid `*` members for high-blast-radius types such as `Profile`, `Layout`, `FlexiPage`, and `PermissionSet`,
+- include object dependencies when deploying fields, validation rules, record types, or compact layouts,
+- include Apex tests only as needed by deployment policy,
+- inspect generated manifests before deploy or validate.
+
+Do not deploy wide metadata payloads to “see what happens.”
+
+## Static Resources, Email, Reports, And Dashboards
+
+These folders can accidentally expose private data.
+
+Before adding or editing them:
+
+- inspect file contents,
+- avoid screenshots, exports, customer names, private URLs, and credentials,
+- verify folder metadata and dependencies,
+- keep deployment scope narrow,
+- document any owner review needed for public repos.
+
+## Codex Metadata Rules
+
+- Inspect existing metadata before editing.
+- Verify every referenced API name in source.
+- Do not invent objects, fields, record types, permissions, pages, tabs, apps, layouts, reports, dashboards, or actions.
+- Do not assume a component appears on a page just because it deploys.
+- Check activation, assignment, permissions, and form factor for record-page behavior.
+- Preserve Salesforce DX source format.
+- Avoid profile churn and broad metadata retrieves.
+- Use Salesforce Code Analyzer and deployment validation when available and appropriate.
