@@ -5,8 +5,40 @@ All notable changes to this project are documented here.
 This project follows semantic versioning for documentation releases:
 
 - Patch versions, such as `v1.0.1`, are for typo fixes, broken links, clarifications, and small corrections.
-- Minor versions, such as `v1.2.0`, are for new guide sections, examples, prompts, checklists, tooling guides, quality gates, automation, or other backward-compatible workspace features.
+- Minor versions, such as `v1.3.0`, are for new guide sections, examples, prompts, checklists, tooling guides, quality gates, automation, external intelligence maps, or other backward-compatible workspace features.
 - Major versions, such as `v2.0.0`, are reserved for major reorganizations or incompatible changes to the repo structure.
+
+## v1.3.0 - 2026-04-28
+
+External Salesforce tooling intelligence release.
+
+Commit: `c15aa299ee8312a46813e2fa8e1811c2014b027f`
+
+Added:
+
+- `SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_INTELLIGENCE/` with original strategy maps distilled from public Salesforce tooling and reference repos.
+- `SALESFORCE_KNOWLEDGE/COMMANDS/` with Salesforce CLI, npm script, LWC test, Apex validation, and GitHub Action command maps.
+- `SALESFORCE_KNOWLEDGE/PARAMETERS/` with Code Analyzer, LWC Jest, ESLint LWC, Prettier Apex, and local automation option maps.
+- `SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/` with Apex, LWC, metadata, mobile, deployment, and pull request quality strategies.
+- `SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/` with ordered flows for Apex, LWC, metadata, deployment, and pre-release work.
+- Workspace strategy and implementation reports for the external intelligence integration.
+
+Changed:
+
+- Updated `README.md`, `START_HERE.md`, and `SALESFORCE_KNOWLEDGE/INDEX.md` to route Codex through the new intelligence layers.
+- Updated `TOOLS/`, `QUALITY_GATES/`, `AUTOMATION/`, and `VENDOR_REFERENCES/` routing docs.
+- Updated `INSTRUCTIONS/` so Codex uses command maps, parameter maps, quality strategies, and validation flows before selecting validation steps.
+- Updated Codex prompt pack files for Apex, LWC, Apex tests, deployment failures, metadata, and GitHub push review.
+- Updated Codex checklist pack files so skipped gates, missing tools, and validation evidence are explicit.
+- Updated Memory and History with the external intelligence integration behavior.
+
+Validation:
+
+- Markdown local link checks passed across 219 Markdown files for the implementation commit.
+- Public-safety scans for credentials, tokens, session patterns, Salesforce org ID-shaped values, local-only paths, and temporary-folder references passed.
+- No external repo trees, copied source files, `.git` folders, or `node_modules` were added.
+- No credentials, tokens, local-only paths, or Salesforce org IDs were copied into public docs.
+- `git diff --check` passed.
 
 ## v1.2.0 - 2026-04-28
 

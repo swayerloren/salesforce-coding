@@ -12,6 +12,33 @@ This repository uses semantic versioning for public documentation and workspace-
 
 ## Latest Release
 
+### v1.3.0
+
+Release title: Salesforce Coding v1.3.0 — External Salesforce Tooling Intelligence
+
+Release date: 2026-04-28
+
+Commit: `c15aa299ee8312a46813e2fa8e1811c2014b027f`
+
+Release notes: [RELEASE_NOTES_v1.3.0.md](RELEASE_NOTES_v1.3.0.md)
+
+Release purpose:
+
+- Integrate external Salesforce tooling and reference repo intelligence without copying or vendoring external source.
+- Add `SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_INTELLIGENCE/` strategy maps.
+- Add `SALESFORCE_KNOWLEDGE/COMMANDS/` command maps.
+- Add `SALESFORCE_KNOWLEDGE/PARAMETERS/` parameter maps.
+- Add `SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/` task-specific quality strategies.
+- Add `SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/` ordered Codex validation flows.
+- Strengthen Codex prompt pack, checklist pack, tool routing, quality gate routing, automation routing, and vendor-reference guidance.
+
+Expected source archive names if published from a GitHub tag:
+
+- `salesforce-coding-v1.3.0.zip`
+- `salesforce-coding-v1.3.0.tar.gz`
+
+## Previous Releases
+
 ### v1.2.0
 
 Release title: Salesforce Tooling References And Codex Quality Gates
@@ -35,8 +62,6 @@ Expected source archive names if published from a GitHub tag:
 
 - `salesforce-coding-v1.2.0.zip`
 - `salesforce-coding-v1.2.0.tar.gz`
-
-## Previous Releases
 
 ### v1.1.0
 

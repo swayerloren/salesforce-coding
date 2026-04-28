@@ -353,6 +353,17 @@ Update this file after every meaningful Codex task, especially when Codex:
 - Files inspected: `WORKSPACE/EXTERNAL_REPO_INTELLIGENCE_STRATEGY.md`, `WORKSPACE/EXTERNAL_REPO_INTELLIGENCE_STRATEGY.json`, `README.md`, `START_HERE.md`, `SALESFORCE_KNOWLEDGE/INDEX.md`, `TOOLS/`, `QUALITY_GATES/`, `AUTOMATION/`, `VENDOR_REFERENCES/`, `INSTRUCTIONS/`, prompt pack files, checklist pack files, Memory, and History.
 - Knowledge docs read: External intelligence strategy report, existing tool docs, quality-gate docs, Codex operating rules, development workflow, repo map, prompt pack, and Codex engine checklists.
 - Files changed: Added `SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_INTELLIGENCE/`, `SALESFORCE_KNOWLEDGE/COMMANDS/`, `SALESFORCE_KNOWLEDGE/PARAMETERS/`, `SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/`, and `SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/`; updated public entry points, instructions, tool docs, quality gate docs, automation docs, vendor source map, prompt pack, checklists, Memory, History, and workspace implementation report.
-- Validation: Pending final validation in this run: Markdown link/path check, public-safety scan, no external code copied, no `.git` or `node_modules` copied, no local-only paths in public docs, no credentials/tokens/org IDs, and `git diff --check`.
-- Result: External repo intelligence is now represented as original public-safe strategy docs, command maps, parameter maps, quality strategies, validation flows, prompt rules, and checklists.
-- Assumptions or limits: External repos remain reference-only; no external source files were copied or vendored. No commit or push was performed.
+- Validation: Markdown local link check passed across 219 Markdown files; public-safety scan passed; no external code, external repo trees, copied `.git` folders, or `node_modules` were found; no local-only paths, credentials, tokens, or Salesforce org ID-shaped values were found in public docs; `git diff --check` passed.
+- Result: External repo intelligence is now represented as original public-safe strategy docs, command maps, parameter maps, quality strategies, validation flows, prompt rules, and checklists. Commit `c15aa299ee8312a46813e2fa8e1811c2014b027f` was pushed to `main`.
+- Assumptions or limits: External repos remain reference-only; no external source files were copied or vendored. No GitHub Release was created.
+
+## 2026-04-28 - Prepare v1.3.0 Release Documentation
+
+- Date: 2026-04-28
+- User request: Prepare release documentation for the external Salesforce tooling intelligence integration, update release files and logs, validate, commit, and push if checks pass.
+- Files inspected: `RELEASES.md`, `CHANGELOG.md`, `README.md`, `RELEASE_NOTES_v1.2.0.md`, `WORKSPACE/EXTERNAL_INTELLIGENCE_IMPLEMENTATION_REPORT.md`, `HISTORY/CODEX_RUN_LOG.md`, `HISTORY/CHANGE_ARCHIVE.md`, `MEMORY/PROJECT_MEMORY.md`.
+- Knowledge docs read: `WORKSPACE/EXTERNAL_REPO_INTELLIGENCE_STRATEGY.md`, `WORKSPACE/EXTERNAL_INTELLIGENCE_IMPLEMENTATION_REPORT.md`, release docs, changelog, README release links, Memory, and History.
+- Files changed: `RELEASE_NOTES_v1.3.0.md`, `RELEASES.md`, `CHANGELOG.md`, `README.md`, `WORKSPACE/RELEASE_UPDATE_REPORT_v1.3.0.md`, `HISTORY/CODEX_RUN_LOG.md`, `HISTORY/CHANGE_ARCHIVE.md`, `MEMORY/PROJECT_MEMORY.md`.
+- Validation: Markdown link check passed across 234 Markdown files; public local-only path and temporary-folder scan passed across 233 files; credential/token/private-key/session/org-ID scan passed across 273 files; no external source repo trees were copied; no copied `.git` folders or `node_modules` directories were found; `git diff --check` passed.
+- Result: `v1.3.0` selected for the external Salesforce tooling intelligence integration because it is a significant backward-compatible knowledge and validation improvement.
+- Assumptions or limits: The GitHub Release page is not created during this task.

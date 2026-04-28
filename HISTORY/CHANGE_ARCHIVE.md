@@ -264,6 +264,16 @@ Do not use this for every small edit. Use `HISTORY/CODEX_RUN_LOG.md` for normal 
 - Summary: Added original knowledge layers that convert external Salesforce tooling and recipe repo analysis into public-safe Codex guidance without copying external source.
 - Scope: External intelligence reference docs, command maps, parameter maps, quality strategies, validation flows, public entry points, instructions, tool docs, quality gate docs, automation docs, vendor references, prompt pack, checklist pack, Memory, History, and workspace report.
 - Key files or folders: `SALESFORCE_KNOWLEDGE/REFERENCE/EXTERNAL_INTELLIGENCE/`, `SALESFORCE_KNOWLEDGE/COMMANDS/`, `SALESFORCE_KNOWLEDGE/PARAMETERS/`, `SALESFORCE_KNOWLEDGE/QUALITY_STRATEGIES/`, `SALESFORCE_KNOWLEDGE/VALIDATION_FLOWS/`, `WORKSPACE/EXTERNAL_INTELLIGENCE_IMPLEMENTATION_REPORT.md`.
-- Validation: Pending final validation in this task.
+- Validation: Markdown local link check passed across 219 Markdown files; public-safety scans passed; no external repo trees, copied source files, copied `.git` folders, or `node_modules` were added; no local-only paths, credentials, tokens, or Salesforce org ID-shaped values were found in public docs; `git diff --check` passed.
 - Outcome: Codex now has explicit maps for commands, parameters, validation sequence, and task-specific quality posture derived from external intelligence while preserving the no-vendoring rule.
-- Follow-up: After validation passes, review the implementation report and decide whether to commit.
+- Follow-up: Prepare and publish the `v1.3.0` release documentation and GitHub Release.
+
+## 2026-04-28 - v1.3.0 Release Documentation
+
+- Date: 2026-04-28
+- Summary: Prepared release documentation for the external Salesforce tooling intelligence integration.
+- Scope: Release notes, release index, changelog, README latest release link, workspace release report, Memory, and History.
+- Key files or folders: `RELEASE_NOTES_v1.3.0.md`, `RELEASES.md`, `CHANGELOG.md`, `README.md`, `WORKSPACE/RELEASE_UPDATE_REPORT_v1.3.0.md`
+- Validation: Markdown link check passed across 234 Markdown files; public-safety scans passed; no external source repo trees, copied `.git` folders, or `node_modules` directories were found; no local-only paths, credentials, tokens, private keys, session values, or Salesforce org ID-shaped values were found in public docs; `git diff --check` passed.
+- Outcome: `v1.3.0` is selected as a backward-compatible minor release because the integration adds original external intelligence docs, command maps, parameter maps, quality strategies, validation flows, and prompt/checklist routing without vendoring external source.
+- Follow-up: Create or update the GitHub Release page after this release documentation commit is pushed.
